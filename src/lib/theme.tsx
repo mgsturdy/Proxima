@@ -12,13 +12,16 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     const stored = localStorage.getItem("proxima-theme") as Theme;
     if (stored) {
       setTheme(stored);
       document.documentElement.setAttribute("data-theme", stored);
+    } else {
+      // Default to dark mode
+      document.documentElement.setAttribute("data-theme", "dark");
     }
   }, []);
 
