@@ -1,0 +1,237 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowUpRight, BookOpen, Download, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+const chapters = [
+  {
+    id: "heavy-metals",
+    number: "01",
+    title: "Heavy Metals",
+    subtitle: "Bioaccumulation & Chronic Toxicity",
+    abstract: "Heavy metal toxicity results from exposure to metals with no biological role in human physiology. Lead, mercury, cadmium, and arsenic are toxic even at low concentrations, accumulating in tissues over time.",
+    sections: [
+      {
+        heading: "Mechanisms of Toxicity",
+        content: "Heavy metals interfere with metabolic processes through three primary pathways: displacement of essential minerals from enzyme binding sites, generation of oxidative stress through reactive oxygen species (ROS), and direct disruption of protein function by binding to sulfur groups. These mechanisms operate simultaneously, creating compound effects that exceed the sum of individual exposures."
+      },
+      {
+        heading: "Clinical Evidence",
+        content: "Longitudinal studies from the CDC's NHANES program demonstrate that chronic low-level exposure is associated with neurodevelopmental deficits, cardiovascular disease progression, and renal dysfunction. Notably, modern diagnostic thresholds often fail to capture 'low-dose' chronic exposures by focusing on acute toxicity levels established decades ago."
+      }
+    ],
+    keyData: [
+      { metric: "400%", context: "increase in blood lead levels since industrialization" },
+      { metric: "0.5µg/dL", context: "level at which neurodevelopmental effects are measurable" }
+    ],
+    citations: ["Lanphear BP, et al. Lancet Public Health. 2018;3(4):e177-e184", "ATSDR Toxicological Profile for Lead. 2020"]
+  },
+  {
+    id: "microplastics",
+    number: "02",
+    title: "Microplastics",
+    subtitle: "Polymer Particles in Human Biofluid",
+    abstract: "Emerging research has confirmed the presence of microplastic particles in human blood, lungs, placenta, and breast milk. The long-term health implications remain under active investigation.",
+    sections: [
+      {
+        heading: "Exposure Vectors",
+        content: "Inhalation and ingestion constitute the primary exposure routes. Current estimates suggest the average adult ingests approximately 5 grams of plastic weekly—equivalent to the mass of a credit card—through contaminated food, water, and ambient air. Synthetic textiles, food packaging, and water supply infrastructure are leading sources."
+      },
+      {
+        heading: "Cellular Interaction",
+        content: "Once in circulation, microplastic particles interact with blood cell membranes and plasma proteins. Preliminary data indicates potential for chronic inflammatory response and endocrine disruption through plasticizer leaching. Particles smaller than 10µm can cross the blood-brain barrier; particles under 150µm can translocate across gut epithelium."
+      }
+    ],
+    keyData: [
+      { metric: "5g/week", context: "average adult plastic ingestion" },
+      { metric: "80%", context: "of blood samples containing detectable microplastics" }
+    ],
+    citations: ["Leslie HA, et al. Environment International. 2022;163:107199", "Schwabl P, et al. Ann Intern Med. 2019;171(7):453-457"]
+  },
+  {
+    id: "pfas",
+    number: "03",
+    title: "PFAS Compounds",
+    subtitle: "The 'Forever Chemicals'",
+    abstract: "Per- and polyfluoroalkyl substances (PFAS) are characterized by carbon-fluorine bonds—among the strongest in organic chemistry. These compounds do not degrade in the environment or human body.",
+    sections: [
+      {
+        heading: "Environmental Persistence",
+        content: "The carbon-fluorine bond resists biological, chemical, and thermal degradation. PFAS compounds introduced into water supplies, soil, or biological systems persist indefinitely. This has resulted in detectable PFAS levels in 98% of Americans tested, with measurable concentrations in drinking water serving over 110 million people."
+      },
+      {
+        heading: "Health Associations",
+        content: "Epidemiological studies have linked PFAS exposure to thyroid disease, immune suppression, reproductive abnormalities, and certain cancers (kidney, testicular). The EPA has progressively lowered 'safe' exposure thresholds as evidence accumulates, with the latest guidance recommending near-zero exposure for drinking water."
+      }
+    ],
+    keyData: [
+      { metric: "98%", context: "of Americans with detectable PFAS in blood" },
+      { metric: "12,000+", context: "distinct PFAS compounds identified" }
+    ],
+    citations: ["Fenton SE, et al. Environmental Toxicology and Chemistry. 2021;40(1):24-42", "EPA PFAS Strategic Roadmap. 2021"]
+  },
+  {
+    id: "edcs",
+    number: "04",
+    title: "Endocrine Disruptors",
+    subtitle: "BPA, Phthalates & Hormonal Interference",
+    abstract: "Endocrine-disrupting chemicals (EDCs) interfere with hormone synthesis, secretion, transport, binding, and elimination. Effects can manifest at concentrations far below those causing acute toxicity.",
+    sections: [
+      {
+        heading: "Dose-Response Complexity",
+        content: "Unlike classical toxicology where 'the dose makes the poison,' EDCs can exhibit non-monotonic dose-response curves—producing effects at very low doses that are not observed at higher doses. This fundamentally challenges traditional risk assessment frameworks and regulatory thresholds."
+      },
+      {
+        heading: "Developmental Windows",
+        content: "EDC exposure during critical developmental windows (fetal development, puberty) can produce permanent alterations in endocrine function. These effects may not manifest until years or decades after exposure, complicating epidemiological attribution."
+      }
+    ],
+    keyData: [
+      { metric: "93%", context: "of Americans testing positive for BPA" },
+      { metric: "10⁻¹² M", context: "concentration at which some EDCs produce measurable effects" }
+    ],
+    citations: ["Vandenberg LN, et al. Endocrine Reviews. 2012;33(3):378-455", "Gore AC, et al. Endocrine Reviews. 2015;36(6):E1-E150"]
+  }
+];
+
+export default function SciencePage() {
+  return (
+    <div className="min-h-screen pt-24">
+      {/* Header */}
+      <header className="py-16 border-b border-proxima-black/10">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-8">
+              <p className="section-label mb-4">Evidence Repository</p>
+              <h1 className="mb-6">The Digital Textbook</h1>
+              <p className="text-xl text-proxima-black/60 max-w-2xl leading-relaxed">
+                An objective synthesis of peer-reviewed research on environmental 
+                toxin exposure and its impact on human physiological systems. 
+                All claims are cited. All data is verifiable.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex items-end">
+              <div className="w-full border-t border-proxima-black/10 pt-6">
+                <p className="font-mono text-xs text-proxima-black/40 mb-2">Last updated</p>
+                <p className="font-mono text-sm">January 2026</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Table of Contents */}
+      <nav className="py-12 bg-white border-b border-proxima-black/10">
+        <div className="section-container">
+          <p className="section-label mb-6">Contents</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {chapters.map((chapter) => (
+              <a 
+                key={chapter.id}
+                href={`#${chapter.id}`}
+                className="toc-item group"
+              >
+                <div>
+                  <span className="font-mono text-proxima-black/30 text-sm">{chapter.number}</span>
+                  <span className="ml-3 font-sans font-medium group-hover:text-proxima-red transition-colors">{chapter.title}</span>
+                </div>
+                <ArrowUpRight size={14} className="text-proxima-black/20 group-hover:text-proxima-red transition-colors" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Chapters */}
+      <div className="py-16">
+        {chapters.map((chapter, idx) => (
+          <article 
+            key={chapter.id} 
+            id={chapter.id}
+            className={`py-24 ${idx % 2 === 1 ? 'bg-white' : ''}`}
+          >
+            <div className="section-container">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-16"
+              >
+                {/* Chapter Header */}
+                <div className="lg:col-span-4">
+                  <div className="sticky top-32">
+                    <span className="chapter-number">{chapter.number}</span>
+                    <h2 className="mt-4 mb-2">{chapter.title}</h2>
+                    <p className="section-label">{chapter.subtitle}</p>
+                    
+                    {/* Key Data */}
+                    <div className="mt-12 space-y-6">
+                      {chapter.keyData.map((data, i) => (
+                        <div key={i} className="border-l-2 border-proxima-red pl-4">
+                          <span className="font-sans text-3xl font-semibold">{data.metric}</span>
+                          <p className="text-sm text-proxima-black/60 mt-1">{data.context}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="lg:col-span-8">
+                  {/* Abstract */}
+                  <div className="mb-12 pb-12 border-b border-proxima-black/10">
+                    <p className="section-label mb-4">Abstract</p>
+                    <p className="text-xl leading-relaxed text-proxima-black/80">{chapter.abstract}</p>
+                  </div>
+
+                  {/* Sections */}
+                  <div className="prose-editorial space-y-12">
+                    {chapter.sections.map((section, i) => (
+                      <div key={i}>
+                        <h3 className="font-sans text-xl font-semibold mb-4">{section.heading}</h3>
+                        <p>{section.content}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Citations */}
+                  <div className="mt-12 pt-8 border-t border-proxima-black/10">
+                    <p className="section-label mb-4">References</p>
+                    <ul className="space-y-2">
+                      {chapter.citations.map((citation, i) => (
+                        <li key={i} className="citation">{citation}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <section className="py-24 bg-proxima-black text-proxima-offwhite">
+        <div className="section-narrow text-center">
+          <Image 
+            src="/assets/icon_blood-circulation_OffWhite.svg"
+            alt="Diagnostics"
+            width={48}
+            height={48}
+            className="mx-auto mb-8 opacity-40"
+          />
+          <h2 className="text-proxima-offwhite mb-6">From Theory to Measurement</h2>
+          <p className="text-xl text-proxima-offwhite/60 mb-12 max-w-xl mx-auto">
+            Understanding the science is step one. Quantifying your personal 
+            exposure requires clinical-grade diagnostics.
+          </p>
+          <Link href="/diagnostics" className="btn-primary bg-proxima-offwhite text-proxima-black hover:bg-proxima-offwhite/90">
+            Explore Diagnostics
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}
