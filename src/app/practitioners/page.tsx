@@ -3,16 +3,38 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { useTheme } from "@/lib/theme";
 
 export default function PractitionersPage() {
+  const { theme } = useTheme();
+  const iconSuffix = theme === "dark" ? "_OffWhite" : "_Black";
+
+  const benefits = [
+    {
+      title: "Quantified Data",
+      desc: "Mass spectrometry data that provides objective biomarkers for treatment planning and outcome tracking.",
+      icon: `/assets/icon_heartbeat-monitor${iconSuffix}.svg`
+    },
+    {
+      title: "Clinical Resources",
+      desc: "Access to our repository of peer-reviewed research, protocols, and continuing education materials.",
+      icon: `/assets/icon_blood-circulation${iconSuffix}.svg`
+    },
+    {
+      title: "Patient Pipeline",
+      desc: "Referrals from patients seeking medical oversight for their environmental health optimization.",
+      icon: `/assets/icon_digital-heart${iconSuffix}.svg`
+    }
+  ];
+
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Header */}
-      <header className="py-16 border-b border-proxima-black/10">
+      <header className="py-16 border-b border-border-primary">
         <div className="section-container">
           <p className="section-label mb-4">B2B Partnership</p>
           <h1 className="mb-6">For Practitioners</h1>
-          <p className="text-xl text-proxima-black/60 max-w-2xl leading-relaxed">
+          <p className="text-xl text-secondary max-w-2xl leading-relaxed">
             We provide the diagnostics and clinical protocols. You provide the 
             medical oversight and patient relationships. Together, we advance 
             environmental medicine.
@@ -30,50 +52,50 @@ export default function PractitionersPage() {
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider block mb-2">
+                    <label className="font-mono text-xs text-tertiary uppercase tracking-wider block mb-2">
                       First Name
                     </label>
                     <input 
                       type="text" 
-                      className="w-full border border-proxima-black/20 px-4 py-3 focus:outline-none focus:border-proxima-black" 
+                      className="w-full border border-border-primary px-4 py-3 bg-primary text-primary focus:outline-none focus:border-proxima-red" 
                     />
                   </div>
                   <div>
-                    <label className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider block mb-2">
+                    <label className="font-mono text-xs text-tertiary uppercase tracking-wider block mb-2">
                       Last Name
                     </label>
                     <input 
                       type="text" 
-                      className="w-full border border-proxima-black/20 px-4 py-3 focus:outline-none focus:border-proxima-black" 
+                      className="w-full border border-border-primary px-4 py-3 bg-primary text-primary focus:outline-none focus:border-proxima-red" 
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider block mb-2">
+                  <label className="font-mono text-xs text-tertiary uppercase tracking-wider block mb-2">
                     Practice / Institution
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-proxima-black/20 px-4 py-3 focus:outline-none focus:border-proxima-black" 
+                    className="w-full border border-border-primary px-4 py-3 bg-primary text-primary focus:outline-none focus:border-proxima-red" 
                   />
                 </div>
 
                 <div>
-                  <label className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider block mb-2">
+                  <label className="font-mono text-xs text-tertiary uppercase tracking-wider block mb-2">
                     Email
                   </label>
                   <input 
                     type="email" 
-                    className="w-full border border-proxima-black/20 px-4 py-3 focus:outline-none focus:border-proxima-black" 
+                    className="w-full border border-border-primary px-4 py-3 bg-primary text-primary focus:outline-none focus:border-proxima-red" 
                   />
                 </div>
 
                 <div>
-                  <label className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider block mb-2">
+                  <label className="font-mono text-xs text-tertiary uppercase tracking-wider block mb-2">
                     Specialty
                   </label>
-                  <select className="w-full border border-proxima-black/20 px-4 py-3 focus:outline-none focus:border-proxima-black bg-white">
+                  <select className="w-full border border-border-primary px-4 py-3 bg-primary text-primary focus:outline-none focus:border-proxima-red">
                     <option>Select specialty...</option>
                     <option>Functional Medicine</option>
                     <option>Integrative Medicine</option>
@@ -85,7 +107,7 @@ export default function PractitionersPage() {
                 </div>
 
                 <div>
-                  <label className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider block mb-2">
+                  <label className="font-mono text-xs text-tertiary uppercase tracking-wider block mb-2">
                     Partnership Interest
                   </label>
                   <div className="space-y-3">
@@ -96,7 +118,7 @@ export default function PractitionersPage() {
                       "Medical Advisory Board",
                     ].map((item, i) => (
                       <label key={i} className="flex items-start gap-3 cursor-pointer">
-                        <input type="checkbox" className="mt-1" />
+                        <input type="checkbox" className="mt-1 accent-proxima-red" />
                         <span className="text-sm">{item}</span>
                       </label>
                     ))}
@@ -104,12 +126,12 @@ export default function PractitionersPage() {
                 </div>
 
                 <div>
-                  <label className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider block mb-2">
+                  <label className="font-mono text-xs text-tertiary uppercase tracking-wider block mb-2">
                     Additional Notes
                   </label>
                   <textarea 
                     rows={4}
-                    className="w-full border border-proxima-black/20 px-4 py-3 focus:outline-none focus:border-proxima-black resize-none"
+                    className="w-full border border-border-primary px-4 py-3 bg-primary text-primary focus:outline-none focus:border-proxima-red resize-none"
                   />
                 </div>
 
@@ -124,23 +146,7 @@ export default function PractitionersPage() {
               <p className="section-label mb-8">Partnership Benefits</p>
               
               <div className="space-y-8 mb-12">
-                {[
-                  {
-                    title: "Quantified Data",
-                    desc: "Mass spectrometry data that provides objective biomarkers for treatment planning and outcome tracking.",
-                    icon: "/assets/icon_heartbeat-monitor_Black.svg"
-                  },
-                  {
-                    title: "Clinical Resources",
-                    desc: "Access to our repository of peer-reviewed research, protocols, and continuing education materials.",
-                    icon: "/assets/icon_blood-circulation_Black.svg"
-                  },
-                  {
-                    title: "Patient Pipeline",
-                    desc: "Referrals from patients seeking medical oversight for their environmental health optimization.",
-                    icon: "/assets/icon_digital-heart_Black.svg"
-                  }
-                ].map((item, i) => (
+                {benefits.map((item, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
@@ -152,7 +158,7 @@ export default function PractitionersPage() {
                     <Image src={item.icon} alt="" width={32} height={32} className="opacity-30 shrink-0" />
                     <div>
                       <h4 className="font-sans font-medium mb-2">{item.title}</h4>
-                      <p className="text-proxima-black/60 text-sm">{item.desc}</p>
+                      <p className="text-secondary text-sm">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -160,11 +166,11 @@ export default function PractitionersPage() {
 
               {/* Testimonial */}
               <div className="border-l-2 border-proxima-red pl-6 py-4">
-                <p className="text-xl font-serif italic text-proxima-black/70 mb-4">
+                <p className="text-xl font-serif italic text-secondary mb-4">
                   "Environmental diagnostics is the next frontier of preventive 
                   medicine. We finally have tools to measure what we've long suspected."
                 </p>
-                <p className="font-mono text-xs text-proxima-black/40">
+                <p className="font-mono text-xs text-tertiary">
                   — Dr. Elena Rostova, MD<br />
                   Founding Medical Advisor
                 </p>

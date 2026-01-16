@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, RotateCcw, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "@/lib/theme";
 
 const questions = [
   {
@@ -46,6 +47,7 @@ const questions = [
 ];
 
 export default function QuizPage() {
+  const { theme } = useTheme();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [isCalculating, setIsCalculating] = useState(false);
@@ -79,7 +81,7 @@ export default function QuizPage() {
   const riskLevel = percentage > 60 ? "Elevated" : percentage > 30 ? "Moderate" : "Low";
 
   return (
-    <div className="min-h-screen pt-24 pb-24">
+    <div className="min-h-screen pt-24 pb-24 bg-primary text-primary">
       <div className="section-narrow">
         <AnimatePresence mode="wait">
           {/* Intro */}
@@ -93,15 +95,15 @@ export default function QuizPage() {
             >
               <p className="section-label mb-4">Assessment Tool</p>
               <h1 className="mb-6">Toxin Load Estimator</h1>
-              <p className="text-xl text-proxima-black/60 max-w-xl leading-relaxed mb-8">
+              <p className="text-xl text-secondary max-w-xl leading-relaxed mb-8">
                 This 2-minute assessment estimates your environmental toxin 
                 exposure based on lifestyle factors. For clinical verification, 
                 we recommend our Baseline™ diagnostic panel.
               </p>
               
-              <div className="bg-white border border-proxima-black/10 p-6 mb-12">
-                <p className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider mb-2">Disclaimer</p>
-                <p className="text-sm text-proxima-black/60">
+              <div className="bg-secondary border border-border-primary p-6 mb-12">
+                <p className="font-mono text-xs text-tertiary uppercase tracking-wider mb-2">Disclaimer</p>
+                <p className="text-sm text-secondary">
                   This assessment provides an estimate based on self-reported lifestyle factors. 
                   It is not a medical diagnosis. Actual toxin levels can only be determined 
                   through clinical blood analysis.
@@ -128,10 +130,10 @@ export default function QuizPage() {
             >
               {/* Progress */}
               <div className="flex items-center gap-4 mb-12">
-                <span className="font-mono text-sm text-proxima-black/40">
+                <span className="font-mono text-sm text-tertiary">
                   {step} of {questions.length}
                 </span>
-                <div className="flex-1 h-px bg-proxima-black/10">
+                <div className="flex-1 h-px bg-border-primary">
                   <div 
                     className="h-full bg-proxima-red transition-all duration-500" 
                     style={{ width: `${(step / questions.length) * 100}%` }} 
@@ -146,7 +148,7 @@ export default function QuizPage() {
                   <button 
                     key={i}
                     onClick={() => handleAnswer(option.impact)}
-                    className="w-full text-left p-6 border border-proxima-black/10 hover:border-proxima-red hover:bg-white transition-all flex justify-between items-center group"
+                    className="w-full text-left p-6 border border-border-primary hover:border-proxima-red hover:bg-secondary transition-all flex justify-between items-center group"
                   >
                     <span className="font-sans">{option.text}</span>
                     <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity text-proxima-red" />
@@ -166,10 +168,10 @@ export default function QuizPage() {
               className="py-32 text-center"
             >
               <div className="inline-block animate-spin mb-8">
-                <RotateCcw size={48} className="text-proxima-black/20" />
+                <RotateCcw size={48} className="text-tertiary" />
               </div>
               <h3>Analyzing responses...</h3>
-              <p className="text-proxima-black/40 mt-2">Calculating estimated exposure</p>
+              <p className="text-tertiary mt-2">Calculating estimated exposure</p>
             </motion.div>
           )}
 
@@ -185,17 +187,17 @@ export default function QuizPage() {
               <h1 className="mb-12">Your Results</h1>
 
               {/* Score Card */}
-              <div className="bg-white border border-proxima-black/10 p-8 md:p-12 mb-8">
+              <div className="bg-secondary border border-border-primary p-8 md:p-12 mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div>
-                    <p className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider mb-2">
+                    <p className="font-mono text-xs text-tertiary uppercase tracking-wider mb-2">
                       Estimated Exposure Score
                     </p>
                     <span className="font-sans text-8xl font-semibold">{percentage}</span>
-                    <span className="font-mono text-2xl text-proxima-black/30">/100</span>
+                    <span className="font-mono text-2xl text-tertiary">/100</span>
                   </div>
                   <div>
-                    <p className="font-mono text-xs text-proxima-black/40 uppercase tracking-wider mb-2">
+                    <p className="font-mono text-xs text-tertiary uppercase tracking-wider mb-2">
                       Risk Classification
                     </p>
                     <span className={`font-sans text-3xl font-semibold ${
@@ -204,7 +206,7 @@ export default function QuizPage() {
                     }`}>
                       {riskLevel}
                     </span>
-                    <p className="text-proxima-black/60 mt-4 text-sm">
+                    <p className="text-secondary mt-4 text-sm">
                       {riskLevel === "Elevated" 
                         ? "Your lifestyle factors suggest above-average exposure to environmental toxins."
                         : riskLevel === "Moderate"
@@ -216,12 +218,12 @@ export default function QuizPage() {
               </div>
 
               {/* Email Capture */}
-              <div className="bg-proxima-black/5 p-8 mb-8">
+              <div className="bg-tertiary/10 p-8 mb-8">
                 <div className="flex items-start gap-4 mb-6">
-                  <Mail size={20} className="text-proxima-black/40 mt-1" />
+                  <Mail size={20} className="text-tertiary mt-1" />
                   <div>
                     <h4 className="font-sans font-medium mb-2">Get Your Detailed Report</h4>
-                    <p className="text-sm text-proxima-black/60">
+                    <p className="text-sm text-secondary">
                       Receive a breakdown of your score by category and preliminary 
                       mitigation recommendations.
                     </p>
@@ -233,15 +235,15 @@ export default function QuizPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email address" 
-                    className="flex-grow border border-proxima-black/20 px-4 py-3 bg-white focus:outline-none focus:border-proxima-black" 
+                    className="flex-grow border border-border-primary px-4 py-3 bg-primary text-primary focus:outline-none focus:border-proxima-red" 
                   />
                   <button className="btn-primary whitespace-nowrap">Send Report</button>
                 </form>
               </div>
 
               {/* CTA */}
-              <div className="border-t border-proxima-black/10 pt-8">
-                <p className="text-proxima-black/60 mb-6">
+              <div className="border-t border-border-primary pt-8">
+                <p className="text-secondary mb-6">
                   This estimate is based on self-reported lifestyle factors. 
                   For clinical verification, consider our diagnostic panel.
                 </p>

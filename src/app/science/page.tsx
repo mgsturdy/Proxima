@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, BookOpen, Download, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "@/lib/theme";
 
 const chapters = [
   {
@@ -97,24 +98,27 @@ const chapters = [
 ];
 
 export default function SciencePage() {
+  const { theme } = useTheme();
+  const iconSuffix = theme === "dark" ? "_OffWhite" : "_Black";
+
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Header */}
-      <header className="py-16 border-b border-proxima-black/10">
+      <header className="py-16 border-b border-border-primary">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8">
               <p className="section-label mb-4">Evidence Repository</p>
               <h1 className="mb-6">The Digital Textbook</h1>
-              <p className="text-xl text-proxima-black/60 max-w-2xl leading-relaxed">
+              <p className="text-xl text-secondary max-w-2xl leading-relaxed">
                 An objective synthesis of peer-reviewed research on environmental 
                 toxin exposure and its impact on human physiological systems. 
                 All claims are cited. All data is verifiable.
               </p>
             </div>
             <div className="lg:col-span-4 flex items-end">
-              <div className="w-full border-t border-proxima-black/10 pt-6">
-                <p className="font-mono text-xs text-proxima-black/40 mb-2">Last updated</p>
+              <div className="w-full border-t border-border-primary pt-6">
+                <p className="font-mono text-xs text-tertiary mb-2">Last updated</p>
                 <p className="font-mono text-sm">January 2026</p>
               </div>
             </div>
@@ -123,7 +127,7 @@ export default function SciencePage() {
       </header>
 
       {/* Table of Contents */}
-      <nav className="py-12 bg-white border-b border-proxima-black/10">
+      <nav className="py-12 bg-secondary border-b border-border-primary">
         <div className="section-container">
           <p className="section-label mb-6">Contents</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -131,13 +135,13 @@ export default function SciencePage() {
               <a 
                 key={chapter.id}
                 href={`#${chapter.id}`}
-                className="toc-item group"
+                className="toc-item group flex justify-between items-center p-4 border border-border-primary hover:border-proxima-red transition-colors"
               >
                 <div>
-                  <span className="font-mono text-proxima-black/30 text-sm">{chapter.number}</span>
+                  <span className="font-mono text-tertiary text-sm">{chapter.number}</span>
                   <span className="ml-3 font-sans font-medium group-hover:text-proxima-red transition-colors">{chapter.title}</span>
                 </div>
-                <ArrowUpRight size={14} className="text-proxima-black/20 group-hover:text-proxima-red transition-colors" />
+                <ArrowUpRight size={14} className="text-tertiary group-hover:text-proxima-red transition-colors" />
               </a>
             ))}
           </div>
@@ -150,7 +154,7 @@ export default function SciencePage() {
           <article 
             key={chapter.id} 
             id={chapter.id}
-            className={`py-24 ${idx % 2 === 1 ? 'bg-white' : ''}`}
+            className={`py-24 ${idx % 2 === 1 ? 'bg-secondary' : ''}`}
           >
             <div className="section-container">
               <motion.div
@@ -171,7 +175,7 @@ export default function SciencePage() {
                       {chapter.keyData.map((data, i) => (
                         <div key={i} className="border-l-2 border-proxima-red pl-4">
                           <span className="font-sans text-3xl font-semibold">{data.metric}</span>
-                          <p className="text-sm text-proxima-black/60 mt-1">{data.context}</p>
+                          <p className="text-sm text-secondary mt-1">{data.context}</p>
                         </div>
                       ))}
                     </div>
@@ -181,9 +185,9 @@ export default function SciencePage() {
                 {/* Content */}
                 <div className="lg:col-span-8">
                   {/* Abstract */}
-                  <div className="mb-12 pb-12 border-b border-proxima-black/10">
+                  <div className="mb-12 pb-12 border-b border-border-primary">
                     <p className="section-label mb-4">Abstract</p>
-                    <p className="text-xl leading-relaxed text-proxima-black/80">{chapter.abstract}</p>
+                    <p className="text-xl leading-relaxed text-secondary">{chapter.abstract}</p>
                   </div>
 
                   {/* Sections */}
@@ -191,17 +195,17 @@ export default function SciencePage() {
                     {chapter.sections.map((section, i) => (
                       <div key={i}>
                         <h3 className="font-sans text-xl font-semibold mb-4">{section.heading}</h3>
-                        <p>{section.content}</p>
+                        <p className="text-secondary">{section.content}</p>
                       </div>
                     ))}
                   </div>
 
                   {/* Citations */}
-                  <div className="mt-12 pt-8 border-t border-proxima-black/10">
+                  <div className="mt-12 pt-8 border-t border-border-primary">
                     <p className="section-label mb-4">References</p>
                     <ul className="space-y-2">
                       {chapter.citations.map((citation, i) => (
-                        <li key={i} className="citation">{citation}</li>
+                        <li key={i} className="font-mono text-sm text-tertiary">{citation}</li>
                       ))}
                     </ul>
                   </div>
@@ -213,21 +217,21 @@ export default function SciencePage() {
       </div>
 
       {/* CTA */}
-      <section className="py-24 bg-proxima-black text-proxima-offwhite">
+      <section className="py-24 bg-inverse text-inverse">
         <div className="section-narrow text-center">
           <Image 
-            src="/assets/icon_blood-circulation_OffWhite.svg"
+            src={`/assets/icon_blood-circulation${iconSuffix}.svg`}
             alt="Diagnostics"
             width={48}
             height={48}
             className="mx-auto mb-8 opacity-40"
           />
-          <h2 className="text-proxima-offwhite mb-6">From Theory to Measurement</h2>
-          <p className="text-xl text-proxima-offwhite/60 mb-12 max-w-xl mx-auto">
+          <h2 className="text-inverse mb-6">From Theory to Measurement</h2>
+          <p className="text-xl text-inverse/60 mb-12 max-w-xl mx-auto">
             Understanding the science is step one. Quantifying your personal 
             exposure requires clinical-grade diagnostics.
           </p>
-          <Link href="/diagnostics" className="btn-primary bg-proxima-offwhite text-proxima-black hover:bg-proxima-offwhite/90">
+          <Link href="/diagnostics" className="btn-primary bg-primary text-inverse hover:opacity-90">
             Explore Diagnostics
           </Link>
         </div>

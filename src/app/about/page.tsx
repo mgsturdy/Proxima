@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Linkedin, Mail } from "lucide-react";
+import { useTheme } from "@/lib/theme";
 
 const team = [
   {
@@ -39,10 +40,12 @@ const principles = [
 ];
 
 export default function AboutPage() {
+  const { theme } = useTheme();
+
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Mission */}
-      <header className="py-16 border-b border-proxima-black/10">
+      <header className="py-16 border-b border-border-primary">
         <div className="section-container">
           <p className="section-label mb-4">Company</p>
           <h1 className="mb-8">About Proxima</h1>
@@ -52,10 +55,10 @@ export default function AboutPage() {
       {/* Mission Statement */}
       <section className="py-24">
         <div className="section-narrow">
-          <div className="pull-quote mb-12">
+          <div className="pull-quote mb-12 text-3xl md:text-4xl font-serif italic text-center border-l-4 border-proxima-red pl-8 text-left">
             To make the invisible impossible to ignore.
           </div>
-          <div className="prose-editorial text-proxima-black/70">
+          <div className="prose-editorial text-secondary space-y-6">
             <p>
               Environmental health is the most significant overlooked variable in 
               modern medicine. For decades, we've focused on genetics and lifestyle 
@@ -76,7 +79,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-secondary">
         <div className="section-container">
           <div className="mb-16">
             <p className="section-label mb-4">Leadership</p>
@@ -92,7 +95,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="flex flex-col md:flex-row gap-8"
               >
-                <div className="w-full md:w-48 aspect-square relative shrink-0 bg-proxima-black/5">
+                <div className="w-full md:w-48 aspect-square relative shrink-0 bg-tertiary/10">
                   <Image 
                     src={member.image}
                     alt={member.name}
@@ -103,10 +106,10 @@ export default function AboutPage() {
                 <div>
                   <h3 className="mb-1">{member.name}</h3>
                   <p className="section-label mb-4">{member.role}</p>
-                  <p className="text-proxima-black/60 text-sm mb-4">{member.bio}</p>
+                  <p className="text-secondary text-sm mb-4">{member.bio}</p>
                   <div className="flex gap-4">
-                    <Linkedin size={18} className="text-proxima-black/30 hover:text-proxima-black cursor-pointer transition-colors" />
-                    <Mail size={18} className="text-proxima-black/30 hover:text-proxima-black cursor-pointer transition-colors" />
+                    <Linkedin size={18} className="text-tertiary hover:text-primary cursor-pointer transition-colors" />
+                    <Mail size={18} className="text-tertiary hover:text-primary cursor-pointer transition-colors" />
                   </div>
                 </div>
               </motion.div>
@@ -116,7 +119,7 @@ export default function AboutPage() {
       </section>
 
       {/* Principles */}
-      <section className="py-24">
+      <section className="py-24 bg-primary">
         <div className="section-container">
           <div className="mb-16">
             <p className="section-label mb-4">Philosophy</p>
@@ -132,9 +135,9 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <span className="font-mono text-5xl text-proxima-black/10">{principle.num}</span>
+                <span className="font-mono text-5xl text-primary/10">{principle.num}</span>
                 <h3 className="mt-4 mb-4">{principle.title}</h3>
-                <p className="text-proxima-black/60">{principle.desc}</p>
+                <p className="text-secondary">{principle.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -142,22 +145,22 @@ export default function AboutPage() {
       </section>
 
       {/* Advisory */}
-      <section className="py-24 bg-proxima-black text-proxima-offwhite">
+      <section className="py-24 bg-inverse text-inverse">
         <div className="section-container">
           <div className="text-center mb-12">
-            <p className="section-label text-proxima-offwhite/40 mb-4">Scientific Advisory Board</p>
-            <h2 className="text-proxima-offwhite">Research Collaborations</h2>
+            <p className="section-label text-inverse/40 mb-4">Scientific Advisory Board</p>
+            <h2 className="text-inverse">Research Collaborations</h2>
           </div>
           
           <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">
             {["Stanford", "MIT", "Oxford", "ETH Zurich", "Johns Hopkins"].map((inst, i) => (
-              <span key={i} className="font-sans text-2xl font-semibold text-proxima-offwhite/20">
+              <span key={i} className="font-sans text-2xl font-semibold text-inverse/20">
                 {inst}
               </span>
             ))}
           </div>
           
-          <p className="font-mono text-xs text-proxima-offwhite/30 text-center mt-12">
+          <p className="font-mono text-xs text-inverse/30 text-center mt-12">
             Advisory relationships. Not institutional endorsements.
           </p>
         </div>
