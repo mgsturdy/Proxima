@@ -1,13 +1,61 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function AlternativePage() {
+  const [showHeader, setShowHeader] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowHeader(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-proxima-black">
+      {/* Fixed Header - appears on scroll */}
+      <AnimatePresence>
+        {showHeader && (
+          <motion.header
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -100, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-0 left-0 right-0 z-50 bg-proxima-black border-b border-proxima-cream/10"
+          >
+            <div className="section-container py-4 flex items-center justify-between">
+              <Link href="/alternative" className="flex items-center gap-3">
+                <Image src="/assets/icon_blood-circulation_OffWhite.svg" alt="Proxima" width={24} height={32} />
+                <span className="text-proxima-cream font-sans text-xl">
+                  <span className="font-bold">Proxima</span><span className="font-light">Health</span>
+                </span>
+              </Link>
+              <nav className="hidden md:flex items-center gap-8">
+                <Link href="/science" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">Science</Link>
+                <Link href="/diagnostics" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">Diagnostics</Link>
+                <Link href="/interventions" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">Treatment</Link>
+                <Link href="/practitioners" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">Practitioners</Link>
+                <Link href="/about" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">About</Link>
+              </nav>
+              <Link 
+                href="/diagnostics" 
+                className="bg-proxima-cream text-proxima-black px-6 py-2.5 font-sans font-bold text-xs tracking-wide hover:bg-white transition-colors"
+              >
+                FREE TOXIN ASSESSMENT
+              </Link>
+            </div>
+            {/* Gradient bar at bottom of header */}
+            <div className="h-0.5 proxima-gradient" />
+          </motion.header>
+        )}
+      </AnimatePresence>
       {/* Full Screen Hero */}
       <section className="relative min-h-screen flex items-center">
         {/* Background Image */}
