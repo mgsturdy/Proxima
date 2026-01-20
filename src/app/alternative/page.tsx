@@ -62,7 +62,7 @@ export default function AlternativePage() {
               transition={{ delay: 0.2 }}
               className="flex items-center gap-3 mb-12"
             >
-              <Image src="/assets/blood-offwhite.svg" alt="Proxima" width={28} height={36} />
+              <Image src="/assets/icon_blood-circulation_OffWhite.svg" alt="Proxima" width={28} height={36} />
               <span className="text-proxima-cream font-sans text-2xl">
                 <span className="font-bold">Proxima</span><span className="font-light">Health</span>
               </span>
@@ -252,7 +252,7 @@ export default function AlternativePage() {
       <section className="py-12 bg-proxima-black border-t border-proxima-cream/10">
         <div className="section-container flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
-            <Image src="/assets/blood-offwhite.svg" alt="Proxima" width={24} height={32} />
+            <Image src="/assets/icon_blood-circulation_OffWhite.svg" alt="Proxima" width={24} height={32} />
             <span className="text-proxima-cream font-sans text-xl">
               <span className="font-bold">Proxima</span><span className="font-light">Health</span>
             </span>

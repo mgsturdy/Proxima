@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero - Cinematic Split */}
-      <section className="min-h-screen relative flex pt-24">
+      <section className="min-h-screen relative flex">
         {/* Left - Content */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-20 relative z-10">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-32 pt-32 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -47,9 +47,12 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Right - Hero Image (starts below navbar) */}
-        <div className="hidden lg:block w-1/2 relative mt-0">
-          <div className="absolute top-0 left-0 right-0 bottom-0">
+        {/* Right - Hero Image (starts below navbar with cream bar at top) */}
+        <div className="hidden lg:block w-1/2 relative">
+          {/* Cream bar at top where navbar sits */}
+          <div className="absolute top-0 left-0 right-0 h-24 bg-primary z-10" />
+          {/* Image starts below navbar area */}
+          <div className="absolute top-24 left-0 right-0 bottom-0">
             <Image 
               src="/assets/freepik__f4b551c0e94b4cecbc46024fad0f4b60assistant-2-img1-t__36844.png"
               alt="Close-up clinical"
