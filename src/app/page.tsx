@@ -142,7 +142,7 @@ export default function Home() {
         <div className="h-2 proxima-gradient-reverse" />
       </section>
 
-      {/* The Thesis - Magazine Editorial Layout */}
+      {/* The Invisible Crisis */}
       <section className="py-32">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -153,19 +153,13 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative order-2 lg:order-1"
             >
-              <div className="aspect-[3/4] relative">
+              <div className="aspect-[4/3] relative">
                 <Image 
-                  src="/assets/freepik__muda-a-farda-pra-off-white__36850.png"
-                  alt="Clinical Practitioner"
+                  src="/assets/freepik__muda-a-farda-para-off-white__36851.png"
+                  alt="Clinical Care"
                   fill
                   className="object-cover"
                 />
-              </div>
-              {/* Floating caption */}
-              <div className="absolute -bottom-8 -right-8 bg-inverse p-6 max-w-xs hidden md:block">
-                <p className="font-mono text-xs text-inverse opacity-60">
-                  "The body was never designed to process synthetic polymers."
-                </p>
               </div>
             </motion.div>
 
@@ -177,88 +171,26 @@ export default function Home() {
               className="order-1 lg:order-2"
             >
               <p className="section-label mb-4">The Invisible Crisis</p>
-              <h2 className="mb-8">We are the first generation to carry synthetic chemicals in our blood from birth.</h2>
+              <h2 className="mb-8">We are the first generation to carry environmental toxins in our blood from birth.</h2>
               
               <div className="prose-editorial mb-12">
                 <p>
-                  Since the chemical revolution of the 1950s, we've introduced over 
-                  140,000 synthetic compounds into our environment. Plastics. Pesticides. 
-                  Flame retardants. "Forever chemicals."
+                  Since the 1950s, over 140,000 synthetic compounds have entered our world 
+                  and our bloodstream. From microplastics to "forever chemicals," these 
+                  substances were never meant to be part of our biology.
                 </p>
                 <p>
-                  The vast majority have never been tested for long-term safety. 
-                  They're now ubiquitous—in our water, food, air, and bodies. 
-                  This is not conjecture. This is peer-reviewed data from the 
-                  CDC, EPA, and leading research institutions.
+                  We believe you deserve a clean slate. Proxima Health provides the rigorous, 
+                  peer-reviewed science to identify these toxins and the proven technology to 
+                  remove them. We don't just believe in better days ahead; we have the science 
+                  to make them happen.
                 </p>
               </div>
 
-              <Link href="/science" className="inline-flex items-center gap-3 font-sans text-sm font-medium group">
-                Read the full evidence base 
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <Link href="/diagnostics" className="btn-gradient inline-flex items-center gap-3">
+                Order environmental toxin blood test <ArrowRight size={18} />
               </Link>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Toxin Categories - Grid with fixed alignment */}
-      <section className="py-24 bg-secondary">
-        <div className="section-container">
-          <div className="mb-16 max-w-2xl">
-            <p className="section-label mb-4">What We Measure</p>
-            <h2>Four categories of environmental burden</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--border-primary)]">
-            {[
-              { 
-                title: "Heavy Metals", 
-                examples: "Lead · Mercury · Cadmium · Arsenic",
-                icon: "icon_blood-circulation"
-              },
-              { 
-                title: "Microplastics", 
-                examples: "PET · HDPE · Polystyrene · PVC",
-                icon: "icon_capsule"
-              },
-              { 
-                title: "PFAS", 
-                examples: "PFOA · PFOS · GenX · PFNA",
-                icon: "icon_digital-syringe"
-              },
-              { 
-                title: "Endocrine Disruptors", 
-                examples: "BPA · Phthalates · Parabens",
-                icon: "icon_heartbeat-monitor"
-              },
-            ].map((cat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-primary p-8 md:p-10 flex flex-col h-full"
-              >
-                {/* Icon - fixed height area */}
-                <div className="h-16 mb-6">
-                  <Image 
-                    src={`/assets/${cat.icon}_Black.svg`}
-                    alt={cat.title}
-                    width={48}
-                    height={48}
-                    className="opacity-40"
-                  />
-                </div>
-                {/* Title - grows to fill space */}
-                <div className="flex-grow">
-                  <h4 className="font-sans text-lg font-semibold">{cat.title}</h4>
-                </div>
-                {/* Examples - always at bottom */}
-                <p className="font-mono text-xs text-tertiary pt-4">{cat.examples}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
