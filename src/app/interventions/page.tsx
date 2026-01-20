@@ -6,91 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function InterventionsPage() {
-  const lifestyleItems = [
-    {
-      category: "Air Quality",
-      title: "HEPA Filtration",
-      content: "H13/H14 grade HEPA filtration reduces airborne particulate matter (PM2.5) and microplastics by 99.97%. For meaningful impact, filtration should cover sleeping areas at minimum. Consider whole-home systems for comprehensive coverage.",
-      efficacy: "99.97% particle reduction",
-      icon: "/assets/icon_blood-circulation_Black.svg"
-    },
-    {
-      category: "Water",
-      title: "Reverse Osmosis",
-      content: "RO filtration is the only validated method to remove PFAS 'forever chemicals' from drinking water. Standard activated carbon filters remove chlorine and improve taste but are ineffective against PFAS, heavy metals, and many pesticides.",
-      efficacy: "95%+ PFAS removal",
-      icon: "/assets/icon_capsule_Black.svg"
-    },
-    {
-      category: "Food Contact",
-      title: "Polymer Reduction",
-      content: "Transitioning to glass and stainless steel for food storage and preparation eliminates BPA and phthalate leaching. This is particularly critical for heated foods, as plastic leaching increases 55x at elevated temperatures.",
-      efficacy: "Near-complete elimination",
-      icon: "/assets/icon_digital-heart_Black.svg"
-    }
-  ];
-
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
-      {/* Header */}
-      <header className="py-16 border-b border-border-primary relative">
-        <div className="absolute top-0 left-0 right-0 h-1 proxima-gradient" />
-        <div className="section-container">
-          <div className="w-16 h-1 proxima-gradient mb-6" />
-          <p className="section-label mb-4">Treatment Modalities</p>
-          <h1 className="mb-6"><span className="text-gradient">Interventions</span></h1>
-          <p className="text-xl text-secondary max-w-2xl leading-relaxed">
-            A dual-track approach to environmental toxin management: reducing 
-            ongoing exposure through validated lifestyle modifications, and 
-            actively removing accumulated toxins through therapeutic filtration.
-          </p>
-        </div>
-      </header>
-
-      {/* Track 1: Lifestyle */}
-      <section className="py-24">
-        <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-4">
-              <div className="sticky top-32">
-                <span className="chapter-number">01</span>
-                <h2 className="mt-4 mb-2">Lifestyle Mitigation</h2>
-                <p className="section-label mb-6">Reducing Ongoing Exposure</p>
-                <p className="text-secondary">
-                  Evidence-based interventions that can reduce ongoing toxin 
-                  exposure by 40-80% depending on the category.
-                </p>
-              </div>
-            </div>
-
-            <div className="lg:col-span-8">
-              <div className="space-y-8">
-                {lifestyleItems.map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="bg-secondary border border-border-primary p-8"
-                  >
-                    <div className="flex items-start justify-between mb-6">
-                      <div>
-                        <p className="font-mono text-xs text-tertiary uppercase tracking-wider mb-1">{item.category}</p>
-                        <h3>{item.title}</h3>
-                      </div>
-                      <Image src={item.icon} alt="" width={32} height={32} className="opacity-30" />
-                    </div>
-                    <p className="text-secondary mb-6">{item.content}</p>
-                    <p className="font-mono text-sm text-proxima-red">{item.efficacy}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Track 2: Therapeutics */}
+      {/* Therapeutic Filtration */}
       <section className="py-24 bg-inverse text-inverse">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
