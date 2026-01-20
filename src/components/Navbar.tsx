@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useTheme } from "@/lib/theme";
 
 const navLinks = [
   { name: "The Science", href: "/science" },
@@ -18,7 +17,6 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,10 +25,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const logoSrc = theme === "dark" 
-    ? "/assets/Main_Logo+Icon_OffWhite.svg" 
-    : "/assets/Main_Logo+Icon_Black.svg";
 
   return (
     <nav
@@ -45,7 +39,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="relative">
           <Image 
-            src={logoSrc}
+            src="/assets/Main_Logo+Icon_Black.svg"
             alt="Proxima" 
             width={180} 
             height={32}

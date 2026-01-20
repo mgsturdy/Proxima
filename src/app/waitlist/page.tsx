@@ -2,10 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, RotateCcw, Mail } from "lucide-react";
+import { ArrowRight, RotateCcw, Mail } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import { useTheme } from "@/lib/theme";
 
 const questions = [
   {
@@ -47,7 +45,6 @@ const questions = [
 ];
 
 export default function QuizPage() {
-  const { theme } = useTheme();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [isCalculating, setIsCalculating] = useState(false);

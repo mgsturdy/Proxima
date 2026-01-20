@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import PasswordGate from "@/components/PasswordGate";
-import ThemeToggle from "@/components/ThemeToggle";
-import { ThemeProvider } from "@/lib/theme";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -17,16 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className="font-serif">
-        <ThemeProvider>
-          <PasswordGate>
-            <Navbar />
-            <main>{children}</main>
-            <ThemeToggle />
-            <Footer />
-          </PasswordGate>
-        </ThemeProvider>
+        <PasswordGate>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </PasswordGate>
       </body>
     </html>
   );

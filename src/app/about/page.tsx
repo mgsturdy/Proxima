@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight, Linkedin, Mail } from "lucide-react";
-import { useTheme } from "@/lib/theme";
+import { Linkedin, Mail } from "lucide-react";
 
 const team = [
   {
@@ -40,8 +38,6 @@ const principles = [
 ];
 
 export default function AboutPage() {
-  const { theme } = useTheme();
-
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Mission */}

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "@/lib/theme";
 
 const panels = [
   { name: "Heavy Metals", count: 8, markers: ["Lead (Pb)", "Mercury (Hg)", "Cadmium (Cd)", "Arsenic (As)", "Aluminum (Al)", "Thallium (Tl)", "Uranium (U)", "Nickel (Ni)"] },
@@ -16,9 +15,6 @@ const panels = [
 ];
 
 export default function DiagnosticsPage() {
-  const { theme } = useTheme();
-  const iconSuffix = theme === "dark" ? "_OffWhite" : "_Black";
-
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Header */}
@@ -71,7 +67,7 @@ export default function DiagnosticsPage() {
                 className="object-contain p-16 opacity-80"
               />
               <div className="absolute top-6 left-6 bg-proxima-red px-3 py-1">
-                <span className="font-mono text-xs text-proxima-offwhite uppercase tracking-wider">Early Access</span>
+                <span className="font-mono text-xs text-proxima-cream uppercase tracking-wider">Early Access</span>
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-1 proxima-gradient" />
             </motion.div>
@@ -215,7 +211,7 @@ export default function DiagnosticsPage() {
         <div className="section-narrow">
           <div className="text-center mb-16">
             <Image 
-              src={`/assets/icon_heartbeat-monitor${iconSuffix}.svg`}
+              src="/assets/icon_heartbeat-monitor_OffWhite.svg"
               alt="Clinical"
               width={48}
               height={48}

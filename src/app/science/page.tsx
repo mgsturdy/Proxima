@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, BookOpen, Download, ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "@/lib/theme";
 
 const chapters = [
   {
@@ -98,9 +97,6 @@ const chapters = [
 ];
 
 export default function SciencePage() {
-  const { theme } = useTheme();
-  const iconSuffix = theme === "dark" ? "_OffWhite" : "_Black";
-
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Header */}
@@ -220,7 +216,7 @@ export default function SciencePage() {
       <section className="py-24 bg-inverse text-inverse">
         <div className="section-narrow text-center">
           <Image 
-            src={`/assets/icon_blood-circulation${iconSuffix}.svg`}
+            src="/assets/icon_blood-circulation_OffWhite.svg"
             alt="Diagnostics"
             width={48}
             height={48}

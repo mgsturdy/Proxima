@@ -1,29 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { useTheme } from "@/lib/theme";
 
 export default function PractitionersPage() {
-  const { theme } = useTheme();
-  const iconSuffix = theme === "dark" ? "_OffWhite" : "_Black";
-
   const benefits = [
     {
       title: "Quantified Data",
       desc: "Mass spectrometry data that provides objective biomarkers for treatment planning and outcome tracking.",
-      icon: `/assets/icon_heartbeat-monitor${iconSuffix}.svg`
+      icon: "/assets/icon_heartbeat-monitor_Black.svg"
     },
     {
       title: "Clinical Resources",
       desc: "Access to our repository of peer-reviewed research, protocols, and continuing education materials.",
-      icon: `/assets/icon_blood-circulation${iconSuffix}.svg`
+      icon: "/assets/icon_blood-circulation_Black.svg"
     },
     {
       title: "Patient Pipeline",
       desc: "Referrals from patients seeking medical oversight for their environmental health optimization.",
-      icon: `/assets/icon_digital-heart${iconSuffix}.svg`
+      icon: "/assets/icon_digital-heart_Black.svg"
     }
   ];
 

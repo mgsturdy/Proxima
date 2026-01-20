@@ -4,33 +4,29 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "@/lib/theme";
 
 export default function InterventionsPage() {
-  const { theme } = useTheme();
-  const iconSuffix = theme === "dark" ? "_OffWhite" : "_Black";
-
   const lifestyleItems = [
     {
       category: "Air Quality",
       title: "HEPA Filtration",
       content: "H13/H14 grade HEPA filtration reduces airborne particulate matter (PM2.5) and microplastics by 99.97%. For meaningful impact, filtration should cover sleeping areas at minimum. Consider whole-home systems for comprehensive coverage.",
       efficacy: "99.97% particle reduction",
-      icon: `/assets/icon_blood-circulation${iconSuffix}.svg`
+      icon: "/assets/icon_blood-circulation_Black.svg"
     },
     {
       category: "Water",
       title: "Reverse Osmosis",
       content: "RO filtration is the only validated method to remove PFAS 'forever chemicals' from drinking water. Standard activated carbon filters remove chlorine and improve taste but are ineffective against PFAS, heavy metals, and many pesticides.",
       efficacy: "95%+ PFAS removal",
-      icon: `/assets/icon_capsule${iconSuffix}.svg`
+      icon: "/assets/icon_capsule_Black.svg"
     },
     {
       category: "Food Contact",
       title: "Polymer Reduction",
       content: "Transitioning to glass and stainless steel for food storage and preparation eliminates BPA and phthalate leaching. This is particularly critical for heated foods, as plastic leaching increases 55x at elevated temperatures.",
       efficacy: "Near-complete elimination",
-      icon: `/assets/icon_digital-heart${iconSuffix}.svg`
+      icon: "/assets/icon_digital-heart_Black.svg"
     }
   ];
 

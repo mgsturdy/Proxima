@@ -4,17 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowDown, ArrowUpRight } from "lucide-react";
-import { useTheme } from "@/lib/theme";
 
 export default function Home() {
-  const { theme } = useTheme();
-  
-  // Dynamic asset paths based on theme
-  const iconSuffix = theme === "dark" ? "_OffWhite" : "_Black";
-  const betterBloodLogo = theme === "dark" 
-    ? "/assets/better-blood-stacked-offwhite.svg"
-    : "/assets/better-blood-stacked-black.svg";
-
   return (
     <div className="flex flex-col">
       {/* Hero - Cinematic Split */}
@@ -264,7 +255,7 @@ export default function Home() {
                 {/* Icon - fixed height area */}
                 <div className="h-16 mb-6">
                   <Image 
-                    src={`/assets/${cat.icon}${iconSuffix}.svg`}
+                    src={`/assets/${cat.icon}_Black.svg`}
                     alt={cat.title}
                     width={48}
                     height={48}
@@ -294,7 +285,7 @@ export default function Home() {
               className="lg:col-span-5"
             >
               <Image 
-                src={betterBloodLogo}
+                src="/assets/better-blood-stacked-black.svg"
                 alt="Better Blood +"
                 width={320}
                 height={160}
