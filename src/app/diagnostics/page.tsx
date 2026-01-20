@@ -24,11 +24,11 @@ export default function DiagnosticsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-7">
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <p className="section-label mb-4">Product</p>
-              <h1 className="mb-6">Proxima <span className="text-gradient">Baseline</span>™</h1>
+              <h1 className="mb-6">Proxima Health <span className="text-gradient">Baseline</span>™</h1>
               <p className="text-xl text-secondary max-w-xl leading-relaxed">
-                The first comprehensive at-home diagnostic tool designed to 
-                quantify environmental toxin load with clinical-grade precision.
+                A clinically validated at-home test designed to measure environmental 
+                toxin load with precision. Built on proven science, so you can understand 
+                what's in your blood and move forward informed.
               </p>
             </div>
             <div className="lg:col-span-5 flex items-end">
