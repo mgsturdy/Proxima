@@ -6,16 +6,14 @@ import { Linkedin, Mail } from "lucide-react";
 
 const team = [
   {
-    name: "Dr. Jonathan Vance",
-    role: "Co-Founder & Chief Scientist",
-    bio: "Former Head of Environmental Toxicology at MIT. 15+ years researching the bioaccumulation of synthetic chemicals in human tissue.",
-    image: "/assets/siralexfrompt_adult_male-presenting_figure_with_short_light_cur_c5431ccb-00b8-4bfd-8bfa-5aea84fd235b.png"
+    name: "Carlos Schuster",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    image: "/assets/carlos.png"
   },
   {
-    name: "Sarah Chen",
-    role: "Co-Founder & CEO",
-    bio: "Serial biotech entrepreneur with three successful exits. Dedicated to translating cutting-edge research into accessible clinical applications.",
-    image: "/assets/siralexfrompt_serene_woman_laying_in_a_modern_bed_center_of_ima_613d7696-613c-458b-9158-ca79733f01cf.png"
+    name: "Michael Petegorsky",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    image: "/assets/michael.png"
   }
 ];
 
@@ -40,37 +38,38 @@ const principles = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
-      {/* Mission */}
+      {/* Header */}
       <header className="py-16 border-b border-border-primary relative">
-        <div className="absolute top-0 left-0 right-0 h-1 proxima-gradient" />
         <div className="section-container">
           <div className="w-16 h-1 proxima-gradient mb-6" />
-          <p className="section-label mb-4">Company</p>
-          <h1 className="mb-8">About <span className="text-gradient">Proxima</span></h1>
+          <h1 className="mb-8">Proxima <span className="text-gradient">Health</span></h1>
         </div>
       </header>
 
       {/* Mission Statement */}
       <section className="py-24">
         <div className="section-narrow">
-          <div className="pull-quote mb-12 text-3xl md:text-4xl font-serif italic text-center border-l-4 border-proxima-red pl-8 text-left">
-            To make the invisible impossible to ignore.
+          <div className="pull-quote mb-12 text-3xl md:text-4xl font-serif italic border-l-4 border-proxima-red pl-8">
+            Our mission is to optimize health through the early detection and removal of environmental toxins.
           </div>
           <div className="prose-editorial text-secondary space-y-6">
             <p>
-              Environmental health is the most significant overlooked variable in 
-              modern medicine. For decades, we've focused on genetics and lifestyle 
-              while ignoring the chemical environment we inhabit.
+              Environmental toxins are in nearly everyone. 97% of Americans have PFAS in 
+              their bloodstream, along with microplastics, heavy metals and hundreds of 
+              other synthetic compounds. Yet medicine rarely measures them and almost 
+              never addresses them.
             </p>
             <p>
-              Since 1950, over 140,000 synthetic chemicals have been introduced into 
-              commerce. The vast majority have never been tested for long-term safety 
-              in humans. They are now ubiquitous—in our water, air, food, and bodies.
+              That's the gap we exist to close.
             </p>
             <p>
-              Proxima exists to bridge the gap between academic research and clinical 
-              application. We are scientists, engineers, and practitioners dedicated 
-              to quantifying environmental risk and providing validated intervention pathways.
+              We provide the diagnostic precision to see what's actually in your blood 
+              and the proven interventions to remove what doesn't belong. Not after 
+              symptoms appear. Before they start. Because the best treatment for chronic 
+              disease is preventing it in the first place.
+            </p>
+            <p className="font-semibold text-primary">
+              Early detection. Evidence based removal. Real prevention.
             </p>
           </div>
         </div>
@@ -102,8 +101,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <div>
-                  <h3 className="mb-1">{member.name}</h3>
-                  <p className="section-label mb-4">{member.role}</p>
+                  <h3 className="mb-4">{member.name}</h3>
                   <p className="text-secondary text-sm mb-4">{member.bio}</p>
                   <div className="flex gap-4">
                     <Linkedin size={18} className="text-tertiary hover:text-primary cursor-pointer transition-colors" />
