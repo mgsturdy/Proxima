@@ -195,53 +195,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Better Blood Feature */}
-      <section className="py-32 overflow-hidden">
-        <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="lg:col-span-5"
-            >
-              <Image 
-                src="/assets/better-blood-stacked-black.svg"
-                alt="Better Blood +"
-                width={320}
-                height={160}
-                className="mb-8"
-              />
-              <p className="text-secondary text-lg leading-relaxed mb-8">
-                Our mission is singular: give people the tools to see what's 
-                in their blood—and the pathways to change it.
-              </p>
-              <p className="text-secondary text-lg leading-relaxed">
-                Better blood means better cellular function. Better energy. 
-                Better longevity. Better life.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="lg:col-span-7 relative"
-            >
-              <div className="aspect-[16/10] relative">
-                <Image 
-                  src="/assets/freepik__muda-a-farda-para-off-white__36851.png"
-                  alt="Clinical Care"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 h-1.5 proxima-gradient" />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Methodology */}
       <section className="py-24 bg-secondary">
         <div className="section-container">
