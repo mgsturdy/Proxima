@@ -18,12 +18,14 @@ export default function DiagnosticsPage() {
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Header */}
-      <header className="py-16 border-b border-border-primary">
+      <header className="py-16 border-b border-border-primary relative">
+        <div className="absolute top-0 left-0 right-0 h-1 proxima-gradient" />
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-7">
+              <div className="w-16 h-1 proxima-gradient mb-6" />
               <p className="section-label mb-4">Product</p>
-              <h1 className="mb-6">Proxima Baseline™</h1>
+              <h1 className="mb-6">Proxima <span className="text-gradient">Baseline</span>™</h1>
               <p className="text-xl text-secondary max-w-xl leading-relaxed">
                 The first comprehensive at-home diagnostic tool designed to 
                 quantify environmental toxin load with clinical-grade precision.
@@ -99,7 +101,7 @@ export default function DiagnosticsPage() {
                 <p className="font-mono text-xs text-tertiary mb-6">
                   Pre-order pricing. Expected shipping Q3 2026.
                 </p>
-                <Link href="/waitlist" className="btn-primary w-full flex items-center justify-center gap-2">
+                <Link href="/waitlist" className="btn-gradient w-full flex items-center justify-center gap-2">
                   Reserve Your Kit <ArrowRight size={18} />
                 </Link>
               </div>

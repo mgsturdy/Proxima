@@ -22,7 +22,7 @@ export default function Home() {
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] mb-8 tracking-tight">
               What's in<br />
-              <span className="italic font-normal">your</span> blood?
+              <span className="italic font-normal text-gradient">your</span> blood?
             </h1>
             
             <p className="text-xl md:text-2xl max-w-md leading-relaxed mb-12 text-secondary">
@@ -31,7 +31,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Link href="/science" className="btn-primary inline-flex items-center gap-3">
+              <Link href="/science" className="btn-gradient inline-flex items-center gap-3">
                 The Evidence <ArrowRight size={18} />
               </Link>
               <Link href="/diagnostics" className="btn-outline inline-flex items-center gap-3">
@@ -379,20 +379,23 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-32">
+      <section className="py-32 relative overflow-hidden">
+        {/* Background gradient accent */}
+        <div className="absolute top-0 left-0 right-0 h-px proxima-gradient opacity-30" />
         <div className="section-narrow text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
+            <div className="w-16 h-1 proxima-gradient mx-auto mb-8" />
             <p className="section-label mb-6">Assessment</p>
-            <h2 className="mb-8">Estimate your exposure in 2 minutes</h2>
+            <h2 className="mb-8">Estimate your exposure in <span className="text-gradient">2 minutes</span></h2>
             <p className="text-xl text-secondary mb-12 max-w-xl mx-auto">
               Answer a few lifestyle questions. Receive an estimated Toxin Load Score 
               based on your daily exposure vectors.
             </p>
-            <Link href="/waitlist" className="btn-primary inline-flex items-center gap-3">
+            <Link href="/waitlist" className="btn-gradient inline-flex items-center gap-3">
               Begin Assessment <ArrowRight size={18} />
             </Link>
             <p className="font-mono text-xs text-tertiary mt-8">
@@ -400,6 +403,7 @@ export default function Home() {
             </p>
           </motion.div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px proxima-gradient-reverse opacity-30" />
       </section>
     </div>
   );

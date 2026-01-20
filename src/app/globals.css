@@ -193,6 +193,52 @@
     color: var(--text-primary);
   }
 
+  /* Navigation Link with Gradient Underline */
+  .nav-link-gradient {
+    @apply relative transition-colors;
+  }
+  
+  .nav-link-gradient::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 w-0 h-0.5 transition-all duration-300;
+    background: linear-gradient(90deg, #BA000E 0%, #FE091B 50%, #FF9D00 100%);
+  }
+  
+  .nav-link-gradient:hover::after {
+    @apply w-full;
+  }
+
+  /* Gradient Button */
+  .btn-gradient {
+    font-family: 'IBM Plex Sans', sans-serif;
+    @apply relative px-8 py-4 text-sm font-medium tracking-wide overflow-hidden;
+    background: linear-gradient(90deg, #BA000E 0%, #FE091B 50%, #FF9D00 100%);
+    color: white;
+  }
+  
+  .btn-gradient::before {
+    content: '';
+    @apply absolute inset-0 transition-opacity duration-300 opacity-0;
+    background: linear-gradient(90deg, #FF9D00 0%, #FE091B 50%, #BA000E 100%);
+  }
+  
+  .btn-gradient:hover::before {
+    @apply opacity-100;
+  }
+  
+  .btn-gradient span,
+  .btn-gradient {
+    @apply relative z-10;
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    background: linear-gradient(90deg, #BA000E 0%, #FE091B 50%, #FF9D00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   /* Gradient Bar */
   .gradient-bar {
     @apply h-1 proxima-gradient;

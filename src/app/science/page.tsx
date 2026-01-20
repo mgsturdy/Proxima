@@ -100,12 +100,14 @@ export default function SciencePage() {
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Header */}
-      <header className="py-16 border-b border-border-primary">
+      <header className="py-16 border-b border-border-primary relative">
+        <div className="absolute top-0 left-0 right-0 h-1 proxima-gradient" />
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8">
+              <div className="w-16 h-1 proxima-gradient mb-6" />
               <p className="section-label mb-4">Evidence Repository</p>
-              <h1 className="mb-6">The Digital Textbook</h1>
+              <h1 className="mb-6">The <span className="text-gradient">Digital</span> Textbook</h1>
               <p className="text-xl text-secondary max-w-2xl leading-relaxed">
                 An objective synthesis of peer-reviewed research on environmental 
                 toxin exposure and its impact on human physiological systems. 
@@ -227,7 +229,7 @@ export default function SciencePage() {
             Understanding the science is step one. Quantifying your personal 
             exposure requires clinical-grade diagnostics.
           </p>
-          <Link href="/diagnostics" className="btn-primary bg-primary text-inverse hover:opacity-90">
+          <Link href="/diagnostics" className="btn-gradient inline-flex items-center gap-2">
             Explore Diagnostics
           </Link>
         </div>

@@ -90,8 +90,9 @@ export default function QuizPage() {
               exit={{ opacity: 0, y: -20 }}
               className="py-16"
             >
+              <div className="w-16 h-1 proxima-gradient mb-6" />
               <p className="section-label mb-4">Assessment Tool</p>
-              <h1 className="mb-6">Toxin Load Estimator</h1>
+              <h1 className="mb-6">Toxin Load <span className="text-gradient">Estimator</span></h1>
               <p className="text-xl text-secondary max-w-xl leading-relaxed mb-8">
                 This 2-minute assessment estimates your environmental toxin 
                 exposure based on lifestyle factors. For clinical verification, 
@@ -109,7 +110,7 @@ export default function QuizPage() {
 
               <button 
                 onClick={handleStart}
-                className="btn-primary inline-flex items-center gap-3"
+                className="btn-gradient inline-flex items-center gap-3"
               >
                 Begin Assessment <ArrowRight size={18} />
               </button>
@@ -245,7 +246,7 @@ export default function QuizPage() {
                   For clinical verification, consider our diagnostic panel.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/diagnostics" className="btn-primary inline-flex items-center gap-2">
+                  <Link href="/diagnostics" className="btn-gradient inline-flex items-center gap-2">
                     Learn About Diagnostics <ArrowRight size={18} />
                   </Link>
                   <button 

@@ -33,10 +33,12 @@ export default function InterventionsPage() {
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Header */}
-      <header className="py-16 border-b border-border-primary">
+      <header className="py-16 border-b border-border-primary relative">
+        <div className="absolute top-0 left-0 right-0 h-1 proxima-gradient" />
         <div className="section-container">
+          <div className="w-16 h-1 proxima-gradient mb-6" />
           <p className="section-label mb-4">Treatment Modalities</p>
-          <h1 className="mb-6">Interventions</h1>
+          <h1 className="mb-6"><span className="text-gradient">Interventions</span></h1>
           <p className="text-xl text-secondary max-w-2xl leading-relaxed">
             A dual-track approach to environmental toxin management: reducing 
             ongoing exposure through validated lifestyle modifications, and 
@@ -155,7 +157,7 @@ export default function InterventionsPage() {
             Before implementing any intervention protocol, establish your 
             baseline toxin levels through clinical diagnostics.
           </p>
-          <Link href="/diagnostics" className="btn-primary inline-flex items-center gap-3">
+          <Link href="/diagnostics" className="btn-gradient inline-flex items-center gap-3">
             Explore Diagnostics <ArrowRight size={18} />
           </Link>
         </div>

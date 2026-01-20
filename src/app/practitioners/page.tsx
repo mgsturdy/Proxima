@@ -25,10 +25,12 @@ export default function PractitionersPage() {
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Header */}
-      <header className="py-16 border-b border-border-primary">
+      <header className="py-16 border-b border-border-primary relative">
+        <div className="absolute top-0 left-0 right-0 h-1 proxima-gradient" />
         <div className="section-container">
+          <div className="w-16 h-1 proxima-gradient mb-6" />
           <p className="section-label mb-4">B2B Partnership</p>
-          <h1 className="mb-6">For Practitioners</h1>
+          <h1 className="mb-6">For <span className="text-gradient">Practitioners</span></h1>
           <p className="text-xl text-secondary max-w-2xl leading-relaxed">
             We provide the diagnostics and clinical protocols. You provide the 
             medical oversight and patient relationships. Together, we advance 
@@ -130,7 +132,7 @@ export default function PractitionersPage() {
                   />
                 </div>
 
-                <button className="btn-primary w-full">
+                <button className="btn-gradient w-full">
                   Submit Inquiry
                 </button>
               </form>

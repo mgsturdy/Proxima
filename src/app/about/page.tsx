@@ -41,10 +41,12 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Mission */}
-      <header className="py-16 border-b border-border-primary">
+      <header className="py-16 border-b border-border-primary relative">
+        <div className="absolute top-0 left-0 right-0 h-1 proxima-gradient" />
         <div className="section-container">
+          <div className="w-16 h-1 proxima-gradient mb-6" />
           <p className="section-label mb-4">Company</p>
-          <h1 className="mb-8">About Proxima</h1>
+          <h1 className="mb-8">About <span className="text-gradient">Proxima</span></h1>
         </div>
       </header>
 

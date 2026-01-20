@@ -31,10 +31,16 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled 
-          ? "bg-primary backdrop-blur-sm border-b border-themed" 
+          ? "bg-primary backdrop-blur-sm" 
           : "bg-transparent"
       )}
     >
+      {/* Gradient bar at top */}
+      <div className={cn(
+        "h-1 proxima-gradient transition-opacity duration-300",
+        isScrolled ? "opacity-100" : "opacity-0"
+      )} />
+      
       <div className="section-container py-5 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative">
@@ -54,7 +60,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="font-sans text-sm font-medium transition-colors text-secondary hover:text-primary"
+              className="nav-link-gradient font-sans text-sm font-medium text-secondary hover:text-primary"
             >
               {link.name}
             </Link>
@@ -63,7 +69,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:block">
-          <Link href="/waitlist" className="btn-primary">
+          <Link href="/waitlist" className="btn-gradient">
             Take Assessment
           </Link>
         </div>
@@ -83,7 +89,8 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-primary border-b border-themed p-6 flex flex-col gap-4 lg:hidden">
+        <div className="absolute top-full left-0 right-0 bg-primary p-6 flex flex-col gap-4 lg:hidden">
+          <div className="h-0.5 proxima-gradient mb-4" />
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -96,7 +103,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/waitlist"
-            className="btn-primary text-center mt-4"
+            className="btn-gradient text-center mt-4"
             onClick={() => setMobileMenuOpen(false)}
           >
             Take Assessment
