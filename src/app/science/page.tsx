@@ -106,12 +106,12 @@ export default function SciencePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8">
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <p className="section-label mb-4">Evidence Repository</p>
-              <h1 className="mb-6">The <span className="text-gradient">Digital</span> Textbook</h1>
+              <h1 className="mb-6">The science behind <span className="text-gradient">environmental toxins</span></h1>
               <p className="text-xl text-secondary max-w-2xl leading-relaxed">
-                An objective synthesis of peer-reviewed research on environmental 
-                toxin exposure and its impact on human physiological systems. 
-                All claims are cited. All data is verifiable.
+                You deserve to understand exactly what is happening in your body and what 
+                the science says about it. We've organized the latest research on toxins 
+                into a verifiable, accessible guide so you can make confident, informed 
+                decisions about your journey toward recovery and longevity.
               </p>
             </div>
             <div className="lg:col-span-4 flex items-end">
