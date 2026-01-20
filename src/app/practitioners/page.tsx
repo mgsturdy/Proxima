@@ -26,15 +26,13 @@ export default function PractitionersPage() {
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Header */}
       <header className="py-16 border-b border-border-primary relative">
-        <div className="absolute top-0 left-0 right-0 h-1 proxima-gradient" />
         <div className="section-container">
           <div className="w-16 h-1 proxima-gradient mb-6" />
-          <p className="section-label mb-4">B2B Partnership</p>
-          <h1 className="mb-6">For <span className="text-gradient">Practitioners</span></h1>
+          <h1 className="mb-6">Practitioner <span className="text-gradient">Partnerships</span></h1>
           <p className="text-xl text-secondary max-w-2xl leading-relaxed">
-            We provide the diagnostics and clinical protocols. You provide the 
-            medical oversight and patient relationships. Together, we advance 
-            environmental medicine.
+            We provide advanced diagnostics and evidence-based clinical protocols. 
+            You bring medical oversight and patient care. Together, we help patients 
+            better understand and treat environmental toxin exposure.
           </p>
         </div>
       </header>
@@ -112,7 +110,6 @@ export default function PractitionersPage() {
                       "Diagnostics Partnership (offer Baseline™ to patients)",
                       "Therapeutic Referrals (INUSpheresis availability)",
                       "Clinical Research Collaboration",
-                      "Medical Advisory Board",
                     ].map((item, i) => (
                       <label key={i} className="flex items-start gap-3 cursor-pointer">
                         <input type="checkbox" className="mt-1 accent-proxima-red" />

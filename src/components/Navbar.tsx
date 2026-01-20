@@ -10,7 +10,7 @@ const navLinks = [
   { name: "The Science", href: "/science" },
   { name: "Diagnostics", href: "/diagnostics" },
   { name: "Treatment", href: "/interventions" },
-  { name: "For Practitioners", href: "/practitioners" },
+  { name: "Practitioners", href: "/practitioners" },
   { name: "About", href: "/about" },
 ];
 
