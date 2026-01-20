@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export default function AlternativePage() {
   return (
@@ -119,154 +119,213 @@ export default function AlternativePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-proxima-black relative">
-        <div className="absolute top-8 left-1/4 text-proxima-cream/20 text-lg">+</div>
-        <div className="absolute top-8 right-1/4 text-proxima-cream/20 text-lg">+</div>
-        <div className="absolute bottom-8 left-1/3 text-proxima-cream/20 text-lg">+</div>
-        <div className="absolute bottom-8 right-1/3 text-proxima-cream/20 text-lg">+</div>
-
-        <div className="section-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { stat: "97%", label: "of Americans have PFAS in their blood" },
-              { stat: "287", label: "chemicals found in newborn cord blood" },
-              { stat: "80%", label: "of Americans have microplastics" },
-              { stat: "49%", label: "have heavy metals at median levels" }
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="text-4xl md:text-5xl font-bold text-proxima-cream font-sans mb-2">{item.stat}</div>
-                <div className="text-proxima-cream/50 text-sm font-sans">{item.label}</div>
-              </motion.div>
-            ))}
+      <section className="relative overflow-hidden">
+        {/* Gradient background bar at top */}
+        <div className="h-2 proxima-gradient" />
+        
+        <div className="bg-proxima-black py-28 relative">
+          {/* Subtle pattern overlay */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
+          
+          <div className="section-container relative">
+            <div className="relative">
+              {/* Decorative + signs in corners of the grid */}
+              <span className="absolute -top-8 -left-4 text-2xl font-sans font-light" style={{ color: '#BA000E' }}>+</span>
+              <span className="absolute -top-8 -right-4 text-2xl font-sans font-light" style={{ color: '#FE091B' }}>+</span>
+              <span className="absolute -bottom-8 -left-4 text-2xl font-sans font-light" style={{ color: '#FF9D00' }}>+</span>
+              <span className="absolute -bottom-8 -right-4 text-2xl font-sans font-light" style={{ color: '#FFFBEE' }}>+</span>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
+              {[
+                { 
+                  stat: "97%", 
+                  desc: "of Americans have detectable PFAS (forever chemicals) in their bloodstream",
+                  accent: "#BA000E"
+                },
+                { 
+                  stat: "287", 
+                  desc: "industrial chemicals found in newborn umbilical cord blood",
+                  accent: "#FE091B"
+                },
+                { 
+                  stat: "80%", 
+                  desc: "of Americans have detectable microplastics in their bloodstream",
+                  accent: "#FF9D00"
+                },
+                { 
+                  stat: "49%", 
+                  desc: "of Americans have lead, cadmium, mercury and arsenic at or above median levels in their blood",
+                  accent: "#FFFBEE"
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.6 }}
+                  className="text-center relative group"
+                >
+                  {/* Accent line */}
+                  <div 
+                    className="w-12 h-1 mx-auto mb-8 transition-all duration-300 group-hover:w-20"
+                    style={{ backgroundColor: item.accent }}
+                  />
+                  
+                  <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-proxima-cream leading-none font-sans mb-6">
+                    {item.stat}
+                  </span>
+                  <p className="text-proxima-cream/70 text-base max-w-xs mx-auto font-serif leading-relaxed">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
+              </div>
+            </div>
           </div>
         </div>
+        
+        {/* Gradient background bar at bottom */}
+        <div className="h-2 proxima-gradient-reverse" />
       </section>
 
-      {/* Second Image Section */}
-      <section className="relative h-[80vh]">
-        <Image
-          src="/assets/siralexfrompt_serene_woman_laying_in_a_modern_bed_center_of_ima_613d7696-613c-458b-9158-ca79733f01cf.png"
-          alt="Treatment"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-proxima-black via-transparent to-transparent" />
-        
-        {/* Corner Markers */}
-        <div className="absolute top-8 left-8 text-proxima-cream/50 text-xl">+</div>
-        <div className="absolute top-8 right-8 text-proxima-cream/50 text-xl">+</div>
-
-        {/* Overlay Content */}
-        <div className="absolute bottom-0 left-0 right-0 p-12 md:p-16">
-          <div className="section-container">
+      {/* The Invisible Crisis */}
+      <section className="py-32 bg-proxima-cream">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {/* Image Column */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="max-w-2xl"
+              className="relative order-2 lg:order-1"
             >
-              <div className="inline-block bg-proxima-cream text-proxima-black px-6 py-4 mb-6">
-                <span className="font-sans font-bold text-lg block">Predictable Sessions</span>
-                <span className="font-sans font-bold text-lg">Documented Safety</span>
+              <div className="aspect-[4/3] relative">
+                <Image 
+                  src="/assets/freepik__muda-a-farda-para-off-white__36851.png"
+                  alt="Clinical Care"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <p className="text-proxima-cream/90 font-sans text-xl leading-relaxed max-w-xl">
-                For decades, therapeutic blood filtration has been used in European clinical settings. 
-                Proxima Health is bringing this science to the United States.
-              </p>
+            </motion.div>
+
+            {/* Content Column */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-1 lg:order-2"
+            >
+              <p className="section-label mb-4">The Invisible Crisis</p>
+              <h2 className="mb-8 text-proxima-black">We are the first generation to carry environmental toxins in our blood from birth.</h2>
+              
+              <div className="prose-editorial mb-12">
+                <p className="text-proxima-black/70">
+                  Since the 1950s, over 140,000 synthetic compounds have entered our world 
+                  and our bloodstream. From microplastics to "forever chemicals," these 
+                  substances were never meant to be part of our biology.
+                </p>
+                <p className="text-proxima-black/70">
+                  We believe you deserve a clean slate. Proxima Health provides the rigorous, 
+                  peer-reviewed science to identify these toxins and the proven technology to 
+                  remove them. We don't just believe in better days ahead; we have the science 
+                  to make them happen.
+                </p>
+              </div>
+
+              <Link href="/diagnostics" className="btn-gradient inline-flex items-center gap-3">
+                Order environmental toxin blood test <ArrowRight size={18} />
+              </Link>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Three Steps */}
+      {/* Methodology */}
       <section className="py-24 bg-proxima-black">
         <div className="section-container">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-proxima-cream text-4xl md:text-5xl font-bold font-sans mb-16 text-center"
-          >
-            Three steps to better health
-          </motion.h2>
+          <div className="mb-16">
+            <p className="section-label text-proxima-cream/40 mb-4">Methodology</p>
+            <h2 className="text-proxima-cream">Three Steps to Better Health</h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-proxima-cream/10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { num: "01", title: "Measure", desc: "Baseline blood test identifying 30+ environmental toxins with clinical precision." },
-              { num: "02", title: "Optimize", desc: "Evidence-based protocols and lifestyle changes to reduce ongoing exposure." },
-              { num: "03", title: "Eliminate", desc: "Advanced blood filtration to remove accumulated toxins from the body." }
-            ].map((step, i) => (
-              <motion.div
-                key={step.num}
+              {
+                num: "01",
+                title: "Measure",
+                subtitle: "Diagnostics",
+                desc: "Proxima Health Baseline blood test to identify and measure over 30 environmental toxins with clinical precision.",
+                link: "/diagnostics"
+              },
+              {
+                num: "02",
+                title: "Optimize",
+                subtitle: "Lifestyle",
+                desc: "Evidence based protocols and lifestyle changes to reduce ongoing exposure.",
+                link: "/interventions"
+              },
+              {
+                num: "03",
+                title: "Eliminate",
+                subtitle: "Therapeutics",
+                desc: "Advanced blood filtration to remove accumulated toxins from the body.",
+                link: "/interventions"
+              }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-proxima-black p-10 group"
+                transition={{ delay: i * 0.1 }}
+                className="group"
               >
-                <div className="text-proxima-orange text-sm font-mono mb-6">{step.num}</div>
-                <h3 className="text-proxima-cream text-3xl font-bold mb-4 font-sans">{step.title}</h3>
-                <p className="text-proxima-cream/60 font-sans text-lg leading-relaxed">{step.desc}</p>
+                <span className="block text-8xl font-bold text-proxima-cream/10 leading-none mb-4 font-sans">{item.num}</span>
+                <h3 className="mb-2 text-proxima-cream">{item.title}</h3>
+                <p className="section-label text-proxima-cream/40 mb-6">{item.subtitle}</p>
+                <p className="text-proxima-cream/70 mb-8">{item.desc}</p>
+                <Link 
+                  href={item.link} 
+                  className="inline-flex items-center gap-2 font-sans text-sm font-medium text-proxima-cream/50 hover:text-proxima-cream transition-colors group"
+                >
+                  Learn more 
+                  <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section with Gradient */}
-      <section className="py-24 bg-gradient-to-r from-proxima-maroon via-proxima-red to-proxima-orange relative overflow-hidden">
-        {/* Corner Markers */}
-        <div className="absolute top-8 left-8 text-proxima-cream/40 text-xl">+</div>
-        <div className="absolute top-8 right-8 text-proxima-cream/40 text-xl">+</div>
-        <div className="absolute bottom-8 left-8 text-proxima-cream/40 text-xl">+</div>
-        <div className="absolute bottom-8 right-8 text-proxima-cream/40 text-xl">+</div>
-
-        <div className="section-container text-center relative z-10">
+      {/* CTA */}
+      <section className="py-32 relative overflow-hidden bg-proxima-cream">
+        {/* Background gradient accent */}
+        <div className="absolute top-0 left-0 right-0 h-px proxima-gradient opacity-30" />
+        <div className="section-narrow text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-proxima-cream text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-sans">
-              Your blood tells a story.
-            </h2>
-            <p className="text-proxima-cream/80 text-xl mb-10 max-w-2xl mx-auto font-sans">
-              Discover what's really in your bloodstream with our clinically validated environmental toxin panel.
+            <div className="w-16 h-1 proxima-gradient mx-auto mb-8" />
+            <h2 className="mb-8 text-proxima-black">Estimate your toxin exposure in <span className="text-gradient">two minutes</span></h2>
+            <p className="text-xl text-proxima-black/60 mb-12 max-w-xl mx-auto">
+              Answer a few lifestyle questions. Receive an estimated Toxin Load Score 
+              based on your daily exposure.
             </p>
-            <Link 
-              href="/diagnostics" 
-              className="bg-proxima-cream text-proxima-black px-10 py-5 font-sans font-bold text-sm tracking-wide hover:bg-white transition-colors inline-flex items-center gap-3"
-            >
-              ORDER YOUR TEST <ArrowRight size={18} />
+            <Link href="/waitlist" className="btn-gradient inline-flex items-center gap-3">
+              Begin Assessment <ArrowRight size={18} />
             </Link>
+            <p className="font-mono text-xs text-proxima-black/40 mt-8 text-center mx-auto">
+              No signup required · Results delivered immediately
+            </p>
           </motion.div>
         </div>
-      </section>
-
-      {/* Footer */}
-      <section className="py-12 bg-proxima-black border-t border-proxima-cream/10">
-        <div className="section-container flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-3">
-            <Image src="/assets/icon_blood-circulation_OffWhite.svg" alt="Proxima" width={24} height={32} />
-            <span className="text-proxima-cream font-sans text-xl">
-              <span className="font-bold">Proxima</span><span className="font-light">Health</span>
-            </span>
-          </div>
-          <div className="flex items-center gap-8">
-            <Link href="/science" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">Science</Link>
-            <Link href="/diagnostics" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">Diagnostics</Link>
-            <Link href="/interventions" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">Treatment</Link>
-            <Link href="/practitioners" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">Practitioners</Link>
-            <Link href="/about" className="text-proxima-cream/60 hover:text-proxima-cream font-sans text-sm transition-colors">About</Link>
-          </div>
-          <span className="text-proxima-cream/40 text-sm font-sans">Better Blood. Better Life.</span>
-        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px proxima-gradient-reverse opacity-30" />
       </section>
     </div>
   );
