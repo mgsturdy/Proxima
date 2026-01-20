@@ -64,7 +64,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden lg:block">
           <Link href="/waitlist" className="btn-gradient">
-            Take Assessment
+            FREE TOXIN ASSESSMENT
           </Link>
         </div>
 
@@ -103,7 +103,7 @@ export default function Navbar() {
             className="btn-gradient text-center mt-4"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Take Assessment
+            FREE TOXIN ASSESSMENT
           </Link>
         </div>
       )}

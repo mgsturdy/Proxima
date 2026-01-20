@@ -21,13 +21,12 @@ export default function Home() {
             <div className="w-24 h-1.5 proxima-gradient mb-12" />
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] mb-8 tracking-tight">
-              What's in<br />
-              <span className="italic font-normal text-gradient">your</span> blood?
+              Better blood.<br />
+              <span className="text-gradient">Better life.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl max-w-md leading-relaxed mb-12 text-secondary">
-              140,000 synthetic chemicals. Zero long-term testing. 
-              Now measurable in every human on Earth.
+            <p className="text-xl md:text-2xl max-w-lg leading-relaxed mb-12 text-secondary">
+              Microplastics. PFAS. Heavy metals. We help you understand what's in your blood, then remove what doesn't belong.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
