@@ -79,7 +79,6 @@ export default function AboutPage() {
       <section className="py-24 bg-secondary">
         <div className="section-container">
           <div className="mb-16">
-            <p className="section-label mb-4">Leadership</p>
             <h2>Founding Team</h2>
           </div>
 
@@ -118,7 +117,6 @@ export default function AboutPage() {
       <section className="py-24 bg-primary">
         <div className="section-container">
           <div className="mb-16">
-            <p className="section-label mb-4">Philosophy</p>
             <h2>Core Principles</h2>
           </div>
 
@@ -144,7 +142,6 @@ export default function AboutPage() {
       <section className="py-24 bg-inverse text-inverse">
         <div className="section-container">
           <div className="text-center mb-12">
-            <p className="section-label text-inverse/40 mb-4">Scientific Advisory Board</p>
             <h2 className="text-inverse">Research Collaborations</h2>
           </div>
           
