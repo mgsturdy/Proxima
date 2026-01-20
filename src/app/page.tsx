@@ -62,8 +62,6 @@ export default function Home() {
           />
           {/* Gradient overlay from left */}
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-transparent to-transparent w-1/3" />
-          {/* Bottom gradient bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 proxima-gradient" />
         </div>
 
         {/* Mobile background */}

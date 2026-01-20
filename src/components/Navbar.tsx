@@ -35,12 +35,6 @@ export default function Navbar() {
           : "bg-transparent"
       )}
     >
-      {/* Gradient bar at top */}
-      <div className={cn(
-        "h-1 proxima-gradient transition-opacity duration-300",
-        isScrolled ? "opacity-100" : "opacity-0"
-      )} />
-      
       <div className="section-container py-5 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative">
@@ -86,6 +80,9 @@ export default function Navbar() {
           )}
         </button>
       </div>
+
+      {/* Gradient bar at bottom of navbar */}
+      <div className="h-0.5 proxima-gradient" />
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
