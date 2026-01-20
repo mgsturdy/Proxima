@@ -16,11 +16,11 @@ export default function AlternativePage() {
             src="/assets/siralexfrompt_adult_male-presenting_figure_with_short_light_cur_c5431ccb-00b8-4bfd-8bfa-5aea84fd235b.png"
             alt="Proxima Health"
             fill
-            className="object-cover"
+            className="object-cover object-left"
             priority
           />
-          {/* Subtle gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-proxima-black/70 via-proxima-black/30 to-transparent" />
+          {/* Subtle gradient overlay for text readability - darkens right side */}
+          <div className="absolute inset-0 bg-gradient-to-l from-proxima-black/80 via-proxima-black/40 to-transparent" />
         </div>
 
         {/* Corner Markers */}
@@ -47,13 +47,13 @@ export default function AlternativePage() {
           </span>
         </div>
 
-        {/* Main Content */}
-        <div className="relative z-10 section-container py-32">
+        {/* Main Content - Right aligned */}
+        <div className="relative z-10 section-container py-32 flex justify-end">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-2xl"
           >
             {/* Logo */}
             <motion.div
