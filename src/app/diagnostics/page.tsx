@@ -212,7 +212,7 @@ export default function DiagnosticsPage() {
       {/* Clinical Validity */}
       <section className="py-24 bg-inverse text-inverse">
         <div className="section-narrow">
-          <div className="text-center mb-16">
+          <div className="text-center">
             <Image 
               src="/assets/icon_heartbeat-monitor_OffWhite.svg"
               alt="Clinical"
@@ -220,25 +220,11 @@ export default function DiagnosticsPage() {
               height={48}
               className="mx-auto mb-8 opacity-40"
             />
-            <h2 className="text-inverse mb-6">Clinical-Grade Precision</h2>
+            <h2 className="text-inverse mb-6">Results You Can Trust</h2>
             <p className="text-xl text-inverse/60">
               Our diagnostics are processed in CLIA-certified laboratories using 
               the same mass spectrometry techniques employed by research institutions.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { stat: "99.2%", label: "Accuracy Rate" },
-              { stat: "150+", label: "Biomarkers" },
-              { stat: "LOD", label: "Industry-Leading" },
-              { stat: "ISO 15189", label: "Certified" },
-            ].map((item, i) => (
-              <div key={i}>
-                <span className="font-sans text-3xl font-semibold text-inverse">{item.stat}</span>
-                <p className="font-mono text-xs text-inverse/40 mt-2">{item.label}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
