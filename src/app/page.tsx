@@ -30,11 +30,8 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Link href="/science" className="btn-gradient inline-flex items-center gap-3">
-                The Evidence <ArrowRight size={18} />
-              </Link>
-              <Link href="/diagnostics" className="btn-outline inline-flex items-center gap-3">
-                Get Tested
+              <Link href="/waitlist" className="btn-gradient inline-flex items-center gap-3">
+                FREE TOXIN ASSESSMENT <ArrowRight size={18} />
               </Link>
             </div>
 
@@ -74,7 +71,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats - Redesigned with more visual interest */}
+      {/* Stats Section */}
       <section className="relative overflow-hidden">
         {/* Gradient background bar at top */}
         <div className="h-2 proxima-gradient" />
@@ -86,34 +83,32 @@ export default function Home() {
           }} />
           
           <div className="section-container relative">
-            {/* Section label */}
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-proxima-offwhite/40 font-mono text-xs uppercase tracking-[0.3em] mb-16 text-center"
-            >
-              The Evidence
-            </motion.p>
+            {/* Decorative + signs in gradient colors */}
+            <span className="absolute top-4 left-8 text-3xl font-sans font-light" style={{ color: '#BA000E' }}>+</span>
+            <span className="absolute top-4 right-8 text-3xl font-sans font-light" style={{ color: '#FE091B' }}>+</span>
+            <span className="absolute bottom-4 left-8 text-3xl font-sans font-light" style={{ color: '#FF9D00' }}>+</span>
+            <span className="absolute bottom-4 right-8 text-3xl font-sans font-light" style={{ color: '#FFFBEE' }}>+</span>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
               {[
                 { 
-                  stat: "93%", 
-                  desc: "of Americans carry detectable BPA in their bloodstream", 
-                  src: "CDC NHANES Study",
-                  accent: "#FE091B"
+                  stat: "97%", 
+                  desc: "of Americans have detectable PFAS (forever chemicals) in their bloodstream",
+                  accent: "#BA000E"
                 },
                 { 
                   stat: "287", 
-                  desc: "industrial chemicals found in newborn umbilical cord blood", 
-                  src: "Environmental Working Group",
+                  desc: "industrial chemicals found in newborn umbilical cord blood",
+                  accent: "#FE091B"
+                },
+                { 
+                  stat: "80%", 
+                  desc: "of Americans have detectable microplastics in their bloodstream",
                   accent: "#FF9D00"
                 },
                 { 
-                  stat: "5g", 
-                  desc: "of microplastic particles consumed weekly by the average adult", 
-                  src: "WWF International",
+                  stat: "49%", 
+                  desc: "of Americans have lead, cadmium, mercury and arsenic at or above median levels in their blood",
                   accent: "#FFFBEE"
                 },
               ].map((item, i) => (
@@ -122,7 +117,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.15, duration: 0.6 }}
+                  transition={{ delay: i * 0.1, duration: 0.6 }}
                   className="text-center relative group"
                 >
                   {/* Accent line */}
@@ -131,14 +126,11 @@ export default function Home() {
                     style={{ backgroundColor: item.accent }}
                   />
                   
-                  <span className="block text-6xl md:text-7xl lg:text-8xl font-bold text-proxima-offwhite leading-none font-sans mb-6">
+                  <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-proxima-offwhite leading-none font-sans mb-6">
                     {item.stat}
                   </span>
-                  <p className="text-proxima-offwhite/70 text-lg max-w-xs mx-auto mb-4 font-serif leading-relaxed">
+                  <p className="text-proxima-offwhite/70 text-base max-w-xs mx-auto font-serif leading-relaxed">
                     {item.desc}
-                  </p>
-                  <p className="font-mono text-xs text-proxima-offwhite/30 uppercase tracking-wider">
-                    {item.src}
                   </p>
                 </motion.div>
               ))}
