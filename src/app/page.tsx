@@ -83,13 +83,14 @@ export default function Home() {
           }} />
           
           <div className="section-container relative">
-            {/* Decorative + signs in gradient colors */}
-            <span className="absolute top-4 left-8 text-3xl font-sans font-light" style={{ color: '#BA000E' }}>+</span>
-            <span className="absolute top-4 right-8 text-3xl font-sans font-light" style={{ color: '#FE091B' }}>+</span>
-            <span className="absolute bottom-4 left-8 text-3xl font-sans font-light" style={{ color: '#FF9D00' }}>+</span>
-            <span className="absolute bottom-4 right-8 text-3xl font-sans font-light" style={{ color: '#FFFBEE' }}>+</span>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
+            <div className="relative">
+              {/* Decorative + signs in corners of the grid */}
+              <span className="absolute -top-8 -left-4 text-2xl font-sans font-light" style={{ color: '#BA000E' }}>+</span>
+              <span className="absolute -top-8 -right-4 text-2xl font-sans font-light" style={{ color: '#FE091B' }}>+</span>
+              <span className="absolute -bottom-8 -left-4 text-2xl font-sans font-light" style={{ color: '#FF9D00' }}>+</span>
+              <span className="absolute -bottom-8 -right-4 text-2xl font-sans font-light" style={{ color: '#FFFBEE' }}>+</span>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
               {[
                 { 
                   stat: "97%", 
@@ -134,6 +135,7 @@ export default function Home() {
                   </p>
                 </motion.div>
               ))}
+              </div>
             </div>
           </div>
         </div>
@@ -200,30 +202,30 @@ export default function Home() {
         <div className="section-container">
           <div className="mb-16">
             <p className="section-label mb-4">Methodology</p>
-            <h2>Three steps to optimization</h2>
+            <h2>Three Steps to Better Health</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
                 num: "01",
-                title: "Quantify",
+                title: "Measure",
                 subtitle: "Diagnostics",
-                desc: "Mass spectrometry analysis to identify and measure over 150 environmental toxins with clinical precision.",
+                desc: "Proxima Health Baseline blood test to identify and measure over 30 environmental toxins with clinical precision.",
                 link: "/diagnostics"
               },
               {
                 num: "02",
-                title: "Mitigate",
+                title: "Optimize",
                 subtitle: "Lifestyle",
-                desc: "Evidence-based protocols to reduce ongoing exposure through water, air, and product changes.",
+                desc: "Evidence based protocols and lifestyle changes to reduce ongoing exposure.",
                 link: "/interventions"
               },
               {
                 num: "03",
                 title: "Eliminate",
                 subtitle: "Therapeutics",
-                desc: "Advanced blood filtration to actively remove accumulated lipophilic toxins from the body.",
+                desc: "Advanced blood filtration to remove accumulated toxins from the body.",
                 link: "/interventions"
               }
             ].map((item, i) => (
@@ -263,16 +265,15 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="w-16 h-1 proxima-gradient mx-auto mb-8" />
-            <p className="section-label mb-6">Assessment</p>
-            <h2 className="mb-8">Estimate your exposure in <span className="text-gradient">2 minutes</span></h2>
+            <h2 className="mb-8">Estimate your toxin exposure in <span className="text-gradient">two minutes</span></h2>
             <p className="text-xl text-secondary mb-12 max-w-xl mx-auto">
               Answer a few lifestyle questions. Receive an estimated Toxin Load Score 
-              based on your daily exposure vectors.
+              based on your daily exposure.
             </p>
             <Link href="/waitlist" className="btn-gradient inline-flex items-center gap-3">
               Begin Assessment <ArrowRight size={18} />
             </Link>
-            <p className="font-mono text-xs text-tertiary mt-8">
+            <p className="font-mono text-xs text-tertiary mt-8 text-center mx-auto">
               No signup required · Results delivered immediately
             </p>
           </motion.div>
