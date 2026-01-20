@@ -48,19 +48,19 @@ export default function AlternativePage() {
         </div>
 
         {/* Main Content - Right aligned */}
-        <div className="relative z-10 section-container py-32 flex justify-end">
+        <div className="relative z-10 w-full py-32 flex justify-end pr-8 md:pr-16 lg:pr-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+            className="max-w-lg lg:max-w-xl text-right"
           >
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="flex items-center gap-3 mb-12"
+              className="flex items-center gap-3 mb-12 justify-end"
             >
               <Image src="/assets/icon_blood-circulation_OffWhite.svg" alt="Proxima" width={28} height={36} />
               <span className="text-proxima-cream font-sans text-2xl">
@@ -84,7 +84,7 @@ export default function AlternativePage() {
               initial={{ width: 0 }}
               animate={{ width: 160 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="h-1 proxima-gradient mb-8"
+              className="h-1 proxima-gradient mb-8 ml-auto"
             />
 
             {/* Subheadline */}
@@ -92,7 +92,7 @@ export default function AlternativePage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-proxima-cream/80 text-xl md:text-2xl max-w-xl mb-12 font-sans font-light leading-relaxed"
+              className="text-proxima-cream/80 text-xl md:text-2xl mb-12 font-sans font-light leading-relaxed ml-auto"
             >
               Microplastics. PFAS. Heavy metals. We help you understand what's in your blood, then remove what doesn't belong.
             </motion.p>
@@ -102,6 +102,7 @@ export default function AlternativePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
+              className="flex justify-end"
             >
               <Link 
                 href="/diagnostics" 
