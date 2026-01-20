@@ -198,11 +198,11 @@ export default function Home() {
       </section>
 
       {/* Methodology */}
-      <section className="py-24 bg-secondary">
+      <section className="py-24 bg-proxima-black">
         <div className="section-container">
           <div className="mb-16">
-            <p className="section-label mb-4">Methodology</p>
-            <h2>Three Steps to Better Health</h2>
+            <p className="section-label text-proxima-offwhite/40 mb-4">Methodology</p>
+            <h2 className="text-proxima-offwhite">Three Steps to Better Health</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -237,13 +237,13 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="group"
               >
-                <span className="block text-8xl font-bold opacity-[0.08] leading-none mb-4 font-sans">{item.num}</span>
-                <h3 className="mb-2">{item.title}</h3>
-                <p className="section-label mb-6">{item.subtitle}</p>
-                <p className="text-secondary mb-8">{item.desc}</p>
+                <span className="block text-8xl font-bold text-proxima-offwhite/10 leading-none mb-4 font-sans">{item.num}</span>
+                <h3 className="mb-2 text-proxima-offwhite">{item.title}</h3>
+                <p className="section-label text-proxima-offwhite/40 mb-6">{item.subtitle}</p>
+                <p className="text-proxima-offwhite/70 mb-8">{item.desc}</p>
                 <Link 
                   href={item.link} 
-                  className="inline-flex items-center gap-2 font-sans text-sm font-medium text-tertiary hover:text-primary transition-colors group"
+                  className="inline-flex items-center gap-2 font-sans text-sm font-medium text-proxima-offwhite/50 hover:text-proxima-offwhite transition-colors group"
                 >
                   Learn more 
                   <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
