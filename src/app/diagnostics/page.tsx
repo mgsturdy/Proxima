@@ -63,10 +63,10 @@ export default function DiagnosticsPage() {
               className="relative aspect-square bg-inverse"
             >
               <Image 
-                src="/assets/freepik__isola-a-maquina-para-criar-uma-foto-de-produto-man__41342.png"
+                src="/assets/diagnostic.png"
                 alt="Proxima Baseline Kit"
                 fill
-                className="object-contain p-16 opacity-80"
+                className="object-contain p-16"
               />
               <div className="absolute top-6 left-6 bg-proxima-red px-3 py-1">
                 <span className="font-mono text-xs text-proxima-cream uppercase tracking-wider">Early Access</span>
@@ -81,13 +81,14 @@ export default function DiagnosticsPage() {
               viewport={{ once: true }}
               className="flex flex-col justify-center"
             >
-              <h2 className="mb-6">Complete Toxin Panel</h2>
+              <h2 className="mb-6">Every reset begins with the truth</h2>
               <div className="prose-editorial text-secondary mb-8">
                 <p>
-                  A simple finger-prick collection at home. Ship to our 
-                  mass-spectrometry facility. Receive your comprehensive 
-                  40-page clinical report with quantified measurements and 
-                  specific mitigation protocols.
+                  Proxima Health Baseline™ provides an honest assessment of the 
+                  environmental toxins currently in your bloodstream. By quantifying 
+                  your exposure to PFAS, heavy metals and further critical toxin markers, 
+                  we establish the scientific foundation required to begin your journey 
+                  toward recovery and longevity.
                 </p>
               </div>
 
