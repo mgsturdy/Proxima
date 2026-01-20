@@ -9,21 +9,21 @@ export default function InterventionsPage() {
   return (
     <div className="min-h-screen pt-24 bg-primary text-primary">
       {/* Therapeutic Filtration */}
-      <section className="py-24 bg-inverse text-inverse">
+      <section className="py-24 bg-proxima-black">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-5">
-              <h2 className="text-inverse mb-6">INUSpheresis®</h2>
+              <h2 className="text-proxima-offwhite mb-6">INUSpheresis®</h2>
               
-              <div className="prose-editorial text-inverse/70 mb-8">
-                <p>
+              <div className="mb-8 space-y-4">
+                <p className="text-proxima-offwhite/80 text-lg leading-relaxed">
                   For decades, therapeutic blood filtration has been used in European 
                   clinical settings to help physicians reduce circulating environmental 
                   toxins and support the body's natural recovery processes. Proxima Health 
                   is bringing this science to the United States carefully, responsibly 
                   and grounded in evidence.
                 </p>
-                <p>
+                <p className="text-proxima-offwhite/80 text-lg leading-relaxed">
                   Our work is underway. Availability is expected in 2027.
                 </p>
               </div>
