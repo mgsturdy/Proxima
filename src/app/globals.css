@@ -311,4 +311,20 @@
   .prose-editorial h3 {
     @apply mt-12 mb-6;
   }
+
+  /* Slide down animation for navbar */
+  .animate-slideDown {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 }

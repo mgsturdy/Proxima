@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero - Cinematic Split */}
-      <section className="min-h-screen relative flex">
+      <section className="min-h-screen relative flex pt-20">
         {/* Left - Content */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-32 pt-32 relative z-10">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-16 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -47,26 +47,21 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Right - Hero Image (starts below navbar with cream bar at top) */}
+        {/* Right - Hero Image */}
         <div className="hidden lg:block w-1/2 relative">
-          {/* Cream bar at top where navbar sits */}
-          <div className="absolute top-0 left-0 right-0 h-24 bg-primary z-10" />
-          {/* Image starts below navbar area */}
-          <div className="absolute top-24 left-0 right-0 bottom-0">
-            <Image 
-              src="/assets/freepik__f4b551c0e94b4cecbc46024fad0f4b60assistant-2-img1-t__36844.png"
-              alt="Close-up clinical"
-              fill
-              className="object-cover"
-              priority
-            />
-            {/* Gradient overlay from left */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-transparent to-transparent w-1/3" />
-          </div>
+          <Image 
+            src="/assets/freepik__f4b551c0e94b4cecbc46024fad0f4b60assistant-2-img1-t__36844.png"
+            alt="Close-up clinical"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Gradient overlay from left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-transparent to-transparent w-1/3" />
         </div>
 
         {/* Mobile background */}
-        <div className="lg:hidden absolute inset-x-0 top-24 bottom-0 -z-10">
+        <div className="lg:hidden absolute inset-0 top-20 -z-10">
           <Image 
             src="/assets/freepik__f4b551c0e94b4cecbc46024fad0f4b60assistant-2-img1-t__36844.png"
             alt=""

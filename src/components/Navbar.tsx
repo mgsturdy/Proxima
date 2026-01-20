@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -17,22 +18,31 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isAlternativePage = pathname === "/alternative";
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // On alternative page, hide navbar until scroll
+  if (isAlternativePage && !isScrolled) {
+    return null;
+  }
+
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled 
-          ? "bg-primary backdrop-blur-sm" 
-          : "bg-transparent"
+        isAlternativePage 
+          ? "bg-primary animate-slideDown" 
+          : isScrolled 
+            ? "bg-primary backdrop-blur-sm" 
+            : "bg-primary"
       )}
     >
       <div className="section-container py-5 flex items-center justify-between">
