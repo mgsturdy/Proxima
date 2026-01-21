@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const CORRECT_PASSWORD = "proximusprime";
+const CORRECT_PASSWORD = "foryourreview";
 
 export default function PasswordGate({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
