@@ -92,7 +92,7 @@ export default function QuizPage() {
             >
               <div className="w-16 h-1 proxima-gradient mb-6" />
               <p className="section-label mb-4">Assessment Tool</p>
-              <h1 className="mb-6">Toxin Load <span className="text-gradient">Estimator</span></h1>
+              <h1 className="mb-6">Toxin Load Estimator</h1>
               <p className="text-xl text-secondary max-w-xl leading-relaxed mb-8">
                 This 2-minute assessment estimates your environmental toxin 
                 exposure based on lifestyle factors. For clinical verification, 

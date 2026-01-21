@@ -28,7 +28,7 @@ export default function PractitionersPage() {
       <header className="py-16 border-b border-border-primary relative">
         <div className="section-container">
           <div className="w-16 h-1 proxima-gradient mb-6" />
-          <h1 className="mb-6">Practitioner <span className="text-gradient">Partnerships</span></h1>
+          <h1 className="mb-6">Practitioner Partnerships</h1>
           <p className="text-xl text-secondary max-w-2xl leading-relaxed">
             We provide advanced diagnostics and evidence-based clinical protocols. 
             You bring medical oversight and patient care. Together, we help patients 

@@ -42,7 +42,7 @@ export default function AboutPage() {
       <header className="py-16 border-b border-border-primary relative">
         <div className="section-container">
           <div className="w-16 h-1 proxima-gradient mb-6" />
-          <h1 className="mb-8">Proxima <span className="text-gradient">Health</span></h1>
+          <h1 className="mb-8">Proxima Health</h1>
         </div>
       </header>
 

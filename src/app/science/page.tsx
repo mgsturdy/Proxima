@@ -106,7 +106,7 @@ export default function SciencePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8">
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <h1 className="mb-6">The science behind <span className="text-gradient">environmental toxins</span></h1>
+              <h1 className="mb-6">The science behind environmental toxins</h1>
               <p className="text-xl text-secondary max-w-2xl leading-relaxed">
                 You deserve to understand exactly what is happening in your body and what 
                 the science says about it. We've organized the latest research on toxins 

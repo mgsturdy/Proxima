@@ -19,7 +19,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isAlternativePage = pathname === "/alternative";
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,8 +29,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // On alternative page, hide navbar until scroll
-  if (isAlternativePage && !isScrolled) {
+  // On homepage, hide navbar until scroll
+  if (isHomePage && !isScrolled) {
     return null;
   }
 
@@ -38,7 +38,7 @@ export default function Navbar() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isAlternativePage 
+        isHomePage 
           ? "bg-primary animate-slideDown" 
           : isScrolled 
             ? "bg-primary backdrop-blur-sm" 

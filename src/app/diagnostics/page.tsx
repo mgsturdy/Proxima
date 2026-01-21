@@ -23,7 +23,7 @@ export default function DiagnosticsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-7">
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <h1 className="mb-6">Proxima Health <span className="text-gradient">Baseline</span>™</h1>
+              <h1 className="mb-6">Proxima Health Baseline™</h1>
               <p className="text-xl text-secondary max-w-xl leading-relaxed">
                 A clinically validated at-home test designed to measure environmental 
                 toxin load with precision. Built on proven science, so you can understand 
