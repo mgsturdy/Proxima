@@ -59,7 +59,7 @@ export default function DiagnosticsPage() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative aspect-square bg-inverse"
+              className="relative aspect-square"
             >
               <Image 
                 src="/assets/diagnostic.png"
@@ -80,7 +80,7 @@ export default function DiagnosticsPage() {
               viewport={{ once: true }}
               className="flex flex-col justify-center"
             >
-              <h2 className="mb-6">Every reset begins with the truth</h2>
+              <h2 className="mb-6">Every reset begins<br />with the truth</h2>
               <div className="prose-editorial text-secondary mb-8">
                 <p>
                   Proxima Health Baseline™ provides an honest assessment of the 

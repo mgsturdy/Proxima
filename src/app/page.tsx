@@ -97,7 +97,9 @@ export default function Home() {
               transition={{ delay: 0.6 }}
               className="text-proxima-cream/80 text-xl md:text-2xl mb-12 font-sans font-light leading-relaxed ml-auto"
             >
-              Microplastics. PFAS. Heavy metals. We help you understand what's in your blood, then remove what doesn't belong.
+              Microplastics. PFAS. Heavy metals.<br /><br />
+              We help you understand what's in your blood,<br />
+              then remove what doesn't belong.
             </motion.p>
 
             {/* CTA Button */}
