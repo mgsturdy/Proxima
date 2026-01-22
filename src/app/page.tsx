@@ -24,15 +24,15 @@ export default function Home() {
         </div>
 
         {/* Corner Markers */}
-        <div className="absolute top-8 left-8 text-proxima-cream/50 text-xl font-light">+</div>
-        <div className="absolute top-8 right-8 text-proxima-cream/50 text-xl font-light">+</div>
-        <div className="absolute bottom-8 left-8 text-proxima-cream/50 text-xl font-light">+</div>
-        <div className="absolute bottom-8 right-8 text-proxima-cream/50 text-xl font-light">+</div>
+        <div className="absolute top-8 left-8 text-proxima-cream/50 text-xl font-light font-mono">+</div>
+        <div className="absolute top-8 right-8 text-proxima-cream/50 text-xl font-light font-mono">+</div>
+        <div className="absolute bottom-8 left-8 text-proxima-cream/50 text-xl font-light font-mono">+</div>
+        <div className="absolute bottom-8 right-8 text-proxima-cream/50 text-xl font-light font-mono">+</div>
 
-        {/* Vertical Side Text */}
+        {/* Vertical Side Text - DM Mono uppercase */}
         <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block">
           <span 
-            className="text-proxima-cream/60 text-xs tracking-[0.4em] uppercase font-sans"
+            className="text-proxima-cream/60 text-xs tracking-[0.4em] uppercase font-mono"
             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
           >
             Proxima Health
@@ -40,7 +40,7 @@ export default function Home() {
         </div>
         <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block">
           <span 
-            className="text-proxima-cream/60 text-xs tracking-[0.4em] uppercase font-sans"
+            className="text-proxima-cream/60 text-xs tracking-[0.4em] uppercase font-mono"
             style={{ writingMode: 'vertical-rl' }}
           >
             Better Blood Better Life
@@ -53,7 +53,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-lg lg:max-w-xl text-right"
+            className="max-w-lg lg:max-w-2xl text-right"
           >
             {/* Logo */}
             <motion.div
@@ -71,19 +71,19 @@ export default function Home() {
               />
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Main Headline - Darker Grotesque */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-8 flex flex-col items-end gap-2"
+              className="mb-8 flex flex-col items-end gap-3"
             >
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-display leading-none">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2">Better blood.</span>
-              </h1>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-display leading-none">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2">Better life.</span>
-              </h1>
+              <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2 text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-none whitespace-nowrap">
+                Better blood.
+              </span>
+              <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2 text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-none whitespace-nowrap">
+                Better life.
+              </span>
             </motion.div>
 
             {/* Gradient Bar */}
@@ -94,19 +94,19 @@ export default function Home() {
               className="h-1 proxima-gradient mb-8 ml-auto"
             />
 
-            {/* Subheadline */}
+            {/* Subheadline - DM Mono uppercase */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-proxima-cream/80 text-base md:text-lg mb-12 font-mono uppercase tracking-wider leading-relaxed ml-auto"
+              className="text-proxima-cream/80 text-sm md:text-base mb-12 font-mono uppercase tracking-wider leading-relaxed ml-auto"
             >
               Microplastics. PFAS. Heavy metals.<br /><br />
-              We help you understand what's in your blood,<br />
-              then remove what doesn't belong.
+              We help you understand what&apos;s in your blood,<br />
+              then remove what doesn&apos;t belong.
             </motion.p>
 
-            {/* CTA Button */}
+            {/* CTA Button - DM Mono uppercase */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -141,10 +141,10 @@ export default function Home() {
           <div className="section-container relative">
             <div className="relative">
               {/* Decorative + signs in corners of the grid */}
-              <span className="absolute -top-8 -left-4 text-2xl font-sans font-light" style={{ color: '#BA000E' }}>+</span>
-              <span className="absolute -top-8 -right-4 text-2xl font-sans font-light" style={{ color: '#FE091B' }}>+</span>
-              <span className="absolute -bottom-8 -left-4 text-2xl font-sans font-light" style={{ color: '#FF9D00' }}>+</span>
-              <span className="absolute -bottom-8 -right-4 text-2xl font-sans font-light" style={{ color: '#FFFBEE' }}>+</span>
+              <span className="absolute -top-8 -left-4 text-2xl font-mono font-light" style={{ color: '#BA000E' }}>+</span>
+              <span className="absolute -top-8 -right-4 text-2xl font-mono font-light" style={{ color: '#FE091B' }}>+</span>
+              <span className="absolute -bottom-8 -left-4 text-2xl font-mono font-light" style={{ color: '#FF9D00' }}>+</span>
+              <span className="absolute -bottom-8 -right-4 text-2xl font-mono font-light" style={{ color: '#FFFBEE' }}>+</span>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
               {[
@@ -183,10 +183,12 @@ export default function Home() {
                     style={{ backgroundColor: item.accent }}
                   />
                   
-                  <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-proxima-cream leading-none font-sans mb-6">
+                  {/* Stat number - Darker Grotesque */}
+                  <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-proxima-cream leading-none font-display mb-6">
                     {item.stat}
                   </span>
-                  <p className="text-proxima-cream/70 text-base max-w-xs mx-auto font-serif leading-relaxed">
+                  {/* Description - Archivo */}
+                  <p className="text-proxima-cream/70 text-base max-w-xs mx-auto font-sans leading-relaxed">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -228,23 +230,27 @@ export default function Home() {
               viewport={{ once: true }}
               className="order-1 lg:order-2"
             >
-              <p className="section-label mb-4">The Invisible Crisis</p>
-              <h2 className="mb-8 text-proxima-black">We are the first generation to carry environmental toxins in our blood from birth.</h2>
+              {/* Section label - DM Mono uppercase */}
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-black/40 mb-4">The Invisible Crisis</p>
+              {/* Heading - Darker Grotesque */}
+              <h2 className="mb-8 text-proxima-black font-display">We are the first generation to carry environmental toxins in our blood from birth.</h2>
               
-              <div className="prose-editorial mb-12">
-                <p className="text-proxima-black/70">
+              {/* Body text - Archivo */}
+              <div className="mb-12 space-y-6">
+                <p className="text-proxima-black/70 font-sans text-lg leading-relaxed">
                   Since the 1950s, over 140,000 synthetic compounds have entered our world 
-                  and our bloodstream. From microplastics to "forever chemicals," these 
+                  and our bloodstream. From microplastics to &quot;forever chemicals,&quot; these 
                   substances were never meant to be part of our biology.
                 </p>
-                <p className="text-proxima-black/70">
+                <p className="text-proxima-black/70 font-sans text-lg leading-relaxed">
                   We believe you deserve a clean slate. Proxima Health provides the rigorous, 
                   peer-reviewed science to identify these toxins and the proven technology to 
-                  remove them. We don't just believe in better days ahead; we have the science 
+                  remove them. We don&apos;t just believe in better days ahead; we have the science 
                   to make them happen.
                 </p>
               </div>
 
+              {/* Button - DM Mono uppercase */}
               <Link href="/diagnostics" className="btn-gradient inline-flex items-center gap-3">
                 Order environmental toxin blood test <ArrowRight size={18} />
               </Link>
@@ -257,8 +263,10 @@ export default function Home() {
       <section className="py-24 bg-proxima-black">
         <div className="section-container">
           <div className="mb-16">
-            <p className="section-label text-proxima-cream/40 mb-4">Methodology</p>
-            <h2 className="text-proxima-cream">Three Steps to Better Health</h2>
+            {/* Section label - DM Mono uppercase */}
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-cream/40 mb-4">Methodology</p>
+            {/* Heading - Darker Grotesque */}
+            <h2 className="text-proxima-cream font-display">Three Steps to Better Health</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -293,13 +301,18 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="group"
               >
-                <span className="block text-8xl font-bold text-proxima-cream/10 leading-none mb-4 font-sans">{item.num}</span>
-                <h3 className="mb-2 text-proxima-cream">{item.title}</h3>
-                <p className="section-label text-proxima-cream/40 mb-6">{item.subtitle}</p>
-                <p className="text-proxima-cream/70 mb-8">{item.desc}</p>
+                {/* Number - Darker Grotesque */}
+                <span className="block text-8xl font-bold text-proxima-cream/10 leading-none mb-4 font-display">{item.num}</span>
+                {/* Title - Darker Grotesque */}
+                <h3 className="mb-2 text-proxima-cream font-display">{item.title}</h3>
+                {/* Subtitle - DM Mono uppercase */}
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-cream/40 mb-6">{item.subtitle}</p>
+                {/* Description - Archivo */}
+                <p className="text-proxima-cream/70 font-sans mb-8">{item.desc}</p>
+                {/* Link - DM Mono */}
                 <Link 
                   href={item.link} 
-                  className="inline-flex items-center gap-2 font-sans text-sm font-medium text-proxima-cream/50 hover:text-proxima-cream transition-colors group"
+                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-cream/50 hover:text-proxima-cream transition-colors group"
                 >
                   Learn more 
                   <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -321,15 +334,19 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="w-16 h-1 proxima-gradient mx-auto mb-8" />
-            <h2 className="mb-8 text-proxima-black">Estimate your toxin exposure in two minutes</h2>
-            <p className="text-xl text-proxima-black/60 mb-12 max-w-xl mx-auto">
+            {/* Heading - Darker Grotesque */}
+            <h2 className="mb-8 text-proxima-black font-display">Estimate your toxin exposure in two minutes</h2>
+            {/* Body - Archivo */}
+            <p className="text-xl text-proxima-black/60 font-sans mb-12 max-w-xl mx-auto">
               Answer a few lifestyle questions. Receive an estimated Toxin Load Score 
               based on your daily exposure.
             </p>
+            {/* Button - DM Mono uppercase */}
             <Link href="/waitlist" className="btn-gradient inline-flex items-center gap-3">
               Begin Assessment <ArrowRight size={18} />
             </Link>
-            <p className="font-mono text-xs text-proxima-black/40 mt-8 text-center mx-auto">
+            {/* Small text - DM Mono */}
+            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/40 mt-8 text-center mx-auto">
               No signup required · Results delivered immediately
             </p>
           </motion.div>
