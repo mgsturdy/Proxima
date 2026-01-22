@@ -49,7 +49,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Archivo', -apple-system, sans-serif;
-    @apply font-normal tracking-tight italic;
+    @apply font-semibold tracking-tight;
     line-height: 1.1;
     color: var(--text-primary);
   }
@@ -177,7 +177,7 @@
 
   /* Pull Quotes */
   .pull-quote {
-    @apply text-3xl md:text-4xl font-normal leading-snug border-l-4 pl-8 italic;
+    @apply text-3xl md:text-4xl font-light leading-snug border-l-4 pl-8;
     border-color: var(--proxima-red);
     font-family: 'Archivo', sans-serif;
   }
