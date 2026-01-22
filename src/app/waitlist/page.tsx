@@ -93,9 +93,7 @@ export default function QuizPage() {
               <div className="w-16 h-1 proxima-gradient mb-6" />
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Assessment Tool</p>
               <h1 className="mb-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
-                  Toxin Load Estimator
-                </span>
+                Toxin Load Estimator
               </h1>
               <p className="text-xl text-secondary max-w-xl leading-relaxed mb-8 font-sans">
                 This 2-minute assessment estimates your environmental toxin 
@@ -144,9 +142,7 @@ export default function QuizPage() {
               </div>
 
               <h2 className="mb-12 max-w-2xl font-display text-2xl md:text-3xl font-bold">
-                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
-                  {questions[step - 1].question}
-                </span>
+                {questions[step - 1].question}
               </h2>
 
               <div className="space-y-3">
@@ -191,7 +187,7 @@ export default function QuizPage() {
             >
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Assessment Complete</p>
               <h1 className="mb-12 font-display text-4xl md:text-5xl font-bold">
-                <span className="bg-proxima-black text-proxima-cream px-3 py-1">Your Results</span>
+                Your Results
               </h1>
 
               {/* Score Card */}
