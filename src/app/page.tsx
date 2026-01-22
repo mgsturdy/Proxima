@@ -76,11 +76,13 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-8"
+              className="mb-8 flex flex-col items-end gap-2"
             >
-              <h1 className="inline bg-proxima-black text-proxima-cream text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.15] font-sans px-4 py-2 box-decoration-clone">
-                Better blood.<br />
-                Better life.
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-sans leading-none">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2">Better blood.</span>
+              </h1>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-sans leading-none">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2">Better life.</span>
               </h1>
             </motion.div>
 
