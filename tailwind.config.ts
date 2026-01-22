@@ -23,9 +23,7 @@ const config: Config = {
         sans: ["Archivo", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
         serif: ["Archivo", "Georgia", "serif"],
         mono: ["DM Mono", "monospace"],
-        numbers: ["Darker Grotesque", "sans-serif"],
-        headline: ["Archivo", "sans-serif"],
-        subheading: ["DM Mono", "monospace"],
+        display: ["Darker Grotesque", "sans-serif"],
       },
       backgroundImage: {
         "proxima-gradient": "linear-gradient(90deg, #BA000E 0%, #FE091B 25%, #FF9D00 50%, #FFFBEE 100%)",

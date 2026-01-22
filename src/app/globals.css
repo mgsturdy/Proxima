@@ -48,8 +48,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Archivo', -apple-system, sans-serif;
-    @apply font-semibold tracking-tight;
+    font-family: 'Darker Grotesque', sans-serif;
+    @apply font-bold tracking-tight;
     line-height: 1.1;
     color: var(--text-primary);
   }
