@@ -97,7 +97,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-proxima-cream/80 text-xl md:text-2xl mb-12 font-sans font-light leading-relaxed ml-auto"
+              className="text-proxima-cream/80 text-base md:text-lg mb-12 font-mono uppercase tracking-wider leading-relaxed ml-auto"
             >
               Microplastics. PFAS. Heavy metals.<br /><br />
               We help you understand what's in your blood,<br />
