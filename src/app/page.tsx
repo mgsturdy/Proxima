@@ -78,10 +78,10 @@ export default function Home() {
               transition={{ delay: 0.3 }}
               className="mb-8 flex flex-col items-end gap-2"
             >
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-sans leading-none">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-display leading-none">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2">Better blood.</span>
               </h1>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-sans leading-none">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-display leading-none">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2">Better life.</span>
               </h1>
             </motion.div>
