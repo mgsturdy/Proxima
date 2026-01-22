@@ -72,15 +72,17 @@ export default function Home() {
             </motion.div>
 
             {/* Main Headline */}
-            <motion.h1
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-proxima-cream text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] mb-8 font-sans"
+              className="mb-8"
             >
-              Better blood.<br />
-              Better life.
-            </motion.h1>
+              <h1 className="inline bg-proxima-black text-proxima-cream text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.15] font-sans px-4 py-2 box-decoration-clone">
+                Better blood.<br />
+                Better life.
+              </h1>
+            </motion.div>
 
             {/* Gradient Bar */}
             <motion.div
