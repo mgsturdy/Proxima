@@ -215,7 +215,7 @@ export default function Home() {
             >
               <div className="aspect-[4/3] relative">
                 <Image 
-                  src="/assets/freepik__melhora-a-textura-da-cara-para-adicionar-detalhe-e__36852.png"
+                  src="/assets/freepik__muda-a-farda-para-off-white__36851.png"
                   alt="Clinical Care"
                   fill
                   className="object-cover"
