@@ -47,9 +47,7 @@ export default function PractitionersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
             <div>
-              <h2 className="mb-8 font-display text-2xl md:text-3xl font-bold">
-                <span className="bg-proxima-black text-proxima-cream px-2 py-1">Partnership Inquiry</span>
-              </h2>
+              <h2 className="mb-8 font-display text-2xl md:text-3xl font-bold">Partnership Inquiry</h2>
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-2 gap-4">
                   <div>

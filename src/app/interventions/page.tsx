@@ -50,13 +50,13 @@ export default function InterventionsPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-primary">
+      {/* CTA - Black background */}
+      <section className="py-24 bg-proxima-black">
         <div className="section-narrow text-center">
-          <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold inline-block">
-            <span className="bg-proxima-black text-proxima-cream px-3 py-1">Intervention starts with measurement</span>
+          <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold text-proxima-cream">
+            Intervention starts with measurement
           </h2>
-          <p className="text-xl text-secondary mb-12 max-w-xl mx-auto font-sans">
+          <p className="text-xl text-proxima-cream/70 mb-12 max-w-xl mx-auto font-sans">
             Before implementing any intervention protocol, establish your 
             baseline toxin levels through clinical diagnostics.
           </p>

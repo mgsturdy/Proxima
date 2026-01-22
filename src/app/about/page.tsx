@@ -83,9 +83,7 @@ export default function AboutPage() {
       <section className="py-24 bg-secondary">
         <div className="section-container">
           <div className="mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
-              <span className="bg-proxima-black text-proxima-cream px-3 py-1">Founding Team</span>
-            </h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold">Founding Team</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -123,9 +121,7 @@ export default function AboutPage() {
       <section className="py-24 bg-primary">
         <div className="section-container">
           <div className="mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
-              <span className="bg-proxima-black text-proxima-cream px-3 py-1">Core Principles</span>
-            </h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold">Core Principles</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

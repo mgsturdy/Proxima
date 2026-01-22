@@ -342,11 +342,9 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="w-16 h-1 proxima-gradient mx-auto mb-8" />
-            {/* Heading - Darker Grotesque with black bg */}
-            <h2 className="mb-8 font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight inline-block">
-              <span className="bg-proxima-black text-proxima-cream px-4 py-2">
-                Estimate your toxin exposure in two minutes
-              </span>
+            {/* Heading - Darker Grotesque */}
+            <h2 className="mb-8 font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-proxima-black">
+              Estimate your toxin exposure in two minutes
             </h2>
             {/* Body - Archivo */}
             <p className="text-xl text-proxima-black/60 font-sans mb-12 max-w-xl mx-auto">

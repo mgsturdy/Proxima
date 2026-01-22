@@ -85,9 +85,7 @@ export default function DiagnosticsPage() {
               className="flex flex-col justify-center"
             >
               <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold leading-tight">
-                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
-                  Every reset begins with the truth
-                </span>
+                Every reset begins with the truth
               </h2>
               <div className="text-secondary mb-8 font-sans text-lg leading-relaxed">
                 <p>
@@ -138,9 +136,7 @@ export default function DiagnosticsPage() {
         <div className="section-container">
           <div className="mb-16">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Methodology</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
-              <span className="bg-proxima-black text-proxima-cream px-3 py-1">What We Measure</span>
-            </h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold">What We Measure</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -180,9 +176,7 @@ export default function DiagnosticsPage() {
         <div className="section-container">
           <div className="mb-16 text-center">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Process</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
-              <span className="bg-proxima-black text-proxima-cream px-3 py-1">How It Works</span>
-            </h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold">How It Works</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
@@ -231,8 +225,8 @@ export default function DiagnosticsPage() {
               height={48}
               className="mx-auto mb-8 opacity-40"
             />
-            <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold inline-block">
-              <span className="bg-proxima-cream text-proxima-black px-3 py-1">Results You Can Trust</span>
+            <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold text-proxima-cream">
+              Results You Can Trust
             </h2>
             <p className="text-xl text-inverse/60 font-sans">
               Our diagnostics are processed in CLIA-certified laboratories using 
