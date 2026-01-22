@@ -146,8 +146,8 @@ export default function AboutPage() {
       <section className="py-24 bg-inverse text-inverse">
         <div className="section-container">
           <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
-              <span className="bg-proxima-cream text-proxima-black px-3 py-1">Research Collaborations</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-proxima-cream">
+              Research Collaborations
             </h2>
           </div>
           

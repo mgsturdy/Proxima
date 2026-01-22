@@ -230,8 +230,8 @@ export default function SciencePage() {
             height={48}
             className="mx-auto mb-8 opacity-40"
           />
-          <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold inline-block">
-            <span className="bg-proxima-cream text-proxima-black px-3 py-1">From Theory to Measurement</span>
+          <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold text-proxima-cream">
+            From Theory to Measurement
           </h2>
           <p className="text-xl text-inverse/60 mb-12 max-w-xl mx-auto font-sans">
             Understanding the science is step one. Quantifying your personal 
