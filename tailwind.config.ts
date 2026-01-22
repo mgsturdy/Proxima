@@ -20,9 +20,12 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["IBM Plex Sans", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-        serif: ["IBM Plex Serif", "Georgia", "serif"],
-        mono: ["IBM Plex Mono", "monospace"],
+        sans: ["Archivo", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        serif: ["Archivo", "Georgia", "serif"],
+        mono: ["DM Mono", "monospace"],
+        numbers: ["Darker Grotesque", "sans-serif"],
+        headline: ["Archivo", "sans-serif"],
+        subheading: ["DM Mono", "monospace"],
       },
       backgroundImage: {
         "proxima-gradient": "linear-gradient(90deg, #BA000E 0%, #FE091B 25%, #FF9D00 50%, #FFFBEE 100%)",
