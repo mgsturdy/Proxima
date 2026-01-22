@@ -172,8 +172,8 @@ export default function QuizPage() {
               <div className="inline-block animate-spin mb-8">
                 <RotateCcw size={48} className="text-tertiary" />
               </div>
-              <h3 className="font-display">Analyzing responses...</h3>
-              <p className="text-tertiary mt-2 font-mono text-sm uppercase tracking-wider">Calculating estimated exposure</p>
+              <h3 className="font-display text-center">Analyzing responses...</h3>
+              <p className="text-tertiary mt-2 font-mono text-sm uppercase tracking-wider text-center">Calculating estimated exposure</p>
             </motion.div>
           )}
 
