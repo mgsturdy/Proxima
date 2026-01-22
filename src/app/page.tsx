@@ -115,9 +115,9 @@ export default function Home() {
             >
               <Link 
                 href="/diagnostics" 
-                className="bg-proxima-cream text-proxima-black px-10 py-5 font-sans font-bold text-sm tracking-wide hover:bg-white transition-colors inline-flex items-center gap-3"
+                className="bg-proxima-cream text-proxima-black px-10 py-5 font-mono font-medium text-sm tracking-wider uppercase hover:bg-white transition-colors inline-flex items-center gap-3"
               >
-                FREE TOXIN ASSESSMENT <ArrowRight size={18} />
+                Free Toxin Assessment <ArrowRight size={18} />
               </Link>
             </motion.div>
           </motion.div>
