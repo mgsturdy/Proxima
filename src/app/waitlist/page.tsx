@@ -91,17 +91,17 @@ export default function QuizPage() {
               className="py-16"
             >
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <p className="section-label mb-4">Assessment Tool</p>
-              <h1 className="mb-6">Toxin Load Estimator</h1>
-              <p className="text-xl text-secondary max-w-xl leading-relaxed mb-8">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Assessment Tool</p>
+              <h1 className="mb-6 font-display">Toxin Load Estimator</h1>
+              <p className="text-xl text-secondary max-w-xl leading-relaxed mb-8 font-sans">
                 This 2-minute assessment estimates your environmental toxin 
                 exposure based on lifestyle factors. For clinical verification, 
                 we recommend our Baseline™ diagnostic panel.
               </p>
               
               <div className="bg-secondary border border-border-primary p-6 mb-12">
-                <p className="font-mono text-xs text-tertiary uppercase tracking-wider mb-2">Disclaimer</p>
-                <p className="text-sm text-secondary">
+                <p className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] mb-2">Disclaimer</p>
+                <p className="text-sm text-secondary font-sans">
                   This assessment provides an estimate based on self-reported lifestyle factors. 
                   It is not a medical diagnosis. Actual toxin levels can only be determined 
                   through clinical blood analysis.
@@ -128,7 +128,7 @@ export default function QuizPage() {
             >
               {/* Progress */}
               <div className="flex items-center gap-4 mb-12">
-                <span className="font-mono text-sm text-tertiary">
+                <span className="font-mono text-sm text-tertiary uppercase tracking-wider">
                   {step} of {questions.length}
                 </span>
                 <div className="flex-1 h-px bg-border-primary">
@@ -139,7 +139,7 @@ export default function QuizPage() {
                 </div>
               </div>
 
-              <h2 className="mb-12 max-w-2xl">{questions[step - 1].question}</h2>
+              <h2 className="mb-12 max-w-2xl font-display">{questions[step - 1].question}</h2>
 
               <div className="space-y-3">
                 {questions[step - 1].options.map((option, i) => (
@@ -168,8 +168,8 @@ export default function QuizPage() {
               <div className="inline-block animate-spin mb-8">
                 <RotateCcw size={48} className="text-tertiary" />
               </div>
-              <h3>Analyzing responses...</h3>
-              <p className="text-tertiary mt-2">Calculating estimated exposure</p>
+              <h3 className="font-display">Analyzing responses...</h3>
+              <p className="text-tertiary mt-2 font-mono text-sm uppercase tracking-wider">Calculating estimated exposure</p>
             </motion.div>
           )}
 
@@ -181,30 +181,30 @@ export default function QuizPage() {
               animate={{ opacity: 1, scale: 1 }}
               className="py-16"
             >
-              <p className="section-label mb-4">Assessment Complete</p>
-              <h1 className="mb-12">Your Results</h1>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Assessment Complete</p>
+              <h1 className="mb-12 font-display">Your Results</h1>
 
               {/* Score Card */}
               <div className="bg-secondary border border-border-primary p-8 md:p-12 mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div>
-                    <p className="font-mono text-xs text-tertiary uppercase tracking-wider mb-2">
+                    <p className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] mb-2">
                       Estimated Exposure Score
                     </p>
-                    <span className="font-sans text-8xl font-semibold">{percentage}</span>
+                    <span className="font-display text-8xl font-bold">{percentage}</span>
                     <span className="font-mono text-2xl text-tertiary">/100</span>
                   </div>
                   <div>
-                    <p className="font-mono text-xs text-tertiary uppercase tracking-wider mb-2">
+                    <p className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] mb-2">
                       Risk Classification
                     </p>
-                    <span className={`font-sans text-3xl font-semibold ${
+                    <span className={`font-display text-3xl font-bold ${
                       riskLevel === "Elevated" ? "text-proxima-red" : 
                       riskLevel === "Moderate" ? "text-proxima-orange" : "text-green-600"
                     }`}>
                       {riskLevel}
                     </span>
-                    <p className="text-secondary mt-4 text-sm">
+                    <p className="text-secondary mt-4 text-sm font-sans">
                       {riskLevel === "Elevated" 
                         ? "Your lifestyle factors suggest above-average exposure to environmental toxins."
                         : riskLevel === "Moderate"
@@ -220,8 +220,8 @@ export default function QuizPage() {
                 <div className="flex items-start gap-4 mb-6">
                   <Mail size={20} className="text-tertiary mt-1" />
                   <div>
-                    <h4 className="font-sans font-medium mb-2">Get Your Detailed Report</h4>
-                    <p className="text-sm text-secondary">
+                    <h4 className="font-display font-bold mb-2">Get Your Detailed Report</h4>
+                    <p className="text-sm text-secondary font-sans">
                       Receive a breakdown of your score by category and preliminary 
                       mitigation recommendations.
                     </p>
@@ -233,7 +233,7 @@ export default function QuizPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email address" 
-                    className="flex-grow border border-border-primary px-4 py-3 bg-primary text-primary focus:outline-none focus:border-proxima-red" 
+                    className="flex-grow border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red" 
                   />
                   <button className="btn-primary whitespace-nowrap">Send Report</button>
                 </form>
@@ -241,7 +241,7 @@ export default function QuizPage() {
 
               {/* CTA */}
               <div className="border-t border-border-primary pt-8">
-                <p className="text-secondary mb-6">
+                <p className="text-secondary mb-6 font-sans">
                   This estimate is based on self-reported lifestyle factors. 
                   For clinical verification, consider our diagnostic panel.
                 </p>

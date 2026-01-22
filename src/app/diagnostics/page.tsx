@@ -23,26 +23,26 @@ export default function DiagnosticsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-7">
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <h1 className="mb-6">Proxima Health Baseline™</h1>
-              <p className="text-xl text-secondary max-w-xl leading-relaxed">
+              <h1 className="mb-6 font-display">Proxima Health Baseline™</h1>
+              <p className="text-xl text-secondary max-w-xl leading-relaxed font-sans">
                 A clinically validated at-home test designed to measure environmental 
                 toxin load with precision. Built on proven science, so you can understand 
-                what's in your blood and move forward informed.
+                what&apos;s in your blood and move forward informed.
               </p>
             </div>
             <div className="lg:col-span-5 flex items-end">
               <div className="flex flex-wrap gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <Check size={16} className="text-proxima-red" />
-                  <span className="font-mono text-secondary">Mass Spectrometry</span>
+                  <span className="font-mono text-xs uppercase tracking-wider text-secondary">Mass Spectrometry</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check size={16} className="text-proxima-red" />
-                  <span className="font-mono text-secondary">CLIA Certified</span>
+                  <span className="font-mono text-xs uppercase tracking-wider text-secondary">CLIA Certified</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check size={16} className="text-proxima-red" />
-                  <span className="font-mono text-secondary">150+ Biomarkers</span>
+                  <span className="font-mono text-xs uppercase tracking-wider text-secondary">150+ Biomarkers</span>
                 </div>
               </div>
             </div>
@@ -80,8 +80,8 @@ export default function DiagnosticsPage() {
               viewport={{ once: true }}
               className="flex flex-col justify-center"
             >
-              <h2 className="mb-6">Every reset begins<br />with the truth</h2>
-              <div className="prose-editorial text-secondary mb-8">
+              <h2 className="mb-6 font-display">Every reset begins<br />with the truth</h2>
+              <div className="text-secondary mb-8 font-sans text-lg leading-relaxed">
                 <p>
                   Proxima Health Baseline™ provides an honest assessment of the 
                   environmental toxins currently in your bloodstream. By quantifying 
@@ -94,11 +94,11 @@ export default function DiagnosticsPage() {
               {/* Pricing */}
               <div className="bg-secondary border border-border-primary p-8 mb-8">
                 <div className="flex items-baseline gap-4 mb-2">
-                  <span className="font-sans text-5xl font-semibold">$349</span>
+                  <span className="font-display text-5xl font-bold">$349</span>
                   <span className="font-mono text-tertiary line-through">$499</span>
-                  <span className="font-mono text-xs text-proxima-red uppercase">30% off pre-order</span>
+                  <span className="font-mono text-xs text-proxima-red uppercase tracking-wider">30% off pre-order</span>
                 </div>
-                <p className="font-mono text-xs text-tertiary mb-6">
+                <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-6">
                   Pre-order pricing. Expected shipping Q3 2026.
                 </p>
                 <Link href="/waitlist" className="btn-gradient w-full flex items-center justify-center gap-2">
@@ -108,15 +108,15 @@ export default function DiagnosticsPage() {
 
               <div className="flex gap-8 text-sm">
                 <div>
-                  <p className="font-mono text-tertiary text-xs mb-1">Shipping</p>
+                  <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-1">Shipping</p>
                   <p className="font-sans font-medium">Free (US)</p>
                 </div>
                 <div>
-                  <p className="font-mono text-tertiary text-xs mb-1">Results</p>
+                  <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-1">Results</p>
                   <p className="font-sans font-medium">14 business days</p>
                 </div>
                 <div>
-                  <p className="font-mono text-tertiary text-xs mb-1">Collection</p>
+                  <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-1">Collection</p>
                   <p className="font-sans font-medium">5 drops blood</p>
                 </div>
               </div>
@@ -129,8 +129,8 @@ export default function DiagnosticsPage() {
       <section className="py-24 bg-secondary">
         <div className="section-container">
           <div className="mb-16">
-            <p className="section-label mb-4">Methodology</p>
-            <h2>What We Measure</h2>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Methodology</p>
+            <h2 className="font-display">What We Measure</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -144,8 +144,8 @@ export default function DiagnosticsPage() {
                 className="border border-border-primary p-6 bg-primary"
               >
                 <div className="flex justify-between items-start mb-4">
-                  <h4 className="font-sans font-medium">{panel.name}</h4>
-                  <span className="font-mono text-xs text-tertiary">{panel.count} markers</span>
+                  <h4 className="font-display font-bold">{panel.name}</h4>
+                  <span className="font-mono text-xs uppercase tracking-wider text-tertiary">{panel.count} markers</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {panel.markers.slice(0, 6).map((marker, j) => (
@@ -169,8 +169,8 @@ export default function DiagnosticsPage() {
       <section className="py-24 bg-primary">
         <div className="section-container">
           <div className="mb-16 text-center">
-            <p className="section-label mb-4">Process</p>
-            <h2>How It Works</h2>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Process</p>
+            <h2 className="font-display">How It Works</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
@@ -199,9 +199,9 @@ export default function DiagnosticsPage() {
                 transition={{ delay: i * 0.1 }}
                 className="text-center"
               >
-                <span className="font-mono text-6xl text-primary/10">{step.num}</span>
-                <h3 className="mt-4 mb-4">{step.title}</h3>
-                <p className="text-secondary">{step.desc}</p>
+                <span className="font-display text-6xl font-bold text-primary/10">{step.num}</span>
+                <h3 className="mt-4 mb-4 font-display">{step.title}</h3>
+                <p className="text-secondary font-sans">{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -219,8 +219,8 @@ export default function DiagnosticsPage() {
               height={48}
               className="mx-auto mb-8 opacity-40"
             />
-            <h2 className="text-inverse mb-6">Results You Can Trust</h2>
-            <p className="text-xl text-inverse/60">
+            <h2 className="text-inverse mb-6 font-display">Results You Can Trust</h2>
+            <p className="text-xl text-inverse/60 font-sans">
               Our diagnostics are processed in CLIA-certified laboratories using 
               the same mass spectrometry techniques employed by research institutions.
             </p>

@@ -13,17 +13,17 @@ export default function InterventionsPage() {
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-5">
-              <h2 className="text-proxima-black mb-6">INUSpheresis®</h2>
+              <h2 className="text-proxima-black mb-6 font-display">INUSpheresis®</h2>
               
               <div className="mb-8 space-y-4">
-                <p className="text-proxima-black/80 text-lg leading-relaxed">
+                <p className="text-proxima-black/80 text-lg leading-relaxed font-sans">
                   For decades, therapeutic blood filtration has been used in European 
                   clinical settings to help physicians reduce circulating environmental 
-                  toxins and support the body's natural recovery processes. Proxima Health 
+                  toxins and support the body&apos;s natural recovery processes. Proxima Health 
                   is bringing this science to the United States carefully, responsibly 
                   and grounded in evidence.
                 </p>
-                <p className="text-proxima-black/80 text-lg leading-relaxed">
+                <p className="text-proxima-black/80 text-lg leading-relaxed font-sans">
                   Our work is underway. Availability is expected in 2027.
                 </p>
               </div>
@@ -51,8 +51,8 @@ export default function InterventionsPage() {
       {/* CTA */}
       <section className="py-24 bg-primary">
         <div className="section-narrow text-center">
-          <h2 className="mb-6">Intervention starts with measurement</h2>
-          <p className="text-xl text-secondary mb-12 max-w-xl mx-auto">
+          <h2 className="mb-6 font-display">Intervention starts with measurement</h2>
+          <p className="text-xl text-secondary mb-12 max-w-xl mx-auto font-sans">
             Before implementing any intervention protocol, establish your 
             baseline toxin levels through clinical diagnostics.
           </p>

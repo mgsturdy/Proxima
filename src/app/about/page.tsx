@@ -42,17 +42,17 @@ export default function AboutPage() {
       <header className="py-16 border-b border-border-primary relative">
         <div className="section-container">
           <div className="w-16 h-1 proxima-gradient mb-6" />
-          <h1 className="mb-8">Proxima Health</h1>
+          <h1 className="mb-8 font-display">Proxima Health</h1>
         </div>
       </header>
 
       {/* Mission Statement */}
       <section className="py-24">
         <div className="section-narrow">
-          <div className="pull-quote mb-12 text-3xl md:text-4xl font-serif italic border-l-4 border-proxima-red pl-8">
+          <div className="mb-12 text-3xl md:text-4xl font-sans border-l-4 border-proxima-red pl-8">
             Our mission is to optimize health through the early detection and removal of environmental toxins.
           </div>
-          <div className="prose-editorial text-secondary space-y-6">
+          <div className="text-secondary space-y-6 font-sans text-lg leading-relaxed">
             <p>
               Environmental toxins are in nearly everyone. 97% of Americans have PFAS in 
               their bloodstream, along with microplastics, heavy metals and hundreds of 
@@ -60,11 +60,11 @@ export default function AboutPage() {
               never addresses them.
             </p>
             <p>
-              That's the gap we exist to close.
+              That&apos;s the gap we exist to close.
             </p>
             <p>
-              We provide the diagnostic precision to see what's actually in your blood 
-              and the proven interventions to remove what doesn't belong. Not after 
+              We provide the diagnostic precision to see what&apos;s actually in your blood 
+              and the proven interventions to remove what doesn&apos;t belong. Not after 
               symptoms appear. Before they start. Because the best treatment for chronic 
               disease is preventing it in the first place.
             </p>
@@ -79,7 +79,7 @@ export default function AboutPage() {
       <section className="py-24 bg-secondary">
         <div className="section-container">
           <div className="mb-16">
-            <h2>Founding Team</h2>
+            <h2 className="font-display">Founding Team</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -100,8 +100,8 @@ export default function AboutPage() {
                   />
                 </div>
                 <div>
-                  <h3 className="mb-4">{member.name}</h3>
-                  <p className="text-secondary text-sm mb-4">{member.bio}</p>
+                  <h3 className="mb-4 font-display">{member.name}</h3>
+                  <p className="text-secondary text-sm font-sans mb-4">{member.bio}</p>
                   <div className="flex gap-4">
                     <Linkedin size={18} className="text-tertiary hover:text-primary cursor-pointer transition-colors" />
                     <Mail size={18} className="text-tertiary hover:text-primary cursor-pointer transition-colors" />
@@ -117,7 +117,7 @@ export default function AboutPage() {
       <section className="py-24 bg-primary">
         <div className="section-container">
           <div className="mb-16">
-            <h2>Core Principles</h2>
+            <h2 className="font-display">Core Principles</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -129,9 +129,9 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <span className="font-mono text-5xl text-primary/10">{principle.num}</span>
-                <h3 className="mt-4 mb-4">{principle.title}</h3>
-                <p className="text-secondary">{principle.desc}</p>
+                <span className="font-display text-5xl font-bold text-primary/10">{principle.num}</span>
+                <h3 className="mt-4 mb-4 font-display">{principle.title}</h3>
+                <p className="text-secondary font-sans">{principle.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -142,18 +142,18 @@ export default function AboutPage() {
       <section className="py-24 bg-inverse text-inverse">
         <div className="section-container">
           <div className="text-center mb-12">
-            <h2 className="text-inverse">Research Collaborations</h2>
+            <h2 className="text-inverse font-display">Research Collaborations</h2>
           </div>
           
           <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">
             {["Stanford", "MIT", "Oxford", "ETH Zurich", "Johns Hopkins"].map((inst, i) => (
-              <span key={i} className="font-sans text-2xl font-semibold text-inverse/20">
+              <span key={i} className="font-display text-2xl font-bold text-inverse/20">
                 {inst}
               </span>
             ))}
           </div>
           
-          <p className="font-mono text-xs text-inverse/30 text-center mt-12">
+          <p className="font-mono text-xs uppercase tracking-wider text-inverse/30 text-center mt-12">
             Advisory relationships. Not institutional endorsements.
           </p>
         </div>

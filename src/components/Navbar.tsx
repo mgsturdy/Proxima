@@ -64,7 +64,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="nav-link-gradient font-sans text-sm font-medium text-secondary hover:text-primary"
+              className="nav-link-gradient font-mono text-xs uppercase tracking-wider text-secondary hover:text-primary"
             >
               {link.name}
             </Link>
@@ -102,7 +102,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="font-sans text-base font-medium py-2 text-secondary hover:text-primary transition-colors"
+              className="font-mono text-sm uppercase tracking-wider py-2 text-secondary hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.name}

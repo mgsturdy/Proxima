@@ -106,18 +106,18 @@ export default function SciencePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8">
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <h1 className="mb-6">The science behind environmental toxins</h1>
-              <p className="text-xl text-secondary max-w-2xl leading-relaxed">
+              <h1 className="mb-6 font-display">The science behind environmental toxins</h1>
+              <p className="text-xl text-secondary max-w-2xl leading-relaxed font-sans">
                 You deserve to understand exactly what is happening in your body and what 
-                the science says about it. We've organized the latest research on toxins 
+                the science says about it. We&apos;ve organized the latest research on toxins 
                 into a verifiable, accessible guide so you can make confident, informed 
                 decisions about your journey toward recovery and longevity.
               </p>
             </div>
             <div className="lg:col-span-4 flex items-end">
               <div className="w-full border-t border-border-primary pt-6">
-                <p className="font-mono text-xs text-tertiary mb-2">Last updated</p>
-                <p className="font-mono text-sm">January 2026</p>
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-2">Last updated</p>
+                <p className="font-mono text-sm uppercase tracking-wider">January 2026</p>
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function SciencePage() {
       {/* Table of Contents */}
       <nav className="py-12 bg-secondary border-b border-border-primary">
         <div className="section-container">
-          <p className="section-label mb-6">Contents</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-6">Contents</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {chapters.map((chapter) => (
               <a 
@@ -137,7 +137,7 @@ export default function SciencePage() {
               >
                 <div>
                   <span className="font-mono text-tertiary text-sm">{chapter.number}</span>
-                  <span className="ml-3 font-sans font-medium group-hover:text-proxima-red transition-colors">{chapter.title}</span>
+                  <span className="ml-3 font-display font-bold group-hover:text-proxima-red transition-colors">{chapter.title}</span>
                 </div>
                 <ArrowUpRight size={14} className="text-tertiary group-hover:text-proxima-red transition-colors" />
               </a>
@@ -164,16 +164,16 @@ export default function SciencePage() {
                 {/* Chapter Header */}
                 <div className="lg:col-span-4">
                   <div className="sticky top-32">
-                    <span className="chapter-number">{chapter.number}</span>
-                    <h2 className="mt-4 mb-2">{chapter.title}</h2>
-                    <p className="section-label">{chapter.subtitle}</p>
+                    <span className="font-display text-8xl md:text-9xl font-bold text-primary/10 leading-none">{chapter.number}</span>
+                    <h2 className="mt-4 mb-2 font-display">{chapter.title}</h2>
+                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary">{chapter.subtitle}</p>
                     
                     {/* Key Data */}
                     <div className="mt-12 space-y-6">
                       {chapter.keyData.map((data, i) => (
                         <div key={i} className="border-l-2 border-proxima-red pl-4">
-                          <span className="font-sans text-3xl font-semibold">{data.metric}</span>
-                          <p className="text-sm text-secondary mt-1">{data.context}</p>
+                          <span className="font-display text-3xl font-bold">{data.metric}</span>
+                          <p className="text-sm text-secondary font-sans mt-1">{data.context}</p>
                         </div>
                       ))}
                     </div>
@@ -184,23 +184,23 @@ export default function SciencePage() {
                 <div className="lg:col-span-8">
                   {/* Abstract */}
                   <div className="mb-12 pb-12 border-b border-border-primary">
-                    <p className="section-label mb-4">Abstract</p>
-                    <p className="text-xl leading-relaxed text-secondary">{chapter.abstract}</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Abstract</p>
+                    <p className="text-xl leading-relaxed text-secondary font-sans">{chapter.abstract}</p>
                   </div>
 
                   {/* Sections */}
-                  <div className="prose-editorial space-y-12">
+                  <div className="space-y-12">
                     {chapter.sections.map((section, i) => (
                       <div key={i}>
-                        <h3 className="font-sans text-xl font-semibold mb-4">{section.heading}</h3>
-                        <p className="text-secondary">{section.content}</p>
+                        <h3 className="font-display text-xl font-bold mb-4">{section.heading}</h3>
+                        <p className="text-secondary font-sans">{section.content}</p>
                       </div>
                     ))}
                   </div>
 
                   {/* Citations */}
                   <div className="mt-12 pt-8 border-t border-border-primary">
-                    <p className="section-label mb-4">References</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">References</p>
                     <ul className="space-y-2">
                       {chapter.citations.map((citation, i) => (
                         <li key={i} className="font-mono text-sm text-tertiary">{citation}</li>
@@ -224,8 +224,8 @@ export default function SciencePage() {
             height={48}
             className="mx-auto mb-8 opacity-40"
           />
-          <h2 className="text-inverse mb-6">From Theory to Measurement</h2>
-          <p className="text-xl text-inverse/60 mb-12 max-w-xl mx-auto">
+          <h2 className="text-inverse mb-6 font-display">From Theory to Measurement</h2>
+          <p className="text-xl text-inverse/60 mb-12 max-w-xl mx-auto font-sans">
             Understanding the science is step one. Quantifying your personal 
             exposure requires clinical-grade diagnostics.
           </p>
