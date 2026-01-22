@@ -19,7 +19,7 @@ export default function Footer() {
               height={32}
               className="mb-8"
             />
-            <p className="text-proxima-cream/60 max-w-sm leading-relaxed mb-8 font-serif">
+            <p className="text-proxima-cream/60 max-w-sm leading-relaxed mb-8 font-mono text-sm uppercase tracking-wider">
               Advancing human health through clinical-grade environmental 
               diagnostics and evidence-based therapeutic interventions.
             </p>
@@ -39,31 +39,31 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="lg:col-span-2">
-            <p className="font-sans text-xs uppercase tracking-wider text-proxima-cream/40 mb-6">Company</p>
+            <p className="font-mono text-xs uppercase tracking-wider text-proxima-cream/40 mb-6">Company</p>
             <ul className="space-y-3">
-              <li><Link href="/science" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-sm font-sans">The Science</Link></li>
-              <li><Link href="/diagnostics" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-sm font-sans">Diagnostics</Link></li>
-              <li><Link href="/interventions" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-sm font-sans">Interventions</Link></li>
-              <li><Link href="/about" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-sm font-sans">About</Link></li>
+              <li><Link href="/science" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-xs font-mono uppercase tracking-wider">The Science</Link></li>
+              <li><Link href="/diagnostics" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-xs font-mono uppercase tracking-wider">Diagnostics</Link></li>
+              <li><Link href="/interventions" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-xs font-mono uppercase tracking-wider">Interventions</Link></li>
+              <li><Link href="/about" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-xs font-mono uppercase tracking-wider">About</Link></li>
             </ul>
           </div>
 
           <div className="lg:col-span-2">
-            <p className="font-sans text-xs uppercase tracking-wider text-proxima-cream/40 mb-6">Resources</p>
+            <p className="font-mono text-xs uppercase tracking-wider text-proxima-cream/40 mb-6">Resources</p>
             <ul className="space-y-3">
-              <li><Link href="/practitioners" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-sm font-sans">For Practitioners</Link></li>
-              <li><Link href="/waitlist" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-sm font-sans">Toxin Assessment</Link></li>
-              <li><span className="text-proxima-cream/30 text-sm font-sans">Research Library</span></li>
-              <li><span className="text-proxima-cream/30 text-sm font-sans">Clinical Studies</span></li>
+              <li><Link href="/practitioners" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-xs font-mono uppercase tracking-wider">For Practitioners</Link></li>
+              <li><Link href="/waitlist" className="text-proxima-cream/60 hover:text-proxima-cream transition-colors text-xs font-mono uppercase tracking-wider">Toxin Assessment</Link></li>
+              <li><span className="text-proxima-cream/30 text-xs font-mono uppercase tracking-wider">Research Library</span></li>
+              <li><span className="text-proxima-cream/30 text-xs font-mono uppercase tracking-wider">Clinical Studies</span></li>
             </ul>
           </div>
 
           <div className="lg:col-span-3">
-            <p className="font-sans text-xs uppercase tracking-wider text-proxima-cream/40 mb-6">Legal</p>
+            <p className="font-mono text-xs uppercase tracking-wider text-proxima-cream/40 mb-6">Legal</p>
             <ul className="space-y-3">
-              <li><span className="text-proxima-cream/30 text-sm font-sans">Privacy Policy</span></li>
-              <li><span className="text-proxima-cream/30 text-sm font-sans">Terms of Service</span></li>
-              <li><span className="text-proxima-cream/30 text-sm font-sans">Clinical Disclosures</span></li>
+              <li><span className="text-proxima-cream/30 text-xs font-mono uppercase tracking-wider">Privacy Policy</span></li>
+              <li><span className="text-proxima-cream/30 text-xs font-mono uppercase tracking-wider">Terms of Service</span></li>
+              <li><span className="text-proxima-cream/30 text-xs font-mono uppercase tracking-wider">Clinical Disclosures</span></li>
             </ul>
           </div>
         </div>
