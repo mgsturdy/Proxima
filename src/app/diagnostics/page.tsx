@@ -23,7 +23,11 @@ export default function DiagnosticsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-7">
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <h1 className="mb-6 font-display">Proxima Health Baseline™</h1>
+              <h1 className="mb-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
+                  Proxima Health Baseline™
+                </span>
+              </h1>
               <p className="text-xl text-secondary max-w-xl leading-relaxed font-sans">
                 A clinically validated at-home test designed to measure environmental 
                 toxin load with precision. Built on proven science, so you can understand 
@@ -80,7 +84,11 @@ export default function DiagnosticsPage() {
               viewport={{ once: true }}
               className="flex flex-col justify-center"
             >
-              <h2 className="mb-6 font-display">Every reset begins<br />with the truth</h2>
+              <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold leading-tight">
+                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
+                  Every reset begins with the truth
+                </span>
+              </h2>
               <div className="text-secondary mb-8 font-sans text-lg leading-relaxed">
                 <p>
                   Proxima Health Baseline™ provides an honest assessment of the 
@@ -130,7 +138,9 @@ export default function DiagnosticsPage() {
         <div className="section-container">
           <div className="mb-16">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Methodology</p>
-            <h2 className="font-display">What We Measure</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
+              <span className="bg-proxima-black text-proxima-cream px-3 py-1">What We Measure</span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -170,7 +180,9 @@ export default function DiagnosticsPage() {
         <div className="section-container">
           <div className="mb-16 text-center">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Process</p>
-            <h2 className="font-display">How It Works</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
+              <span className="bg-proxima-black text-proxima-cream px-3 py-1">How It Works</span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
@@ -219,7 +231,9 @@ export default function DiagnosticsPage() {
               height={48}
               className="mx-auto mb-8 opacity-40"
             />
-            <h2 className="text-inverse mb-6 font-display">Results You Can Trust</h2>
+            <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold inline-block">
+              <span className="bg-proxima-cream text-proxima-black px-3 py-1">Results You Can Trust</span>
+            </h2>
             <p className="text-xl text-inverse/60 font-sans">
               Our diagnostics are processed in CLIA-certified laboratories using 
               the same mass spectrometry techniques employed by research institutions.

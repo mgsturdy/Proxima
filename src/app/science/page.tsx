@@ -106,7 +106,11 @@ export default function SciencePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8">
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <h1 className="mb-6 font-display">The science behind environmental toxins</h1>
+              <h1 className="mb-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
+                  The science behind environmental toxins
+                </span>
+              </h1>
               <p className="text-xl text-secondary max-w-2xl leading-relaxed font-sans">
                 You deserve to understand exactly what is happening in your body and what 
                 the science says about it. We&apos;ve organized the latest research on toxins 
@@ -165,7 +169,9 @@ export default function SciencePage() {
                 <div className="lg:col-span-4">
                   <div className="sticky top-32">
                     <span className="font-display text-8xl md:text-9xl font-bold text-primary/10 leading-none">{chapter.number}</span>
-                    <h2 className="mt-4 mb-2 font-display">{chapter.title}</h2>
+                    <h2 className="mt-4 mb-2 font-display text-2xl md:text-3xl font-bold">
+                      <span className="bg-proxima-black text-proxima-cream px-2 py-1">{chapter.title}</span>
+                    </h2>
                     <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary">{chapter.subtitle}</p>
                     
                     {/* Key Data */}
@@ -224,7 +230,9 @@ export default function SciencePage() {
             height={48}
             className="mx-auto mb-8 opacity-40"
           />
-          <h2 className="text-inverse mb-6 font-display">From Theory to Measurement</h2>
+          <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold inline-block">
+            <span className="bg-proxima-cream text-proxima-black px-3 py-1">From Theory to Measurement</span>
+          </h2>
           <p className="text-xl text-inverse/60 mb-12 max-w-xl mx-auto font-sans">
             Understanding the science is step one. Quantifying your personal 
             exposure requires clinical-grade diagnostics.

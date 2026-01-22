@@ -28,7 +28,11 @@ export default function PractitionersPage() {
       <header className="py-16 border-b border-border-primary relative">
         <div className="section-container">
           <div className="w-16 h-1 proxima-gradient mb-6" />
-          <h1 className="mb-6 font-display">Practitioner Partnerships</h1>
+          <h1 className="mb-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
+              Practitioner Partnerships
+            </span>
+          </h1>
           <p className="text-xl text-secondary max-w-2xl leading-relaxed font-sans">
             We provide advanced diagnostics and evidence-based clinical protocols. 
             You bring medical oversight and patient care. Together, we help patients 
@@ -43,7 +47,9 @@ export default function PractitionersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
             <div>
-              <h2 className="mb-8 font-display">Partnership Inquiry</h2>
+              <h2 className="mb-8 font-display text-2xl md:text-3xl font-bold">
+                <span className="bg-proxima-black text-proxima-cream px-2 py-1">Partnership Inquiry</span>
+              </h2>
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-2 gap-4">
                   <div>

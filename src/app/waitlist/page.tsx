@@ -92,7 +92,11 @@ export default function QuizPage() {
             >
               <div className="w-16 h-1 proxima-gradient mb-6" />
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Assessment Tool</p>
-              <h1 className="mb-6 font-display">Toxin Load Estimator</h1>
+              <h1 className="mb-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
+                  Toxin Load Estimator
+                </span>
+              </h1>
               <p className="text-xl text-secondary max-w-xl leading-relaxed mb-8 font-sans">
                 This 2-minute assessment estimates your environmental toxin 
                 exposure based on lifestyle factors. For clinical verification, 
@@ -139,7 +143,11 @@ export default function QuizPage() {
                 </div>
               </div>
 
-              <h2 className="mb-12 max-w-2xl font-display">{questions[step - 1].question}</h2>
+              <h2 className="mb-12 max-w-2xl font-display text-2xl md:text-3xl font-bold">
+                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
+                  {questions[step - 1].question}
+                </span>
+              </h2>
 
               <div className="space-y-3">
                 {questions[step - 1].options.map((option, i) => (
@@ -182,7 +190,9 @@ export default function QuizPage() {
               className="py-16"
             >
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Assessment Complete</p>
-              <h1 className="mb-12 font-display">Your Results</h1>
+              <h1 className="mb-12 font-display text-4xl md:text-5xl font-bold">
+                <span className="bg-proxima-black text-proxima-cream px-3 py-1">Your Results</span>
+              </h1>
 
               {/* Score Card */}
               <div className="bg-secondary border border-border-primary p-8 md:p-12 mb-8">

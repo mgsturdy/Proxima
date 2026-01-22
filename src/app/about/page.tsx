@@ -42,15 +42,19 @@ export default function AboutPage() {
       <header className="py-16 border-b border-border-primary relative">
         <div className="section-container">
           <div className="w-16 h-1 proxima-gradient mb-6" />
-          <h1 className="mb-8 font-display">Proxima Health</h1>
+          <h1 className="mb-8 font-display text-5xl md:text-6xl lg:text-7xl font-bold">
+            <span className="bg-proxima-black text-proxima-cream px-4 py-2">Proxima Health</span>
+          </h1>
         </div>
       </header>
 
       {/* Mission Statement */}
       <section className="py-24">
         <div className="section-narrow">
-          <div className="mb-12 text-3xl md:text-4xl font-sans border-l-4 border-proxima-red pl-8">
-            Our mission is to optimize health through the early detection and removal of environmental toxins.
+          <div className="mb-12 text-3xl md:text-4xl font-display font-bold border-l-4 border-proxima-red pl-8">
+            <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
+              Our mission is to optimize health through the early detection and removal of environmental toxins.
+            </span>
           </div>
           <div className="text-secondary space-y-6 font-sans text-lg leading-relaxed">
             <p>
@@ -79,7 +83,9 @@ export default function AboutPage() {
       <section className="py-24 bg-secondary">
         <div className="section-container">
           <div className="mb-16">
-            <h2 className="font-display">Founding Team</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
+              <span className="bg-proxima-black text-proxima-cream px-3 py-1">Founding Team</span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -117,7 +123,9 @@ export default function AboutPage() {
       <section className="py-24 bg-primary">
         <div className="section-container">
           <div className="mb-16">
-            <h2 className="font-display">Core Principles</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
+              <span className="bg-proxima-black text-proxima-cream px-3 py-1">Core Principles</span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -142,7 +150,9 @@ export default function AboutPage() {
       <section className="py-24 bg-inverse text-inverse">
         <div className="section-container">
           <div className="text-center mb-12">
-            <h2 className="text-inverse font-display">Research Collaborations</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold inline-block">
+              <span className="bg-proxima-cream text-proxima-black px-3 py-1">Research Collaborations</span>
+            </h2>
           </div>
           
           <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">

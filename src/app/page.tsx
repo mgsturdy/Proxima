@@ -232,8 +232,12 @@ export default function Home() {
             >
               {/* Section label - DM Mono uppercase */}
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-black/40 mb-4">The Invisible Crisis</p>
-              {/* Heading - Darker Grotesque */}
-              <h2 className="mb-8 text-proxima-black font-display">We are the first generation to carry environmental toxins in our blood from birth.</h2>
+              {/* Heading - Darker Grotesque with black bg */}
+              <h2 className="mb-8 font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
+                  We are the first generation to carry environmental toxins in our blood from birth.
+                </span>
+              </h2>
               
               {/* Body text - Archivo */}
               <div className="mb-12 space-y-6">
@@ -265,8 +269,12 @@ export default function Home() {
           <div className="mb-16">
             {/* Section label - DM Mono uppercase */}
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-cream/40 mb-4">Methodology</p>
-            {/* Heading - Darker Grotesque */}
-            <h2 className="text-proxima-cream font-display">Three Steps to Better Health</h2>
+            {/* Heading - Darker Grotesque with cream bg */}
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight inline-block">
+              <span className="bg-proxima-cream text-proxima-black px-3 py-1">
+                Three Steps to Better Health
+              </span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -334,8 +342,12 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="w-16 h-1 proxima-gradient mx-auto mb-8" />
-            {/* Heading - Darker Grotesque */}
-            <h2 className="mb-8 text-proxima-black font-display">Estimate your toxin exposure in two minutes</h2>
+            {/* Heading - Darker Grotesque with black bg */}
+            <h2 className="mb-8 font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight inline-block">
+              <span className="bg-proxima-black text-proxima-cream px-4 py-2">
+                Estimate your toxin exposure in two minutes
+              </span>
+            </h2>
             {/* Body - Archivo */}
             <p className="text-xl text-proxima-black/60 font-sans mb-12 max-w-xl mx-auto">
               Answer a few lifestyle questions. Receive an estimated Toxin Load Score 
