@@ -116,12 +116,12 @@ export default function ProposalPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="flex flex-col items-center mb-16"
           >
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary/60 mb-4 text-center">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary/60 mb-4">
               What's Included
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-proxima-black text-center">
+            <h2 className="font-display text-4xl md:text-5xl text-proxima-black">
               Everything You Need
             </h2>
           </motion.div>
@@ -158,12 +158,12 @@ export default function ProposalPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="flex flex-col items-center mb-16"
           >
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-proxima-cream/60 mb-4 text-center">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-proxima-cream/60 mb-4">
               Timeline
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-proxima-cream text-center">
+            <h2 className="font-display text-4xl md:text-5xl text-proxima-cream">
               4 Weeks to Launch
             </h2>
           </motion.div>
@@ -198,25 +198,26 @@ export default function ProposalPage() {
 
       {/* CTA Section */}
       <section className="py-24">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="flex flex-col items-center"
           >
-            <h2 className="font-display text-4xl md:text-5xl mb-6 text-proxima-black text-center">
+            <h2 className="font-display text-4xl md:text-5xl mb-6 text-proxima-black">
               Ready to Begin?
             </h2>
-            <p className="font-sans text-lg text-primary/70 max-w-2xl mx-auto text-center">
+            <p className="font-sans text-lg text-primary/70 max-w-2xl text-center">
               Let's build something exceptional together. Upon acceptance, 
               we'll begin immediately and have your first delivery within two weeks.
             </p>
 
-            <div className="mt-16 pt-16 border-t border-primary/10 text-center">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary/40 mb-4 text-center">
+            <div className="mt-16 pt-16 border-t border-primary/10 w-full flex flex-col items-center">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary/40 mb-4">
                 Proposal Valid For
               </p>
-              <p className="font-display text-2xl text-primary/80 text-center">30 Days</p>
+              <p className="font-display text-2xl text-primary/80">30 Days</p>
             </div>
           </motion.div>
         </div>
@@ -224,12 +225,12 @@ export default function ProposalPage() {
 
       {/* Footer */}
       <footer className="py-12 border-t border-primary/10">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="font-mono text-sm uppercase tracking-wider text-primary/50 mb-2 text-center">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
+          <p className="font-mono text-sm uppercase tracking-wider text-primary/50 mb-2">
             Prepared with care for Proxima Health
           </p>
-          <p className="font-mono text-xs uppercase tracking-wider text-primary/40 text-center">
-            Prepared by{' '}
+          <p className="font-mono text-xs uppercase tracking-wider text-primary/40">
+            by{' '}
             <a 
               href="https://mattgoulet.ca" 
               target="_blank" 
