@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, Clock, Zap, Settings, BarChart3, Headphones, ArrowRight } from 'lucide-react';
+import { Check, Clock, Zap, Settings, BarChart3, Headphones } from 'lucide-react';
 import Image from 'next/image';
 
 export default function ProposalPage() {
@@ -13,7 +13,7 @@ export default function ProposalPage() {
   ];
 
   const timeline = [
-    { week: 'Week 1-2', title: 'First Delivery', description: 'Initial site launch with all core features and content' },
+    { week: 'Week 1-2', title: 'First Delivery', description: 'Deploy current site version to production. Integrate analytics tracking for visitor insights and conversion monitoring. Set up CRM backend for lead capture and email automation. Configure custom domain and SSL certificates.' },
     { week: 'Week 3', title: 'Revision Round 1', description: 'First round of refinements based on your feedback' },
     { week: 'Week 4', title: 'Revision Round 2', description: 'Final polish and sign-off ready' },
   ];
@@ -111,18 +111,18 @@ export default function ProposalPage() {
 
       {/* Deliverables Section */}
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary/60 mb-4">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary/60 mb-4 text-center">
               What's Included
             </p>
-            <h2 className="font-display text-4xl md:text-5xl">
-              <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1">Everything You Need</span>
+            <h2 className="font-display text-4xl md:text-5xl text-proxima-black text-center">
+              Everything You Need
             </h2>
           </motion.div>
 
@@ -134,15 +134,15 @@ export default function ProposalPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-proxima-black p-8 group hover:bg-proxima-black/90 transition-colors"
+                className="border border-proxima-black/10 p-8 group hover:bg-proxima-black/5 transition-colors"
               >
                 <div className="flex items-start gap-6">
-                  <div className="p-3 bg-proxima-cream/10 rounded-sm">
-                    <item.icon size={24} className="text-proxima-cream" />
+                  <div className="p-3 bg-proxima-black/10 rounded-sm">
+                    <item.icon size={24} className="text-proxima-black" />
                   </div>
                   <div>
-                    <h3 className="font-display text-2xl text-proxima-cream mb-2">{item.title}</h3>
-                    <p className="font-sans text-proxima-cream/70">{item.description}</p>
+                    <h3 className="font-display text-2xl text-proxima-black mb-2">{item.title}</h3>
+                    <p className="font-sans text-proxima-black/70">{item.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -153,48 +153,45 @@ export default function ProposalPage() {
 
       {/* Timeline Section */}
       <section className="py-24 bg-proxima-black">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-proxima-cream/60 mb-4">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-proxima-cream/60 mb-4 text-center">
               Timeline
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-proxima-cream">
+            <h2 className="font-display text-4xl md:text-5xl text-proxima-cream text-center">
               4 Weeks to Launch
             </h2>
           </motion.div>
 
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#FF6B35] via-[#E91E63] to-[#4ECDC4] hidden md:block" />
-            
-            <div className="space-y-12">
-              {timeline.map((phase, i) => (
-                <motion.div
-                  key={phase.week}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15 }}
-                  className="relative flex gap-8 items-start"
-                >
-                  <div className="hidden md:flex w-16 h-16 bg-proxima-cream rounded-sm items-center justify-center shrink-0 z-10">
-                    <Clock size={24} className="text-proxima-black" />
+          <div className="space-y-8">
+            {timeline.map((phase, i) => (
+              <motion.div
+                key={phase.week}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className="bg-proxima-cream/5 border border-proxima-cream/10 p-8"
+              >
+                <div className="flex items-start gap-6">
+                  <div className="flex w-14 h-14 bg-proxima-cream rounded-sm items-center justify-center shrink-0">
+                    <Clock size={22} className="text-proxima-black" />
                   </div>
-                  <div className="flex-1 bg-proxima-cream/5 border border-proxima-cream/10 p-8">
+                  <div className="flex-1">
                     <p className="font-mono text-sm uppercase tracking-[0.2em] text-[#4ECDC4] mb-2">
                       {phase.week}
                     </p>
                     <h3 className="font-display text-2xl text-proxima-cream mb-2">{phase.title}</h3>
                     <p className="font-sans text-proxima-cream/70">{phase.description}</p>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -207,42 +204,40 @@ export default function ProposalPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-4xl md:text-5xl mb-6">
-              <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1">Ready to Begin?</span>
+            <h2 className="font-display text-4xl md:text-5xl mb-6 text-proxima-black text-center">
+              Ready to Begin?
             </h2>
-            <p className="font-sans text-lg text-primary/70 mb-10 max-w-2xl mx-auto">
+            <p className="font-sans text-lg text-primary/70 max-w-2xl mx-auto text-center">
               Let's build something exceptional together. Upon acceptance, 
               we'll begin immediately and have your first delivery within two weeks.
             </p>
-            
-            <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
-              <a 
-                href="mailto:matt@proxima.health?subject=Proposal%20Acceptance"
-                className="btn-gradient inline-flex items-center gap-2 group"
-              >
-                Accept Proposal
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <span className="font-mono text-sm uppercase tracking-wider text-primary/50">
-                or reply to discuss
-              </span>
-            </div>
 
-            <div className="mt-16 pt-16 border-t border-primary/10">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary/40 mb-4">
+            <div className="mt-16 pt-16 border-t border-primary/10 text-center">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary/40 mb-4 text-center">
                 Proposal Valid For
               </p>
-              <p className="font-display text-2xl text-primary/80">30 Days</p>
+              <p className="font-display text-2xl text-primary/80 text-center">30 Days</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-primary/10">
+      <footer className="py-12 border-t border-primary/10">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="font-mono text-sm uppercase tracking-wider text-primary/50">
+          <p className="font-mono text-sm uppercase tracking-wider text-primary/50 mb-2 text-center">
             Prepared with care for Proxima Health
+          </p>
+          <p className="font-mono text-xs uppercase tracking-wider text-primary/40 text-center">
+            Prepared by{' '}
+            <a 
+              href="https://mattgoulet.ca" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-primary/70 transition-colors underline underline-offset-2"
+            >
+              mattgoulet.ca
+            </a>
           </p>
         </div>
       </footer>
