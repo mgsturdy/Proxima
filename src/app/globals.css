@@ -211,7 +211,7 @@
   /* Gradient Button */
   .btn-gradient {
     font-family: 'DM Mono', monospace;
-    @apply relative px-8 py-4 text-sm font-medium tracking-wide uppercase overflow-hidden;
+    @apply relative px-8 py-4 text-sm font-medium tracking-wide uppercase overflow-hidden whitespace-nowrap;
     background: linear-gradient(90deg, #BA000E 0%, #FE091B 50%, #FF9D00 100%);
     color: white;
   }

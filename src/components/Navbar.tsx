@@ -45,9 +45,9 @@ export default function Navbar() {
             : "bg-primary"
       )}
     >
-      <div className="section-container py-5 flex items-center justify-between">
+      <div className="section-container py-5 flex items-center justify-between gap-8">
         {/* Logo */}
-        <Link href="/" className="relative">
+        <Link href="/" className="relative shrink-0">
           <Image 
             src="/assets/Main_Logo+Icon_Black.svg"
             alt="Proxima" 
@@ -59,12 +59,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="nav-link-gradient font-mono text-xs uppercase tracking-wider text-secondary hover:text-primary"
+              className="nav-link-gradient font-mono text-xs uppercase tracking-wider text-secondary hover:text-primary whitespace-nowrap"
             >
               {link.name}
             </Link>
@@ -72,7 +72,7 @@ export default function Navbar() {
         </div>
 
         {/* CTA */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block shrink-0">
           <Link href="/waitlist" className="btn-gradient">
             FREE TOXIN ASSESSMENT
           </Link>
