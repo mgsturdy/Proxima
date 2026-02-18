@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Full Screen Hero */}
-      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24">
+      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24 pt-24">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
