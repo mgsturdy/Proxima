@@ -23,66 +23,64 @@ export default function Home() {
 
         {/* Main Content */}
         <div className="relative z-10 w-full section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-24 items-end">
-            {/* Left Column - Main Headline with corner + markers */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              {/* Top-left corner marker */}
-              <div className="absolute -top-8 -left-6 text-proxima-cream text-2xl font-mono">+</div>
-              
-              {/* Headline block - each line has its own fitted background */}
-              <div className="relative inline-block">
-                {/* Top-right marker */}
-                <div className="absolute -top-8 -right-6 text-proxima-cream text-2xl font-mono">+</div>
-                <div className="flex flex-col items-start">
-                  <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
-                    Better blood.
-                  </span>
-                  <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
-                    Better life.
-                  </span>
-                </div>
-                {/* Bottom-right marker - sticky to headline block width */}
-                <div className="absolute -bottom-8 -right-6 text-proxima-cream text-2xl font-mono">+</div>
+          {/* Left Column - Main Headline with corner + markers */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            {/* Top-left corner marker */}
+            <div className="absolute -top-8 -left-6 text-proxima-cream text-2xl font-mono">+</div>
+            
+            {/* Headline block - each line has its own fitted background */}
+            <div className="relative inline-block">
+              {/* Top-right marker */}
+              <div className="absolute -top-8 -right-6 text-proxima-cream text-2xl font-mono">+</div>
+              <div className="flex flex-col items-start">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
+                  Better blood.
+                </span>
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
+                  Better life.
+                </span>
               </div>
-              
-              {/* Bottom-left corner marker */}
-              <div className="absolute -bottom-8 -left-6 text-proxima-cream text-2xl font-mono">+</div>
-            </motion.div>
-
-            {/* Right Column - Subheadline & CTA - positioned 40px left of vertical line */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:mr-20 text-left max-w-md"
-            >
-              {/* Subheadline - single line */}
-              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-4 whitespace-nowrap">
-                Microplastics. PFAS. Heavy metals.
-              </p>
-              
-              {/* Body text */}
-              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed">
-                We help you understand what&apos;s in<br />
-                your blood, then remove what<br />
-                doesn&apos;t belong.
-              </p>
-
-              {/* CTA Button - Black text on cream background */}
-              <Link 
-                href="/waitlist" 
-                className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors whitespace-nowrap"
-              >
-                Free Toxin Assessment <Plus size={14} strokeWidth={2.5} />
-              </Link>
-            </motion.div>
-          </div>
+              {/* Bottom-right marker - sticky to headline block width */}
+              <div className="absolute -bottom-8 -right-6 text-proxima-cream text-2xl font-mono">+</div>
+            </div>
+            
+            {/* Bottom-left corner marker */}
+            <div className="absolute -bottom-8 -left-6 text-proxima-cream text-2xl font-mono">+</div>
+          </motion.div>
         </div>
+
+        {/* Right Column - Subheadline & CTA - positioned 40px left of vertical line (which is at right-10) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left"
+        >
+          {/* Subheadline - single line */}
+          <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-4 whitespace-nowrap">
+            Microplastics. PFAS. Heavy metals.
+          </p>
+          
+          {/* Body text */}
+          <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed">
+            We help you understand what&apos;s in<br />
+            your blood, then remove what<br />
+            doesn&apos;t belong.
+          </p>
+
+          {/* CTA Button - Black text on cream background */}
+          <Link 
+            href="/waitlist" 
+            className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors whitespace-nowrap"
+          >
+            Free Toxin Assessment <Plus size={14} strokeWidth={2.5} />
+          </Link>
+        </motion.div>
       </section>
 
       {/* Stats Section */}
