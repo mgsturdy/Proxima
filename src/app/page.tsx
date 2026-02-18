@@ -54,25 +54,25 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:text-right lg:pr-12"
+              className="lg:pr-12"
             >
               {/* Accent line */}
-              <div className="w-16 h-0.5 bg-proxima-red mb-6 lg:ml-auto" />
+              <div className="w-16 h-0.5 bg-proxima-red mb-6" />
               
               {/* Subheadline */}
-              <h2 className="text-proxima-cream text-base md:text-lg font-display font-medium mb-3 tracking-wide">
+              <h2 className="text-proxima-cream text-sm md:text-base font-sans mb-4">
                 Microplastics. PFAS. Heavy metals.
               </h2>
               
               {/* Body text */}
-              <p className="text-proxima-cream/70 text-sm md:text-base mb-8 font-sans leading-relaxed max-w-sm lg:ml-auto">
+              <p className="text-proxima-cream text-sm md:text-base mb-8 font-sans leading-relaxed max-w-sm">
                 We help you understand what&apos;s in your blood, then remove what doesn&apos;t belong.
               </p>
 
-              {/* CTA Button - Bordered style */}
+              {/* CTA Button - Black text on cream background */}
               <Link 
                 href="/waitlist" 
-                className="inline-flex items-center gap-3 border border-proxima-cream text-proxima-cream px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-proxima-cream hover:text-proxima-black transition-colors"
+                className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors"
               >
                 Free Toxin Assessment <Plus size={14} strokeWidth={2.5} />
               </Link>
