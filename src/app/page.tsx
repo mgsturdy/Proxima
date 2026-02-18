@@ -52,21 +52,22 @@ export default function Home() {
               <div className="absolute -bottom-8 -left-6 text-proxima-cream text-2xl font-mono">+</div>
             </motion.div>
 
-            {/* Right Column - Subheadline & CTA */}
+            {/* Right Column - Subheadline & CTA - positioned 40px left of vertical line */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:pr-12 text-left max-w-md"
+              className="lg:mr-20 text-left max-w-md"
             >
               {/* Subheadline - single line */}
               <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-4 whitespace-nowrap">
                 Microplastics. PFAS. Heavy metals.
               </p>
               
-              {/* Body text - full width */}
-              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed w-full">
-                We help you understand what&apos;s in your blood, then remove what doesn&apos;t belong.
+              {/* Body text */}
+              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed">
+                We help you understand what&apos;s in<br />
+                your blood, then remove what doesn&apos;t belong.
               </p>
 
               {/* CTA Button - Black text on cream background */}
