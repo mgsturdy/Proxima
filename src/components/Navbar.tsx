@@ -108,16 +108,7 @@ export default function Navbar() {
 
       {/* Vertical line on right side - only on homepage */}
       {isHomePage && (
-        <>
-          {/* Vertical line - same buffer from top as horizontal has from sides */}
-          <div className="fixed top-6 md:top-12 lg:top-16 right-6 md:right-12 lg:right-16 w-px h-[calc(100vh-1.5rem)] md:h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] bg-proxima-cream/60 z-40 hidden lg:block" />
-          {/* Cross overlap where lines meet */}
-          <div className="fixed top-[76px] right-6 md:right-12 lg:right-16 z-50 hidden lg:block">
-            <div className="relative">
-              <span className="absolute -top-2 -left-2 text-proxima-cream text-sm font-mono">+</span>
-            </div>
-          </div>
-        </>
+        <div className="fixed top-6 md:top-12 lg:top-16 right-6 md:right-12 lg:right-16 w-px h-[calc(100vh-1.5rem)] md:h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] bg-proxima-cream/60 z-40 hidden lg:block" />
       )}
     </>
   );
