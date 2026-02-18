@@ -76,9 +76,9 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Horizontal line under navbar - extends 15px past vertical line */}
+        {/* Horizontal line under navbar - extends 15px past vertical line (which is at 40px from right) */}
         {isHomePage && (
-          <div className="absolute left-6 md:left-12 lg:left-16 right-[9px] top-[76px] h-px bg-proxima-cream/60" />
+          <div className="absolute left-6 md:left-12 lg:left-16 right-[25px] top-[76px] h-px bg-proxima-cream/60" />
         )}
 
         {/* Mobile Nav */}
@@ -106,9 +106,9 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Vertical line on right side - fixed 24px from right edge, extends 15px past horizontal line */}
+      {/* Vertical line on right side - 40px from right, starts 40px from top (extends 15px past horizontal at 76px) */}
       {isHomePage && (
-        <div className="fixed top-[9px] right-6 w-px h-[calc(100vh-9px)] bg-proxima-cream/60 z-40 hidden lg:block" />
+        <div className="fixed top-10 right-10 w-px h-[calc(100vh-40px)] bg-proxima-cream/60 z-40 hidden lg:block" />
       )}
     </>
   );

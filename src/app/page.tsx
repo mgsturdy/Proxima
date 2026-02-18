@@ -59,13 +59,13 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="lg:pl-[20%] lg:pr-12 text-left w-full lg:w-[320px]"
             >
-              {/* Subheadline */}
-              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-4 text-justify">
+              {/* Subheadline - single line */}
+              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-4 whitespace-nowrap">
                 Microplastics. PFAS. Heavy metals.
               </p>
               
               {/* Body text */}
-              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed text-justify">
+              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed">
                 We help you understand what&apos;s in your blood, then remove what doesn&apos;t belong.
               </p>
 
