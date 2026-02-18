@@ -106,9 +106,9 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Vertical line on right side - 40px from right, starts 40px from top (extends 15px past horizontal at 76px) */}
+      {/* Vertical line on right side - 40px from right, extends 15px past horizontal line (at 76px) */}
       {isHomePage && (
-        <div className="fixed top-10 right-10 w-px h-[calc(100vh-40px)] bg-proxima-cream/60 z-40 hidden lg:block" />
+        <div className="fixed top-[61px] right-10 w-px h-[calc(100vh-61px)] bg-proxima-cream/60 z-40 hidden lg:block" />
       )}
     </>
   );
