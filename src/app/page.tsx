@@ -32,7 +32,7 @@ export default function Home() {
               className="relative"
             >
               {/* Top-left corner marker */}
-              <div className="absolute -top-6 -left-4 text-proxima-cream text-lg font-mono">+</div>
+              <div className="absolute -top-8 -left-6 text-proxima-cream text-lg font-mono">+</div>
               
               {/* Headline block with bottom-right marker inside */}
               <div className="relative inline-block">
@@ -45,11 +45,11 @@ export default function Home() {
                   </span>
                 </div>
                 {/* Bottom-right marker - sticky to headline block */}
-                <div className="absolute -bottom-6 -right-4 text-proxima-cream text-lg font-mono">+</div>
+                <div className="absolute -bottom-8 -right-6 text-proxima-cream text-lg font-mono">+</div>
               </div>
               
               {/* Bottom-left corner marker */}
-              <div className="absolute -bottom-6 -left-4 text-proxima-cream text-lg font-mono">+</div>
+              <div className="absolute -bottom-8 -left-6 text-proxima-cream text-lg font-mono">+</div>
             </motion.div>
 
             {/* Right Column - Subheadline & CTA */}
