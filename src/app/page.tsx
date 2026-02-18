@@ -72,7 +72,7 @@ export default function Home() {
               {/* CTA Button - Black text on cream background */}
               <Link 
                 href="/waitlist" 
-                className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors"
+                className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors whitespace-nowrap"
               >
                 Free Toxin Assessment <Plus size={14} strokeWidth={2.5} />
               </Link>
