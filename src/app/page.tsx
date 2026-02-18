@@ -21,25 +21,20 @@ export default function Home() {
           />
         </div>
 
-        {/* Corner Markers */}
-        <div className="absolute top-24 left-8 text-proxima-cream text-xl font-light font-mono">+</div>
-        <div className="absolute top-24 right-8 text-proxima-cream text-xl font-light font-mono">+</div>
-        <div className="absolute bottom-8 left-8 text-proxima-cream text-xl font-light font-mono">+</div>
-        <div className="absolute bottom-8 right-8 text-proxima-cream text-xl font-light font-mono">+</div>
-
-        {/* Middle Markers */}
-        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 text-proxima-cream/60 text-xl font-light font-mono hidden lg:block">+</div>
-        <div className="absolute top-2/3 left-1/3 -translate-x-1/2 text-proxima-cream/60 text-xl font-light font-mono hidden lg:block">+</div>
-
         {/* Main Content */}
         <div className="relative z-10 w-full section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end">
-            {/* Left Column - Main Headline */}
+            {/* Left Column - Main Headline with corner + markers */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="relative"
             >
+              {/* Corner markers around the headline block */}
+              <div className="absolute -top-6 -left-4 text-proxima-cream text-lg font-mono">+</div>
+              <div className="absolute -top-6 right-0 lg:right-auto lg:left-[calc(100%+1rem)] text-proxima-cream text-lg font-mono">+</div>
+              
               <div className="flex flex-col items-start gap-2">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-none">
                   Better blood.
@@ -48,6 +43,10 @@ export default function Home() {
                   Better life.
                 </span>
               </div>
+              
+              {/* Bottom corner markers */}
+              <div className="absolute -bottom-6 -left-4 text-proxima-cream text-lg font-mono">+</div>
+              <div className="absolute -bottom-6 right-0 lg:right-auto lg:left-[calc(100%+1rem)] text-proxima-cream text-lg font-mono">+</div>
             </motion.div>
 
             {/* Right Column - Subheadline & CTA */}
@@ -55,27 +54,27 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:text-right"
+              className="lg:text-right lg:pr-12"
             >
               {/* Accent line */}
-              <div className="w-16 h-1 bg-proxima-red mb-6 lg:ml-auto" />
+              <div className="w-16 h-0.5 bg-proxima-red mb-6 lg:ml-auto" />
               
               {/* Subheadline */}
-              <h2 className="text-proxima-cream text-lg md:text-xl lg:text-2xl font-display font-bold mb-4">
+              <h2 className="text-proxima-cream text-base md:text-lg font-display font-medium mb-3 tracking-wide">
                 Microplastics. PFAS. Heavy metals.
               </h2>
               
               {/* Body text */}
-              <p className="text-proxima-cream/80 text-sm md:text-base mb-8 font-sans leading-relaxed max-w-md lg:ml-auto">
+              <p className="text-proxima-cream/70 text-sm md:text-base mb-8 font-sans leading-relaxed max-w-sm lg:ml-auto">
                 We help you understand what&apos;s in your blood, then remove what doesn&apos;t belong.
               </p>
 
               {/* CTA Button - Bordered style */}
               <Link 
                 href="/waitlist" 
-                className="inline-flex items-center gap-3 border-2 border-proxima-cream text-proxima-cream px-8 py-4 font-mono font-medium text-sm tracking-wider uppercase hover:bg-proxima-cream hover:text-proxima-black transition-colors"
+                className="inline-flex items-center gap-3 border border-proxima-cream text-proxima-cream px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-proxima-cream hover:text-proxima-black transition-colors"
               >
-                Free Toxin Assessment <Plus size={16} strokeWidth={2.5} />
+                Free Toxin Assessment <Plus size={14} strokeWidth={2.5} />
               </Link>
             </motion.div>
           </div>
