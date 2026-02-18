@@ -8,11 +8,11 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "The Science", href: "/science" },
-  { name: "Diagnostics", href: "/diagnostics" },
-  { name: "Treatment", href: "/interventions" },
-  { name: "Practitioners", href: "/practitioners" },
-  { name: "About", href: "/about" },
+  { name: "The Science", href: "/science", hasPlus: true },
+  { name: "Diagnostics", href: "/diagnostics", hasPlus: false },
+  { name: "Treatment", href: "/interventions", hasPlus: false },
+  { name: "Practitioners", href: "/practitioners", hasPlus: false },
+  { name: "About", href: "/about", hasPlus: false },
 ];
 
 export default function Navbar() {
@@ -29,20 +29,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // On homepage, hide navbar until scroll
-  if (isHomePage && !isScrolled) {
-    return null;
-  }
-
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isHomePage 
-          ? "bg-primary animate-slideDown" 
-          : isScrolled 
-            ? "bg-primary backdrop-blur-sm" 
-            : "bg-primary"
+        "bg-proxima-cream"
       )}
     >
       <div className="section-container py-5 flex items-center justify-between gap-8">
@@ -64,18 +55,12 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="nav-link-gradient font-mono text-xs uppercase tracking-wider text-secondary hover:text-primary whitespace-nowrap"
+              className="font-mono text-xs uppercase tracking-wider text-proxima-red hover:text-proxima-black transition-colors whitespace-nowrap"
             >
+              {link.hasPlus && <span className="text-proxima-red mr-1">+</span>}
               {link.name}
             </Link>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="hidden lg:block shrink-0">
-          <Link href="/waitlist" className="btn-gradient">
-            FREE TOXIN ASSESSMENT
-          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -84,9 +69,9 @@ export default function Navbar() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? (
-            <X size={24} className="text-primary" />
+            <X size={24} className="text-proxima-black" />
           ) : (
-            <Menu size={24} className="text-primary" />
+            <Menu size={24} className="text-proxima-black" />
           )}
         </button>
       </div>
@@ -96,25 +81,18 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-primary p-6 flex flex-col gap-4 lg:hidden">
-          <div className="h-0.5 proxima-gradient mb-4" />
+        <div className="absolute top-full left-0 right-0 bg-proxima-cream p-6 flex flex-col gap-4 lg:hidden border-t border-proxima-black/10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="font-mono text-sm uppercase tracking-wider py-2 text-secondary hover:text-primary transition-colors"
+              className="font-mono text-sm uppercase tracking-wider py-2 text-proxima-red hover:text-proxima-black transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
+              {link.hasPlus && <span className="text-proxima-red mr-1">+</span>}
               {link.name}
             </Link>
           ))}
-          <Link
-            href="/waitlist"
-            className="btn-gradient text-center mt-4"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            FREE TOXIN ASSESSMENT
-          </Link>
         </div>
       )}
     </nav>
