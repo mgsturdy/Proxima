@@ -31,21 +31,25 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              {/* Corner markers around the headline block */}
+              {/* Top-left corner marker */}
               <div className="absolute -top-6 -left-4 text-proxima-cream text-lg font-mono">+</div>
               
-              <div className="inline-block bg-proxima-cream text-proxima-black px-4 py-3">
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-tight">
-                  Better blood.
-                </span>
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-tight">
-                  Better life.
-                </span>
+              {/* Headline block with bottom-right marker inside */}
+              <div className="relative inline-block">
+                <div className="bg-proxima-cream text-proxima-black px-4 py-3">
+                  <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-sans leading-tight">
+                    Better blood.
+                  </span>
+                  <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-sans leading-tight">
+                    Better life.
+                  </span>
+                </div>
+                {/* Bottom-right marker - sticky to headline block */}
+                <div className="absolute -bottom-6 -right-4 text-proxima-cream text-lg font-mono">+</div>
               </div>
               
-              {/* Bottom corner markers */}
+              {/* Bottom-left corner marker */}
               <div className="absolute -bottom-6 -left-4 text-proxima-cream text-lg font-mono">+</div>
-              <div className="absolute -bottom-6 right-0 lg:right-auto lg:left-[calc(100%+1rem)] text-proxima-cream text-lg font-mono">+</div>
             </motion.div>
 
             {/* Right Column - Subheadline & CTA */}
