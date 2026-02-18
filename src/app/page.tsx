@@ -23,7 +23,7 @@ export default function Home() {
 
         {/* Main Content */}
         <div className="relative z-10 w-full section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-24 items-end">
             {/* Left Column - Main Headline with corner + markers */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -52,20 +52,20 @@ export default function Home() {
               <div className="absolute -bottom-8 -left-6 text-proxima-cream text-lg font-mono">+</div>
             </motion.div>
 
-            {/* Right Column - Subheadline & CTA */}
+            {/* Right Column - Subheadline & CTA - shifted 20% right */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:pr-12 text-left"
+              className="lg:pl-[20%] lg:pr-12 text-left w-full lg:w-[320px]"
             >
               {/* Subheadline */}
-              <h2 className="text-proxima-cream text-sm md:text-base font-sans mb-4">
+              <h2 className="text-proxima-cream text-sm md:text-base font-sans mb-4 text-justify">
                 Microplastics. PFAS. Heavy metals.
               </h2>
               
               {/* Body text */}
-              <p className="text-proxima-cream text-sm md:text-base mb-8 font-sans leading-relaxed max-w-sm">
+              <p className="text-proxima-cream text-sm md:text-base mb-8 font-sans leading-relaxed text-justify">
                 We help you understand what&apos;s in your blood, then remove what doesn&apos;t belong.
               </p>
 
