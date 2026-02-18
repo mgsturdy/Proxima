@@ -35,11 +35,11 @@ export default function Home() {
               <div className="absolute -top-6 -left-4 text-proxima-cream text-lg font-mono">+</div>
               <div className="absolute -top-6 right-0 lg:right-auto lg:left-[calc(100%+1rem)] text-proxima-cream text-lg font-mono">+</div>
               
-              <div className="flex flex-col items-start gap-2">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-none">
+              <div className="inline-block bg-proxima-cream text-proxima-black px-4 py-3">
+                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-tight">
                   Better blood.
                 </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-none">
+                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-tight">
                   Better life.
                 </span>
               </div>
