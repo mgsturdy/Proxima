@@ -34,17 +34,17 @@ export default function Home() {
               {/* Top-left corner marker */}
               <div className="absolute -top-8 -left-6 text-proxima-cream text-2xl font-mono">+</div>
               
-              {/* Headline block with bottom-right marker inside */}
-              <div className="relative inline-block">
-                <div className="bg-proxima-cream text-proxima-black px-4 py-3">
-                  <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
+              {/* Headline block - each line has its own fitted background */}
+              <div className="relative">
+                <div className="flex flex-col items-start">
+                  <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
                     Better blood.
                   </span>
-                  <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
+                  <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
                     Better life.
                   </span>
                 </div>
-                {/* Bottom-right marker - sticky to headline block */}
+                {/* Bottom-right marker - positioned relative to second line */}
                 <div className="absolute -bottom-8 -right-6 text-proxima-cream text-2xl font-mono">+</div>
               </div>
               
@@ -52,20 +52,20 @@ export default function Home() {
               <div className="absolute -bottom-8 -left-6 text-proxima-cream text-2xl font-mono">+</div>
             </motion.div>
 
-            {/* Right Column - Subheadline & CTA - shifted 20% right */}
+            {/* Right Column - Subheadline & CTA */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:pl-[20%] lg:pr-12 text-left w-full lg:w-[320px]"
+              className="lg:pr-12 text-left max-w-md"
             >
               {/* Subheadline - single line */}
               <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-4 whitespace-nowrap">
                 Microplastics. PFAS. Heavy metals.
               </p>
               
-              {/* Body text */}
-              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed">
+              {/* Body text - full width */}
+              <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed w-full">
                 We help you understand what&apos;s in your blood, then remove what doesn&apos;t belong.
               </p>
 
