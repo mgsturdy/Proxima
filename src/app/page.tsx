@@ -56,9 +56,6 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="lg:pr-12 text-left"
             >
-              {/* Accent line */}
-              <div className="w-16 h-0.5 bg-proxima-red mb-6" />
-              
               {/* Subheadline */}
               <h2 className="text-proxima-cream text-sm md:text-base font-sans mb-4">
                 Microplastics. PFAS. Heavy metals.
