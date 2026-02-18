@@ -69,7 +69,8 @@ export default function Home() {
               {/* Body text */}
               <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed">
                 We help you understand what&apos;s in<br />
-                your blood, then remove what doesn&apos;t belong.
+                your blood, then remove what<br />
+                doesn&apos;t belong.
               </p>
 
               {/* CTA Button - Black text on cream background */}
