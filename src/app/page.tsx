@@ -35,7 +35,7 @@ export default function Home() {
               <div className="absolute -top-8 -left-6 text-proxima-cream text-2xl font-mono">+</div>
               
               {/* Headline block - each line has its own fitted background */}
-              <div className="relative">
+              <div className="relative inline-block">
                 <div className="flex flex-col items-start">
                   <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
                     Better blood.
@@ -44,7 +44,7 @@ export default function Home() {
                     Better life.
                   </span>
                 </div>
-                {/* Bottom-right marker - positioned relative to second line */}
+                {/* Bottom-right marker - sticky to headline block width */}
                 <div className="absolute -bottom-8 -right-6 text-proxima-cream text-2xl font-mono">+</div>
               </div>
               
