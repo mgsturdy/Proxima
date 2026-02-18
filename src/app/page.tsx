@@ -37,10 +37,10 @@ export default function Home() {
               {/* Headline block with bottom-right marker inside */}
               <div className="relative inline-block">
                 <div className="bg-proxima-cream text-proxima-black px-4 py-3">
-                  <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-sans leading-tight">
+                  <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
                     Better blood.
                   </span>
-                  <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-sans leading-tight">
+                  <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
                     Better life.
                   </span>
                 </div>
