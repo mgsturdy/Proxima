@@ -37,7 +37,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-10">
+          <div className="hidden lg:flex items-center gap-8 xl:gap-12">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -78,7 +78,7 @@ export default function Navbar() {
 
         {/* Horizontal line under navbar - only on homepage */}
         {isHomePage && (
-          <div className="absolute left-0 right-8 top-[76px] h-px bg-proxima-cream/60" />
+          <div className="absolute left-6 md:left-12 lg:left-16 right-6 md:right-12 lg:right-16 top-[76px] h-px bg-proxima-cream/60" />
         )}
 
         {/* Mobile Nav */}
@@ -109,10 +109,10 @@ export default function Navbar() {
       {/* Vertical line on right side - only on homepage */}
       {isHomePage && (
         <>
-          {/* Vertical line */}
-          <div className="fixed top-0 right-8 w-px h-screen bg-proxima-cream/60 z-40 hidden lg:block" />
-          {/* Cross overlap in top right */}
-          <div className="fixed top-[76px] right-8 z-50 hidden lg:block">
+          {/* Vertical line - same buffer from top as horizontal has from sides */}
+          <div className="fixed top-6 md:top-12 lg:top-16 right-6 md:right-12 lg:right-16 w-px h-[calc(100vh-1.5rem)] md:h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] bg-proxima-cream/60 z-40 hidden lg:block" />
+          {/* Cross overlap where lines meet */}
+          <div className="fixed top-[76px] right-6 md:right-12 lg:right-16 z-50 hidden lg:block">
             <div className="relative">
               <span className="absolute -top-2 -left-2 text-proxima-cream text-sm font-mono">+</span>
             </div>
