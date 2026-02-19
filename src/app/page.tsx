@@ -191,17 +191,17 @@ export default function Home() {
               
               {/* Heading - white on black, each line fitted */}
               <div className="mb-8">
-                <div className="flex flex-col items-start">
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-tight">
+                <div className="flex flex-col items-start -space-y-0.5">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-none">
                     We are the first
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-none">
                     generation to carry
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-none">
                     environmental toxins
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-none">
                     in our blood from birth.
                   </span>
                 </div>
@@ -260,14 +260,14 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-nb-international leading-tight">
+              <div className="flex flex-col items-start -space-y-0.5">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
                   Estimate your
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
                   toxin exposure
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
                   in two minutes
                 </span>
               </div>
