@@ -38,60 +38,69 @@ export default function ThreeStepsSection() {
 
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {steps.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="relative pt-4 transition-opacity duration-300"
-              style={{
-                opacity: hoveredIndex === null ? 1 : hoveredIndex === i ? 1 : 0.4
-              }}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              {/* Gradient top line - shows on hover */}
-              <div 
-                className="absolute top-0 left-0 right-0 h-[2px] proxima-gradient transition-opacity duration-300"
-                style={{ opacity: hoveredIndex === i ? 1 : 0 }}
-              />
+          {steps.map((item, i) => {
+            const isHovered = hoveredIndex === i;
+            const isAnyHovered = hoveredIndex !== null;
+            const isFaded = isAnyHovered && !isHovered;
 
-              {/* Step number */}
-              <span className="block text-7xl md:text-8xl font-bold text-proxima-black/20 leading-none mb-4 font-display">
-                {item.num}
-              </span>
-
-              {/* Step title - white on black pill */}
-              <h3 className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 mb-3 font-display text-xl md:text-2xl">
-                {item.title}
-              </h3>
-
-              {/* Subtitle */}
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-black/60 mb-4">
-                {item.subtitle}
-              </p>
-
-              {/* Description */}
-              <p className="text-proxima-black/70 font-sans text-sm md:text-base mb-6 leading-relaxed">
-                {item.desc}
-              </p>
-
-              {/* Learn more link with + and red gradient underline */}
-              <Link
-                href={item.link}
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black/80 hover:text-proxima-black transition-colors group"
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="relative pt-4 transition-all duration-300 cursor-pointer"
+                style={{
+                  opacity: isFaded ? 0.35 : 1
+                }}
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
-                <span className="relative">
-                  Learn more
-                  {/* Red gradient underline */}
-                  <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
+                {/* Gradient top line - shows on hover */}
+                <div 
+                  className="absolute top-0 left-0 right-0 h-[2px] proxima-gradient transition-opacity duration-300"
+                  style={{ opacity: isHovered ? 1 : 0 }}
+                />
+
+                {/* Step number - full black on hover, light when not */}
+                <span 
+                  className="block text-7xl md:text-8xl font-bold leading-none mb-4 font-display transition-colors duration-300"
+                  style={{ color: isHovered ? 'rgb(28, 28, 28)' : 'rgba(28, 28, 28, 0.15)' }}
+                >
+                  {item.num}
                 </span>
-                <span className="text-proxima-red">+</span>
-              </Link>
-            </motion.div>
-          ))}
+
+                {/* Step title - white on black pill */}
+                <h3 className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 mb-3 font-display text-xl md:text-2xl">
+                  {item.title}
+                </h3>
+
+                {/* Subtitle */}
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-black/60 mb-4">
+                  {item.subtitle}
+                </p>
+
+                {/* Description */}
+                <p className="text-proxima-black/80 font-sans text-sm md:text-base mb-6 leading-relaxed">
+                  {item.desc}
+                </p>
+
+                {/* Learn more link with + and red gradient underline */}
+                <Link
+                  href={item.link}
+                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors group"
+                >
+                  <span className="relative">
+                    Learn more
+                    {/* Red gradient underline */}
+                    <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
+                  </span>
+                  <span className="text-proxima-red">+</span>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
