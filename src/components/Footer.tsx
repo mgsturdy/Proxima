@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative" style={{ background: 'linear-gradient(to bottom, #FAF9F6 0%, #FAF9F6 10%, #F5A623 50%, #E53935 100%)' }}>
+    <footer className="relative" style={{ background: 'linear-gradient(to bottom, #FAF9F6 0%, #FAF9F6 5%, #F5A623 30%, #E53935 60%, #C62828 100%)' }}>
       <div className="section-container py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
           {/* Brand */}
@@ -28,8 +28,8 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="lg:col-span-2">
-            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-6">Company</p>
-            <ul className="space-y-3">
+            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-4">Company</p>
+            <ul className="space-y-1.5">
               <li><Link href="/science" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">The Science</Link></li>
               <li><Link href="/diagnostics" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Diagnostics</Link></li>
               <li><Link href="/interventions" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Interventions</Link></li>
@@ -38,8 +38,8 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-6">Resources</p>
-            <ul className="space-y-3">
+            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-4">Resources</p>
+            <ul className="space-y-1.5">
               <li><Link href="/practitioners" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">For Practitioners</Link></li>
               <li><Link href="/waitlist" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Toxin Assessment</Link></li>
               <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Research Library</span></li>
@@ -48,8 +48,8 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-6">Legal</p>
-            <ul className="space-y-3">
+            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-4">Legal</p>
+            <ul className="space-y-1.5">
               <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Privacy Policy</span></li>
               <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Terms of Service</span></li>
               <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Clinical Disclosures</span></li>
