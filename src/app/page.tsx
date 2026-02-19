@@ -236,32 +236,78 @@ export default function Home() {
       {/* Three Steps Section */}
       <ThreeStepsSection />
 
-      {/* CTA */}
-      <section className="py-32 relative overflow-hidden bg-proxima-cream">
-        <div className="absolute top-0 left-0 right-0 h-px proxima-gradient opacity-30" />
-        <div className="section-narrow text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="w-16 h-1 proxima-gradient mx-auto mb-8" />
-            <h2 className="mb-8 font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-proxima-black">
-              Estimate your toxin exposure in two minutes
-            </h2>
-            <p className="text-xl text-proxima-black/60 font-sans mb-12 max-w-xl mx-auto">
-              Answer a few lifestyle questions. Receive an estimated Toxin Load Score 
-              based on your daily exposure.
-            </p>
-            <Link href="/waitlist" className="btn-gradient inline-flex items-center gap-3">
-              Begin Assessment <ArrowRight size={18} />
-            </Link>
-            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/40 mt-8 text-center mx-auto">
-              No signup required · Results delivered immediately
-            </p>
-          </motion.div>
+      {/* Estimate Your Toxin Exposure */}
+      <section className="relative py-16 md:py-24 bg-proxima-cream">
+        {/* Vertical line on right - ends at bottom of this section */}
+        <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60 hidden lg:block" />
+
+        <div className="section-container">
+          {/* Top row of + signs */}
+          <div className="grid grid-cols-3 mb-8">
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-2xl font-mono text-right mr-6">+</span>
+          </div>
+
+          {/* Main content - 2 column aligned with 02 and 03 grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Empty first column (aligns with 01) */}
+            <div className="hidden md:block" />
+
+            {/* Left block - Headline (aligns with 02 column) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex flex-col items-start">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-display leading-tight">
+                  Estimate your
+                </span>
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-display leading-tight">
+                  toxin exposure
+                </span>
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-display leading-tight">
+                  in two minutes
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Right block - Supporting copy (aligns with 03 column) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="flex flex-col justify-center"
+            >
+              <p className="text-proxima-black/80 font-sans text-sm md:text-base leading-relaxed mb-6">
+                Answer a few lifestyle questions.<br />
+                Receive an estimated Toxin Load<br />
+                Score based on your daily exposure.
+              </p>
+
+              {/* Learn more link with + and red gradient underline */}
+              <Link
+                href="/waitlist"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
+              >
+                <span className="relative">
+                  Learn more
+                  <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
+                </span>
+                <span className="text-proxima-red">+</span>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Bottom row of + signs */}
+          <div className="grid grid-cols-3 mt-8">
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-2xl font-mono text-right mr-6">+</span>
+          </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px proxima-gradient-reverse opacity-30" />
       </section>
     </div>
   );
