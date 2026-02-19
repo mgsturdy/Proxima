@@ -84,7 +84,22 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-proxima-cream py-24 lg:py-32">
+      <section className="relative bg-proxima-cream py-24 lg:py-32">
+        {/* Vertical line continuing from hero - now black */}
+        <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60 hidden lg:block" />
+        
+        {/* Top row of + signs */}
+        <div className="section-container relative">
+          <div className="flex justify-between items-center mb-16">
+            {/* Left + */}
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            {/* Center + */}
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            {/* Right + - offset from vertical line */}
+            <span className="text-proxima-black text-2xl font-mono lg:mr-14">+</span>
+          </div>
+        </div>
+
         <div className="section-container">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {[
@@ -113,8 +128,8 @@ export default function Home() {
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="text-left"
               >
-                {/* Red + marker */}
-                <span className="text-proxima-red text-2xl font-mono font-light mb-4 block">+</span>
+                {/* + marker above each stat */}
+                <span className="text-proxima-black text-2xl font-mono mb-4 block">+</span>
                 
                 {/* Stat number */}
                 <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-proxima-black leading-none font-display mb-4">
@@ -127,6 +142,18 @@ export default function Home() {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+
+        {/* Bottom row of + signs */}
+        <div className="section-container relative">
+          <div className="flex justify-between items-center mt-16">
+            {/* Left + */}
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            {/* Center + */}
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            {/* Right + - offset from vertical line */}
+            <span className="text-proxima-black text-2xl font-mono lg:mr-14">+</span>
           </div>
         </div>
       </section>
