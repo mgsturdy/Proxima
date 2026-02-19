@@ -130,7 +130,7 @@ export default function Home() {
                 className="text-left"
               >
                 {/* Stat number */}
-                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-proxima-black leading-none font-robit mb-4">
+                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-proxima-black leading-none font-robit mb-4">
                   {item.stat}
                 </span>
                 
@@ -192,16 +192,16 @@ export default function Home() {
               {/* Heading - white on black, each line fitted */}
               <div className="mb-8">
                 <div className="flex flex-col items-start">
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-nb-international leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-tight">
                     We are the first
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-nb-international leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-tight">
                     generation to carry
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-nb-international leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-tight">
                     environmental toxins
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-nb-international leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-tight">
                     in our blood from birth.
                   </span>
                 </div>
@@ -261,13 +261,13 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-nb-international leading-tight">
                   Estimate your
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-nb-international leading-tight">
                   toxin exposure
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-nb-international leading-tight">
                   in two minutes
                 </span>
               </div>

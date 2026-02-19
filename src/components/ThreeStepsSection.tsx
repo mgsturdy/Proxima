@@ -65,14 +65,14 @@ export default function ThreeStepsSection() {
 
                 {/* Step number - full black on hover, light when not */}
                 <span 
-                  className="block text-7xl md:text-8xl font-bold leading-none mb-4 font-robit transition-colors duration-300"
+                  className="block text-7xl md:text-8xl leading-none mb-4 font-robit transition-colors duration-300"
                   style={{ color: isHovered ? 'rgb(28, 28, 28)' : 'rgba(28, 28, 28, 0.15)' }}
                 >
                   {item.num}
                 </span>
 
                 {/* Step title - white on black pill */}
-                <h3 className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 mb-3 font-nb-international text-xl md:text-2xl font-bold">
+                <h3 className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 mb-3 font-nb-international text-xl md:text-2xl">
                   {item.title}
                 </h3>
 
