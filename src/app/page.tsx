@@ -144,15 +144,29 @@ export default function Home() {
       </section>
 
       {/* The Invisible Crisis */}
-      <section className="py-32 bg-proxima-cream">
+      <section className="relative bg-proxima-cream">
+        {/* Vertical line continuing from hero - now black */}
+        <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60" />
+        
         <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Top row of + signs */}
+          <div className="flex items-center py-6">
+            {/* Left + aligned with image left edge */}
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            {/* Second + aligned with image right edge / divider */}
+            <span className="text-proxima-black text-2xl font-mono ml-[calc(50%-3rem)]">+</span>
+            {/* Right + near vertical line */}
+            <span className="text-proxima-black text-2xl font-mono ml-auto mr-6">+</span>
+          </div>
+
+          {/* Main content grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Image Column */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative order-2 lg:order-1"
+              className="relative pr-8 lg:pr-12"
             >
               <div className="aspect-[4/3] relative">
                 <Image 
@@ -164,30 +178,42 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Content Column */}
+            {/* Content Column with left border */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="order-1 lg:order-2"
+              className="relative pl-8 lg:pl-12 border-l border-proxima-black/20 flex flex-col"
             >
-              {/* Section label */}
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-black/40 mb-4">The Invisible Crisis</p>
-              {/* Heading */}
-              <h2 className="mb-8 font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
-                  We are the first generation to carry environmental toxins in our blood from birth.
-                </span>
-              </h2>
+              {/* Section label - aligned with + row */}
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-black/60 mb-8">The Invisible Crisis</p>
+              
+              {/* Heading - white on black, each line fitted */}
+              <div className="mb-8">
+                <div className="flex flex-col items-start">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-display leading-tight">
+                    We are the first
+                  </span>
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-display leading-tight">
+                    generation to carry
+                  </span>
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-display leading-tight">
+                    environmental toxins
+                  </span>
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-display leading-tight">
+                    in our blood from birth.
+                  </span>
+                </div>
+              </div>
               
               {/* Body text */}
-              <div className="mb-12 space-y-6">
-                <p className="text-proxima-black/70 font-sans text-lg leading-relaxed">
+              <div className="mb-8 space-y-4 flex-grow">
+                <p className="text-proxima-black/80 font-sans text-sm md:text-base leading-relaxed">
                   Since the 1950s, over 140,000 synthetic compounds have entered our world 
                   and our bloodstream. From microplastics to &quot;forever chemicals,&quot; these 
                   substances were never meant to be part of our biology.
                 </p>
-                <p className="text-proxima-black/70 font-sans text-lg leading-relaxed">
+                <p className="text-proxima-black/80 font-sans text-sm md:text-base leading-relaxed">
                   We believe you deserve a clean slate. Proxima Health provides the rigorous, 
                   peer-reviewed science to identify these toxins and the proven technology to 
                   remove them. We don&apos;t just believe in better days ahead; we have the science 
@@ -195,10 +221,12 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Button */}
-              <Link href="/diagnostics" className="btn-gradient inline-flex items-center gap-3">
-                Order environmental toxin blood test <ArrowRight size={18} />
-              </Link>
+              {/* CTA Button - bottom aligned with image */}
+              <div className="mt-auto pb-6">
+                <Link href="/diagnostics" className="bg-proxima-red text-proxima-cream px-6 py-3 font-mono text-xs uppercase tracking-wider inline-block hover:bg-proxima-red/90 transition-colors">
+                  Free Toxin Assessment
+                </Link>
+              </div>
             </motion.div>
           </div>
         </div>
