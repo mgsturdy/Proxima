@@ -123,11 +123,6 @@ export default function Navbar() {
           </div>
         )}
       </nav>
-
-      {/* White vertical line for hero section only - stays white, fixed to viewport */}
-      {isHomePage && (
-        <div className="fixed top-[61px] right-10 w-px h-[calc(100vh-61px)] z-40 hidden lg:block bg-proxima-cream/60" />
-      )}
     </>
   );
 }

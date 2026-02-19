@@ -21,6 +21,9 @@ export default function Home() {
             priority
           />
         </div>
+        
+        {/* White vertical line for hero section */}
+        <div className="absolute top-[76px] right-10 w-px h-[calc(100%-76px)] bg-proxima-cream/60 hidden lg:block" />
 
         {/* Main Content */}
         <div className="relative z-10 w-full section-container">
