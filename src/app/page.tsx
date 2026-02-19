@@ -28,15 +28,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative pl-8"
           >
-            {/* Top-left corner marker - aligned with section edge */}
-            <div className="absolute -top-12 -left-0 text-proxima-cream text-2xl font-mono">+</div>
+            {/* Top-left corner marker */}
+            <div className="absolute -top-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
             
             {/* Headline block - each line has its own fitted background */}
             <div className="relative inline-block">
-              {/* Top-right marker - same distance from text as left is from edge */}
-              <div className="absolute -top-12 -right-10 text-proxima-cream text-2xl font-mono">+</div>
+              {/* Top-right marker */}
+              <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
                 <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
                   Better blood.
@@ -45,12 +45,12 @@ export default function Home() {
                   Better life.
                 </span>
               </div>
-              {/* Bottom-right marker - sticky to headline block width */}
-              <div className="absolute -bottom-12 -right-10 text-proxima-cream text-2xl font-mono">+</div>
+              {/* Bottom-right marker */}
+              <div className="absolute -bottom-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
             </div>
             
             {/* Bottom-left corner marker */}
-            <div className="absolute -bottom-12 -left-0 text-proxima-cream text-2xl font-mono">+</div>
+            <div className="absolute -bottom-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
           </motion.div>
         </div>
 
