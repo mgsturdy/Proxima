@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import ThreeStepsSection from "@/components/ThreeStepsSection";
 
 export default function Home() {
   return (
@@ -232,66 +233,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Methodology */}
-      <section className="py-24 bg-proxima-black">
-        <div className="section-container">
-          <div className="mb-16">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-cream/40 mb-4">Methodology</p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight inline-block">
-              <span className="bg-proxima-cream text-proxima-black px-3 py-1">
-                Three Steps to Better Health
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              {
-                num: "01",
-                title: "Measure",
-                subtitle: "Diagnostics",
-                desc: "Proxima Health Baseline blood test to identify and measure over 30 environmental toxins with clinical precision.",
-                link: "/diagnostics"
-              },
-              {
-                num: "02",
-                title: "Optimize",
-                subtitle: "Lifestyle",
-                desc: "Evidence based protocols and lifestyle changes to reduce ongoing exposure.",
-                link: "/interventions"
-              },
-              {
-                num: "03",
-                title: "Eliminate",
-                subtitle: "Therapeutics",
-                desc: "Advanced blood filtration to remove accumulated toxins from the body.",
-                link: "/interventions"
-              }
-            ].map((item, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group"
-              >
-                <span className="block text-8xl font-bold text-proxima-cream/10 leading-none mb-4 font-display">{item.num}</span>
-                <h3 className="mb-2 text-proxima-cream font-display">{item.title}</h3>
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-cream/40 mb-6">{item.subtitle}</p>
-                <p className="text-proxima-cream/70 font-sans mb-8">{item.desc}</p>
-                <Link 
-                  href={item.link} 
-                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-cream/50 hover:text-proxima-cream transition-colors group"
-                >
-                  Learn more 
-                  <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Three Steps Section */}
+      <ThreeStepsSection />
 
       {/* CTA */}
       <section className="py-32 relative overflow-hidden bg-proxima-cream">
