@@ -124,9 +124,14 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Vertical line on right side - only when transparent, 40px from right */}
-      {isTransparent && (
-        <div className="fixed top-[61px] right-10 w-px h-[calc(100vh-61px)] bg-proxima-cream/60 z-40 hidden lg:block" />
+      {/* Vertical line on right side - always visible, color changes on scroll */}
+      {isHomePage && (
+        <div 
+          className={cn(
+            "fixed top-[61px] right-10 w-px h-[calc(100vh-61px)] z-40 hidden lg:block transition-colors duration-300",
+            isTransparent ? "bg-proxima-cream/60" : "bg-proxima-black/60"
+          )} 
+        />
       )}
     </>
   );
