@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Robit';
+    src: url('Robit-Light.eot');
+    src: local('Robit Light'), local('Robit-Light'),
+        url('Robit-Light.eot?#iefix') format('embedded-opentype'),
+        url('Robit-Light.woff2') format('woff2'),
+        url('Robit-Light.woff') format('woff'),
+        url('Robit-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Robit';
+    src: url('Robit-Bold.eot');
+    src: local('Robit Bold'), local('Robit-Bold'),
+        url('Robit-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Robit-Bold.woff2') format('woff2'),
+        url('Robit-Bold.woff') format('woff'),
+        url('Robit-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Robit';
+    src: url('Robit-Medium.eot');
+    src: local('Robit Medium'), local('Robit-Medium'),
+        url('Robit-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Robit-Medium.woff2') format('woff2'),
+        url('Robit-Medium.woff') format('woff'),
+        url('Robit-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Robit-Dark';
+    src: url('Robit-Dark.eot');
+    src: local('Robit Dark'), local('Robit-Dark'),
+        url('Robit-Dark.eot?#iefix') format('embedded-opentype'),
+        url('Robit-Dark.woff2') format('woff2'),
+        url('Robit-Dark.woff') format('woff'),
+        url('Robit-Dark.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Robit';
+    src: url('Robit-Regular.eot');
+    src: local('Robit Regular'), local('Robit-Regular'),
+        url('Robit-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Robit-Regular.woff2') format('woff2'),
+        url('Robit-Regular.woff') format('woff'),
+        url('Robit-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
