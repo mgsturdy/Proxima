@@ -60,14 +60,14 @@ export default function LoadingScreen() {
             </div>
 
             {/* Text and percentage */}
-            <div className="flex justify-between items-center">
+            <div className="relative h-6">
               <motion.p
-                className="font-mono text-xs uppercase tracking-wider text-proxima-black/60"
-                style={{ marginLeft: `${Math.min(progress, 85)}%` }}
+                className="absolute font-mono text-xs uppercase tracking-wider text-proxima-black/60 whitespace-nowrap"
+                style={{ left: `${Math.min(progress, 70)}%` }}
               >
                 Better Blood. Better Life.
               </motion.p>
-              <span className="font-mono text-xs text-proxima-black/40">
+              <span className="absolute right-0 font-mono text-xs text-proxima-black/40">
                 {Math.round(progress)}%
               </span>
             </div>
