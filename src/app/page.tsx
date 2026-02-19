@@ -22,8 +22,8 @@ export default function Home() {
           />
         </div>
         
-        {/* White vertical line for hero section */}
-        <div className="absolute top-[76px] right-10 w-px h-[calc(100%-76px)] bg-proxima-cream/60 hidden lg:block" />
+        {/* White vertical line for hero section - starts 15px above horizontal line to form + intersection */}
+        <div className="absolute top-[61px] right-10 w-px h-[calc(100%-61px)] bg-proxima-cream/60 hidden lg:block" />
 
         {/* Main Content */}
         <div className="relative z-10 w-full section-container">
