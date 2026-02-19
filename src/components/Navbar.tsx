@@ -17,17 +17,35 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
+  // Track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    
+    handleScroll(); // Check initial position
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Use transparent/cream style only on homepage when not scrolled
+  const isTransparent = isHomePage && !scrolled;
+
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50">
+      <nav className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
+        isTransparent ? "bg-transparent" : "bg-proxima-cream"
+      )}>
         <div className="section-container py-5 flex items-center justify-between gap-8">
-          {/* Logo - White on homepage, black elsewhere */}
+          {/* Logo - White when transparent, black when scrolled */}
           <Link href="/" className="relative shrink-0">
             <Image 
-              src={isHomePage ? "/assets/Main_Logo+Icon_OffWhite.svg" : "/assets/Main_Logo+Icon_Black.svg"}
+              src={isTransparent ? "/assets/Main_Logo+Icon_OffWhite.svg" : "/assets/Main_Logo+Icon_Black.svg"}
               alt="Proxima" 
               width={180} 
               height={32}
@@ -44,7 +62,7 @@ export default function Navbar() {
                 href={link.href}
                 className={cn(
                   "group font-mono text-xs uppercase tracking-wider whitespace-nowrap transition-colors relative",
-                  isHomePage 
+                  isTransparent 
                     ? "text-proxima-cream hover:text-white" 
                     : "text-proxima-black/70 hover:text-proxima-black"
                 )}
@@ -56,7 +74,7 @@ export default function Navbar() {
                   {/* Underline on hover */}
                   <span className={cn(
                     "absolute left-0 -bottom-1 w-0 h-px group-hover:w-full transition-all duration-300",
-                    isHomePage ? "bg-proxima-cream" : "bg-proxima-black"
+                    isTransparent ? "bg-proxima-cream" : "bg-proxima-black"
                   )} />
                 </span>
               </Link>
@@ -69,15 +87,15 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X size={24} className={isHomePage ? "text-proxima-cream" : "text-proxima-black"} />
+              <X size={24} className={isTransparent ? "text-proxima-cream" : "text-proxima-black"} />
             ) : (
-              <Menu size={24} className={isHomePage ? "text-proxima-cream" : "text-proxima-black"} />
+              <Menu size={24} className={isTransparent ? "text-proxima-cream" : "text-proxima-black"} />
             )}
           </button>
         </div>
 
-        {/* Horizontal line under navbar - extends 15px past vertical line (which is at 40px from right) */}
-        {isHomePage && (
+        {/* Horizontal line under navbar - only when transparent */}
+        {isTransparent && (
           <div className="absolute left-6 md:left-12 lg:left-16 right-[25px] top-[76px] h-px bg-proxima-cream/60" />
         )}
 
@@ -85,7 +103,7 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <div className={cn(
             "absolute top-full left-0 right-0 p-6 flex flex-col gap-4 lg:hidden",
-            isHomePage ? "bg-proxima-black/90 backdrop-blur-sm" : "bg-proxima-cream"
+            isTransparent ? "bg-proxima-black/90 backdrop-blur-sm" : "bg-proxima-cream"
           )}>
             {navLinks.map((link) => (
               <Link
@@ -93,7 +111,7 @@ export default function Navbar() {
                 href={link.href}
                 className={cn(
                   "font-mono text-sm uppercase tracking-wider py-2 transition-colors",
-                  isHomePage 
+                  isTransparent 
                     ? "text-proxima-cream hover:text-white" 
                     : "text-proxima-black/70 hover:text-proxima-black"
                 )}
@@ -106,8 +124,8 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Vertical line on right side - 40px from right, extends 15px past horizontal line (at 76px) */}
-      {isHomePage && (
+      {/* Vertical line on right side - only when transparent, 40px from right */}
+      {isTransparent && (
         <div className="fixed top-[61px] right-10 w-px h-[calc(100vh-61px)] bg-proxima-cream/60 z-40 hidden lg:block" />
       )}
     </>
