@@ -5,6 +5,136 @@
 /* Brand Typography - Darker Grotesque (numbers), Archivo (headlines/body), DM Mono (subheadings/technical) */
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Mono:wght@400;500&family=Darker+Grotesque:wght@400;500;600;700;800;900&display=swap');
 
+/* Local Fonts - DM Sans */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DM Sans/DMSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DM Sans/DMSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DM Sans/DMSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DM Sans/DMSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DM Sans/DMSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DM Sans/DMSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DM Sans/DMSans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Local Fonts - NB International */
+@font-face {
+  font-family: 'NB International';
+  src: url('/fonts/NB INTERNATIONAL (DEMO)/NB International Regular Webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NB International';
+  src: url('/fonts/NB INTERNATIONAL (DEMO)/NB International Italic Webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NB International';
+  src: url('/fonts/NB INTERNATIONAL (DEMO)/NB International Bold Webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NB International';
+  src: url('/fonts/NB INTERNATIONAL (DEMO)/NB International Bold Italic Webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NB International Mono';
+  src: url('/fonts/NB INTERNATIONAL (DEMO)/NB International Mono Webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Local Fonts - Robit */
+@font-face {
+  font-family: 'Robit';
+  src: url('/fonts/Robit/WEB/Robit-Light.woff2') format('woff2'),
+       url('/fonts/Robit/WEB/Robit-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Robit';
+  src: url('/fonts/Robit/WEB/Robit-Regular.woff2') format('woff2'),
+       url('/fonts/Robit/WEB/Robit-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Robit';
+  src: url('/fonts/Robit/WEB/Robit-Medium.woff2') format('woff2'),
+       url('/fonts/Robit/WEB/Robit-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Robit';
+  src: url('/fonts/Robit/WEB/Robit-Bold.woff2') format('woff2'),
+       url('/fonts/Robit/WEB/Robit-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Robit';
+  src: url('/fonts/Robit/WEB/Robit-Dark.woff2') format('woff2'),
+       url('/fonts/Robit/WEB/Robit-Dark.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Brand Colors */
   --proxima-black: #0A0A0A;

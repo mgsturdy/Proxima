@@ -24,6 +24,11 @@ const config: Config = {
         serif: ["Archivo", "Georgia", "serif"],
         mono: ["DM Mono", "monospace"],
         display: ["Darker Grotesque", "sans-serif"],
+        // New local fonts
+        "dm-sans": ["DM Sans", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        "nb-international": ["NB International", "sans-serif"],
+        "nb-mono": ["NB International Mono", "monospace"],
+        robit: ["Robit", "sans-serif"],
       },
       backgroundImage: {
         "proxima-gradient": "linear-gradient(90deg, #BA000E 0%, #FE091B 25%, #FF9D00 50%, #FFFBEE 100%)",
