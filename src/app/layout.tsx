@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import PasswordGate from "@/components/PasswordGate";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export const metadata: Metadata = {
   title: "Proxima — Environmental Toxin Diagnostics",
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-serif">
         <PasswordGate>
+          <LoadingScreen />
           <Navbar />
           <main>{children}</main>
           <Footer />
