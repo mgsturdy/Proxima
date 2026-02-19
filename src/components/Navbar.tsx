@@ -124,14 +124,9 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Vertical line on right side - always visible, color changes on scroll */}
+      {/* White vertical line for hero section only - stays white, fixed to viewport */}
       {isHomePage && (
-        <div 
-          className={cn(
-            "fixed top-[61px] right-10 w-px h-[calc(100vh-61px)] z-40 hidden lg:block transition-colors duration-300",
-            isTransparent ? "bg-proxima-cream/60" : "bg-proxima-black/60"
-          )} 
-        />
+        <div className="fixed top-[61px] right-10 w-px h-[calc(100vh-61px)] z-40 hidden lg:block bg-proxima-cream/60" />
       )}
     </>
   );

@@ -238,8 +238,6 @@ export default function Home() {
 
       {/* Estimate Your Toxin Exposure */}
       <section className="relative py-16 md:py-24 bg-proxima-cream">
-        {/* Vertical line on right - ends at bottom of this section */}
-        <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60 hidden lg:block" />
 
         <div className="section-container">
           {/* Top row of + signs */}
