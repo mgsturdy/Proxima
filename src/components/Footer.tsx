@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <p className="text-proxima-black/80 max-w-sm leading-relaxed mb-8 font-mono text-xs uppercase tracking-wider">
+            <p className="text-proxima-black/80 max-w-sm leading-relaxed mb-8 font-nb-international text-sm">
               Advancing human health through clinical-grade environmental 
               diagnostics and evidence-based therapeutic interventions.
             </p>

@@ -290,7 +290,7 @@ export default function Home() {
               {/* Learn more link with + and red gradient underline */}
               <Link
                 href="/waitlist"
-                className="inline-flex items-center gap-2 font-nb-international text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >
                 <span className="relative">
                   Learn more
