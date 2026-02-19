@@ -246,7 +246,7 @@ export default function Home() {
           <div className="grid grid-cols-3 mb-8">
             <span className="text-proxima-black text-2xl font-mono">+</span>
             <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono text-right mr-6">+</span>
+            <span></span>
           </div>
 
           {/* Main content - 2 column aligned with 02 and 03 grid */}
@@ -305,7 +305,7 @@ export default function Home() {
           <div className="grid grid-cols-3 mt-8">
             <span className="text-proxima-black text-2xl font-mono">+</span>
             <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono text-right mr-6">+</span>
+            <span></span>
           </div>
         </div>
       </section>
