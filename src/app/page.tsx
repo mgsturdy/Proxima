@@ -39,10 +39,10 @@ export default function Home() {
               {/* Top-right marker */}
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   Better blood.
                 </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-sans leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   Better life.
                 </span>
               </div>
@@ -63,12 +63,12 @@ export default function Home() {
           className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left"
         >
           {/* Subheadline - single line */}
-          <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-4 whitespace-nowrap">
+          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal mb-4 whitespace-nowrap">
             Microplastics. PFAS. Heavy metals.
           </p>
           
           {/* Body text */}
-          <p className="text-proxima-cream text-sm md:text-base font-sans font-normal mb-8 leading-relaxed">
+          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal mb-8 leading-relaxed">
             We help you understand what&apos;s in<br />
             your blood, then remove what<br />
             doesn&apos;t belong.
@@ -130,7 +130,7 @@ export default function Home() {
                 className="text-left"
               >
                 {/* Stat number */}
-                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-proxima-black leading-none font-display mb-4">
+                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-proxima-black leading-none font-robit mb-4">
                   {item.stat}
                 </span>
                 
@@ -192,16 +192,16 @@ export default function Home() {
               {/* Heading - white on black, each line fitted */}
               <div className="mb-8">
                 <div className="flex flex-col items-start">
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-display leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-nb-international leading-tight">
                     We are the first
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-display leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-nb-international leading-tight">
                     generation to carry
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-display leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-nb-international leading-tight">
                     environmental toxins
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-display leading-tight">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-2xl md:text-3xl lg:text-4xl font-bold font-nb-international leading-tight">
                     in our blood from birth.
                   </span>
                 </div>
@@ -209,12 +209,12 @@ export default function Home() {
               
               {/* Body text */}
               <div className="mb-8 space-y-4 flex-grow">
-                <p className="text-proxima-black/80 font-sans text-sm md:text-base leading-relaxed">
+                <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
                   Since the 1950s, over 140,000 synthetic compounds have entered our world 
                   and our bloodstream. From microplastics to &quot;forever chemicals,&quot; these 
                   substances were never meant to be part of our biology.
                 </p>
-                <p className="text-proxima-black/80 font-sans text-sm md:text-base leading-relaxed">
+                <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
                   We believe you deserve a clean slate. Proxima Health provides the rigorous, 
                   peer-reviewed science to identify these toxins and the proven technology to 
                   remove them. We don&apos;t just believe in better days ahead; we have the science 
@@ -261,13 +261,13 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-display leading-tight">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-nb-international leading-tight">
                   Estimate your
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-display leading-tight">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-nb-international leading-tight">
                   toxin exposure
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-display leading-tight">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-xl md:text-2xl lg:text-3xl font-bold font-nb-international leading-tight">
                   in two minutes
                 </span>
               </div>
@@ -281,7 +281,7 @@ export default function Home() {
               transition={{ delay: 0.1 }}
               className="flex flex-col justify-center"
             >
-              <p className="text-proxima-black/80 font-sans text-sm md:text-base leading-relaxed mb-6">
+              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
                 Answer a few lifestyle questions.<br />
                 Receive an estimated Toxin Load<br />
                 Score based on your daily exposure.
@@ -290,7 +290,7 @@ export default function Home() {
               {/* Learn more link with + and red gradient underline */}
               <Link
                 href="/waitlist"
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
+                className="inline-flex items-center gap-2 font-nb-international text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >
                 <span className="relative">
                   Learn more

@@ -65,14 +65,14 @@ export default function ThreeStepsSection() {
 
                 {/* Step number - full black on hover, light when not */}
                 <span 
-                  className="block text-7xl md:text-8xl font-bold leading-none mb-4 font-display transition-colors duration-300"
+                  className="block text-7xl md:text-8xl font-bold leading-none mb-4 font-robit transition-colors duration-300"
                   style={{ color: isHovered ? 'rgb(28, 28, 28)' : 'rgba(28, 28, 28, 0.15)' }}
                 >
                   {item.num}
                 </span>
 
                 {/* Step title - white on black pill */}
-                <h3 className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 mb-3 font-display text-xl md:text-2xl">
+                <h3 className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 mb-3 font-nb-international text-xl md:text-2xl font-bold">
                   {item.title}
                 </h3>
 
@@ -82,14 +82,14 @@ export default function ThreeStepsSection() {
                 </p>
 
                 {/* Description */}
-                <p className="text-proxima-black/80 font-sans text-sm md:text-base mb-6 leading-relaxed">
+                <p className="text-proxima-black/80 font-nb-international text-sm md:text-base mb-6 leading-relaxed">
                   {item.desc}
                 </p>
 
                 {/* Learn more link with + and red gradient underline */}
                 <Link
                   href={item.link}
-                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors group"
+                  className="inline-flex items-center gap-2 font-nb-international text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors group"
                 >
                   <span className="relative">
                     Learn more
