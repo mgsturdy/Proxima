@@ -89,8 +89,8 @@ export default function Home() {
         <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60 hidden lg:block" />
         
         {/* Top row of + signs */}
-        <div className="section-container relative">
-          <div className="flex justify-between items-center mb-16">
+        <div className="section-container relative mb-16">
+          <div className="flex justify-between items-center">
             {/* Left + */}
             <span className="text-proxima-black text-2xl font-mono">+</span>
             {/* Center + */}
@@ -128,9 +128,6 @@ export default function Home() {
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="text-left"
               >
-                {/* + marker above each stat */}
-                <span className="text-proxima-black text-2xl font-mono mb-4 block">+</span>
-                
                 {/* Stat number */}
                 <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-proxima-black leading-none font-display mb-4">
                   {item.stat}
@@ -142,18 +139,6 @@ export default function Home() {
                 </p>
               </motion.div>
             ))}
-          </div>
-        </div>
-
-        {/* Bottom row of + signs */}
-        <div className="section-container relative">
-          <div className="flex justify-between items-center mt-16">
-            {/* Left + */}
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            {/* Center + */}
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            {/* Right + - offset from vertical line */}
-            <span className="text-proxima-black text-2xl font-mono lg:mr-14">+</span>
           </div>
         </div>
       </section>
