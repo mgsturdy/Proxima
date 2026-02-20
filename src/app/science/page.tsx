@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Plus } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -148,7 +148,7 @@ export default function SciencePage() {
           </motion.div>
         </div>
 
-        {/* Right Column - Body text & CTA - positioned 40px left of vertical line */}
+        {/* Right Column - Body text - positioned 40px left of vertical line */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -156,17 +156,9 @@ export default function SciencePage() {
           className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left max-w-md"
         >
           {/* Body text */}
-          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal mb-8 leading-relaxed">
+          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
             You deserve to understand exactly what is happening in your body and what the science says about it. We&apos;ve organized the latest research on toxins into a verifiable, accessible guide so you can make confident, informed decisions about your journey toward recovery and longevity.
           </p>
-
-          {/* CTA Button - Black text on cream background */}
-          <Link 
-            href="/diagnostics" 
-            className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors whitespace-nowrap"
-          >
-            Explore Diagnostics <Plus size={14} strokeWidth={2.5} />
-          </Link>
         </motion.div>
       </section>
 
