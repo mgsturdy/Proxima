@@ -132,10 +132,10 @@ export default function SciencePage() {
               {/* Top-right marker */}
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   The science behind
                 </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   environmental toxins
                 </span>
               </div>
@@ -153,11 +153,17 @@ export default function SciencePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left max-w-md"
+          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left"
         >
           {/* Body text */}
           <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
-            You deserve to understand exactly what is happening in your body and what the science says about it. We&apos;ve organized the latest research on toxins into a verifiable, accessible guide so you can make confident, informed decisions about your journey toward recovery and longevity.
+            You deserve to understand exactly what<br />
+            is happening in your body and what the<br />
+            science says about it. We&apos;ve organized the<br />
+            latest research on toxins into a verifiable,<br />
+            accessible guide so you can make confident,<br />
+            informed decisions about your journey<br />
+            toward recovery and longevity.
           </p>
         </motion.div>
       </section>
