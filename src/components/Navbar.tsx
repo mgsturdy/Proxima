@@ -19,7 +19,9 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  
+  // Pages with full-screen hero sections that need transparent navbar
+  const hasHeroSection = pathname === "/" || pathname === "/science";
 
   // Track scroll position
   useEffect(() => {
@@ -32,8 +34,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Use transparent/cream style only on homepage when not scrolled
-  const isTransparent = isHomePage && !scrolled;
+  // Use transparent/cream style on hero pages when not scrolled
+  const isTransparent = hasHeroSection && !scrolled;
 
   return (
     <>

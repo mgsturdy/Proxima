@@ -114,9 +114,6 @@ export default function SciencePage() {
         
         {/* White vertical line for hero section - starts 15px above horizontal line to form + intersection */}
         <div className="absolute top-[61px] right-10 w-px h-[calc(100%-61px)] bg-proxima-cream/60 hidden lg:block" />
-        
-        {/* Horizontal line under navbar area */}
-        <div className="absolute left-6 md:left-12 lg:left-16 right-[25px] top-[76px] h-px bg-proxima-cream/60" />
 
         {/* Main Content */}
         <div className="relative z-10 w-full section-container">
