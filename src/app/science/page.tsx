@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -98,35 +98,80 @@ const chapters = [
 
 export default function SciencePage() {
   return (
-    <div className="min-h-screen pt-24 bg-primary text-primary">
-      {/* Header */}
-      <header className="py-16 border-b border-border-primary relative">
-        <div className="absolute top-0 left-0 right-0 h-1 proxima-gradient" />
-        <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-8">
-              <div className="w-16 h-1 proxima-gradient mb-6" />
-              <h1 className="mb-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
-                  The science behind environmental toxins
-                </span>
-              </h1>
-              <p className="text-xl text-secondary max-w-2xl leading-relaxed font-sans">
-                You deserve to understand exactly what is happening in your body and what 
-                the science says about it. We&apos;ve organized the latest research on toxins 
-                into a verifiable, accessible guide so you can make confident, informed 
-                decisions about your journey toward recovery and longevity.
-              </p>
-            </div>
-            <div className="lg:col-span-4 flex items-end">
-              <div className="w-full border-t border-border-primary pt-6">
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-2">Last updated</p>
-                <p className="font-mono text-sm uppercase tracking-wider">January 2026</p>
-              </div>
-            </div>
-          </div>
+    <div className="min-h-screen bg-primary text-primary">
+      {/* Full Screen Hero */}
+      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24 pt-24">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/9835757b-2794-42c4-b281-d166579ab765.png"
+            alt="The Science"
+            fill
+            className="object-cover object-center"
+            priority
+          />
         </div>
-      </header>
+        
+        {/* White vertical line for hero section - starts 15px above horizontal line to form + intersection */}
+        <div className="absolute top-[61px] right-10 w-px h-[calc(100%-61px)] bg-proxima-cream/60 hidden lg:block" />
+        
+        {/* Horizontal line under navbar area */}
+        <div className="absolute left-6 md:left-12 lg:left-16 right-[25px] top-[76px] h-px bg-proxima-cream/60" />
+
+        {/* Main Content */}
+        <div className="relative z-10 w-full section-container">
+          {/* Left Column - Main Headline with corner + markers */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative pl-8"
+          >
+            {/* Top-left corner marker */}
+            <div className="absolute -top-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
+            
+            {/* Headline block - each line has its own fitted background */}
+            <div className="relative inline-block">
+              {/* Top-right marker */}
+              <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
+              <div className="flex flex-col items-start">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal font-nb-international leading-tight">
+                  The science behind
+                </span>
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal font-nb-international leading-tight">
+                  environmental toxins
+                </span>
+              </div>
+              {/* Bottom-right marker */}
+              <div className="absolute -bottom-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
+            </div>
+            
+            {/* Bottom-left corner marker */}
+            <div className="absolute -bottom-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
+          </motion.div>
+        </div>
+
+        {/* Right Column - Body text & CTA - positioned 40px left of vertical line */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left max-w-md"
+        >
+          {/* Body text */}
+          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal mb-8 leading-relaxed">
+            You deserve to understand exactly what is happening in your body and what the science says about it. We&apos;ve organized the latest research on toxins into a verifiable, accessible guide so you can make confident, informed decisions about your journey toward recovery and longevity.
+          </p>
+
+          {/* CTA Button - Black text on cream background */}
+          <Link 
+            href="/diagnostics" 
+            className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors whitespace-nowrap"
+          >
+            Explore Diagnostics <Plus size={14} strokeWidth={2.5} />
+          </Link>
+        </motion.div>
+      </section>
 
       {/* Table of Contents */}
       <nav className="py-12 bg-secondary border-b border-border-primary">
