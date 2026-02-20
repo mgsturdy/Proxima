@@ -37,8 +37,18 @@ export default function LoadingScreen() {
           className="fixed inset-0 z-[100] bg-proxima-cream flex items-center justify-center"
         >
           <div className="w-full max-w-2xl px-8">
+            {/* Percentage on top - follows progress */}
+            <div className="relative h-6 mb-2">
+              <motion.span
+                className="absolute font-mono text-xs text-proxima-black/60"
+                style={{ left: `${progress}%`, transform: 'translateX(-50%)' }}
+              >
+                {Math.round(progress)}%
+              </motion.span>
+            </div>
+
             {/* Gradient progress bar */}
-            <div className="relative h-[2px] bg-proxima-black/10 mb-4">
+            <div className="relative h-[2px] bg-proxima-black/10">
               <motion.div
                 className="absolute top-0 left-0 h-full"
                 style={{
@@ -55,21 +65,18 @@ export default function LoadingScreen() {
                 className="absolute -top-2 text-proxima-black text-sm font-mono"
                 style={{ left: `${progress}%`, transform: 'translateX(-50%)' }}
               >
-                +
+                |
               </motion.div>
             </div>
 
-            {/* Text and percentage */}
-            <div className="relative h-12 mt-4">
+            {/* Text on bottom - follows progress */}
+            <div className="relative h-8 mt-4">
               <motion.p
-                className="absolute top-4 font-mono text-xs uppercase tracking-wider text-proxima-black/60 whitespace-nowrap"
-                style={{ left: `${Math.min(progress, 55)}%` }}
+                className="absolute font-mono text-xs uppercase tracking-wider text-proxima-black/60 whitespace-nowrap"
+                style={{ left: `${progress}%`, transform: 'translateX(-50%)' }}
               >
                 Better Blood. Better Life.
               </motion.p>
-              <span className="absolute top-0 right-0 font-mono text-xs text-proxima-black/40">
-                {Math.round(progress)}%
-              </span>
             </div>
           </div>
         </motion.div>
