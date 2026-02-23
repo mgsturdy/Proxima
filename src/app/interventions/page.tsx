@@ -1,8 +1,156 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+
+const faqs = [
+  {
+    id: "what-is",
+    number: "01",
+    question: "What is Inuspheresis™?",
+    answer: `Inuspheresis™ is an advanced form of Double Filtration Plasma Pheresis (DFPP) that has been used in more than 100,000 treatments for over a decade.
+
+It uses a proprietary second-stage plasma filter engineered to remove circulating environmental toxicants and large inflammatory mediators while preserving beneficial plasma components such as albumin.
+
+Unlike traditional therapeutic plasma exchange (TPE), Inuspheresis™:
+• Does not require donor plasma or albumin
+• Returns the patient's own filtered plasma
+
+Unlike highly selective adsorption systems:
+• It removes a broader range of molecules based on size`
+  },
+  {
+    id: "what-remove",
+    number: "02",
+    question: "What does it remove?",
+    answer: `Inuspheresis™ is designed to reduce circulating environmental toxicants and large inflammatory carrier molecules from the bloodstream.
+
+Substances shown to be reduced in circulation include:
+
+Environmental toxicants:
+• Heavy metals (e.g., lead, mercury)
+• Agricultural chemicals (e.g., glyphosate, DDE)
+• Volatile organic compounds (e.g., benzene)
+• Persistent organic pollutants (e.g., PFAS, PCBs, flame retardants)
+• Consumer and industrial chemicals (e.g., BPA, phthalates, parabens)
+• Biological toxins (e.g., ochratoxin A)
+• Microplastic fragments (e.g., polyethylene polymers)
+
+Carrier and inflammatory molecules:
+• Lipoproteins (LDL, Lp(a))
+• Immunoglobulins (IgG, IgM)
+• Inflammatory proteins (CRP, TNF-α, IL-1β, IL-6)
+
+On average, approximately 50% reduction of lipoproteins and immunoglobulins is observed per treatment session.`
+  },
+  {
+    id: "how-different",
+    number: "03",
+    question: "How is it different?",
+    answer: `Inuspheresis™ differs from traditional plasma exchange in that it:
+• Does not require donor plasma
+• Returns the patient's own filtered plasma
+• Is engineered specifically to reduce environmental and inflammatory burden
+
+Its second-stage membrane is designed to remove larger molecular structures while preserving essential plasma components.
+
+TPE discards plasma and replaces it with donor fluid. Inuspheresis™ filters and returns the patient's own plasma.
+
+EBOO exposes blood to ozone; it does not filter toxins and follows a different risk and regulatory profile.
+
+Chelation primarily targets heavy metals. LDL apheresis selectively removes LDL.
+
+Inuspheresis™ removes molecules larger than albumin (~10 nm), capturing a broader range of carrier-bound toxicants.`
+  },
+  {
+    id: "when-available",
+    number: "04",
+    question: "When will it be available?",
+    answer: `Inuspheresis™ is currently undergoing the FDA approval process.
+
+Proxima Health anticipates U.S. availability in 2027, pending regulatory clearance.
+
+We maintain an active dialogue with the FDA and are advised by experienced former regulatory leadership.`
+  }
+];
+
+function TreatmentFAQSection() {
+  const [activeTab, setActiveTab] = useState(0);
+  const faq = faqs[activeTab];
+
+  return (
+    <section className="bg-proxima-cream pt-16 md:pt-24 pb-16">
+      <div className="section-container">
+        {/* Duotang-style Tabs */}
+        <div className="flex flex-wrap">
+          {faqs.map((item, idx) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveTab(idx)}
+              className={`flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-tight border transition-colors ${
+                activeTab === idx
+                  ? "bg-proxima-black text-proxima-cream border-proxima-black"
+                  : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
+              }`}
+            >
+              <span>{item.number} FAQ</span>
+              <span className="text-xs">+</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Content Area */}
+        <div className="border border-proxima-black bg-[rgba(255,157,0,0.1)] p-8 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            {/* Left Column */}
+            <div className="lg:col-span-4">
+              {/* FAQ Number */}
+              <span className="block font-robit text-7xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
+                {faq.number}
+              </span>
+
+              {/* Question as title */}
+              <div className="flex flex-col items-start -space-y-0.5 mb-3">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                  FAQ
+                </span>
+              </div>
+
+              <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-8">
+                Frequently Asked Questions
+              </p>
+            </div>
+
+            {/* Right Column */}
+            <div className="lg:col-span-8 lg:border-l lg:border-proxima-black lg:pl-8">
+              {/* Question */}
+              <div className="mb-8">
+                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
+                  Question
+                </p>
+                <p className="font-nb-international text-xl md:text-2xl leading-tight text-proxima-black">
+                  {faq.question}
+                </p>
+              </div>
+
+              {/* Answer */}
+              <div>
+                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
+                  + Answer
+                </p>
+                <div className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function InterventionsPage() {
   return (
@@ -70,6 +218,9 @@ export default function InterventionsPage() {
           </p>
         </motion.div>
       </section>
+
+      {/* FAQ Section */}
+      <TreatmentFAQSection />
 
       {/* Therapeutic Filtration Content */}
       <section className="py-24 bg-proxima-cream">

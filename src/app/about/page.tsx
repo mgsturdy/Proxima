@@ -9,11 +9,13 @@ import { Linkedin, Mail } from "lucide-react";
 const team = [
   {
     name: "Carlos Schuster",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    title: "Co-Founder & CEO",
+    bio: "Carlos previously served as co-founder and CEO of Healthmap Solutions, leading the company through a $1.2B exit to Elevance Health in 2023. Prior to that, he served as CEO of DaVita's Latin America division, building healthcare infrastructure in emerging markets. He holds an MBA from Harvard Business School and an engineering degree from PUC-PR in Brazil.",
     image: "/assets/carlos.png"
   },
   {
     name: "Michael Petegorsky",
+    title: "Co-Founder",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
     image: "/assets/michael.png"
   }
@@ -222,7 +224,8 @@ export default function AboutPage() {
                   />
                 </div>
                 <div>
-                  <h3 className="mb-4 font-display">{member.name}</h3>
+                  <h3 className="mb-1 font-display">{member.name}</h3>
+                  <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-4">{member.title}</p>
                   <p className="text-secondary text-sm font-sans mb-4">{member.bio}</p>
                   <div className="flex gap-4">
                     <Linkedin size={18} className="text-tertiary hover:text-primary cursor-pointer transition-colors" />

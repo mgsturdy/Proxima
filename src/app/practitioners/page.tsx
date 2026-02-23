@@ -1,27 +1,194 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function PractitionersPage() {
-  const benefits = [
-    {
-      title: "Quantified Data",
-      desc: "Mass spectrometry data that provides objective biomarkers for treatment planning and outcome tracking.",
-      icon: "/assets/icon_heartbeat-monitor_Black.svg"
-    },
-    {
-      title: "Clinical Resources",
-      desc: "Access to our repository of peer-reviewed research, protocols, and continuing education materials.",
-      icon: "/assets/icon_blood-circulation_Black.svg"
-    },
-    {
-      title: "Patient Pipeline",
-      desc: "Referrals from patients seeking medical oversight for their environmental health optimization.",
-      icon: "/assets/icon_digital-heart_Black.svg"
-    }
-  ];
+const practitionerFaqs = [
+  {
+    id: "what-is-proxima",
+    number: "01",
+    question: "What is Proxima Health?",
+    answer: `Proxima Health is focused on reducing environmental and biologic burden through advanced blood filtration technology and diagnostics.
 
+Our mission is to help patients live with less inflammatory strain and greater physiologic resilience, grounded in science, transparency and regulatory rigor.
+
+We hold the exclusive U.S. license to bring Inuspheresis™ through FDA approval and into clinical practice.`
+  },
+  {
+    id: "inus-relationship",
+    number: "02",
+    question: "How is Proxima related to INUS / Ayus?",
+    answer: `Inuspheresis™ technology is developed by INUS in Europe.
+
+Proxima Health holds a 20-year exclusive U.S. license to:
+• Lead FDA approval
+• Commercialize the system
+• Provide practitioner training and support
+
+We will serve as the exclusive U.S. distributor.`
+  },
+  {
+    id: "loi",
+    number: "03",
+    question: "What does signing an LOI mean?",
+    answer: `An LOI is not a binding contract and does not require a deposit. Contracts cannot be executed prior to FDA clearance.
+
+The LOI signals mutual intent and places your clinic on the waitlist. Participants receive regulatory updates and early access to diagnostics and future products.`
+  },
+  {
+    id: "availability",
+    number: "04",
+    question: "When will Inuspheresis™ be available?",
+    answer: `FDA submission is underway. We anticipate U.S. clearance in 2027, pending approval.
+
+We maintain an active dialogue with the FDA and are advised by experienced former regulatory leadership.
+
+No early access is possible prior to FDA clearance. Proxima is committed to full regulatory compliance.`
+  },
+  {
+    id: "pricing",
+    number: "05",
+    question: "What is the anticipated pricing?",
+    answer: `Preliminary projections (subject to change):
+• Device: $50,000–$60,000
+• Single-use filter kit: $2,000–$3,000 per treatment
+
+Clinics typically project patient pricing in the $5,000–$6,000 range, consistent with lower-end TPE pricing in the U.S.
+
+Long-term, our objective is cost reduction through scale and manufacturing efficiencies to improve accessibility.`
+  },
+  {
+    id: "treatment",
+    number: "06",
+    question: "How does the treatment work?",
+    answer: `Blood is accessed peripherally and separated into plasma and cells.
+
+The plasma passes through a second-stage membrane engineered to remove molecules larger than albumin. Filtered plasma is then returned to the patient. No donor plasma or albumin is required.
+
+Essential components such as albumin, hormones, minerals and growth factors are preserved.
+
+Treatment takes approximately 90–120 minutes, depending on plasma volume and access flow rate.`
+  },
+  {
+    id: "protocol",
+    number: "07",
+    question: "What is the standard protocol?",
+    answer: `Most patients receive:
+• Day 1: Treatment
+• Day 2: Rest
+• Day 3: Treatment
+
+More complex cases may require three sessions (Days 1, 3, and 5).
+
+Annual maintenance protocols are under evaluation.`
+  },
+  {
+    id: "safety",
+    number: "08",
+    question: "How safe is it?",
+    answer: `In European use (>100,000 treatments), reported adverse events are <1%, typically mild and access-related.
+
+No donor plasma is used, which reduces risks associated with replacement fluids seen in TPE.
+
+Appropriate nursing experience (ER, ICU, nephrology) is strongly recommended.`
+  },
+  {
+    id: "staff",
+    number: "09",
+    question: "What are the staffing requirements?",
+    answer: `Typically one nurse per patient. One nurse may manage multiple patients depending on clinic workflow.
+
+A five-day training program (centralized or onsite) covers:
+• Apheresis fundamentals
+• Device operation
+• Supervised treatments
+
+Certification is required. A licensed physician must be onsite. Certified nursing staff must operate the system.`
+  },
+  {
+    id: "insurance",
+    number: "10",
+    question: "Is this covered by insurance?",
+    answer: `Initially, this will be cash-pay.
+
+Longer-term, we plan to pursue reimbursement pathways by expanding existing CPT frameworks and generating the required clinical evidence.`
+  }
+];
+
+function PractitionerFAQSection() {
+  const [activeTab, setActiveTab] = useState(0);
+  const faq = practitionerFaqs[activeTab];
+
+  return (
+    <section className="bg-proxima-cream pt-16 md:pt-24 pb-16">
+      <div className="section-container">
+        {/* Duotang-style Tabs */}
+        <div className="flex flex-wrap">
+          {practitionerFaqs.map((item, idx) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveTab(idx)}
+              className={`flex items-center gap-2 px-3 py-2 font-mono text-[10px] uppercase tracking-tight border transition-colors ${
+                activeTab === idx
+                  ? "bg-proxima-black text-proxima-cream border-proxima-black"
+                  : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
+              }`}
+            >
+              <span>{item.number}</span>
+              <span className="text-[10px]">+</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Content Area */}
+        <div className="border border-proxima-black bg-[rgba(255,157,0,0.1)] p-8 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            {/* Left Column */}
+            <div className="lg:col-span-4">
+              <span className="block font-robit text-7xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
+                {faq.number}
+              </span>
+
+              <div className="flex flex-col items-start -space-y-0.5 mb-3">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                  FAQ
+                </span>
+              </div>
+
+              <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-8">
+                For Practitioners
+              </p>
+            </div>
+
+            {/* Right Column */}
+            <div className="lg:col-span-8 lg:border-l lg:border-proxima-black lg:pl-8">
+              <div className="mb-8">
+                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
+                  Question
+                </p>
+                <p className="font-nb-international text-xl md:text-2xl leading-tight text-proxima-black">
+                  {faq.question}
+                </p>
+              </div>
+
+              <div>
+                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
+                  + Answer
+                </p>
+                <div className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function PractitionersPage() {
   return (
     <div className="min-h-screen bg-primary text-primary">
       {/* Full Screen Hero */}
@@ -91,8 +258,11 @@ export default function PractitionersPage() {
         </motion.div>
       </section>
 
+      {/* FAQ Section */}
+      <PractitionerFAQSection />
+
       {/* Main Content */}
-      <section className="py-24">
+      <section className="py-24 bg-proxima-cream">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
@@ -189,38 +359,15 @@ export default function PractitionersPage() {
               </form>
             </div>
 
-            {/* Benefits */}
-            <div className="lg:pl-8">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-8">Partnership Benefits</p>
-              
-              <div className="space-y-8 mb-12">
-                {benefits.map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex gap-6"
-                  >
-                    <Image src={item.icon} alt="" width={32} height={32} className="opacity-30 shrink-0" />
-                    <div>
-                      <h4 className="font-display font-bold mb-2">{item.title}</h4>
-                      <p className="text-secondary text-sm font-sans">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Testimonial */}
+            {/* Quote */}
+            <div className="lg:pl-8 flex items-center">
               <div className="border-l-2 border-proxima-red pl-6 py-4">
-                <p className="text-xl font-sans text-secondary mb-4">
-                  &quot;Environmental diagnostics is the next frontier of preventive 
-                  medicine. We finally have tools to measure what we&apos;ve long suspected.&quot;
+                <p className="text-xl font-nb-international text-secondary mb-4">
+                  &quot;Much of what drives chronic disease has lived in the background — unseen, unmeasured, and untreated. Environmental toxins are one of those forces. Proxima was created to bring them into focus, and to give people the chance to act before illness becomes inevitable.&quot;
                 </p>
                 <p className="font-mono text-xs uppercase tracking-wider text-tertiary">
-                  — Dr. Elena Rostova, MD<br />
-                  Founding Medical Advisor
+                  — Carlos Schuster<br />
+                  Co-Founder & CEO
                 </p>
               </div>
             </div>
