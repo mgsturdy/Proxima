@@ -338,24 +338,71 @@ export default function DiagnosticsPage() {
       {/* How It Works - matching ThreeStepsSection style */}
       <HowItWorksSection />
 
-      {/* Clinical Validity */}
-      <section className="py-24 bg-inverse text-inverse">
-        <div className="section-narrow">
-          <div className="text-center">
-            <Image 
-              src="/assets/icon_heartbeat-monitor_OffWhite.svg"
-              alt="Clinical"
-              width={48}
-              height={48}
-              className="mx-auto mb-8 opacity-40"
-            />
-            <h2 className="mb-6 font-display text-3xl md:text-4xl font-bold text-proxima-cream">
-              Results You Can Trust
-            </h2>
-            <p className="text-xl text-inverse/60 font-sans">
-              Our diagnostics are processed in CLIA-certified laboratories using 
-              the same mass spectrometry techniques employed by research institutions.
-            </p>
+      {/* Results You Can Trust */}
+      <section className="relative py-16 md:py-24 bg-proxima-cream">
+        <div className="section-container">
+          {/* Top row of + signs */}
+          <div className="grid grid-cols-3 mb-8">
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span></span>
+          </div>
+
+          {/* Main content - 2 column aligned with 02 and 03 grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Empty first column (aligns with 01) */}
+            <div className="hidden md:block" />
+
+            {/* Left block - Headline (aligns with 02 column) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex flex-col items-start -space-y-0.5">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                  Results You
+                </span>
+                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                  Can Trust
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Right block - Supporting copy (aligns with 03 column) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="flex flex-col justify-center"
+            >
+              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
+                Our diagnostics are processed in<br />
+                CLIA-certified laboratories using the same<br />
+                mass spectrometry techniques employed<br />
+                by research institutions.
+              </p>
+
+              {/* Learn more link with + and red gradient underline */}
+              <Link
+                href="/science"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
+              >
+                <span className="relative">
+                  Learn more
+                  <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
+                </span>
+                <span className="text-proxima-red">+</span>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Bottom row of + signs */}
+          <div className="grid grid-cols-3 mt-8">
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span></span>
           </div>
         </div>
       </section>
