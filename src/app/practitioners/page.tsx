@@ -23,23 +23,73 @@ export default function PractitionersPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-24 bg-primary text-primary">
-      {/* Header */}
-      <header className="py-16 border-b border-border-primary relative">
-        <div className="section-container">
-          <div className="w-16 h-1 proxima-gradient mb-6" />
-          <h1 className="mb-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
-              Practitioner Partnerships
-            </span>
-          </h1>
-          <p className="text-xl text-secondary max-w-2xl leading-relaxed font-sans">
-            We provide advanced diagnostics and evidence-based clinical protocols. 
-            You bring medical oversight and patient care. Together, we help patients 
-            better understand and treat environmental toxin exposure.
-          </p>
+    <div className="min-h-screen bg-primary text-primary">
+      {/* Full Screen Hero */}
+      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24 pt-24">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/freepik__the-patient-is-looking-to-the-doctor-and-smiling__36846.png"
+            alt="Practitioners"
+            fill
+            className="object-cover object-center"
+            priority
+          />
         </div>
-      </header>
+        
+        {/* White vertical line for hero section */}
+        <div className="absolute top-[61px] right-10 w-px h-[calc(100%-61px)] bg-proxima-cream/60 hidden lg:block" />
+
+        {/* Main Content */}
+        <div className="relative z-10 w-full section-container">
+          {/* Left Column - Main Headline with corner + markers */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative pl-8"
+          >
+            {/* Top-left corner marker */}
+            <div className="absolute -top-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
+            
+            {/* Headline block - each line has its own fitted background */}
+            <div className="relative inline-block">
+              {/* Top-right marker */}
+              <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
+              <div className="flex flex-col items-start">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                  Practitioner
+                </span>
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                  Partnerships
+                </span>
+              </div>
+              {/* Bottom-right marker */}
+              <div className="absolute -bottom-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
+            </div>
+            
+            {/* Bottom-left corner marker */}
+            <div className="absolute -bottom-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
+          </motion.div>
+        </div>
+
+        {/* Right Column - Body text - positioned 40px left of vertical line */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left"
+        >
+          {/* Body text */}
+          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
+            We provide advanced diagnostics and<br />
+            evidence-based clinical protocols. You bring<br />
+            medical oversight and patient care. Together,<br />
+            we help patients better understand and treat<br />
+            environmental toxin exposure.
+          </p>
+        </motion.div>
+      </section>
 
       {/* Main Content */}
       <section className="py-24">
