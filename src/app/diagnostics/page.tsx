@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,43 +16,73 @@ const panels = [
 
 export default function DiagnosticsPage() {
   return (
-    <div className="min-h-screen pt-24 bg-primary text-primary">
-      {/* Header */}
-      <header className="py-16 border-b border-border-primary relative">
-        <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-7">
-              <div className="w-16 h-1 proxima-gradient mb-6" />
-              <h1 className="mb-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
-                  Proxima Health Baseline™
-                </span>
-              </h1>
-              <p className="text-xl text-secondary max-w-xl leading-relaxed font-sans">
-                A clinically validated at-home test designed to measure environmental 
-                toxin load with precision. Built on proven science, so you can understand 
-                what&apos;s in your blood and move forward informed.
-              </p>
-            </div>
-            <div className="lg:col-span-5 flex items-end">
-              <div className="flex flex-wrap gap-6 text-sm">
-                <div className="flex items-center gap-2">
-                  <Check size={16} className="text-proxima-red" />
-                  <span className="font-mono text-xs uppercase tracking-wider text-secondary">Mass Spectrometry</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check size={16} className="text-proxima-red" />
-                  <span className="font-mono text-xs uppercase tracking-wider text-secondary">CLIA Certified</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check size={16} className="text-proxima-red" />
-                  <span className="font-mono text-xs uppercase tracking-wider text-secondary">150+ Biomarkers</span>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="min-h-screen bg-primary text-primary">
+      {/* Full Screen Hero */}
+      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24 pt-24">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/freepik__melhora-a-luz-da-img1-para-ficar-com-um-estilo-mai__36854.png"
+            alt="Diagnostics"
+            fill
+            className="object-cover object-center"
+            priority
+          />
         </div>
-      </header>
+        
+        {/* White vertical line for hero section */}
+        <div className="absolute top-[61px] right-10 w-px h-[calc(100%-61px)] bg-proxima-cream/60 hidden lg:block" />
+
+        {/* Main Content */}
+        <div className="relative z-10 w-full section-container">
+          {/* Left Column - Main Headline with corner + markers */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative pl-8"
+          >
+            {/* Top-left corner marker */}
+            <div className="absolute -top-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
+            
+            {/* Headline block - each line has its own fitted background */}
+            <div className="relative inline-block">
+              {/* Top-right marker */}
+              <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
+              <div className="flex flex-col items-start">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                  Proxima Health
+                </span>
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                  Baseline™
+                </span>
+              </div>
+              {/* Bottom-right marker */}
+              <div className="absolute -bottom-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
+            </div>
+            
+            {/* Bottom-left corner marker */}
+            <div className="absolute -bottom-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
+          </motion.div>
+        </div>
+
+        {/* Right Column - Body text - positioned 40px left of vertical line */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left"
+        >
+          {/* Body text */}
+          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
+            A clinically validated at-home test designed<br />
+            to measure environmental toxin load with<br />
+            precision. Built on proven science, so you<br />
+            can understand what&apos;s in your blood and<br />
+            move forward informed.
+          </p>
+        </motion.div>
+      </section>
 
       {/* Product Section */}
       <section className="py-24">

@@ -21,7 +21,7 @@ export default function Navbar() {
   const pathname = usePathname();
   
   // Pages with full-screen hero sections that need transparent navbar
-  const hasHeroSection = pathname === "/" || pathname === "/science";
+  const hasHeroSection = pathname === "/" || pathname === "/science" || pathname === "/diagnostics";
 
   // Track scroll position
   useEffect(() => {
