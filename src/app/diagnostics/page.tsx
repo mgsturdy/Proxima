@@ -271,17 +271,17 @@ export default function DiagnosticsPage() {
             </span>
           </div>
 
-          {/* Grid with + markers */}
+          {/* Grid with + markers as corners */}
           <div className="relative">
             {/* Row 1 of + signs */}
-            <div className="grid grid-cols-3 mb-4">
+            <div className="grid grid-cols-3 mb-6">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
             </div>
 
             {/* Row 1 of panels */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
               {panels.slice(0, 3).map((panel, i) => (
                 <motion.div
                   key={i}
@@ -289,25 +289,37 @@ export default function DiagnosticsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className="relative aspect-[2/1] bg-proxima-black/5 border border-proxima-black overflow-hidden"
+                  className="py-4"
                 >
-                  <div className="absolute inset-0 flex flex-col justify-end p-4">
-                    <h4 className="font-nb-international text-lg text-proxima-black mb-1">{panel.name}</h4>
+                  <div className="flex justify-between items-start mb-3">
+                    <h4 className="font-nb-international text-lg text-proxima-black">{panel.name}</h4>
                     <span className="font-mono text-xs uppercase tracking-tight text-proxima-black/60">{panel.count} markers</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {panel.markers.slice(0, 6).map((marker, j) => (
+                      <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">
+                        {marker}
+                      </span>
+                    ))}
+                    {panel.markers.length > 6 && (
+                      <span className="font-mono text-xs text-proxima-black/50 px-2 py-1">
+                        +{panel.markers.length - 6} more
+                      </span>
+                    )}
                   </div>
                 </motion.div>
               ))}
             </div>
 
             {/* Row 2 of + signs */}
-            <div className="grid grid-cols-3 mb-4">
+            <div className="grid grid-cols-3 mb-6">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
             </div>
 
             {/* Row 2 of panels */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
               {panels.slice(3, 6).map((panel, i) => (
                 <motion.div
                   key={i}
@@ -315,11 +327,23 @@ export default function DiagnosticsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: (i + 3) * 0.05 }}
-                  className="relative aspect-[2/1] bg-proxima-black/5 border border-proxima-black overflow-hidden"
+                  className="py-4"
                 >
-                  <div className="absolute inset-0 flex flex-col justify-end p-4">
-                    <h4 className="font-nb-international text-lg text-proxima-black mb-1">{panel.name}</h4>
+                  <div className="flex justify-between items-start mb-3">
+                    <h4 className="font-nb-international text-lg text-proxima-black">{panel.name}</h4>
                     <span className="font-mono text-xs uppercase tracking-tight text-proxima-black/60">{panel.count} markers</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {panel.markers.slice(0, 6).map((marker, j) => (
+                      <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">
+                        {marker}
+                      </span>
+                    ))}
+                    {panel.markers.length > 6 && (
+                      <span className="font-mono text-xs text-proxima-black/50 px-2 py-1">
+                        +{panel.markers.length - 6} more
+                      </span>
+                    )}
                   </div>
                 </motion.div>
               ))}
