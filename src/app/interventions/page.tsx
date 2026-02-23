@@ -24,7 +24,7 @@ Unlike highly selective adsorption systems:
   {
     id: "what-remove",
     number: "02",
-    question: "What does it remove?",
+    question: "What does Inuspheresis™ remove?",
     answer: `Inuspheresis™ is designed to reduce circulating environmental toxicants and large inflammatory carrier molecules from the bloodstream.
 
 Substances shown to be reduced in circulation include:
@@ -38,17 +38,26 @@ Environmental toxicants:
 • Biological toxins (e.g., ochratoxin A)
 • Microplastic fragments (e.g., polyethylene polymers)
 
+Biologic persistence markers:
+• Pathogen-associated proteins
+• Borrelia-associated markers
+
 Carrier and inflammatory molecules:
 • Lipoproteins (LDL, Lp(a))
 • Immunoglobulins (IgG, IgM)
-• Inflammatory proteins (CRP, TNF-α, IL-1β, IL-6)
+• Inflammatory proteins (CRP, TNF-α, IL-1β, IL-6, IL-18, IFN-γ)
+• Clotting factors (Fibrinogen, Prothrombin, Factor VIII, Factor X)
 
-On average, approximately 50% reduction of lipoproteins and immunoglobulins is observed per treatment session.`
+On average, approximately 50% reduction of lipoproteins and immunoglobulins is observed per treatment session.
+
+Because many environmental toxicants are lipophilic and protein-bound, reducing these carrier molecules can significantly decrease circulating toxic burden.
+
+Ongoing research is focused on understanding long-term changes in total body burden.`
   },
   {
     id: "how-different",
     number: "03",
-    question: "How is it different?",
+    question: "How is Inuspheresis™ different from other blood filtration procedures?",
     answer: `Inuspheresis™ differs from traditional plasma exchange in that it:
 • Does not require donor plasma
 • Returns the patient's own filtered plasma
@@ -67,12 +76,10 @@ Inuspheresis™ removes molecules larger than albumin (~10 nm), capturing a broa
   {
     id: "when-available",
     number: "04",
-    question: "When will it be available?",
+    question: "When will Inuspheresis™ be available in the United States?",
     answer: `Inuspheresis™ is currently undergoing the FDA approval process.
 
-Proxima Health anticipates U.S. availability in 2027, pending regulatory clearance.
-
-We maintain an active dialogue with the FDA and are advised by experienced former regulatory leadership.`
+Proxima Health anticipates U.S. availability in 2027, pending regulatory clearance.`
   }
 ];
 

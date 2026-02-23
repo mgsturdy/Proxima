@@ -152,6 +152,10 @@ const chapters: Chapter[] = [
       {
         heading: "Arsenic",
         content: "Arsenic is often encountered through contaminated water or certain foods and has been linked to vascular disease, metabolic dysfunction, immune imbalance and increased cancer risk with chronic exposure."
+      },
+      {
+        heading: "Clinical Significance",
+        content: "When metal burden persists, it can create cumulative stress across organ systems. For appropriate patients, identifying and reducing that burden may be an important step toward restoring physiologic balance."
       }
     ],
     keyData: [
@@ -165,11 +169,11 @@ const chapters: Chapter[] = [
     number: "02",
     title: "Agricultural Chemicals",
     subtitle: "Pesticides & Herbicides",
-    abstract: "Chemicals used in food production that can affect metabolic and neurologic pathways. Modern agriculture relies on chemical agents to protect crops and increase yield. While regulatory standards aim to limit exposure, trace amounts of certain compounds can enter the food and water supply.",
+    abstract: "Chemicals used in food production that can affect metabolic and neurologic pathways. Modern agriculture relies on chemical agents to protect crops and increase yield. While regulatory standards aim to limit exposure, trace amounts of certain compounds can enter the food and water supply. Some of these chemicals are biologically active. When present in the body, they may interact with metabolic enzymes, hormone signaling pathways and neurologic processes. Depending on the compound, residues can persist in tissues over time.",
     sections: [
       {
         heading: "Glyphosate",
-        content: "Glyphosate is one of the most widely used herbicides in the world. While much of it is eliminated from the body relatively quickly, repeated exposure may contribute to cumulative burden. Research has explored how glyphosate may influence gut microbiome balance, increase oxidative stress, and interfere with certain cellular pathways involved in metabolism and immune regulation."
+        content: "Glyphosate is one of the most widely used herbicides in the world. While much of it is eliminated from the body relatively quickly, repeated exposure may contribute to cumulative burden. Research has explored how glyphosate may influence gut microbiome balance, increase oxidative stress, and interfere with certain cellular pathways involved in metabolism and immune regulation. Disruption in these systems has been associated with chronic inflammation, metabolic dysfunction, and broader long-term health concerns."
       },
       {
         heading: "Legacy Insecticides (p,p′-DDE)",
@@ -184,9 +188,9 @@ const chapters: Chapter[] = [
   {
     id: "vocs",
     number: "03",
-    title: "Volatile Chemicals",
+    title: "Volatile & Industrial Chemicals",
     subtitle: "Industrial & Airborne Compounds",
-    abstract: "Airborne and solvent-based chemicals commonly found in indoor and occupational environments. Many everyday materials, including paints, cleaning products, fuels, adhesives and building materials release airborne chemicals. These compounds can be inhaled in small amounts over time, particularly in enclosed or poorly ventilated spaces.",
+    abstract: "Airborne and solvent-based chemicals commonly found in indoor and occupational environments. Many everyday materials, including paints, cleaning products, fuels, adhesives and building materials release airborne chemicals. These compounds can be inhaled in small amounts over time, particularly in enclosed or poorly ventilated spaces. Some of these chemicals are rapidly processed by the body. Others, especially with repeated exposure, may contribute to cumulative strain on the nervous system, liver, or blood-forming systems.",
     sections: [
       {
         heading: "Toluene",
@@ -207,7 +211,7 @@ const chapters: Chapter[] = [
     number: "04",
     title: "Persistent Pollutants",
     subtitle: "PFAS, PCBs & Flame Retardants",
-    abstract: "Long-lasting synthetic chemicals that can accumulate in the body over time. Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body.",
+    abstract: "Long-lasting synthetic chemicals that can accumulate in the body over time. Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body. Because many of these compounds are fat-soluble, they can accumulate in tissues and remain present for years. Over time, ongoing exposure may contribute to immune disruption and increased inflammatory stress.",
     sections: [
       {
         heading: "PFAS / PFOS",
@@ -233,7 +237,7 @@ const chapters: Chapter[] = [
     number: "05",
     title: "Endocrine Disruptors",
     subtitle: "Hormone Signaling Interference",
-    abstract: "Chemicals that can interfere with the body's hormone signaling, even at low levels of exposure. Hormones are the body's internal messengers. They regulate metabolism, reproduction, mood, growth and immune balance. Certain synthetic compounds are structurally similar to natural hormones.",
+    abstract: "Chemicals that can interfere with the body's hormone signaling, even at low levels of exposure. Hormones are the body's internal messengers. They regulate metabolism, reproduction, mood, growth and immune balance. Certain synthetic compounds are structurally similar to natural hormones. When present in the body, they may mimic, block, or alter normal signaling patterns. Over time, this interference can contribute to metabolic imbalance, reproductive changes, and chronic inflammatory stress.",
     sections: [
       {
         heading: "Bisphenol A (BPA)",
@@ -259,15 +263,11 @@ const chapters: Chapter[] = [
     number: "06",
     title: "Biologic Toxins",
     subtitle: "Mycotoxins & Natural Compounds",
-    abstract: "Naturally occurring compounds produced by certain organisms that can enter the food chain. Not all biologic burden comes from synthetic chemicals. Some toxins are produced naturally by molds and fungi, particularly in conditions of moisture or improper storage.",
+    abstract: "Naturally occurring compounds produced by certain organisms that can enter the food chain. Not all biologic burden comes from synthetic chemicals. Some toxins are produced naturally by molds and fungi, particularly in conditions of moisture or improper storage. These compounds are biologically active. Depending on dose and duration, they may influence immune regulation, oxidative stress pathways and organ function.",
     sections: [
       {
-        heading: "Ochratoxin A",
-        content: "Ochratoxin A has been studied for its potential effects on kidney health and immune signaling. Because these toxins can persist in the bloodstream, even low-level exposure over time may contribute to inflammatory strain."
-      },
-      {
-        heading: "Aflatoxin M1",
-        content: "Aflatoxin M1 is a metabolite that can appear in dairy products when livestock consume contaminated feed. It has been associated with liver stress and long-term cancer risk at sustained levels of exposure."
+        heading: "Mycotoxins: Ochratoxin A & Aflatoxin M1",
+        content: "Mycotoxins are toxic substances produced by specific species of mold. Ochratoxin A has been studied for its potential effects on kidney health and immune signaling. Aflatoxin M1, a metabolite that can appear in dairy products when livestock consume contaminated feed, has been associated with liver stress and long-term cancer risk at sustained levels of exposure. Because these toxins can persist in the bloodstream, even low-level exposure over time may contribute to inflammatory strain. For some patients, understanding biologic toxin burden is part of restoring clearer immune balance and physiologic stability."
       }
     ],
     keyData: [
@@ -288,7 +288,7 @@ const chapters: Chapter[] = [
       },
       {
         heading: "Health Implications",
-        content: "Because of their size, some particles may move beyond the digestive tract and into circulation. Early research suggests they may contribute to inflammatory signaling or act as carriers for other environmental chemicals. Scientific understanding is still evolving, particularly regarding long-term health implications."
+        content: "Because of their size, some particles may move beyond the digestive tract and into circulation. Early research suggests they may contribute to inflammatory signaling or act as carriers for other environmental chemicals. Scientific understanding is still evolving, particularly regarding long-term health implications. While definitive conclusions are still being studied, assessing microplastic presence may help provide a clearer picture of total environmental burden and its potential role in chronic inflammatory stress."
       }
     ],
     keyData: [
@@ -302,7 +302,7 @@ const chapters: Chapter[] = [
     number: "08",
     title: "Biologic Persistence",
     subtitle: "Pathogens & Immune Activation",
-    abstract: "Pathogens or pathogen-derived materials that may remain in the body and contribute to prolonged immune activation. In some individuals, the effects of an infection may extend beyond the initial illness. Even after acute symptoms improve, traces of the organism, or the immune response it triggered, can continue to influence the body.",
+    abstract: "Pathogens or pathogen-derived materials that may remain in the body and contribute to prolonged immune activation. In some individuals, the effects of an infection may extend beyond the initial illness. Even after acute symptoms improve, traces of the organism, or the immune response it triggered, can continue to influence the body. When immune activation remains elevated instead of returning to baseline, it may contribute to ongoing inflammation and physiologic strain.",
     sections: [
       {
         heading: "Borrelia burgdorferi (Lyme)",
@@ -310,7 +310,7 @@ const chapters: Chapter[] = [
       },
       {
         heading: "Spike Protein Persistence",
-        content: "Following viral exposure or vaccination, the body generates viral proteins as part of its immune response. In certain contexts, fragments of these proteins may remain detectable for a period of time. Ongoing research is examining how long such materials persist and whether they play a role in prolonged immune activation."
+        content: "Following viral exposure or vaccination, the body generates viral proteins as part of its immune response. In certain contexts, fragments of these proteins may remain detectable for a period of time. Ongoing research is examining how long such materials persist and whether they play a role in prolonged immune activation in select individuals."
       },
       {
         heading: "Chronic Viral Reactivation (EBV, CMV)",
@@ -388,9 +388,12 @@ export default function SciencePage() {
             The body is built to regulate and repair itself.<br />
             However, when environmental toxins accumulate<br />
             in the bloodstream, they can place sustained<br />
-            demand on the immune system. Understanding<br />
-            what circulates in the blood is the first step in<br />
-            identifying sources of inflammatory strain.
+            demand on the immune system. Over time, that<br />
+            can drive persistent inflammation, leading to<br />
+            chronic diseases in the future. Understanding what<br />
+            circulates in the blood is the first step in identifying<br />
+            sources of inflammatory strain and reducing<br />
+            long-term disease risk.
           </p>
         </motion.div>
       </section>

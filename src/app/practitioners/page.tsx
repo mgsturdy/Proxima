@@ -29,8 +29,16 @@ Proxima Health holds a 20-year exclusive U.S. license to:
 We will serve as the exclusive U.S. distributor.`
   },
   {
-    id: "loi",
+    id: "exclusivity",
     number: "03",
+    question: "Will there be territorial exclusivity?",
+    answer: `We will not offer formal geographic exclusivity.
+
+However, our economic model is aligned with practitioner success. A device can perform approximately 500 treatments per year at full utilization. We do not intend to oversaturate markets. Expansion will be based on utilization and clinical demand.`
+  },
+  {
+    id: "loi",
+    number: "04",
     question: "What does signing an LOI mean?",
     answer: `An LOI is not a binding contract and does not require a deposit. Contracts cannot be executed prior to FDA clearance.
 
@@ -38,17 +46,23 @@ The LOI signals mutual intent and places your clinic on the waitlist. Participan
   },
   {
     id: "availability",
-    number: "04",
-    question: "When will Inuspheresis™ be available?",
+    number: "05",
+    question: "When will Inuspheresis™ be available in the U.S.?",
     answer: `FDA submission is underway. We anticipate U.S. clearance in 2027, pending approval.
 
-We maintain an active dialogue with the FDA and are advised by experienced former regulatory leadership.
+We maintain an active dialogue with the FDA and are advised by experienced former regulatory leadership.`
+  },
+  {
+    id: "early-access",
+    number: "06",
+    question: "Is early access possible prior to FDA clearance?",
+    answer: `No.
 
-No early access is possible prior to FDA clearance. Proxima is committed to full regulatory compliance.`
+Proxima is committed to full regulatory compliance. This technology is being developed as a long-term, evidence-driven platform and will not bypass U.S. regulatory standards.`
   },
   {
     id: "pricing",
-    number: "05",
+    number: "07",
     question: "What is the anticipated pricing?",
     answer: `Preliminary projections (subject to change):
 • Device: $50,000–$60,000
@@ -59,20 +73,36 @@ Clinics typically project patient pricing in the $5,000–$6,000 range, consiste
 Long-term, our objective is cost reduction through scale and manufacturing efficiencies to improve accessibility.`
   },
   {
-    id: "treatment",
-    number: "06",
+    id: "financing",
+    number: "08",
+    question: "Will financing or leasing be available?",
+    answer: `Initial rollout will likely prioritize direct purchase. Financing and leasing options are expected to follow as adoption expands.`
+  },
+  {
+    id: "how-treatment",
+    number: "09",
     question: "How does the treatment work?",
     answer: `Blood is accessed peripherally and separated into plasma and cells.
 
 The plasma passes through a second-stage membrane engineered to remove molecules larger than albumin. Filtered plasma is then returned to the patient. No donor plasma or albumin is required.
 
-Essential components such as albumin, hormones, minerals and growth factors are preserved.
+Essential components such as albumin, hormones, minerals and growth factors are preserved.`
+  },
+  {
+    id: "what-remove",
+    number: "10",
+    question: "What does it remove?",
+    answer: `On average, a single session reduces:
+• ~50% of lipoproteins and immunoglobulins
+• ~30–75% reduction of certain circulating toxicants (toxin-dependent)
 
-Treatment takes approximately 90–120 minutes, depending on plasma volume and access flow rate.`
+Because many environmental toxicants are lipophilic and protein-bound, reducing carrier molecules significantly decreases circulating burden.
+
+Ongoing research is evaluating longer-term tissue effects.`
   },
   {
     id: "protocol",
-    number: "07",
+    number: "11",
     question: "What is the standard protocol?",
     answer: `Most patients receive:
 • Day 1: Treatment
@@ -84,8 +114,14 @@ More complex cases may require three sessions (Days 1, 3, and 5).
 Annual maintenance protocols are under evaluation.`
   },
   {
+    id: "duration",
+    number: "12",
+    question: "How long does treatment take?",
+    answer: `Approximately 90–120 minutes, depending on plasma volume and access flow rate.`
+  },
+  {
     id: "safety",
-    number: "08",
+    number: "13",
     question: "How safe is it?",
     answer: `In European use (>100,000 treatments), reported adverse events are <1%, typically mild and access-related.
 
@@ -94,12 +130,30 @@ No donor plasma is used, which reduces risks associated with replacement fluids 
 Appropriate nursing experience (ER, ICU, nephrology) is strongly recommended.`
   },
   {
-    id: "staff",
-    number: "09",
-    question: "What are the staffing requirements?",
-    answer: `Typically one nurse per patient. One nurse may manage multiple patients depending on clinic workflow.
+    id: "comparison",
+    number: "14",
+    question: "How does this compare to TPE, EBOO, chelation, or LDL apheresis?",
+    answer: `TPE discards plasma and replaces it with donor fluid. Inuspheresis™ filters and returns the patient's own plasma.
 
-A five-day training program (centralized or onsite) covers:
+EBOO exposes blood to ozone; it does not filter toxins and follows a different risk and regulatory profile.
+
+Chelation primarily targets heavy metals.
+
+LDL apheresis selectively removes LDL.
+
+Inuspheresis™ removes molecules larger than albumin (~10 nm), capturing a broader range of carrier-bound toxicants.`
+  },
+  {
+    id: "staffing",
+    number: "15",
+    question: "How many staff are required?",
+    answer: `Typically one nurse per patient. One nurse may manage multiple patients depending on clinic workflow.`
+  },
+  {
+    id: "training",
+    number: "16",
+    question: "What training is provided?",
+    answer: `A five-day training program (centralized or onsite) covering:
 • Apheresis fundamentals
 • Device operation
 • Supervised treatments
@@ -107,12 +161,49 @@ A five-day training program (centralized or onsite) covers:
 Certification is required. A licensed physician must be onsite. Certified nursing staff must operate the system.`
   },
   {
+    id: "prerequisites",
+    number: "17",
+    question: "What are clinic prerequisites?",
+    answer: `At minimum:
+• Licensed physician onsite
+• Qualified nursing staff
+
+Additional site criteria will be shared prior to launch.`
+  },
+  {
     id: "insurance",
-    number: "10",
+    number: "18",
     question: "Is this covered by insurance?",
     answer: `Initially, this will be cash-pay.
 
 Longer-term, we plan to pursue reimbursement pathways by expanding existing CPT frameworks and generating the required clinical evidence.`
+  },
+  {
+    id: "diagnostic-testing",
+    number: "19",
+    question: "Will you offer diagnostic testing?",
+    answer: `Yes.
+
+Pre- and post-treatment blood testing, as well as eluate analysis is planned.
+
+Diagnostics will:
+• Support patient education
+• Strengthen clinical validation
+• Generate publishable data
+• Guide personalized protocols`
+  },
+  {
+    id: "transparency",
+    number: "20",
+    question: "Why are you transparent about uncertainty?",
+    answer: `Because credibility requires it.
+
+We clearly distinguish between:
+• What is established
+• What is under investigation
+• What requires further study
+
+This approach builds durable trust and ensures Proxima remains science-first and evidence-driven.`
   }
 ];
 
