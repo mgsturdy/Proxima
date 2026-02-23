@@ -21,7 +21,7 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
   const chapter = chapters[activeTab];
 
   return (
-    <section className="bg-proxima-cream pb-16">
+    <section className="bg-proxima-cream pt-16 md:pt-24 pb-16">
       <div className="section-container">
         {/* Duotang-style Tabs */}
         <div className="flex flex-wrap">
