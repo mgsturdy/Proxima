@@ -219,7 +219,7 @@ const chapters: Chapter[] = [
       },
       {
         heading: "PCBs (PCB-153)",
-        content: "Polychlorinated biphenyls (PCBs) were widely used in electrical equipment and industrial materials before being banned in many countries. Due to their persistence, PCBs remain present in soil, water, and food chains. Chronic exposure has been associated with metabolic dysfunction, endocrine disruption, and increased cancer risk."
+        content: "Polychlorinated biphenyls (PCBs) were widely used in electrical equipment and industrial materials before being banned in many countries. PCB-153 is a commonly detected variant. Due to their persistence, PCBs remain present in soil, water, and food chains. Chronic exposure has been associated with metabolic dysfunction, endocrine disruption, and increased cancer risk."
       },
       {
         heading: "Flame Retardants (PBDE-47)",

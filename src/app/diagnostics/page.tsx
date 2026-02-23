@@ -9,7 +9,7 @@ const panels = [
   { name: "Heavy Metals", markers: ["Lead", "Mercury"] },
   { name: "Agricultural Chemicals", markers: ["Glyphosate", "p,p'-DDE"] },
   { name: "Solvents", markers: ["Benzene"] },
-  { name: "Persistent Organic Pollutants", markers: ["PFAS", "PFOA", "PCB-126", "PBDE-47 (Flame Retardant)"] },
+  { name: "Persistent Organic Pollutants (POPs)", markers: ["PFAS", "PFOA", "PCB-126", "PBDE-47 (Flame Retardant)"] },
   { name: "Industrial Chemicals", markers: ["Phenol - BPA", "Phthalates - MEHP", "Parabens - Methylparaben"] },
   { name: "Biological Toxins", markers: ["Mycotoxins (mold) - Ochratoxin A", "Pathogen-associated proteins", "Spike Proteins"] },
 ];
