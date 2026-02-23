@@ -162,41 +162,75 @@ export default function DiagnosticsPage() {
       </section>
 
       {/* What We Measure */}
-      <section className="py-24 bg-secondary">
+      <section className="py-24 bg-proxima-cream">
         <div className="section-container">
-          <div className="mb-16">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Methodology</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold">What We Measure</h2>
+          {/* Header */}
+          <div className="mb-12">
+            <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+              What we Measure
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {panels.map((panel, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="border border-border-primary p-6 bg-primary"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <h4 className="font-display font-bold">{panel.name}</h4>
-                  <span className="font-mono text-xs uppercase tracking-wider text-tertiary">{panel.count} markers</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {panel.markers.slice(0, 6).map((marker, j) => (
-                    <span key={j} className="font-mono text-xs text-secondary bg-tertiary/10 px-2 py-1">
-                      {marker}
-                    </span>
-                  ))}
-                  {panel.markers.length > 6 && (
-                    <span className="font-mono text-xs text-tertiary px-2 py-1">
-                      +{panel.markers.length - 6} more
-                    </span>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+          {/* Grid with + markers */}
+          <div className="relative">
+            {/* Row 1 of + signs */}
+            <div className="grid grid-cols-3 mb-4">
+              <span className="text-proxima-black text-xl font-mono">+</span>
+              <span className="text-proxima-black text-xl font-mono">+</span>
+              <span className="text-proxima-black text-xl font-mono">+</span>
+            </div>
+
+            {/* Row 1 of panels */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+              {panels.slice(0, 3).map((panel, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="relative aspect-[2/1] bg-proxima-black/5 border border-proxima-black overflow-hidden"
+                >
+                  <div className="absolute inset-0 flex flex-col justify-end p-4">
+                    <h4 className="font-nb-international text-lg text-proxima-black mb-1">{panel.name}</h4>
+                    <span className="font-mono text-xs uppercase tracking-tight text-proxima-black/60">{panel.count} markers</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Row 2 of + signs */}
+            <div className="grid grid-cols-3 mb-4">
+              <span className="text-proxima-black text-xl font-mono">+</span>
+              <span className="text-proxima-black text-xl font-mono">+</span>
+              <span className="text-proxima-black text-xl font-mono">+</span>
+            </div>
+
+            {/* Row 2 of panels */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+              {panels.slice(3, 6).map((panel, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (i + 3) * 0.05 }}
+                  className="relative aspect-[2/1] bg-proxima-black/5 border border-proxima-black overflow-hidden"
+                >
+                  <div className="absolute inset-0 flex flex-col justify-end p-4">
+                    <h4 className="font-nb-international text-lg text-proxima-black mb-1">{panel.name}</h4>
+                    <span className="font-mono text-xs uppercase tracking-tight text-proxima-black/60">{panel.count} markers</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Row 3 of + signs */}
+            <div className="grid grid-cols-3">
+              <span className="text-proxima-black text-xl font-mono">+</span>
+              <span className="text-proxima-black text-xl font-mono">+</span>
+              <span className="text-proxima-black text-xl font-mono">+</span>
+            </div>
           </div>
         </div>
       </section>
