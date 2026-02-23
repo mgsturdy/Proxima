@@ -104,38 +104,29 @@ function TreatmentFAQSection() {
         {/* Content Area */}
         <div className="border border-proxima-black bg-[rgba(255,157,0,0.1)] p-8 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            {/* Left Column */}
+            {/* Left Column - Number & Question */}
             <div className="lg:col-span-4">
-              {/* FAQ Number */}
               <span className="block font-robit text-7xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
                 {faq.number}
               </span>
 
-              {/* Question as title */}
               <div className="flex flex-col items-start -space-y-0.5 mb-3">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
                   FAQ
                 </span>
               </div>
 
-              <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-8">
+              <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-6">
                 Frequently Asked Questions
+              </p>
+
+              <p className="font-nb-international text-xl md:text-2xl leading-tight text-proxima-black">
+                {faq.question}
               </p>
             </div>
 
-            {/* Right Column */}
+            {/* Right Column - Answer */}
             <div className="lg:col-span-8 lg:border-l lg:border-proxima-black lg:pl-8">
-              {/* Question */}
-              <div className="mb-8">
-                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
-                  Question
-                </p>
-                <p className="font-nb-international text-xl md:text-2xl leading-tight text-proxima-black">
-                  {faq.question}
-                </p>
-              </div>
-
-              {/* Answer */}
               <div>
                 <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
                   + Answer
