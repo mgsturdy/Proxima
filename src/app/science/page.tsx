@@ -1,11 +1,139 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const chapters = [
+interface Chapter {
+  id: string;
+  number: string;
+  title: string;
+  subtitle: string;
+  abstract: string;
+  sections: { heading: string; content: string }[];
+  keyData: { metric: string; context: string }[];
+  citations: string[];
+}
+
+function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
+  const [activeTab, setActiveTab] = useState(0);
+  const chapter = chapters[activeTab];
+
+  return (
+    <section className="bg-proxima-cream pb-16">
+      <div className="section-container">
+        {/* Duotang-style Tabs */}
+        <div className="flex flex-wrap">
+          {chapters.map((ch, idx) => (
+            <button
+              key={ch.id}
+              onClick={() => setActiveTab(idx)}
+              className={`flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-tight border transition-colors ${
+                activeTab === idx
+                  ? "bg-proxima-black text-proxima-cream border-proxima-black"
+                  : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
+              }`}
+            >
+              <span>{ch.number} {ch.title}</span>
+              <span className="text-xs">+</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Content Area */}
+        <div className="border border-proxima-black bg-[rgba(255,157,0,0.1)] p-8 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            {/* Left Column */}
+            <div className="lg:col-span-4">
+              {/* Chapter Number */}
+              <span className="block font-robit text-7xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
+                {chapter.number}
+              </span>
+
+              {/* Chapter Title - stacked black pills */}
+              <div className="flex flex-col items-start -space-y-0.5 mb-3">
+                {chapter.title.split(" ").length > 1 ? (
+                  chapter.title.split(" ").map((word, i) => (
+                    <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                      {word}
+                    </span>
+                  ))
+                ) : (
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                    {chapter.title}
+                  </span>
+                )}
+              </div>
+
+              {/* Subtitle */}
+              <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-8">
+                {chapter.subtitle}
+              </p>
+
+              {/* Key Data */}
+              <div className="space-y-6">
+                {chapter.keyData.map((data, i) => (
+                  <div key={i}>
+                    <span className="block font-robit text-3xl md:text-[42px] leading-none tracking-tight text-proxima-black">
+                      {data.metric}
+                    </span>
+                    <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mt-1">
+                      {data.context}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div className="lg:col-span-8 lg:border-l lg:border-proxima-black lg:pl-8">
+              {/* Abstract */}
+              <div className="mb-8">
+                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
+                  Abstract
+                </p>
+                <p className="font-nb-international text-base md:text-lg leading-relaxed text-proxima-black">
+                  {chapter.abstract}
+                </p>
+              </div>
+
+              {/* Sections */}
+              <div className="space-y-6 mb-8">
+                {chapter.sections.map((section, i) => (
+                  <div key={i}>
+                    <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-2">
+                      + {section.heading}
+                    </p>
+                    <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black">
+                      {section.content}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* References */}
+              <div>
+                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-2">
+                  References
+                </p>
+                <ul className="space-y-1">
+                  {chapter.citations.map((citation, i) => (
+                    <li key={i} className="font-mono text-xs tracking-tight text-proxima-black">
+                      • {citation}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const chapters: Chapter[] = [
   {
     id: "heavy-metals",
     number: "01",
@@ -168,97 +296,8 @@ export default function SciencePage() {
         </motion.div>
       </section>
 
-      {/* Table of Contents */}
-      <nav className="py-12 bg-secondary border-b border-border-primary">
-        <div className="section-container">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-6">Contents</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {chapters.map((chapter) => (
-              <a 
-                key={chapter.id}
-                href={`#${chapter.id}`}
-                className="toc-item group flex justify-between items-center p-4 border border-border-primary hover:border-proxima-red transition-colors"
-              >
-                <div>
-                  <span className="font-mono text-tertiary text-sm">{chapter.number}</span>
-                  <span className="ml-3 font-display font-bold group-hover:text-proxima-red transition-colors">{chapter.title}</span>
-                </div>
-                <ArrowUpRight size={14} className="text-tertiary group-hover:text-proxima-red transition-colors" />
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* Chapters */}
-      <div className="py-16">
-        {chapters.map((chapter, idx) => (
-          <article 
-            key={chapter.id} 
-            id={chapter.id}
-            className={`py-24 ${idx % 2 === 1 ? 'bg-secondary' : ''}`}
-          >
-            <div className="section-container">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-16"
-              >
-                {/* Chapter Header */}
-                <div className="lg:col-span-4">
-                  <div className="sticky top-32">
-                    <span className="font-display text-8xl md:text-9xl font-bold text-primary/10 leading-none">{chapter.number}</span>
-                    <h2 className="mt-4 mb-2 font-display text-2xl md:text-3xl font-bold">
-                      <span className="bg-proxima-black text-proxima-cream px-2 py-1">{chapter.title}</span>
-                    </h2>
-                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary">{chapter.subtitle}</p>
-                    
-                    {/* Key Data */}
-                    <div className="mt-12 space-y-6">
-                      {chapter.keyData.map((data, i) => (
-                        <div key={i} className="border-l-2 border-proxima-red pl-4">
-                          <span className="font-display text-3xl font-bold">{data.metric}</span>
-                          <p className="text-sm text-secondary font-sans mt-1">{data.context}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="lg:col-span-8">
-                  {/* Abstract */}
-                  <div className="mb-12 pb-12 border-b border-border-primary">
-                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Abstract</p>
-                    <p className="text-xl leading-relaxed text-secondary font-sans">{chapter.abstract}</p>
-                  </div>
-
-                  {/* Sections */}
-                  <div className="space-y-12">
-                    {chapter.sections.map((section, i) => (
-                      <div key={i}>
-                        <h3 className="font-display text-xl font-bold mb-4">{section.heading}</h3>
-                        <p className="text-secondary font-sans">{section.content}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Citations */}
-                  <div className="mt-12 pt-8 border-t border-border-primary">
-                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">References</p>
-                    <ul className="space-y-2">
-                      {chapter.citations.map((citation, i) => (
-                        <li key={i} className="font-mono text-sm text-tertiary">{citation}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </article>
-        ))}
-      </div>
+      {/* Tabbed Wiki Section */}
+      <ScienceWikiSection chapters={chapters} />
 
       {/* From Theory to Measurement */}
       <section className="relative py-16 md:py-24 bg-proxima-cream">
