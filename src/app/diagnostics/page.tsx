@@ -1,23 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const panels = [
-  { name: "Heavy Metals", markers: ["Lead", "Mercury"] },
-  { name: "Agricultural Chemicals", markers: ["Glyphosate", "p,p'-DDE"] },
-  { name: "Solvents", markers: ["Benzene"] },
-  { name: "Persistent Organic Pollutants (POPs)", markers: ["PFAS", "PFOA", "PCB-126", "PBDE-47 (Flame Retardant)"] },
-  { name: "Industrial Chemicals", markers: ["Phenol - BPA", "Phthalates - MEHP", "Parabens - Methylparaben"] },
-  { name: "Biological Toxins", markers: ["Mycotoxins (mold) - Ochratoxin A", "Pathogen-associated proteins", "Spike Proteins"] },
-];
-
-const addOns = [
-  { name: "Microplastics", markers: ["Polyethylene"] },
-  { name: "Bacterial Pathogens", markers: ["Lyme Disease"] },
-];
 
 export default function DiagnosticsPage() {
   return (
@@ -140,34 +126,22 @@ export default function DiagnosticsPage() {
                 </div>
               </div>
 
-              {/* Pricing */}
-              <div className="bg-secondary border border-border-primary p-8 mb-8">
-                <div className="flex items-baseline gap-4 mb-2">
-                  <span className="font-display text-5xl font-bold">$349</span>
-                  <span className="font-mono text-tertiary line-through">$499</span>
-                  <span className="font-mono text-xs text-proxima-red uppercase tracking-wider">30% off pre-order</span>
-                </div>
-                <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-6">
-                  Pre-order pricing. Expected shipping Q3 2026.
-                </p>
-                <Link href="/waitlist" className="btn-gradient w-full flex items-center justify-center gap-2">
-                  Reserve Your Kit <ArrowRight size={18} />
+              <p className="text-secondary font-sans text-sm md:text-base leading-relaxed mb-8">
+                We are launching Baseline™ initially with select practitioners to uphold the highest standards of clinical oversight and data integrity. In time, individuals will be able to order testing directly through Proxima Health.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/practitioners"
+                  className="inline-flex items-center justify-center gap-2 bg-proxima-black text-proxima-cream px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-proxima-black/90 transition-colors"
+                >
+                  Practitioners: Request Clinical Information
                 </Link>
-              </div>
-
-              <div className="flex gap-8 text-sm">
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-1">Shipping</p>
-                  <p className="font-sans font-medium">Free (US)</p>
-                </div>
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-1">Results</p>
-                  <p className="font-sans font-medium">14 business days</p>
-                </div>
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-1">Collection</p>
-                  <p className="font-sans font-medium">5 drops blood</p>
-                </div>
+                <Link
+                  href="/waitlist"
+                  className="inline-flex items-center justify-center gap-2 border border-proxima-black text-proxima-black px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-proxima-black hover:text-proxima-cream transition-colors"
+                >
+                  Consumers: Get Notified at Launch
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -177,109 +151,115 @@ export default function DiagnosticsPage() {
       {/* What We Measure */}
       <section className="py-24 bg-proxima-cream">
         <div className="section-container">
-          {/* Header */}
           <div className="mb-12">
             <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
-              What we Measure
+              What We Measure
             </span>
           </div>
 
-          {/* Grid with + markers as corners */}
           <div className="relative">
-            {/* Row 1 of + signs */}
             <div className="grid grid-cols-3 mb-6">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
             </div>
 
-            {/* Row 1 of panels */}
+            {/* Row 1 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
-              {panels.slice(0, 3).map((panel, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="py-4"
-                >
-                  <h4 className="font-nb-international text-lg text-proxima-black mb-3">{panel.name}</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {panel.markers.map((marker, j) => (
-                      <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">
-                        {marker}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-1">Heavy Metals</h4>
+                <p className="font-nb-international text-sm text-proxima-black/70 mb-3">Toxic elements that accumulate in blood and tissues and disrupt cellular function.</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Lead", "Arsenic"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-1">Agricultural Chemicals</h4>
+                <p className="font-nb-international text-sm text-proxima-black/70 mb-3">Chemicals used in food production that can affect metabolic and neurologic pathways.</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Glyphosate", "p,p′-DDE (DDT)"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-1">Volatile &amp; Industrial Chemicals</h4>
+                <p className="font-nb-international text-sm text-proxima-black/70 mb-3">Airborne and solvent-based chemicals commonly found in indoor and occupational environments.</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Toluene", "Benzene"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
             </div>
 
-            {/* Row 2 of + signs */}
             <div className="grid grid-cols-3 mb-6">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
             </div>
 
-            {/* Row 2 of panels */}
+            {/* Row 2 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
-              {panels.slice(3, 6).map((panel, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (i + 3) * 0.05 }}
-                  className="py-4"
-                >
-                  <h4 className="font-nb-international text-lg text-proxima-black mb-3">{panel.name}</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {panel.markers.map((marker, j) => (
-                      <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">
-                        {marker}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-1">Persistent Organic Pollutants</h4>
+                <p className="font-nb-international text-sm text-proxima-black/70 mb-3">Long-lasting synthetic chemicals that can accumulate in the body over time.</p>
+                <div className="flex flex-wrap gap-2">
+                  {["PFOS", "PCB-153", "PBDE-47"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-1">Endocrine Disruptors</h4>
+                <p className="font-nb-international text-sm text-proxima-black/70 mb-3">Chemicals that can interfere with the body&apos;s hormone signaling, even at low levels of exposure.</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Bisphenol A (BPA)", "MEHP", "Methylparaben"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-1">Biologic Toxins</h4>
+                <p className="font-nb-international text-sm text-proxima-black/70 mb-3">Naturally occurring compounds produced by certain organisms that can enter the food chain.</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Ochratoxin A", "Aflatoxin M1"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
             </div>
 
-            {/* Row 3 of + signs */}
             <div className="grid grid-cols-3 mb-6">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
             </div>
 
-            {/* Add-ons section */}
-            <div className="mb-6">
-              <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/60 mb-4">Add-ons</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {addOns.map((panel, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="py-4"
-                  >
-                    <h4 className="font-nb-international text-lg text-proxima-black mb-3">{panel.name}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {panel.markers.map((marker, j) => (
-                        <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">
-                          {marker}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+            {/* Row 3 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-1">Microplastics</h4>
+                <p className="font-nb-international text-sm text-proxima-black/70 mb-3">Microscopic plastic particles that can circulate in the bloodstream and tissues.</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Polyethylene Fragments"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-1">Biologic Persistence</h4>
+                <p className="font-nb-international text-sm text-proxima-black/70 mb-3">Pathogens or pathogen-derived materials that may remain in the body and contribute to prolonged immune activation.</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Borrelia burgdorferi", "Spike Protein", "EBV", "CMV"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
             </div>
 
-            {/* Row 4 of + signs */}
             <div className="grid grid-cols-3">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
@@ -289,74 +269,6 @@ export default function DiagnosticsPage() {
         </div>
       </section>
 
-      {/* Results You Can Trust */}
-      <section className="relative py-16 md:py-24 bg-proxima-cream">
-        <div className="section-container">
-          {/* Top row of + signs */}
-          <div className="grid grid-cols-3 mb-8">
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
-          </div>
-
-          {/* Main content - 2 column aligned with 02 and 03 grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Empty first column (aligns with 01) */}
-            <div className="hidden md:block" />
-
-            {/* Left block - Headline (aligns with 02 column) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col items-start -space-y-0.5">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                  Results You
-                </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                  Can Trust
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Right block - Supporting copy (aligns with 03 column) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-col justify-center"
-            >
-              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
-                Our diagnostics are processed in<br />
-                CLIA-certified laboratories using the same<br />
-                mass spectrometry techniques employed<br />
-                by research institutions.
-              </p>
-
-              {/* Learn more link with + and red gradient underline */}
-              <Link
-                href="/science"
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
-              >
-                <span className="relative">
-                  Learn more
-                  <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
-                </span>
-                <span className="text-proxima-red">+</span>
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Bottom row of + signs */}
-          <div className="grid grid-cols-3 mt-8">
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

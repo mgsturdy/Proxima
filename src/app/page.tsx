@@ -250,16 +250,14 @@ export default function Home() {
             <span></span>
           </div>
 
-          {/* Main content - 2 column aligned with 02 and 03 grid */}
+          {/* Main content */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Empty first column (aligns with 01) */}
-            <div className="hidden md:block" />
-
-            {/* Left block - Headline (aligns with 02 column) */}
+            {/* Headline - centered in first column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="flex items-center justify-center"
             >
               <div className="flex flex-col items-start -space-y-0.5">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
@@ -274,7 +272,10 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Right block - Supporting copy (aligns with 03 column) */}
+            {/* Empty second column */}
+            <div className="hidden md:block" />
+
+            {/* Supporting copy - third column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -288,13 +289,12 @@ export default function Home() {
                 Score based on your daily exposure.
               </p>
 
-              {/* Learn more link with + and red gradient underline */}
               <Link
                 href="/waitlist"
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >
                 <span className="relative">
-                  Learn more
+                  Free Toxin Assessment Test
                   <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
                 </span>
                 <span className="text-proxima-red">+</span>

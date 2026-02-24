@@ -29,7 +29,7 @@ Unlike highly selective adsorption systems:
 
 Substances shown to be reduced in circulation include:
 
-Environmental toxicants:
+**Environmental toxicants:**
 • Heavy metals (e.g., lead, mercury)
 • Agricultural chemicals (e.g., glyphosate, DDE)
 • Volatile organic compounds (e.g., benzene)
@@ -38,11 +38,11 @@ Environmental toxicants:
 • Biological toxins (e.g., ochratoxin A)
 • Microplastic fragments (e.g., polyethylene polymers)
 
-Biologic persistence markers:
+**Biologic persistence markers:**
 • Pathogen-associated proteins
 • Borrelia-associated markers
 
-Carrier and inflammatory molecules:
+**Carrier and inflammatory molecules:**
 • Lipoproteins (LDL, Lp(a))
 • Immunoglobulins (IgG, IgM)
 • Inflammatory proteins (CRP, TNF-α, IL-1β, IL-6, IL-18, IFN-γ)
@@ -63,15 +63,7 @@ Ongoing research is focused on understanding long-term changes in total body bur
 • Returns the patient's own filtered plasma
 • Is engineered specifically to reduce environmental and inflammatory burden
 
-Its second-stage membrane is designed to remove larger molecular structures while preserving essential plasma components.
-
-TPE discards plasma and replaces it with donor fluid. Inuspheresis™ filters and returns the patient's own plasma.
-
-EBOO exposes blood to ozone; it does not filter toxins and follows a different risk and regulatory profile.
-
-Chelation primarily targets heavy metals. LDL apheresis selectively removes LDL.
-
-Inuspheresis™ removes molecules larger than albumin (~10 nm), capturing a broader range of carrier-bound toxicants.`
+Its second-stage membrane is designed to remove larger molecular structures while preserving essential plasma components.`
   },
   {
     id: "when-available",
@@ -81,6 +73,10 @@ Inuspheresis™ removes molecules larger than albumin (~10 nm), capturing a broa
 
 Proxima Health anticipates U.S. availability in 2027, pending regulatory clearance.`
   }
+];
+
+const treatmentTabColors = [
+  "#FF9E00", "#FFB84D", "#FFD699", "#FFF3D6",
 ];
 
 function TreatmentFAQSection() {
@@ -102,14 +98,13 @@ function TreatmentFAQSection() {
                   : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
               }`}
             >
-              <span>{item.number} FAQ</span>
-              <span className="text-xs">+</span>
+              <span>{item.number}+</span>
             </button>
           ))}
         </div>
 
         {/* Content Area */}
-        <div className="border border-proxima-black bg-[rgba(255,157,0,0.1)] p-8 lg:p-12">
+        <div className="border border-proxima-black p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: treatmentTabColors[activeTab] }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Left Column - Number & Question */}
             <div className="lg:col-span-4">
@@ -139,7 +134,13 @@ function TreatmentFAQSection() {
                   + Answer
                 </p>
                 <div className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
-                  {faq.answer}
+                  {faq.answer.split(/(\*\*.*?\*\*)/).map((part, i) =>
+                    part.startsWith("**") && part.endsWith("**") ? (
+                      <strong key={i}>{part.slice(2, -2)}</strong>
+                    ) : (
+                      <span key={i}>{part}</span>
+                    )
+                  )}
                 </div>
               </div>
             </div>
@@ -230,42 +231,41 @@ export default function InterventionsPage() {
             <span className="text-proxima-black text-2xl font-mono">+</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Column 1 - Header */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Headline - centered in first column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="flex items-center justify-center"
             >
-              <div className="flex flex-col items-start -space-y-0.5 mb-6">
+              <div className="flex flex-col items-start -space-y-0.5">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                  Therapeutic
+                  Practitioner
                 </span>
                 <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                  Blood Filtration
+                  Partnerships
                 </span>
               </div>
-              <p className="font-mono text-xs uppercase tracking-tight text-proxima-black/60">
-                Coming 2027
-              </p>
             </motion.div>
 
-            {/* Column 2 - Main content */}
+            {/* Supporting copy - second column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
+              className="flex flex-col justify-center"
             >
-              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
-                Proxima Health is bringing this science to<br />
-                the United States carefully, responsibly<br />
-                and grounded in evidence. Our work is<br />
-                underway. Availability is expected in 2027.
+              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
+                Interested in bringing Inuspheresis™ to<br />
+                your practice? Contact us to learn more<br />
+                about certification, implementation, and<br />
+                how to join the practitioner waitlist.
               </p>
             </motion.div>
 
-            {/* Column 3 - CTA */}
+            {/* CTA - third column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -278,7 +278,7 @@ export default function InterventionsPage() {
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >
                 <span className="relative">
-                  Practitioner partnerships
+                  Practitioner Partnerships
                   <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
                 </span>
                 <span className="text-proxima-red">+</span>
@@ -305,16 +305,14 @@ export default function InterventionsPage() {
             <span></span>
           </div>
 
-          {/* Main content - 2 column aligned with 02 and 03 grid */}
+          {/* Main content */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Empty first column (aligns with 01) */}
-            <div className="hidden md:block" />
-
-            {/* Left block - Headline (aligns with 02 column) */}
+            {/* Headline - centered in first column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="flex items-center justify-center"
             >
               <div className="flex flex-col items-start -space-y-0.5">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
@@ -326,7 +324,7 @@ export default function InterventionsPage() {
               </div>
             </motion.div>
 
-            {/* Right block - Supporting copy (aligns with 03 column) */}
+            {/* Supporting copy - second column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -334,13 +332,21 @@ export default function InterventionsPage() {
               transition={{ delay: 0.1 }}
               className="flex flex-col justify-center"
             >
-              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
+              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
                 Before implementing any intervention<br />
                 protocol, establish your baseline toxin<br />
                 levels through clinical diagnostics.
               </p>
+            </motion.div>
 
-              {/* Learn more link with + and red gradient underline */}
+            {/* CTA - third column */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-col justify-center"
+            >
               <Link
                 href="/diagnostics"
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"

@@ -207,6 +207,19 @@ This approach builds durable trust and ensures Proxima remains science-first and
   }
 ];
 
+const practitionerTabColors = (() => {
+  const start = { r: 0xFF, g: 0x9E, b: 0x00 };
+  const end = { r: 0xFF, g: 0xF3, b: 0xD6 };
+  const steps = 20;
+  return Array.from({ length: steps }, (_, i) => {
+    const t = i / (steps - 1);
+    const r = Math.round(start.r + (end.r - start.r) * t);
+    const g = Math.round(start.g + (end.g - start.g) * t);
+    const b = Math.round(start.b + (end.b - start.b) * t);
+    return `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+  });
+})();
+
 function PractitionerFAQSection() {
   const [activeTab, setActiveTab] = useState(0);
   const faq = practitionerFaqs[activeTab];
@@ -226,14 +239,13 @@ function PractitionerFAQSection() {
                   : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
               }`}
             >
-              <span>{item.number}</span>
-              <span className="text-[10px]">+</span>
+              <span>{item.number}+</span>
             </button>
           ))}
         </div>
 
         {/* Content Area */}
-        <div className="border border-proxima-black bg-[rgba(255,157,0,0.1)] p-8 lg:p-12">
+        <div className="border border-proxima-black p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: practitionerTabColors[activeTab] }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Left Column - Number & Question */}
             <div className="lg:col-span-4">
@@ -344,13 +356,30 @@ export default function PractitionersPage() {
         </motion.div>
       </section>
 
+      {/* Carlos Quote */}
+      <section className="py-16 md:py-24 bg-proxima-cream">
+        <div className="section-container">
+          <div className="max-w-3xl mx-auto">
+            <div className="border-l-2 border-proxima-red pl-6 py-4">
+              <p className="text-xl font-nb-international text-secondary mb-4">
+                &quot;Much of what drives chronic disease has lived in the background — unseen, unmeasured, and untreated. Environmental toxins are one of those forces. Proxima was created to bring them into focus, and to give people the chance to act before illness becomes inevitable.&quot;
+              </p>
+              <p className="font-mono text-xs uppercase tracking-wider text-tertiary">
+                — Carlos Schuster<br />
+                Co-Founder &amp; CEO
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <PractitionerFAQSection />
 
       {/* Main Content */}
       <section className="py-24 bg-proxima-cream">
         <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="max-w-2xl">
             {/* Form */}
             <div>
               <h2 className="mb-8 font-display text-2xl md:text-3xl font-bold">Partnership Inquiry</h2>
@@ -445,18 +474,6 @@ export default function PractitionersPage() {
               </form>
             </div>
 
-            {/* Quote */}
-            <div className="lg:pl-8 flex items-center">
-              <div className="border-l-2 border-proxima-red pl-6 py-4">
-                <p className="text-xl font-nb-international text-secondary mb-4">
-                  &quot;Much of what drives chronic disease has lived in the background — unseen, unmeasured, and untreated. Environmental toxins are one of those forces. Proxima was created to bring them into focus, and to give people the chance to act before illness becomes inevitable.&quot;
-                </p>
-                <p className="font-mono text-xs uppercase tracking-wider text-tertiary">
-                  — Carlos Schuster<br />
-                  Co-Founder & CEO
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>

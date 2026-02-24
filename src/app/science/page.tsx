@@ -10,11 +10,19 @@ interface Chapter {
   number: string;
   title: string;
   subtitle: string;
+  boldIntro?: string;
+  bodyText?: string;
+  subcategoryTitle?: string;
   abstract: string;
   sections: { heading: string; content: string }[];
   keyData: { metric: string; context: string }[];
   citations: string[];
 }
+
+const tabColors = [
+  "#FF9E00", "#FFAD1E", "#FFBD3D", "#FFCC5B",
+  "#FFDB7A", "#FFE598", "#FFEEB7", "#FFF3D6",
+];
 
 function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -42,7 +50,7 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
         </div>
 
         {/* Content Area */}
-        <div className="border border-proxima-black bg-[rgba(255,157,0,0.1)] p-8 lg:p-12">
+        <div className="border border-proxima-black p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: tabColors[activeTab] }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Left Column */}
             <div className="lg:col-span-4">
@@ -52,79 +60,73 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
               </span>
 
               {/* Chapter Title - stacked black pills */}
-              <div className="flex flex-col items-start -space-y-0.5 mb-3">
+              <div className="flex flex-col items-start -space-y-px">
                 {chapter.title.split(" ").length > 1 ? (
                   chapter.title.split(" ").map((word, i) => (
-                    <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                    <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 pb-2 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
                       {word}
                     </span>
                   ))
                 ) : (
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 pb-2 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
                     {chapter.title}
                   </span>
                 )}
-              </div>
-
-              {/* Subtitle */}
-              <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-8">
-                {chapter.subtitle}
-              </p>
-
-              {/* Key Data */}
-              <div className="space-y-6">
-                {chapter.keyData.map((data, i) => (
-                  <div key={i}>
-                    <span className="block font-robit text-3xl md:text-[42px] leading-none tracking-tight text-proxima-black">
-                      {data.metric}
-                    </span>
-                    <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mt-1">
-                      {data.context}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
 
             {/* Right Column */}
             <div className="lg:col-span-8 lg:border-l lg:border-proxima-black lg:pl-8">
-              {/* Abstract */}
+              {/* Intro */}
               <div className="mb-8">
-                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
-                  Abstract
-                </p>
-                <p className="font-nb-international text-base md:text-lg leading-relaxed text-proxima-black">
-                  {chapter.abstract}
-                </p>
+                {chapter.boldIntro ? (
+                  <>
+                    <p className="font-nb-international text-base md:text-lg leading-relaxed text-proxima-black font-bold mb-4">
+                      {chapter.boldIntro}
+                    </p>
+                    <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
+                      {chapter.bodyText}
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
+                      Abstract
+                    </p>
+                    <p className="font-nb-international text-base md:text-lg leading-relaxed text-proxima-black">
+                      {chapter.abstract}
+                    </p>
+                  </>
+                )}
               </div>
+
+              {/* Subcategory Title */}
+              {chapter.subcategoryTitle && (
+                <p className="font-nb-international text-base md:text-lg font-bold text-proxima-black mb-6">
+                  {chapter.subcategoryTitle}
+                </p>
+              )}
 
               {/* Sections */}
               <div className="space-y-6 mb-8">
-                {chapter.sections.map((section, i) => (
-                  <div key={i}>
-                    <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-2">
-                      + {section.heading}
+                {chapter.sections.map((section, i) =>
+                  section.heading.startsWith("__subcategory__") ? (
+                    <p key={i} className="font-nb-international text-base md:text-lg font-bold text-proxima-black">
+                      {section.heading.replace("__subcategory__", "")}
                     </p>
-                    <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black">
-                      {section.content}
-                    </p>
-                  </div>
-                ))}
+                  ) : (
+                    <div key={i}>
+                      <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-2">
+                        + {section.heading}
+                      </p>
+                      <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
+                        {section.content}
+                      </p>
+                    </div>
+                  )
+                )}
               </div>
 
-              {/* References */}
-              <div>
-                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-2">
-                  References
-                </p>
-                <ul className="space-y-1">
-                  {chapter.citations.map((citation, i) => (
-                    <li key={i} className="font-mono text-xs tracking-tight text-proxima-black">
-                      • {citation}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -139,23 +141,18 @@ const chapters: Chapter[] = [
     number: "01",
     title: "Heavy Metals",
     subtitle: "Bioaccumulation & Chronic Toxicity",
-    abstract: "Toxic elements that accumulate in blood and tissues and disrupt cellular function. Exposure to certain heavy metals can occur through water, food, air, or occupational environments. Once in the body, these elements may circulate in the bloodstream and deposit in tissues.",
+    boldIntro: "Toxic elements that accumulate in blood and tissues and disrupt cellular function.",
+    bodyText: "Exposure to certain heavy metals can occur through water, food, air, or occupational environments. Once in the body, these elements may circulate in the bloodstream and deposit in tissues.\n\nUnlike many compounds, metals do not readily break down. Over time, accumulation may interfere with enzyme function, increase oxidative stress, impair mitochondrial energy production, and alter immune signaling.",
+    subcategoryTitle: "Heavy Metals",
+    abstract: "",
     sections: [
-      {
-        heading: "Mechanisms of Toxicity",
-        content: "Unlike many compounds, metals do not readily break down. Over time, accumulation may interfere with enzyme function, increase oxidative stress, impair mitochondrial energy production, and alter immune signaling."
-      },
       {
         heading: "Lead",
         content: "Lead exposure has been associated with neurologic dysfunction, cardiovascular strain, kidney impairment and developmental effects in children. Even low levels may contribute to long-term systemic burden."
       },
       {
         heading: "Arsenic",
-        content: "Arsenic is often encountered through contaminated water or certain foods and has been linked to vascular disease, metabolic dysfunction, immune imbalance and increased cancer risk with chronic exposure."
-      },
-      {
-        heading: "Clinical Significance",
-        content: "When metal burden persists, it can create cumulative stress across organ systems. For appropriate patients, identifying and reducing that burden may be an important step toward restoring physiologic balance."
+        content: "Arsenic is often encountered through contaminated water or certain foods and has been linked to vascular disease, metabolic dysfunction, immune imbalance and increased cancer risk with chronic exposure.\n\nWhen metal burden persists, it can create cumulative stress across organ systems. For appropriate patients, identifying and reducing that burden may be an important step toward restoring physiologic balance."
       }
     ],
     keyData: [
@@ -169,15 +166,18 @@ const chapters: Chapter[] = [
     number: "02",
     title: "Agricultural Chemicals",
     subtitle: "Pesticides & Herbicides",
-    abstract: "Chemicals used in food production that can affect metabolic and neurologic pathways. Modern agriculture relies on chemical agents to protect crops and increase yield. While regulatory standards aim to limit exposure, trace amounts of certain compounds can enter the food and water supply. Some of these chemicals are biologically active. When present in the body, they may interact with metabolic enzymes, hormone signaling pathways and neurologic processes. Depending on the compound, residues can persist in tissues over time.",
+    boldIntro: "Chemicals used in food production that can affect metabolic and neurologic pathways.",
+    bodyText: "Modern agriculture relies on chemical agents to protect crops and increase yield. While regulatory standards aim to limit exposure, trace amounts of certain compounds can enter the food and water supply.\n\nSome of these chemicals are biologically active. When present in the body, they may interact with metabolic enzymes, hormone signaling pathways and neurologic processes. Depending on the compound, residues can persist in tissues over time.",
+    subcategoryTitle: "Pesticides",
+    abstract: "",
     sections: [
       {
         heading: "Glyphosate",
-        content: "Glyphosate is one of the most widely used herbicides in the world. While much of it is eliminated from the body relatively quickly, repeated exposure may contribute to cumulative burden. Research has explored how glyphosate may influence gut microbiome balance, increase oxidative stress, and interfere with certain cellular pathways involved in metabolism and immune regulation. Disruption in these systems has been associated with chronic inflammation, metabolic dysfunction, and broader long-term health concerns."
+        content: "Glyphosate is one of the most widely used herbicides in the world. While much of it is eliminated from the body relatively quickly, repeated exposure may contribute to cumulative burden.\n\nResearch has explored how glyphosate may influence gut microbiome balance, increase oxidative stress, and interfere with certain cellular pathways involved in metabolism and immune regulation. Disruption in these systems has been associated with chronic inflammation, metabolic dysfunction, and broader long-term health concerns."
       },
       {
-        heading: "Legacy Insecticides (p,p′-DDE)",
-        content: "p,p′-DDE is a breakdown product of DDT, a pesticide that was banned decades ago but still lingers in soil, water, and the food supply because it breaks down very slowly. This compound is stored in body fat, which means it can remain in the body for years after exposure. Over time, studies have linked higher levels to disruptions in hormone balance and increased risk of certain long-term health conditions."
+        heading: "Legacy Insecticides p,p′-DDE (DDT)",
+        content: "p,p′-DDE is a breakdown product of DDT, a pesticide that was banned decades ago but still lingers in soil, water, and the food supply because it breaks down very slowly.\n\nThis compound is stored in body fat, which means it can remain in the body for years after exposure. Over time, studies have linked higher levels to disruptions in hormone balance and increased risk of certain long-term health conditions."
       }
     ],
     keyData: [
@@ -190,11 +190,18 @@ const chapters: Chapter[] = [
     number: "03",
     title: "Volatile & Industrial Chemicals",
     subtitle: "Industrial & Airborne Compounds",
-    abstract: "Airborne and solvent-based chemicals commonly found in indoor and occupational environments. Many everyday materials, including paints, cleaning products, fuels, adhesives and building materials release airborne chemicals. These compounds can be inhaled in small amounts over time, particularly in enclosed or poorly ventilated spaces. Some of these chemicals are rapidly processed by the body. Others, especially with repeated exposure, may contribute to cumulative strain on the nervous system, liver, or blood-forming systems.",
+    boldIntro: "Airborne and solvent-based chemicals commonly found in indoor and occupational environments.",
+    bodyText: "Many everyday materials, including paints, cleaning products, fuels, adhesives and building materials release airborne chemicals. These compounds can be inhaled in small amounts over time, particularly in enclosed or poorly ventilated spaces.\n\nSome of these chemicals are rapidly processed by the body. Others, especially with repeated exposure, may contribute to cumulative strain on the nervous system, liver, or blood-forming systems.",
+    subcategoryTitle: "Volatile Organic Compounds (VOCs)",
+    abstract: "",
     sections: [
       {
         heading: "Toluene",
         content: "Toluene is a solvent found in products such as paint thinners, adhesives and gasoline. Short-term exposure at high levels can affect the nervous system. With ongoing exposure, research has explored potential impacts on cognitive function, liver health, and cellular stress pathways."
+      },
+      {
+        heading: "__subcategory__Aromatic Hydrocarbons",
+        content: ""
       },
       {
         heading: "Benzene",
@@ -211,18 +218,29 @@ const chapters: Chapter[] = [
     number: "04",
     title: "Persistent Pollutants",
     subtitle: "PFAS, PCBs & Flame Retardants",
-    abstract: "Long-lasting synthetic chemicals that can accumulate in the body over time. Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body. Because many of these compounds are fat-soluble, they can accumulate in tissues and remain present for years. Over time, ongoing exposure may contribute to immune disruption and increased inflammatory stress.",
+    boldIntro: "Long-lasting synthetic chemicals that can accumulate in the body over time.",
+    bodyText: "Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body.\n\nBecause many of these compounds are fat-soluble, they can accumulate in tissues and remain present for years. Over time, ongoing exposure may contribute to immune disruption and increased inflammatory stress.",
+    subcategoryTitle: "PFAS / Fluorinated Compounds",
+    abstract: "",
     sections: [
       {
-        heading: "PFAS / PFOS",
+        heading: "PFOS",
         content: "PFAS are a large group of chemicals used in non-stick cookware, stain-resistant fabrics, firefighting foams and food packaging. PFOS is one of the most studied compounds in this class. Research has linked long-term exposure to changes in immune response, cholesterol levels, thyroid function, and increased risk of certain chronic diseases."
       },
       {
-        heading: "PCBs (PCB-153)",
+        heading: "__subcategory__PCBs",
+        content: ""
+      },
+      {
+        heading: "PCB-153",
         content: "Polychlorinated biphenyls (PCBs) were widely used in electrical equipment and industrial materials before being banned in many countries. PCB-153 is a commonly detected variant. Due to their persistence, PCBs remain present in soil, water, and food chains. Chronic exposure has been associated with metabolic dysfunction, endocrine disruption, and increased cancer risk."
       },
       {
-        heading: "Flame Retardants (PBDE-47)",
+        heading: "__subcategory__Flame Retardants",
+        content: ""
+      },
+      {
+        heading: "PBDE-47",
         content: "PBDEs are flame-retardant chemicals used in furniture, electronics, and textiles. PBDE-47 is one of the most frequently detected forms in human tissue. Studies have explored potential links to hormone disruption, neurodevelopmental effects, and thyroid imbalance."
       }
     ],
@@ -237,18 +255,29 @@ const chapters: Chapter[] = [
     number: "05",
     title: "Endocrine Disruptors",
     subtitle: "Hormone Signaling Interference",
-    abstract: "Chemicals that can interfere with the body's hormone signaling, even at low levels of exposure. Hormones are the body's internal messengers. They regulate metabolism, reproduction, mood, growth and immune balance. Certain synthetic compounds are structurally similar to natural hormones. When present in the body, they may mimic, block, or alter normal signaling patterns. Over time, this interference can contribute to metabolic imbalance, reproductive changes, and chronic inflammatory stress.",
+    boldIntro: "Chemicals that can interfere with the body's hormone signaling, even at low levels of exposure.",
+    bodyText: "Hormones are the body's internal messengers. They regulate metabolism, reproduction, mood, growth and immune balance. Certain synthetic compounds are structurally similar to natural hormones. When present in the body, they may mimic, block, or alter normal signaling patterns. Over time, this interference can contribute to metabolic imbalance, reproductive changes, and chronic inflammatory stress.",
+    subcategoryTitle: "Phenols",
+    abstract: "",
     sections: [
       {
         heading: "Bisphenol A (BPA)",
         content: "Commonly found in plastics, food containers and can linings, BPA has been studied for its ability to act like estrogen in the body. Higher cumulative exposure has been associated with shifts in metabolic health, cardiovascular markers and reproductive function."
       },
       {
-        heading: "Phthalates (MEHP)",
+        heading: "__subcategory__Phthalates",
+        content: ""
+      },
+      {
+        heading: "MEHP",
         content: "Phthalates are used to soften plastics and stabilize fragrances in personal care products. MEHP is a marker of phthalate exposure in the body. Research suggests links between sustained exposure and altered hormone levels, fertility concerns and metabolic disruption."
       },
       {
-        heading: "Parabens (Methylparaben)",
+        heading: "__subcategory__Parabens",
+        content: ""
+      },
+      {
+        heading: "Methylparaben",
         content: "Parabens are preservatives used in cosmetics and pharmaceuticals. Methylparaben is among the most commonly detected forms in human tissue. Studies have explored potential effects on estrogen signaling and long-term endocrine balance."
       }
     ],
@@ -263,11 +292,14 @@ const chapters: Chapter[] = [
     number: "06",
     title: "Biologic Toxins",
     subtitle: "Mycotoxins & Natural Compounds",
-    abstract: "Naturally occurring compounds produced by certain organisms that can enter the food chain. Not all biologic burden comes from synthetic chemicals. Some toxins are produced naturally by molds and fungi, particularly in conditions of moisture or improper storage. These compounds are biologically active. Depending on dose and duration, they may influence immune regulation, oxidative stress pathways and organ function.",
+    boldIntro: "Naturally occurring compounds produced by certain organisms that can enter the food chain.",
+    bodyText: "Not all biologic burden comes from synthetic chemicals. Some toxins are produced naturally by molds and fungi, particularly in conditions of moisture or improper storage. These compounds are biologically active. Depending on dose and duration, they may influence immune regulation, oxidative stress pathways and organ function.",
+    subcategoryTitle: "Mycotoxins",
+    abstract: "",
     sections: [
       {
-        heading: "Mycotoxins: Ochratoxin A & Aflatoxin M1",
-        content: "Mycotoxins are toxic substances produced by specific species of mold. Ochratoxin A has been studied for its potential effects on kidney health and immune signaling. Aflatoxin M1, a metabolite that can appear in dairy products when livestock consume contaminated feed, has been associated with liver stress and long-term cancer risk at sustained levels of exposure. Because these toxins can persist in the bloodstream, even low-level exposure over time may contribute to inflammatory strain. For some patients, understanding biologic toxin burden is part of restoring clearer immune balance and physiologic stability."
+        heading: "Ochratoxin A. Aflatoxin M1.",
+        content: "Mycotoxins are toxic substances produced by specific species of mold. Ochratoxin A has been studied for its potential effects on kidney health and immune signaling. Aflatoxin M1, a metabolite that can appear in dairy products when livestock consume contaminated feed, has been associated with liver stress and long-term cancer risk at sustained levels of exposure.\n\nBecause these toxins can persist in the bloodstream, even low-level exposure over time may contribute to inflammatory strain. For some patients, understanding biologic toxin burden is part of restoring clearer immune balance and physiologic stability."
       }
     ],
     keyData: [
@@ -280,15 +312,14 @@ const chapters: Chapter[] = [
     number: "07",
     title: "Microplastics",
     subtitle: "Polymer Particles in Circulation",
-    abstract: "Microscopic plastic particles that can circulate in the bloodstream and tissues. As larger plastic materials break down, they form particles small enough to enter air, water and food. In recent years, microplastics have been detected in human blood and other tissues, reflecting the scale of environmental exposure.",
+    boldIntro: "Microscopic plastic particles that can circulate in the bloodstream and tissues.",
+    bodyText: "As larger plastic materials break down, they form particles small enough to enter air, water and food. In recent years, microplastics have been detected in human blood and other tissues, reflecting the scale of environmental exposure.\n\nBecause of their size, some particles may move beyond the digestive tract and into circulation. Early research suggests they may contribute to inflammatory signaling or act as carriers for other environmental chemicals. Scientific understanding is still evolving, particularly regarding long-term health implications.",
+    subcategoryTitle: "Plastic Polymers",
+    abstract: "",
     sections: [
       {
         heading: "Polyethylene Fragments",
-        content: "Polyethylene is one of the most widely produced plastics worldwide. As products degrade, microscopic fragments can form and enter the environment. These particles have been identified in human biological samples, raising questions about cumulative exposure over time."
-      },
-      {
-        heading: "Health Implications",
-        content: "Because of their size, some particles may move beyond the digestive tract and into circulation. Early research suggests they may contribute to inflammatory signaling or act as carriers for other environmental chemicals. Scientific understanding is still evolving, particularly regarding long-term health implications. While definitive conclusions are still being studied, assessing microplastic presence may help provide a clearer picture of total environmental burden and its potential role in chronic inflammatory stress."
+        content: "Polyethylene is one of the most widely produced plastics worldwide. As products degrade, microscopic fragments can form and enter the environment. These particles have been identified in human biological samples, raising questions about cumulative exposure over time.\n\nWhile definitive conclusions are still being studied, assessing microplastic presence may help provide a clearer picture of total environmental burden and its potential role in chronic inflammatory stress."
       }
     ],
     keyData: [
@@ -302,18 +333,29 @@ const chapters: Chapter[] = [
     number: "08",
     title: "Biologic Persistence",
     subtitle: "Pathogens & Immune Activation",
-    abstract: "Pathogens or pathogen-derived materials that may remain in the body and contribute to prolonged immune activation. In some individuals, the effects of an infection may extend beyond the initial illness. Even after acute symptoms improve, traces of the organism, or the immune response it triggered, can continue to influence the body. When immune activation remains elevated instead of returning to baseline, it may contribute to ongoing inflammation and physiologic strain.",
+    boldIntro: "Pathogens or pathogen-derived materials that may remain in the body and contribute to prolonged immune activation.",
+    bodyText: "In some individuals, the effects of an infection may extend beyond the initial illness. Even after acute symptoms improve, traces of the organism, or the immune response it triggered, can continue to influence the body. When immune activation remains elevated instead of returning to baseline, it may contribute to ongoing inflammation and physiologic strain.",
+    subcategoryTitle: "Bacterial Pathogens",
+    abstract: "",
     sections: [
       {
-        heading: "Borrelia burgdorferi (Lyme)",
+        heading: "Borrelia burgdorferi (Lyme disease)",
         content: "Borrelia burgdorferi is the bacterium associated with Lyme disease. While many patients recover fully with appropriate treatment, some experience ongoing symptoms that may involve persistent immune activation or inflammatory signaling."
       },
       {
-        heading: "Spike Protein Persistence",
+        heading: "__subcategory__Persistent Pathogen-Associated Proteins",
+        content: ""
+      },
+      {
+        heading: "Spike Protein",
         content: "Following viral exposure or vaccination, the body generates viral proteins as part of its immune response. In certain contexts, fragments of these proteins may remain detectable for a period of time. Ongoing research is examining how long such materials persist and whether they play a role in prolonged immune activation in select individuals."
       },
       {
-        heading: "Chronic Viral Reactivation (EBV, CMV)",
+        heading: "__subcategory__Chronic Viral Reactivation",
+        content: ""
+      },
+      {
+        heading: "EBV. CMV.",
         content: "Some viruses, including Epstein–Barr virus (EBV) and cytomegalovirus (CMV), remain dormant in the body after initial infection. Under conditions of stress or immune imbalance, they may reactivate. Persistent or repeated reactivation has been associated with chronic fatigue, immune dysregulation and inflammatory strain in some patients."
       }
     ],
@@ -412,16 +454,14 @@ export default function SciencePage() {
             <span></span>
           </div>
 
-          {/* Main content - 2 column aligned with 02 and 03 grid */}
+          {/* Main content */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Empty first column (aligns with 01) */}
-            <div className="hidden md:block" />
-
-            {/* Left block - Headline (aligns with 02 column) */}
+            {/* Headline - centered in first column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="flex items-center justify-center"
             >
               <div className="flex flex-col items-start -space-y-0.5">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
@@ -433,7 +473,10 @@ export default function SciencePage() {
               </div>
             </motion.div>
 
-            {/* Right block - Supporting copy (aligns with 03 column) */}
+            {/* Empty second column */}
+            <div className="hidden md:block" />
+
+            {/* Supporting copy - third column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -447,13 +490,12 @@ export default function SciencePage() {
                 requires clinical-grade diagnostics.
               </p>
 
-              {/* Learn more link with + and red gradient underline */}
               <Link
                 href="/diagnostics"
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >
                 <span className="relative">
-                  Learn more
+                  Free Toxin Assessment Test
                   <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
                 </span>
                 <span className="text-proxima-red">+</span>

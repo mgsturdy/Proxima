@@ -1,119 +1,23 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { Linkedin, Mail } from "lucide-react";
 
 const team = [
   {
     name: "Carlos Schuster",
     title: "Co-Founder & CEO",
-    bio: "Carlos Schuster is Co-Founder and CEO of Proxima Health. His work is rooted in a personal experience: after his sister was diagnosed with cancer at a young age, clinicians suspected early toxic exposure may have played a role. That question, whether harmful exposures could be identified and reduced before disease develops, shaped his path. Carlos earned degrees in materials science from Imperial College London and a PhD in tissue engineering from the University of Cambridge before building and scaling teams in early-stage growth environments. He founded Proxima Health to focus on preventing chronic disease by measuring and reducing environmental burden at its source.",
+    bio: "Carlos Schuster is Co-Founder and CEO of Proxima Health. His work is rooted in a personal experience: after his sister was diagnosed with cancer at a young age, clinicians suspected early toxic exposure may have played a role. That question, whether harmful exposures could be identified and reduced before disease develops, shaped his path to founding Proxima Health to focus on preventing chronic disease by measuring and reducing environmental burden at its source. Carlos earned degrees in materials science from Imperial College London and a PhD in tissue engineering from the University of Cambridge before building and scaling teams in early-stage growth environments.",
     image: "/assets/carlos.png"
   },
   {
     name: "Michael Petegorsky",
-    title: "Co-Founder",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    title: "Co-Founder & COO",
+    bio: "Michael's path to Proxima started when his wife was pregnant and he began researching non-obvious threats to his daughter's health. His research pointed toward environmental toxins, leading him to a harder question: if we can't fully prevent exposure, can we remove these toxins from our bodies? That inquiry led him to bringing clinically proven blood purification technology to the forefront of chronic disease prevention and treatment. Before Proxima, Mike led legal, communications, research and strategy at the leading provider of psychedelic medicine. He previously practiced as an intellectual property litigator at a top law firm.",
     image: "/assets/michael.png"
   }
 ];
-
-const principles = [
-  {
-    num: "01",
-    title: "Objectivity",
-    subtitle: "Data Over Dogma",
-    desc: "Data over dogma. Every claim we make is backed by peer-reviewed research and verifiable through clinical measurement."
-  },
-  {
-    num: "02",
-    title: "Transparency",
-    subtitle: "Open Access",
-    desc: "Open-access methodology. We share our research, protocols, and laboratory practices with the scientific community."
-  },
-  {
-    num: "03",
-    title: "Intervention",
-    subtitle: "Action Required",
-    desc: "Information without action is insufficient. We provide clear, validated pathways from diagnosis to optimization."
-  }
-];
-
-const collaborators = ["Stanford", "MIT", "Oxford", "ETH Zurich", "Johns Hopkins"];
-
-function CorePrinciplesSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  return (
-    <section className="relative py-24 bg-proxima-cream">
-      <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60 hidden lg:block" />
-
-      <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {principles.map((item, i) => {
-            const isHovered = hoveredIndex === i;
-            const isAnyHovered = hoveredIndex !== null;
-            const isFaded = isAnyHovered && !isHovered;
-
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative pt-4 transition-all duration-300 cursor-pointer"
-                style={{
-                  opacity: isFaded ? 0.35 : 1
-                }}
-                onMouseEnter={() => setHoveredIndex(i)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <div 
-                  className="absolute top-0 left-0 right-0 h-[2px] proxima-gradient transition-opacity duration-300"
-                  style={{ opacity: isHovered ? 1 : 0 }}
-                />
-
-                <span 
-                  className="block text-7xl md:text-8xl leading-none mb-4 font-robit transition-colors duration-300"
-                  style={{ color: isHovered ? 'rgb(28, 28, 28)' : 'rgba(28, 28, 28, 0.15)' }}
-                >
-                  {item.num}
-                </span>
-
-                <h3 className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 mb-3 font-nb-international text-xl md:text-2xl">
-                  {item.title}
-                </h3>
-
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-black/60 mb-4">
-                  {item.subtitle}
-                </p>
-
-                <p className="text-proxima-black/80 font-nb-international text-sm md:text-base mb-6 leading-relaxed">
-                  {item.desc}
-                </p>
-
-                <Link
-                  href="/science"
-                  className="inline-flex items-center gap-2 font-nb-international text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors group"
-                >
-                  <span className="relative">
-                    Learn more
-                    <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
-                  </span>
-                  <span className="text-proxima-red">+</span>
-                </Link>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -237,71 +141,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Core Principles - with hover states */}
-      <CorePrinciplesSection />
-
-      {/* Research Collaborations */}
-      <section className="relative py-16 md:py-24 bg-proxima-cream">
-        <div className="section-container">
-          {/* Top row of + signs */}
-          <div className="grid grid-cols-3 mb-8">
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
-          </div>
-
-          {/* Main content */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Empty first column */}
-            <div className="hidden md:block" />
-
-            {/* Headline */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col items-start -space-y-0.5">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                  Research
-                </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                  Collaborations
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Collaborators list */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-col justify-center"
-            >
-              <div className="flex flex-wrap gap-x-6 gap-y-2 mb-6">
-                {collaborators.map((inst, i) => (
-                  <span key={i} className="font-nb-international text-lg text-proxima-black/60">
-                    {inst}
-                  </span>
-                ))}
-              </div>
-              <p className="font-mono text-xs uppercase tracking-tight text-proxima-black/40">
-                Advisory relationships. Not institutional endorsements.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Bottom row of + signs */}
-          <div className="grid grid-cols-3 mt-8">
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }
