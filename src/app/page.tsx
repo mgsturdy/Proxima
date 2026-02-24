@@ -59,32 +59,28 @@ export default function Home() {
         </div>
 
         {/* Right Column - Subheadline & CTA - positioned 40px left of vertical line (which is at right-10) */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden lg:block relative z-10 lg:absolute lg:bottom-16 lg:right-20 lg:px-0 text-left"
-        >
-          {/* Subheadline - single line */}
-          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal mb-4 md:whitespace-nowrap">
-            Microplastics. PFAS. Heavy metals.
-          </p>
-          
-          {/* Body text */}
-          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal mb-8 leading-relaxed">
-            We help you understand what&apos;s in<br className="hidden md:inline" />
-            your blood, then remove what<br className="hidden md:inline" />
-            doesn&apos;t belong.
-          </p>
-
-          {/* CTA Button - Black text on cream background */}
-          <Link 
-            href="/waitlist" 
-            className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors whitespace-nowrap"
+        <div className="hidden lg:block absolute bottom-16 right-20 z-10 text-left max-w-xs">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Free Toxin Assessment <Plus size={14} strokeWidth={2.5} />
-          </Link>
-        </motion.div>
+            <p className="text-proxima-cream text-base font-nb-international font-normal mb-4">
+              Microplastics. PFAS. Heavy metals.
+            </p>
+            
+            <p className="text-proxima-cream text-base font-nb-international font-normal mb-8 leading-relaxed">
+              We help you understand what&apos;s in your blood, then remove what doesn&apos;t belong.
+            </p>
+
+            <Link 
+              href="/waitlist" 
+              className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors whitespace-nowrap"
+            >
+              Free Toxin Assessment <Plus size={14} strokeWidth={2.5} />
+            </Link>
+          </motion.div>
+        </div>
       </section>
 
       {/* Stats Section */}

@@ -403,10 +403,10 @@ export default function SciencePage() {
               {/* Top-right marker */}
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal font-nb-international leading-tight">
                   The science behind
                 </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal font-nb-international leading-tight">
                   environmental toxins
                 </span>
               </div>
@@ -420,25 +420,17 @@ export default function SciencePage() {
         </div>
 
         {/* Right Column - Body text - positioned 40px left of vertical line */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden lg:block relative z-10 lg:absolute lg:bottom-16 lg:right-20 lg:px-0 text-left"
-        >
-          {/* Body text */}
-          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
-            The body is built to regulate and repair itself.<br className="hidden md:inline" />
-            However, when environmental toxins accumulate<br className="hidden md:inline" />
-            in the bloodstream, they can place sustained<br className="hidden md:inline" />
-            demand on the immune system. Over time, that<br className="hidden md:inline" />
-            can drive persistent inflammation, leading to<br className="hidden md:inline" />
-            chronic diseases in the future. Understanding what<br className="hidden md:inline" />
-            circulates in the blood is the first step in identifying<br className="hidden md:inline" />
-            sources of inflammatory strain and reducing<br className="hidden md:inline" />
-            long-term disease risk.
-          </p>
-        </motion.div>
+        <div className="hidden lg:block absolute bottom-16 right-20 z-10 text-left max-w-xs">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <p className="text-proxima-cream text-base font-nb-international font-normal leading-relaxed">
+              The body is built to regulate and repair itself. However, when environmental toxins accumulate in the bloodstream, they can place sustained demand on the immune system. Over time, that can drive persistent inflammation, leading to chronic diseases in the future. Understanding what circulates in the blood is the first step in identifying sources of inflammatory strain and reducing long-term disease risk.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Tabbed Wiki Section */}

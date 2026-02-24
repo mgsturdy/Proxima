@@ -58,21 +58,17 @@ export default function DiagnosticsPage() {
         </div>
 
         {/* Right Column - Body text - positioned 40px left of vertical line */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden lg:block relative z-10 lg:absolute lg:bottom-16 lg:right-20 lg:px-0 text-left"
-        >
-          {/* Body text */}
-          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
-            A clinically validated at-home test designed<br className="hidden md:inline" />
-            to measure environmental toxin load with<br className="hidden md:inline" />
-            precision. Built on proven science, so you<br className="hidden md:inline" />
-            can understand what&apos;s in your blood and<br className="hidden md:inline" />
-            move forward informed.
-          </p>
-        </motion.div>
+        <div className="hidden lg:block absolute bottom-16 right-20 z-10 text-left max-w-xs">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <p className="text-proxima-cream text-base font-nb-international font-normal leading-relaxed">
+              A clinically validated at-home test designed to measure environmental toxin load with precision. Built on proven science, so you can understand what&apos;s in your blood and move forward informed.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Product Section */}

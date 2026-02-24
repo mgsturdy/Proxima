@@ -201,21 +201,17 @@ export default function InterventionsPage() {
         </div>
 
         {/* Right Column - Body text - positioned 40px left of vertical line */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden lg:block relative z-10 lg:absolute lg:bottom-16 lg:right-20 lg:px-0 text-left"
-        >
-          {/* Body text */}
-          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
-            For decades, therapeutic blood filtration<br className="hidden md:inline" />
-            has been used in European clinical settings<br className="hidden md:inline" />
-            to help physicians reduce circulating<br className="hidden md:inline" />
-            environmental toxins and support the body&apos;s<br className="hidden md:inline" />
-            natural recovery processes.
-          </p>
-        </motion.div>
+        <div className="hidden lg:block absolute bottom-16 right-20 z-10 text-left max-w-xs">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <p className="text-proxima-cream text-base font-nb-international font-normal leading-relaxed">
+              For decades, therapeutic blood filtration has been used in European clinical settings to help physicians reduce circulating environmental toxins and support the body&apos;s natural recovery processes.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* FAQ Section */}
