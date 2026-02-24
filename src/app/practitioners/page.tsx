@@ -228,12 +228,12 @@ function PractitionerFAQSection() {
     <section className="bg-proxima-cream pt-16 md:pt-24 pb-16">
       <div className="section-container">
         {/* Duotang-style Tabs */}
-        <div className="flex flex-wrap">
+        <div className="flex overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-visible">
           {practitionerFaqs.map((item, idx) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(idx)}
-              className={`flex items-center gap-2 px-3 py-2 font-mono text-[10px] uppercase tracking-tight border transition-colors ${
+              className={`flex items-center gap-2 px-3 py-2 font-mono text-[10px] md:text-xs uppercase tracking-tight border transition-colors shrink-0 ${
                 activeTab === idx
                   ? "bg-proxima-black text-proxima-cream border-proxima-black"
                   : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
@@ -245,11 +245,11 @@ function PractitionerFAQSection() {
         </div>
 
         {/* Content Area */}
-        <div className="border border-proxima-black p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: practitionerTabColors[activeTab] }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="border border-proxima-black p-5 md:p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: practitionerTabColors[activeTab] }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
             {/* Left Column - Number & Question */}
             <div className="lg:col-span-4">
-              <span className="block font-robit text-7xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
+              <span className="block font-robit text-5xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
                 {faq.number}
               </span>
 
@@ -343,14 +343,14 @@ export default function PractitionersPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left"
+          className="hidden lg:block relative z-10 lg:absolute lg:bottom-16 lg:right-20 lg:px-0 text-left"
         >
           {/* Body text */}
           <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
-            We provide advanced diagnostics and<br />
-            evidence-based clinical protocols. You bring<br />
-            medical oversight and patient care. Together,<br />
-            we help patients better understand and treat<br />
+            We provide advanced diagnostics and<br className="hidden md:inline" />
+            evidence-based clinical protocols. You bring<br className="hidden md:inline" />
+            medical oversight and patient care. Together,<br className="hidden md:inline" />
+            we help patients better understand and treat<br className="hidden md:inline" />
             environmental toxin exposure.
           </p>
         </motion.div>
@@ -365,7 +365,7 @@ export default function PractitionersPage() {
                 &quot;Much of what drives chronic disease has lived in the background — unseen, unmeasured, and untreated. Environmental toxins are one of those forces. Proxima was created to bring them into focus, and to give people the chance to act before illness becomes inevitable.&quot;
               </p>
               <p className="font-mono text-xs uppercase tracking-wider text-tertiary">
-                — Carlos Schuster<br />
+                — Carlos Schuster<br className="hidden md:inline" />
                 Co-Founder &amp; CEO
               </p>
             </div>
@@ -384,7 +384,7 @@ export default function PractitionersPage() {
             <div>
               <h2 className="mb-8 font-display text-2xl md:text-3xl font-bold">Partnership Inquiry</h2>
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] block mb-2">
                       First Name

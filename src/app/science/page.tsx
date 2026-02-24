@@ -32,30 +32,31 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
     <section className="bg-proxima-cream pt-16 md:pt-24 pb-16">
       <div className="section-container">
         {/* Duotang-style Tabs */}
-        <div className="flex flex-wrap">
+        <div className="flex overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-visible">
           {chapters.map((ch, idx) => (
             <button
               key={ch.id}
               onClick={() => setActiveTab(idx)}
-              className={`flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-tight border transition-colors ${
+              className={`flex items-center gap-2 px-3 md:px-4 py-2 font-mono text-xs uppercase tracking-tight border transition-colors shrink-0 ${
                 activeTab === idx
                   ? "bg-proxima-black text-proxima-cream border-proxima-black"
                   : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
               }`}
             >
-              <span>{ch.number} {ch.title}</span>
-              <span className="text-xs">+</span>
+              <span className="md:hidden">{ch.number}+</span>
+              <span className="hidden md:inline">{ch.number} {ch.title}</span>
+              <span className="hidden md:inline text-xs">+</span>
             </button>
           ))}
         </div>
 
         {/* Content Area */}
-        <div className="border border-proxima-black p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: tabColors[activeTab] }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="border border-proxima-black p-5 md:p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: tabColors[activeTab] }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
             {/* Left Column */}
             <div className="lg:col-span-4">
               {/* Chapter Number */}
-              <span className="block font-robit text-7xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
+              <span className="block font-robit text-5xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
                 {chapter.number}
               </span>
 
@@ -63,12 +64,12 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
               <div className="flex flex-col items-start -space-y-px">
                 {chapter.title.split(" ").length > 1 ? (
                   chapter.title.split(" ").map((word, i) => (
-                    <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 pb-2 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                    <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-1 pb-2 text-xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
                       {word}
                     </span>
                   ))
                 ) : (
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 pb-2 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-1 pb-2 text-xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
                     {chapter.title}
                   </span>
                 )}
@@ -423,18 +424,18 @@ export default function SciencePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left"
+          className="hidden lg:block relative z-10 lg:absolute lg:bottom-16 lg:right-20 lg:px-0 text-left"
         >
           {/* Body text */}
           <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
-            The body is built to regulate and repair itself.<br />
-            However, when environmental toxins accumulate<br />
-            in the bloodstream, they can place sustained<br />
-            demand on the immune system. Over time, that<br />
-            can drive persistent inflammation, leading to<br />
-            chronic diseases in the future. Understanding what<br />
-            circulates in the blood is the first step in identifying<br />
-            sources of inflammatory strain and reducing<br />
+            The body is built to regulate and repair itself.<br className="hidden md:inline" />
+            However, when environmental toxins accumulate<br className="hidden md:inline" />
+            in the bloodstream, they can place sustained<br className="hidden md:inline" />
+            demand on the immune system. Over time, that<br className="hidden md:inline" />
+            can drive persistent inflammation, leading to<br className="hidden md:inline" />
+            chronic diseases in the future. Understanding what<br className="hidden md:inline" />
+            circulates in the blood is the first step in identifying<br className="hidden md:inline" />
+            sources of inflammatory strain and reducing<br className="hidden md:inline" />
             long-term disease risk.
           </p>
         </motion.div>
@@ -485,8 +486,8 @@ export default function SciencePage() {
               className="flex flex-col justify-center"
             >
               <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
-                Understanding the science is step one.<br />
-                Quantifying your personal exposure<br />
+                Understanding the science is step one.<br className="hidden md:inline" />
+                Quantifying your personal exposure<br className="hidden md:inline" />
                 requires clinical-grade diagnostics.
               </p>
 

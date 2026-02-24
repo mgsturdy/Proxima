@@ -63,17 +63,17 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left"
+          className="hidden lg:block relative z-10 lg:absolute lg:bottom-16 lg:right-20 lg:px-0 text-left"
         >
           {/* Subheadline - single line */}
-          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal mb-4 whitespace-nowrap">
+          <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal mb-4 md:whitespace-nowrap">
             Microplastics. PFAS. Heavy metals.
           </p>
           
           {/* Body text */}
           <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal mb-8 leading-relaxed">
-            We help you understand what&apos;s in<br />
-            your blood, then remove what<br />
+            We help you understand what&apos;s in<br className="hidden md:inline" />
+            your blood, then remove what<br className="hidden md:inline" />
             doesn&apos;t belong.
           </p>
 
@@ -133,7 +133,7 @@ export default function Home() {
                 className="text-left"
               >
                 {/* Stat number */}
-                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-proxima-black leading-none font-robit mb-4">
+                <span className="block text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-proxima-black leading-none font-robit mb-4">
                   {item.stat}
                 </span>
                 
@@ -150,7 +150,7 @@ export default function Home() {
       {/* The Invisible Crisis */}
       <section className="relative bg-proxima-cream">
         {/* Vertical line continuing from hero - now black */}
-        <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60" />
+        <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60 hidden lg:block" />
         
         <div className="section-container">
           {/* Top row of + signs */}
@@ -284,8 +284,8 @@ export default function Home() {
               className="flex flex-col justify-center"
             >
               <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
-                Answer a few lifestyle questions.<br />
-                Receive an estimated Toxin Load<br />
+                Answer a few lifestyle questions.<br className="hidden md:inline" />
+                Receive an estimated Toxin Load<br className="hidden md:inline" />
                 Score based on your daily exposure.
               </p>
 

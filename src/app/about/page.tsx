@@ -75,12 +75,12 @@ export default function AboutPage() {
       {/* Mission Statement */}
       <section className="py-24">
         <div className="section-narrow">
-          <div className="mb-12 text-3xl md:text-4xl font-display font-bold border-l-4 border-proxima-red pl-8">
+          <div className="mb-12 text-2xl md:text-3xl lg:text-4xl font-display font-bold border-l-4 border-proxima-red pl-6 md:pl-8">
             <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
               Our mission is to optimize health through the early detection and removal of environmental toxins.
             </span>
           </div>
-          <div className="text-secondary space-y-6 font-sans text-lg leading-relaxed">
+          <div className="text-secondary space-y-6 font-sans text-base md:text-lg leading-relaxed">
             <p>
               Environmental toxins are in nearly everyone. 97% of Americans have PFAS in 
               their bloodstream, along with microplastics, heavy metals and hundreds of 
@@ -119,7 +119,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="flex flex-col md:flex-row gap-8"
               >
-                <div className="w-full md:w-48 aspect-square relative shrink-0 bg-tertiary/10">
+                <div className="w-48 md:w-48 aspect-square relative shrink-0 bg-tertiary/10">
                   <Image 
                     src={member.image}
                     alt={member.name}

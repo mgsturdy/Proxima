@@ -87,12 +87,12 @@ function TreatmentFAQSection() {
     <section className="bg-proxima-cream pt-16 md:pt-24 pb-16">
       <div className="section-container">
         {/* Duotang-style Tabs */}
-        <div className="flex flex-wrap">
+        <div className="flex overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-visible">
           {faqs.map((item, idx) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(idx)}
-              className={`flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-tight border transition-colors ${
+              className={`flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-tight border transition-colors shrink-0 ${
                 activeTab === idx
                   ? "bg-proxima-black text-proxima-cream border-proxima-black"
                   : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
@@ -104,11 +104,11 @@ function TreatmentFAQSection() {
         </div>
 
         {/* Content Area */}
-        <div className="border border-proxima-black p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: treatmentTabColors[activeTab] }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="border border-proxima-black p-5 md:p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: treatmentTabColors[activeTab] }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
             {/* Left Column - Number & Question */}
             <div className="lg:col-span-4">
-              <span className="block font-robit text-7xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
+              <span className="block font-robit text-5xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
                 {faq.number}
               </span>
 
@@ -205,14 +205,14 @@ export default function InterventionsPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative z-10 mt-12 px-6 lg:absolute lg:bottom-16 lg:right-20 lg:mt-0 lg:px-0 text-left"
+          className="hidden lg:block relative z-10 lg:absolute lg:bottom-16 lg:right-20 lg:px-0 text-left"
         >
           {/* Body text */}
           <p className="text-proxima-cream text-sm md:text-base font-nb-international font-normal leading-relaxed">
-            For decades, therapeutic blood filtration<br />
-            has been used in European clinical settings<br />
-            to help physicians reduce circulating<br />
-            environmental toxins and support the body&apos;s<br />
+            For decades, therapeutic blood filtration<br className="hidden md:inline" />
+            has been used in European clinical settings<br className="hidden md:inline" />
+            to help physicians reduce circulating<br className="hidden md:inline" />
+            environmental toxins and support the body&apos;s<br className="hidden md:inline" />
             natural recovery processes.
           </p>
         </motion.div>
@@ -258,9 +258,9 @@ export default function InterventionsPage() {
               className="flex flex-col justify-center"
             >
               <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
-                Interested in bringing Inuspheresis™ to<br />
-                your practice? Contact us to learn more<br />
-                about certification, implementation, and<br />
+                Interested in bringing Inuspheresis™ to<br className="hidden md:inline" />
+                your practice? Contact us to learn more<br className="hidden md:inline" />
+                about certification, implementation, and<br className="hidden md:inline" />
                 how to join the practitioner waitlist.
               </p>
             </motion.div>
@@ -333,8 +333,8 @@ export default function InterventionsPage() {
               className="flex flex-col justify-center"
             >
               <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
-                Before implementing any intervention<br />
-                protocol, establish your baseline toxin<br />
+                Before implementing any intervention<br className="hidden md:inline" />
+                protocol, establish your baseline toxin<br className="hidden md:inline" />
                 levels through clinical diagnostics.
               </p>
             </motion.div>
