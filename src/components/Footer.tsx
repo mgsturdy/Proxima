@@ -45,10 +45,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-4">Legal</p>
-            <ul className="space-y-1.5">
-              <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Legal</span></li>
-            </ul>
+            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50">Legal</p>
           </div>
         </div>
 

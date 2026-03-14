@@ -460,7 +460,7 @@ export default function SciencePage() {
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >
                 <span className="relative">
-                  Free Toxin Assessment Test
+                  Free Toxin Assessment
                   <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
                 </span>
                 <span className="text-proxima-red">+</span>
