@@ -11,8 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4">
             <p className="text-proxima-black/80 max-w-sm leading-relaxed mb-8 font-nb-international text-sm">
-              Advancing human health through clinical-grade environmental 
-              diagnostics and evidence-based therapeutic interventions.
+              Advancing human health through environmental toxin testing and blood purification.
             </p>
             <div className="flex gap-4">
               <div className="flex flex-col">
@@ -32,7 +31,7 @@ export default function Footer() {
             <ul className="space-y-1.5">
               <li><Link href="/science" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">The Science</Link></li>
               <li><Link href="/diagnostics" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Diagnostics</Link></li>
-              <li><Link href="/interventions" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Interventions</Link></li>
+              <li><Link href="/interventions" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Intervention</Link></li>
               <li><Link href="/about" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">About</Link></li>
             </ul>
           </div>
@@ -42,17 +41,13 @@ export default function Footer() {
             <ul className="space-y-1.5">
               <li><Link href="/practitioners" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">For Practitioners</Link></li>
               <li><Link href="/waitlist" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Toxin Assessment</Link></li>
-              <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Research Library</span></li>
-              <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Clinical Studies</span></li>
             </ul>
           </div>
 
           <div className="lg:col-span-3">
             <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-4">Legal</p>
             <ul className="space-y-1.5">
-              <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Privacy Policy</span></li>
-              <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Terms of Service</span></li>
-              <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Clinical Disclosures</span></li>
+              <li><span className="text-proxima-black/50 text-xs font-mono uppercase tracking-wider">Legal</span></li>
             </ul>
           </div>
         </div>

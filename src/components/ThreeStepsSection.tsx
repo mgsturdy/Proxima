@@ -9,7 +9,7 @@ const steps = [
     num: "01",
     title: "Measure",
     subtitle: "Diagnostics",
-    desc: "Proxima Health Baseline blood test to identify and measure over 30 environmental toxins with clinical precision.",
+    desc: "Proxima Health Baseline blood test to identify and measure 18 environmental toxins with clinical precision.",
     link: "/diagnostics"
   },
   {
@@ -17,12 +17,12 @@ const steps = [
     title: "Optimize",
     subtitle: "Lifestyle",
     desc: "Evidence based protocols and lifestyle changes to reduce ongoing exposure.",
-    link: "/interventions"
+    link: ""
   },
   {
     num: "03",
-    title: "Eliminate",
-    subtitle: "Therapeutics",
+    title: "Remove",
+    subtitle: "Intervention",
     desc: "Advanced blood filtration to remove accumulated toxins from the body.",
     link: "/interventions"
   }
@@ -86,18 +86,18 @@ export default function ThreeStepsSection() {
                   {item.desc}
                 </p>
 
-                {/* Learn more link with + and red gradient underline */}
-                <Link
-                  href={item.link}
-                  className="inline-flex items-center gap-2 font-nb-international text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors group"
-                >
-                  <span className="relative">
-                    Learn more
-                    {/* Red gradient underline */}
-                    <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
-                  </span>
-                  <span className="text-proxima-red">+</span>
-                </Link>
+                {item.link && (
+                  <Link
+                    href={item.link}
+                    className="inline-flex items-center gap-2 font-nb-international text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors group"
+                  >
+                    <span className="relative">
+                      Learn more
+                      <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
+                    </span>
+                    <span className="text-proxima-red">+</span>
+                  </Link>
+                )}
               </motion.div>
             );
           })}

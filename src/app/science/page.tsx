@@ -141,92 +141,37 @@ const chapters: Chapter[] = [
     id: "metals",
     number: "01",
     title: "Heavy Metals",
-    subtitle: "Bioaccumulation & Chronic Toxicity",
+    subtitle: "",
     boldIntro: "Toxic elements that accumulate in blood and tissues and disrupt cellular function.",
-    bodyText: "Exposure to certain heavy metals can occur through water, food, air, or occupational environments. Once in the body, these elements may circulate in the bloodstream and deposit in tissues.\n\nUnlike many compounds, metals do not readily break down. Over time, accumulation may interfere with enzyme function, increase oxidative stress, impair mitochondrial energy production, and alter immune signaling.",
+    bodyText: "Exposure to certain heavy metals can occur through water, food, air, or occupational environments. Once in the body, these elements circulate in the bloodstream and deposit in tissues.\n\nUnlike many compounds, metals do not readily break down. Over time, accumulation interferes with enzyme function, increases oxidative stress, impairs mitochondrial energy production and alters immune signaling.",
     subcategoryTitle: "Heavy Metals",
     abstract: "",
     sections: [
       {
         heading: "Lead",
-        content: "Lead exposure has been associated with neurologic dysfunction, cardiovascular strain, kidney impairment and developmental effects in children. Even low levels may contribute to long-term systemic burden."
+        content: "Lead exposure most commonly occurs through contaminated drinking water, aging infrastructure such as lead pipes, and older paint or dust in buildings. Elevated levels have been associated with neurologic dysfunction, cardiovascular strain, kidney impairment and developmental effects in children."
       },
       {
         heading: "Arsenic",
-        content: "Arsenic is often encountered through contaminated water or certain foods and has been linked to vascular disease, metabolic dysfunction, immune imbalance and increased cancer risk with chronic exposure.\n\nWhen metal burden persists, it can create cumulative stress across organ systems. For appropriate patients, identifying and reducing that burden may be an important step toward restoring physiologic balance."
+        content: "Arsenic exposure is often encountered through contaminated water or certain foods and has been linked to vascular disease, metabolic dysfunction, immune imbalance and increased cancer risk with chronic exposure.\n\nIdentifying and reducing the burden of heavy metals is an important step toward restoring physiologic balance."
       }
     ],
-    keyData: [
-      { metric: "400%", context: "increase in blood lead levels since industrialization" },
-      { metric: "0.5 MG/DL", context: "level at which neurodevelopmental effects are measurable" }
-    ],
-    citations: ["Lanphear BP, et al. Lancet Public Health. 2018;3(4):e177-e184", "ATSDR Toxicological Profile for Lead. 2020"]
-  },
-  {
-    id: "agricultural",
-    number: "02",
-    title: "Agricultural Chemicals",
-    subtitle: "Pesticides & Herbicides",
-    boldIntro: "Chemicals used in food production that can affect metabolic and neurologic pathways.",
-    bodyText: "Modern agriculture relies on chemical agents to protect crops and increase yield. While regulatory standards aim to limit exposure, trace amounts of certain compounds can enter the food and water supply.\n\nSome of these chemicals are biologically active. When present in the body, they may interact with metabolic enzymes, hormone signaling pathways and neurologic processes. Depending on the compound, residues can persist in tissues over time.",
-    subcategoryTitle: "Pesticides",
-    abstract: "",
-    sections: [
-      {
-        heading: "Glyphosate",
-        content: "Glyphosate is one of the most widely used herbicides in the world. While much of it is eliminated from the body relatively quickly, repeated exposure may contribute to cumulative burden.\n\nResearch has explored how glyphosate may influence gut microbiome balance, increase oxidative stress, and interfere with certain cellular pathways involved in metabolism and immune regulation. Disruption in these systems has been associated with chronic inflammation, metabolic dysfunction, and broader long-term health concerns."
-      },
-      {
-        heading: "Legacy Insecticides p,p′-DDE (DDT)",
-        content: "p,p′-DDE is a breakdown product of DDT, a pesticide that was banned decades ago but still lingers in soil, water, and the food supply because it breaks down very slowly.\n\nThis compound is stored in body fat, which means it can remain in the body for years after exposure. Over time, studies have linked higher levels to disruptions in hormone balance and increased risk of certain long-term health conditions."
-      }
-    ],
-    keyData: [
-      { metric: "250M+", context: "pounds of glyphosate used annually in the U.S." }
-    ],
-    citations: ["USDA Pesticide Data Program Annual Summary", "IARC Monographs on Glyphosate"]
-  },
-  {
-    id: "vocs",
-    number: "03",
-    title: "Volatile & Industrial Chemicals",
-    subtitle: "Industrial & Airborne Compounds",
-    boldIntro: "Airborne and solvent-based chemicals commonly found in indoor and occupational environments.",
-    bodyText: "Many everyday materials, including paints, cleaning products, fuels, adhesives and building materials release airborne chemicals. These compounds can be inhaled in small amounts over time, particularly in enclosed or poorly ventilated spaces.\n\nSome of these chemicals are rapidly processed by the body. Others, especially with repeated exposure, may contribute to cumulative strain on the nervous system, liver, or blood-forming systems.",
-    subcategoryTitle: "Volatile Organic Compounds (VOCs)",
-    abstract: "",
-    sections: [
-      {
-        heading: "Toluene",
-        content: "Toluene is a solvent found in products such as paint thinners, adhesives and gasoline. Short-term exposure at high levels can affect the nervous system. With ongoing exposure, research has explored potential impacts on cognitive function, liver health, and cellular stress pathways."
-      },
-      {
-        heading: "__subcategory__Aromatic Hydrocarbons",
-        content: ""
-      },
-      {
-        heading: "Benzene",
-        content: "Benzene is a widely studied industrial chemical present in fuels, tobacco smoke and some manufacturing environments. It is known to affect the bone marrow, where blood cells are produced. Chronic exposure has been associated with increased risk of certain blood disorders and cancers."
-      }
-    ],
-    keyData: [
-      { metric: "Indoor", context: "air often 2-5x more polluted than outdoor air" }
-    ],
-    citations: ["EPA Indoor Air Quality Guidelines", "OSHA Occupational Exposure Standards"]
+    keyData: [],
+    citations: []
   },
   {
     id: "pops",
-    number: "04",
+    number: "02",
     title: "Persistent Pollutants",
-    subtitle: "PFAS, PCBs & Flame Retardants",
-    boldIntro: "Long-lasting synthetic chemicals that can accumulate in the body over time.",
-    bodyText: "Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body.\n\nBecause many of these compounds are fat-soluble, they can accumulate in tissues and remain present for years. Over time, ongoing exposure may contribute to immune disruption and increased inflammatory stress.",
+    subtitle: "",
+    boldIntro: "Long-lasting synthetic chemicals found in packaging, consumer products and household goods.",
+    bodyText: "Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body. This is a concern as toxins such as PFAS are a known carcinogen, while others cause ongoing inflammation and hormone disruption, leading to chronic disease.",
     subcategoryTitle: "PFAS / Fluorinated Compounds",
     abstract: "",
     sections: [
       {
         heading: "PFOS",
-        content: "PFAS are a large group of chemicals used in non-stick cookware, stain-resistant fabrics, firefighting foams and food packaging. PFOS is one of the most studied compounds in this class. Research has linked long-term exposure to changes in immune response, cholesterol levels, thyroid function, and increased risk of certain chronic diseases."
+        content: "PFAS are a large group of chemicals used in non-stick cookware, stain-resistant fabrics, firefighting foams and food packaging. Research has linked long-term exposure to changes in immune response, cholesterol levels, thyroid function and increased risk of certain chronic diseases like cancer."
       },
       {
         heading: "__subcategory__PCBs",
@@ -245,17 +190,32 @@ const chapters: Chapter[] = [
         content: "PBDEs are flame-retardant chemicals used in furniture, electronics, and textiles. PBDE-47 is one of the most frequently detected forms in human tissue. Studies have explored potential links to hormone disruption, neurodevelopmental effects, and thyroid imbalance."
       }
     ],
-    keyData: [
-      { metric: "98%", context: "of Americans with detectable PFAS in blood" },
-      { metric: "12,000+", context: "distinct PFAS compounds identified" }
+    keyData: [],
+    citations: []
+  },
+  {
+    id: "microplastics",
+    number: "03",
+    title: "Microplastics",
+    subtitle: "",
+    boldIntro: "Microscopic plastic particles that cause disease and carry other toxic chemicals into the body.",
+    bodyText: "As larger plastic materials degrade, they generate particles small enough to enter air, water and food. These microplastics have been found in our blood and every major organ.\n\nResearch has linked their presence to cancer, heart disease, dementia and infertility. While long-term outcomes continue to be studied, increased levels in our bodies raises important questions about cumulative inflammatory burden.",
+    subcategoryTitle: "Plastic Polymers",
+    abstract: "",
+    sections: [
+      {
+        heading: "Polyethylene Fragments",
+        content: "Polyethylene is one of the most widely produced plastics globally. As products break down, microscopic fragments enter the environment and increasingly the human body.\n\nDetection in biological samples shows their growing burden on our bodies. Plastic accumulation in the human brain increased 50% in the last 8 years alone."
+      }
     ],
-    citations: ["Fenton SE, et al. Environmental Toxicology and Chemistry. 2021", "EPA PFAS Strategic Roadmap. 2021"]
+    keyData: [],
+    citations: []
   },
   {
     id: "edcs",
-    number: "05",
+    number: "04",
     title: "Endocrine Disruptors",
-    subtitle: "Hormone Signaling Interference",
+    subtitle: "",
     boldIntro: "Chemicals that can interfere with the body's hormone signaling, even at low levels of exposure.",
     bodyText: "Hormones are the body's internal messengers. They regulate metabolism, reproduction, mood, growth and immune balance. Certain synthetic compounds are structurally similar to natural hormones. When present in the body, they may mimic, block, or alter normal signaling patterns. Over time, this interference can contribute to metabolic imbalance, reproductive changes, and chronic inflammatory stress.",
     subcategoryTitle: "Phenols",
@@ -282,17 +242,62 @@ const chapters: Chapter[] = [
         content: "Parabens are preservatives used in cosmetics and pharmaceuticals. Methylparaben is among the most commonly detected forms in human tissue. Studies have explored potential effects on estrogen signaling and long-term endocrine balance."
       }
     ],
-    keyData: [
-      { metric: "93%", context: "of Americans testing positive for BPA" },
-      { metric: "10⁻¹² M", context: "concentration at which some EDCs produce effects" }
-    ],
-    citations: ["Vandenberg LN, et al. Endocrine Reviews. 2012;33(3):378-455", "Gore AC, et al. Endocrine Reviews. 2015"]
+    keyData: [],
+    citations: []
   },
   {
-    id: "biologics",
+    id: "pesticides",
+    number: "05",
+    title: "Pesticides",
+    subtitle: "",
+    boldIntro: "Chemicals used in food production that can affect metabolic and neurological pathways.",
+    bodyText: "Modern agriculture relies on chemical agents to protect crops and increase yield. While regulatory standards aim to limit exposure, certain compounds enter our food and water supply and find their way into our bodies.\n\nThese chemicals don\u2019t just kill pests, they impact humans too. When present in the body, they interact with metabolic enzymes, hormone signaling pathways and neurologic processes.",
+    subcategoryTitle: "Pesticides",
+    abstract: "",
+    sections: [
+      {
+        heading: "Glyphosate",
+        content: "Glyphosate is one of the most widely used herbicides in the world. While much of it is eliminated from the body relatively quickly, repeated exposure contributes to cumulative burden.\n\nResearch has explored how glyphosate may influence gut microbiome balance, increase oxidative stress and interfere with certain cellular pathways involved in metabolism and immune regulation. Disruption in these systems has been associated with chronic inflammation, metabolic dysfunction and broader long-term health concerns."
+      },
+      {
+        heading: "Legacy Insecticides p,p\u2032-DDE (DDT)",
+        content: "p,p\u2032-DDE is a breakdown product of DDT, a pesticide that was banned decades ago but still lingers in soil, water and the food supply because it breaks down very slowly.\n\nThis compound can remain in the body for years after exposure. Over time, studies have linked higher levels to disruptions in hormone balance and increased risk of certain long-term health conditions."
+      }
+    ],
+    keyData: [],
+    citations: []
+  },
+  {
+    id: "vocs",
     number: "06",
-    title: "Biologic Toxins",
-    subtitle: "Mycotoxins & Natural Compounds",
+    title: "Industrial Chemicals",
+    subtitle: "",
+    boldIntro: "Airborne and solvent-based chemicals commonly found in indoor and occupational environments.",
+    bodyText: "Many everyday materials, including paints, cleaning products, fuels, adhesives and building materials release airborne chemicals. These compounds can be inhaled in small amounts over time, particularly in enclosed or poorly ventilated spaces.\n\nSome of these chemicals are rapidly processed by the body. Others, especially with repeated exposure, contribute to cumulative strain on the nervous system, liver, or blood-forming systems.",
+    subcategoryTitle: "Volatile Organic Compounds (VOCs)",
+    abstract: "",
+    sections: [
+      {
+        heading: "Toluene",
+        content: "Toluene is a solvent found in products such as paint thinners, adhesives and gasoline. Short-term exposure at high levels can affect the nervous system. With ongoing exposure, research shows impacts on cognitive function, liver health and cellular stress pathways."
+      },
+      {
+        heading: "__subcategory__Aromatic Hydrocarbons",
+        content: ""
+      },
+      {
+        heading: "Benzene",
+        content: "Benzene is an industrial chemical present in fuels, tobacco smoke and some manufacturing environments. It is known to affect the bone marrow, where blood cells are produced. Chronic exposure has been associated with increased risk of certain blood disorders and cancers."
+      }
+    ],
+    keyData: [],
+    citations: []
+  },
+  {
+    id: "mold",
+    number: "07",
+    title: "Mold",
+    subtitle: "",
     boldIntro: "Naturally occurring compounds produced by certain organisms that can enter the food chain.",
     bodyText: "Not all biologic burden comes from synthetic chemicals. Some toxins are produced naturally by molds and fungi, particularly in conditions of moisture or improper storage. These compounds are biologically active. Depending on dose and duration, they may influence immune regulation, oxidative stress pathways and organ function.",
     subcategoryTitle: "Mycotoxins",
@@ -303,67 +308,34 @@ const chapters: Chapter[] = [
         content: "Mycotoxins are toxic substances produced by specific species of mold. Ochratoxin A has been studied for its potential effects on kidney health and immune signaling. Aflatoxin M1, a metabolite that can appear in dairy products when livestock consume contaminated feed, has been associated with liver stress and long-term cancer risk at sustained levels of exposure.\n\nBecause these toxins can persist in the bloodstream, even low-level exposure over time may contribute to inflammatory strain. For some patients, understanding biologic toxin burden is part of restoring clearer immune balance and physiologic stability."
       }
     ],
-    keyData: [
-      { metric: "25%", context: "of global crops affected by mycotoxin contamination" }
-    ],
-    citations: ["WHO Food Safety Guidelines on Mycotoxins", "IARC Monographs on Aflatoxins"]
-  },
-  {
-    id: "microplastics",
-    number: "07",
-    title: "Microplastics",
-    subtitle: "Polymer Particles in Circulation",
-    boldIntro: "Microscopic plastic particles that can circulate in the bloodstream and tissues.",
-    bodyText: "As larger plastic materials break down, they form particles small enough to enter air, water and food. In recent years, microplastics have been detected in human blood and other tissues, reflecting the scale of environmental exposure.\n\nBecause of their size, some particles may move beyond the digestive tract and into circulation. Early research suggests they may contribute to inflammatory signaling or act as carriers for other environmental chemicals. Scientific understanding is still evolving, particularly regarding long-term health implications.",
-    subcategoryTitle: "Plastic Polymers",
-    abstract: "",
-    sections: [
-      {
-        heading: "Polyethylene Fragments",
-        content: "Polyethylene is one of the most widely produced plastics worldwide. As products degrade, microscopic fragments can form and enter the environment. These particles have been identified in human biological samples, raising questions about cumulative exposure over time.\n\nWhile definitive conclusions are still being studied, assessing microplastic presence may help provide a clearer picture of total environmental burden and its potential role in chronic inflammatory stress."
-      }
-    ],
-    keyData: [
-      { metric: "5g/week", context: "average adult plastic ingestion" },
-      { metric: "80%", context: "of blood samples containing detectable microplastics" }
-    ],
-    citations: ["Leslie HA, et al. Environment International. 2022;163:107199", "Schwabl P, et al. Ann Intern Med. 2019"]
+    keyData: [],
+    citations: []
   },
   {
     id: "persistence",
     number: "08",
-    title: "Biologic Persistence",
-    subtitle: "Pathogens & Immune Activation",
-    boldIntro: "Pathogens or pathogen-derived materials that may remain in the body and contribute to prolonged immune activation.",
-    bodyText: "In some individuals, the effects of an infection may extend beyond the initial illness. Even after acute symptoms improve, traces of the organism, or the immune response it triggered, can continue to influence the body. When immune activation remains elevated instead of returning to baseline, it may contribute to ongoing inflammation and physiologic strain.",
+    title: "Persistent Pathogens",
+    subtitle: "",
+    boldIntro: "Pathogens or pathogen-derived materials that remain in the body and contribute to prolonged immune activation.",
+    bodyText: "In some individuals, the effects of an infection can extend beyond the initial illness. Even after acute symptoms improve, traces of the organism, or the immune response it triggered, can continue to influence the body. When immune activation remains elevated instead of returning to baseline, it contributes to ongoing inflammation and physiologic strain.",
     subcategoryTitle: "Bacterial Pathogens",
     abstract: "",
     sections: [
       {
         heading: "Borrelia burgdorferi (Lyme disease)",
-        content: "Borrelia burgdorferi is the bacterium associated with Lyme disease. While many patients recover fully with appropriate treatment, some experience ongoing symptoms that may involve persistent immune activation or inflammatory signaling."
+        content: "Lyme disease is caused by the bacterium Borrelia burgdorferi. While many patients recover fully with appropriate treatment, some experience ongoing symptoms that may involve persistent immune activation or inflammatory signaling."
       },
       {
         heading: "__subcategory__Persistent Pathogen-Associated Proteins",
         content: ""
       },
       {
-        heading: "Spike Protein",
-        content: "Following viral exposure or vaccination, the body generates viral proteins as part of its immune response. In certain contexts, fragments of these proteins may remain detectable for a period of time. Ongoing research is examining how long such materials persist and whether they play a role in prolonged immune activation in select individuals."
-      },
-      {
-        heading: "__subcategory__Chronic Viral Reactivation",
-        content: ""
-      },
-      {
-        heading: "EBV. CMV.",
-        content: "Some viruses, including Epstein–Barr virus (EBV) and cytomegalovirus (CMV), remain dormant in the body after initial infection. Under conditions of stress or immune imbalance, they may reactivate. Persistent or repeated reactivation has been associated with chronic fatigue, immune dysregulation and inflammatory strain in some patients."
+        heading: "Covid Spike Protein",
+        content: "Following viral exposure or vaccination, the body generates viral proteins as a central part of the immune response. However, for some individuals, these protein fragments do not clear; they persist in the bloodstream, acting as a continuous trigger for prolonged immune activation. This lingering biological presence is a primary driver of chronic inflammatory stress and systemic fatigue."
       }
     ],
-    keyData: [
-      { metric: "476K", context: "new Lyme disease cases annually in the U.S." }
-    ],
-    citations: ["CDC Lyme Disease Statistics", "NIH Research on Post-Acute Infection Syndromes"]
+    keyData: [],
+    citations: []
   }
 ];
 
@@ -427,7 +399,7 @@ export default function SciencePage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-proxima-cream text-base font-nb-international font-normal leading-relaxed">
-              The body is built to regulate and repair itself. However, when environmental toxins accumulate in the bloodstream, they can place sustained demand on the immune system. Over time, that can drive persistent inflammation, leading to chronic diseases in the future. Understanding what circulates in the blood is the first step in identifying sources of inflammatory strain and reducing long-term disease risk.
+              When environmental toxins accumulate in your body they disrupt immune function, leading to inflammation and chronic disease.
             </p>
           </motion.div>
         </div>

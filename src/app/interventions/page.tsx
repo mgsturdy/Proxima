@@ -1,155 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-
-const faqs = [
-  {
-    id: "what-is",
-    number: "01",
-    question: "What is Inuspheresis™?",
-    answer: `Inuspheresis™ is an advanced form of Double Filtration Plasma Pheresis (DFPP) that has been used in more than 100,000 treatments for over a decade.
-
-It uses a proprietary second-stage plasma filter engineered to remove circulating environmental toxicants and large inflammatory mediators while preserving beneficial plasma components such as albumin.
-
-Unlike traditional therapeutic plasma exchange (TPE), Inuspheresis™:
-• Does not require donor plasma or albumin
-• Returns the patient's own filtered plasma
-
-Unlike highly selective adsorption systems:
-• It removes a broader range of molecules based on size`
-  },
-  {
-    id: "what-remove",
-    number: "02",
-    question: "What does Inuspheresis™ remove?",
-    answer: `Inuspheresis™ is designed to reduce circulating environmental toxicants and large inflammatory carrier molecules from the bloodstream.
-
-Substances shown to be reduced in circulation include:
-
-**Environmental toxicants:**
-• Heavy metals (e.g., lead, mercury)
-• Agricultural chemicals (e.g., glyphosate, DDE)
-• Volatile organic compounds (e.g., benzene)
-• Persistent organic pollutants (e.g., PFAS, PCBs, flame retardants)
-• Consumer and industrial chemicals (e.g., BPA, phthalates, parabens)
-• Biological toxins (e.g., ochratoxin A)
-• Microplastic fragments (e.g., polyethylene polymers)
-
-**Biologic persistence markers:**
-• Pathogen-associated proteins
-• Borrelia-associated markers
-
-**Carrier and inflammatory molecules:**
-• Lipoproteins (LDL, Lp(a))
-• Immunoglobulins (IgG, IgM)
-• Inflammatory proteins (CRP, TNF-α, IL-1β, IL-6, IL-18, IFN-γ)
-• Clotting factors (Fibrinogen, Prothrombin, Factor VIII, Factor X)
-
-On average, approximately 50% reduction of lipoproteins and immunoglobulins is observed per treatment session.
-
-Because many environmental toxicants are lipophilic and protein-bound, reducing these carrier molecules can significantly decrease circulating toxic burden.
-
-Ongoing research is focused on understanding long-term changes in total body burden.`
-  },
-  {
-    id: "how-different",
-    number: "03",
-    question: "How is Inuspheresis™ different from other blood filtration procedures?",
-    answer: `Inuspheresis™ differs from traditional plasma exchange in that it:
-• Does not require donor plasma
-• Returns the patient's own filtered plasma
-• Is engineered specifically to reduce environmental and inflammatory burden
-
-Its second-stage membrane is designed to remove larger molecular structures while preserving essential plasma components.`
-  },
-  {
-    id: "when-available",
-    number: "04",
-    question: "When will Inuspheresis™ be available in the United States?",
-    answer: `Inuspheresis™ is currently undergoing the FDA approval process.
-
-Proxima Health anticipates U.S. availability in 2027, pending regulatory clearance.`
-  }
-];
-
-const treatmentTabColors = [
-  "#FF9E00", "#FFB84D", "#FFD699", "#FFF3D6",
-];
-
-function TreatmentFAQSection() {
-  const [activeTab, setActiveTab] = useState(0);
-  const faq = faqs[activeTab];
-
-  return (
-    <section className="bg-proxima-cream pt-16 md:pt-24 pb-16">
-      <div className="section-container">
-        {/* Duotang-style Tabs */}
-        <div className="flex overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-visible">
-          {faqs.map((item, idx) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveTab(idx)}
-              className={`flex items-center gap-2 px-4 py-2 font-mono text-xs uppercase tracking-tight border transition-colors shrink-0 ${
-                activeTab === idx
-                  ? "bg-proxima-black text-proxima-cream border-proxima-black"
-                  : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
-              }`}
-            >
-              <span>{item.number}+</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Content Area */}
-        <div className="border border-proxima-black p-5 md:p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: treatmentTabColors[activeTab] }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
-            {/* Left Column - Number & Question */}
-            <div className="lg:col-span-4">
-              <span className="block font-robit text-5xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
-                {faq.number}
-              </span>
-
-              <div className="flex flex-col items-start -space-y-0.5 mb-3">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                  FAQ
-                </span>
-              </div>
-
-              <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-6">
-                Frequently Asked Questions
-              </p>
-
-              <p className="font-nb-international text-xl md:text-2xl leading-tight text-proxima-black">
-                {faq.question}
-              </p>
-            </div>
-
-            {/* Right Column - Answer */}
-            <div className="lg:col-span-8 lg:border-l lg:border-proxima-black lg:pl-8">
-              <div>
-                <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
-                  + Answer
-                </p>
-                <div className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
-                  {faq.answer.split(/(\*\*.*?\*\*)/).map((part, i) =>
-                    part.startsWith("**") && part.endsWith("**") ? (
-                      <strong key={i}>{part.slice(2, -2)}</strong>
-                    ) : (
-                      <span key={i}>{part}</span>
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function InterventionsPage() {
   return (
@@ -159,8 +12,8 @@ export default function InterventionsPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/freepik__-metadata-confidencescore-high-imagetype-photograp__36853.png"
-            alt="Treatment"
+            src="/assets/freepik__f4b551c0e94b4cecbc46024fad0f4b60assistant-2-img1-t__36845.png"
+            alt="Intervention"
             fill
             className="object-cover object-center"
             priority
@@ -182,13 +35,13 @@ export default function InterventionsPage() {
             {/* Top-left corner marker */}
             <div className="absolute -top-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
             
-            {/* Headline block - each line has its own fitted background */}
+            {/* Headline block */}
             <div className="relative inline-block">
               {/* Top-right marker */}
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
                 <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
-                  INUSpheresis®
+                  Inuspheresis
                 </span>
               </div>
               {/* Bottom-right marker */}
@@ -200,7 +53,7 @@ export default function InterventionsPage() {
           </motion.div>
         </div>
 
-        {/* Right Column - Body text - positioned 40px left of vertical line */}
+        {/* Right Column - Body text */}
         <div className="hidden lg:block absolute bottom-16 right-20 z-10 text-left max-w-xs">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -214,10 +67,23 @@ export default function InterventionsPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <TreatmentFAQSection />
+      {/* Inuspheresis Description */}
+      <section className="py-24 bg-proxima-cream">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl"
+          >
+            <p className="text-proxima-black/80 font-nb-international text-base md:text-lg leading-relaxed">
+              Inuspheresis is an advanced protocol designed to remove toxins from the body and treat chronic illness. The technology was developed in Europe and has been used to help tens of thousands of people. Proxima Health is exclusively bringing Inuspheresis to the United States.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-      {/* Therapeutic Filtration Content */}
+      {/* Practitioner Partnerships */}
       <section className="py-24 bg-proxima-cream">
         <div className="section-container">
           {/* Top row of + signs */}
@@ -228,7 +94,7 @@ export default function InterventionsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Headline - centered in first column */}
+            {/* Headline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -245,7 +111,7 @@ export default function InterventionsPage() {
               </div>
             </motion.div>
 
-            {/* Supporting copy - second column */}
+            {/* Supporting copy */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -254,14 +120,11 @@ export default function InterventionsPage() {
               className="flex flex-col justify-center"
             >
               <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
-                Interested in bringing Inuspheresis™ to<br className="hidden md:inline" />
-                your practice? Contact us to learn more<br className="hidden md:inline" />
-                about certification, implementation, and<br className="hidden md:inline" />
-                how to join the practitioner waitlist.
+                Interested in bringing Inuspheresis to your practice? Contact us to learn more about certification, implementation, and how to join the practitioner waitlist.
               </p>
             </motion.div>
 
-            {/* CTA - third column */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -287,80 +150,6 @@ export default function InterventionsPage() {
             <span className="text-proxima-black text-2xl font-mono">+</span>
             <span className="text-proxima-black text-2xl font-mono">+</span>
             <span className="text-proxima-black text-2xl font-mono">+</span>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section - matching Estimate Your Toxin style */}
-      <section className="relative py-16 md:py-24 bg-proxima-cream">
-        <div className="section-container">
-          {/* Top row of + signs */}
-          <div className="grid grid-cols-3 mb-8">
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
-          </div>
-
-          {/* Main content */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Headline - centered in first column */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center justify-center"
-            >
-              <div className="flex flex-col items-start -space-y-0.5">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                  Intervention starts
-                </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                  with measurement
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Supporting copy - second column */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-col justify-center"
-            >
-              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
-                Before implementing any intervention<br className="hidden md:inline" />
-                protocol, establish your baseline toxin<br className="hidden md:inline" />
-                levels through clinical diagnostics.
-              </p>
-            </motion.div>
-
-            {/* CTA - third column */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col justify-center"
-            >
-              <Link
-                href="/diagnostics"
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
-              >
-                <span className="relative">
-                  Explore Diagnostics
-                  <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
-                </span>
-                <span className="text-proxima-red">+</span>
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Bottom row of + signs */}
-          <div className="grid grid-cols-3 mt-8">
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
           </div>
         </div>
       </section>

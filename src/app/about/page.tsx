@@ -12,7 +12,7 @@ const team = [
     image: "/assets/carlos.png"
   },
   {
-    name: "Michael Petegorsky",
+    name: "Mike Petegorsky",
     title: "Co-Founder & COO",
     bio: "Michael's path to Proxima started when his wife was pregnant and he began researching non-obvious threats to his daughter's health. His research pointed toward environmental toxins, leading him to a harder question: if we can't fully prevent exposure, can we remove these toxins from our bodies? That inquiry led him to bringing clinically proven blood purification technology to the forefront of chronic disease prevention and treatment. Before Proxima, Mike led legal, communications, research and strategy at the leading provider of psychedelic medicine. He previously practiced as an intellectual property litigator at a top law firm.",
     image: "/assets/michael.png"
@@ -82,22 +82,13 @@ export default function AboutPage() {
           </div>
           <div className="text-secondary space-y-6 font-sans text-base md:text-lg leading-relaxed">
             <p>
-              Environmental toxins are in nearly everyone. 97% of Americans have PFAS in 
-              their bloodstream, along with microplastics, heavy metals and hundreds of 
-              other synthetic compounds. Yet medicine rarely measures them and almost 
-              never addresses them.
+              Environmental toxins are in all of us. PFAS, microplastics, heavy metals and hundreds of other synthetic compounds have been found in our bloodstreams. Yet medicine rarely measures them and almost never addresses them.
             </p>
             <p>
               That&apos;s the gap we exist to close.
             </p>
             <p>
-              We provide the diagnostic precision to see what&apos;s actually in your blood 
-              and the proven interventions to remove what doesn&apos;t belong. Not after 
-              symptoms appear. Before they start. Because the best treatment for chronic 
-              disease is preventing it in the first place.
-            </p>
-            <p className="font-semibold text-primary">
-              Early detection. Evidence based removal. Real prevention.
+              We provide the diagnostic precision to see what&apos;s actually in your blood and proven interventions to remove what doesn&apos;t belong. Whether you&apos;re looking to get ahead of future risk or already dealing with the effects of long-term exposure, it&apos;s never too late to give your body the reset it has been fighting for.
             </p>
           </div>
         </div>

@@ -105,19 +105,23 @@ export default function Home() {
             {[
               { 
                 stat: "97%", 
-                desc: "OF AMERICANS HAVE DETECTABLE PFAS (FOREVER CHEMICALS) IN THEIR BLOODSTREAM"
+                desc: "OF AMERICANS HAVE DETECTABLE PFAS (FOREVER CHEMICALS) IN THEIR BLOODSTREAM",
+                source: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12082571/"
               },
               { 
                 stat: "287", 
-                desc: "INDUSTRIAL CHEMICALS FOUND IN NEWBORN UMBILICAL CORD BLOOD"
+                desc: "INDUSTRIAL CHEMICALS FOUND IN NEWBORN UMBILICAL CORD BLOOD",
+                source: "https://www.ewg.org/news-insights/news/industrial-pollution-doesnt-have-begin-womb"
               },
               { 
                 stat: "80%", 
-                desc: "OF AMERICANS HAVE DETECTABLE MICROPLASTICS IN THEIR BLOODSTREAM"
+                desc: "OF AMERICANS HAVE DETECTABLE MICROPLASTICS IN THEIR BLOODSTREAM",
+                source: "https://pubmed.ncbi.nlm.nih.gov/35367073/"
               },
               { 
-                stat: "49%", 
-                desc: "OF AMERICANS HAVE LEAD, CADMIUM, MERCURY AND ARSENIC AT OR ABOVE MEDIAN LEVELS IN THEIR BLOOD"
+                stat: "81%", 
+                desc: "OF AMERICANS WITH DETECTABLE LEVELS OF GLYPHOSATE IN THEIR URINE",
+                source: "https://www.cdc.gov/biomonitoring/featured-work/diet-is-a-factor-in-contact-with-glyphosate.html"
               },
             ].map((item, i) => (
               <motion.div
@@ -128,15 +132,16 @@ export default function Home() {
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="text-left"
               >
-                {/* Stat number */}
                 <span className="block text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-proxima-black leading-none font-robit mb-4">
                   {item.stat}
                 </span>
                 
-                {/* Description - uppercase */}
-                <p className="text-proxima-black/80 text-xs md:text-sm font-mono uppercase tracking-wide leading-relaxed">
+                <p className="text-proxima-black/80 text-xs md:text-sm font-mono uppercase tracking-wide leading-relaxed mb-2">
                   {item.desc}
                 </p>
+                <a href={item.source} target="_blank" rel="noopener noreferrer" className="text-proxima-black/40 hover:text-proxima-black/70 text-[10px] font-mono uppercase tracking-wider transition-colors">
+                  Source
+                </a>
               </motion.div>
             ))}
           </div>
@@ -209,15 +214,10 @@ export default function Home() {
               {/* Body text */}
               <div className="mb-8 space-y-4 flex-grow">
                 <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
-                  Since the 1950s, over 140,000 synthetic compounds have entered our world 
-                  and our bloodstream. From microplastics to &quot;forever chemicals,&quot; these 
-                  substances were never meant to be part of our biology.
+                  Since the 1950s, over 140,000 synthetic compounds have entered our world and our bloodstream. From microplastics to &quot;forever chemicals,&quot; these substances were never meant to be part of our biology.
                 </p>
                 <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
-                  We believe you deserve a clean slate. Proxima Health provides the rigorous, 
-                  peer-reviewed science to identify these toxins and the proven technology to 
-                  remove them. We don&apos;t just believe in better days ahead; we have the science 
-                  to make them happen.
+                  We believe you deserve a clean slate. Proxima Health provides diagnostics to identify environmental toxins in your blood and the proven technology to remove them.
                 </p>
               </div>
 
@@ -280,9 +280,7 @@ export default function Home() {
               className="flex flex-col justify-center"
             >
               <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
-                Answer a few lifestyle questions.<br className="hidden md:inline" />
-                Receive an estimated Toxin Load<br className="hidden md:inline" />
-                Score based on your daily exposure.
+                Answer a few lifestyle questions to receive your Toxin Load Score.
               </p>
 
               <Link
@@ -290,7 +288,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >
                 <span className="relative">
-                  Free Toxin Assessment Test
+                  Free Toxin Assessment
                   <span className="absolute left-0 -bottom-1 w-full h-[2px] proxima-gradient" />
                 </span>
                 <span className="text-proxima-red">+</span>
