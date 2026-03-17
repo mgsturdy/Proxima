@@ -85,7 +85,7 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button 
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 -mr-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
@@ -98,7 +98,7 @@ export default function Navbar() {
 
         {/* Horizontal line under navbar - only when transparent */}
         {isTransparent && (
-          <div className="absolute left-6 md:left-12 lg:left-16 right-[25px] top-[76px] h-px bg-proxima-cream/60" />
+          <div className="absolute left-4 md:left-12 lg:left-16 right-[25px] top-[76px] h-px bg-proxima-cream/60" />
         )}
 
         {/* Mobile Nav */}
@@ -112,7 +112,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "font-mono text-sm uppercase tracking-wider py-2 transition-colors",
+                  "font-mono text-sm uppercase tracking-wider py-3 transition-colors",
                   isTransparent 
                     ? "text-proxima-cream hover:text-white" 
                     : "text-proxima-black/70 hover:text-proxima-black"

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Full Screen Hero */}
-      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24 pt-24">
+      <section className="relative min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -42,10 +42,10 @@ export default function Home() {
               {/* Top-right marker */}
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   Better blood.
                 </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   Better life.
                 </span>
               </div>
@@ -84,7 +84,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="relative bg-proxima-cream py-24 lg:py-32">
+      <section className="relative bg-proxima-cream py-16 md:py-24 lg:py-32">
         {/* Vertical line continuing from hero - now black */}
         <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60 hidden lg:block" />
         
@@ -101,7 +101,7 @@ export default function Home() {
         </div>
 
         <div className="section-container">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
             {[
               { 
                 stat: "97%", 
@@ -132,7 +132,7 @@ export default function Home() {
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="text-left"
               >
-                <span className="block text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-proxima-black leading-none font-robit mb-4">
+                <span className="block text-3xl md:text-6xl lg:text-7xl xl:text-8xl text-proxima-black leading-none font-robit mb-3 md:mb-4">
                   {item.stat}
                 </span>
                 
@@ -159,7 +159,7 @@ export default function Home() {
             {/* Left + aligned with image left edge */}
             <span className="text-proxima-black text-2xl font-mono">+</span>
             {/* Second + aligned with image right edge / divider */}
-            <span className="text-proxima-black text-2xl font-mono ml-[calc(50%-3rem)]">+</span>
+            <span className="text-proxima-black text-2xl font-mono ml-[calc(50%-1.5rem)] md:ml-[calc(50%-3rem)]">+</span>
             {/* Right + near vertical line */}
             <span className="text-proxima-black text-2xl font-mono ml-auto mr-6">+</span>
           </div>
@@ -171,7 +171,7 @@ export default function Home() {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative pr-8 lg:pr-12"
+              className="relative pr-0 md:pr-8 lg:pr-12"
             >
               <div className="aspect-[4/3] relative">
                 <Image 
@@ -188,7 +188,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative pl-8 lg:pl-12 border-l border-proxima-black/20 flex flex-col"
+              className="relative pl-0 md:pl-8 lg:pl-12 border-l-0 md:border-l border-proxima-black/20 flex flex-col pt-6 md:pt-0"
             >
               {/* Section label - aligned with + row */}
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-proxima-black/60 mb-8">The Invisible Crisis</p>
@@ -196,16 +196,16 @@ export default function Home() {
               {/* Heading - white on black, each line fitted */}
               <div className="mb-8">
                 <div className="flex flex-col items-start -space-y-0.5">
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-none">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-xl md:text-3xl lg:text-4xl font-nb-international leading-none">
                     We are the first
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-none">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-xl md:text-3xl lg:text-4xl font-nb-international leading-none">
                     generation to carry
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-none">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-xl md:text-3xl lg:text-4xl font-nb-international leading-none">
                     environmental toxins
                   </span>
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-3xl lg:text-4xl font-nb-international leading-none">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-xl md:text-3xl lg:text-4xl font-nb-international leading-none">
                     in our blood from birth.
                   </span>
                 </div>
@@ -256,13 +256,13 @@ export default function Home() {
               className="flex items-center justify-center"
             >
               <div className="flex flex-col items-start -space-y-0.5">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none">
                   Estimate your
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none">
                   toxin exposure
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none">
                   in two minutes
                 </span>
               </div>

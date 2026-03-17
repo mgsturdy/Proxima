@@ -46,7 +46,7 @@ export default function PractitionersPage() {
   return (
     <div className="min-h-screen bg-primary text-primary">
       {/* Full Screen Hero */}
-      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24 pt-24">
+      <section className="relative min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -73,10 +73,10 @@ export default function PractitionersPage() {
             <div className="relative inline-block">
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   Practitioner
                 </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   Partnerships
                 </span>
               </div>

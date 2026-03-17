@@ -23,7 +23,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-primary text-primary">
       {/* Full Screen Hero */}
-      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24 pt-24">
+      <section className="relative min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -55,10 +55,10 @@ export default function AboutPage() {
               {/* Top-right marker */}
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   About Proxima
                 </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   Health
                 </span>
               </div>
@@ -73,7 +73,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-24">
+      <section className="py-16 md:py-24">
         <div className="section-narrow">
           <div className="mb-12 text-2xl md:text-3xl lg:text-4xl font-display font-bold border-l-4 border-proxima-red pl-6 md:pl-8">
             <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
@@ -95,13 +95,13 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-secondary">
+      <section className="py-16 md:py-24 bg-secondary">
         <div className="section-container">
           <div className="mb-16">
             <h2 className="font-display text-3xl md:text-4xl font-bold">Founding Team</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {team.map((member, i) => (
               <motion.div
                 key={i}
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="flex flex-col md:flex-row gap-8"
               >
-                <div className="w-48 md:w-48 aspect-square relative shrink-0 bg-tertiary/10">
+                <div className="w-32 md:w-48 aspect-square relative shrink-0 bg-tertiary/10 mx-auto md:mx-0">
                   <Image 
                     src={member.image}
                     alt={member.name}

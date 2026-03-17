@@ -51,12 +51,12 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
         </div>
 
         {/* Content Area */}
-        <div className="border border-proxima-black p-5 md:p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: tabColors[activeTab] }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
+        <div className="border border-proxima-black p-4 md:p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: tabColors[activeTab] }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 lg:gap-12">
             {/* Left Column */}
             <div className="lg:col-span-4">
               {/* Chapter Number */}
-              <span className="block font-robit text-5xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
+              <span className="block font-robit text-4xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
                 {chapter.number}
               </span>
 
@@ -64,12 +64,12 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
               <div className="flex flex-col items-start -space-y-px">
                 {chapter.title.split(" ").length > 1 ? (
                   chapter.title.split(" ").map((word, i) => (
-                    <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-1 pb-2 text-xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                    <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-0.5 pb-1.5 md:py-1 md:pb-2 text-lg md:text-3xl lg:text-[42px] font-nb-international leading-none">
                       {word}
                     </span>
                   ))
                 ) : (
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-1 pb-2 text-xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-0.5 pb-1.5 md:py-1 md:pb-2 text-lg md:text-3xl lg:text-[42px] font-nb-international leading-none">
                     {chapter.title}
                   </span>
                 )}
@@ -343,7 +343,7 @@ export default function SciencePage() {
   return (
     <div className="min-h-screen bg-primary text-primary">
       {/* Full Screen Hero */}
-      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24 pt-24">
+      <section className="relative min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -375,10 +375,10 @@ export default function SciencePage() {
               {/* Top-right marker */}
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-xl md:text-3xl lg:text-4xl xl:text-5xl font-normal font-nb-international leading-tight">
                   The science behind
                 </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-xl md:text-3xl lg:text-4xl xl:text-5xl font-normal font-nb-international leading-tight">
                   environmental toxins
                 </span>
               </div>
@@ -429,10 +429,10 @@ export default function SciencePage() {
               className="flex items-center justify-center"
             >
               <div className="flex flex-col items-start -space-y-0.5">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none">
                   From Theory
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none">
                   to Measurement
                 </span>
               </div>

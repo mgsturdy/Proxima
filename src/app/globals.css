@@ -172,9 +172,15 @@
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: 'Archivo', -apple-system, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7;
     @apply antialiased transition-colors duration-300;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 18px;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -184,7 +190,7 @@
     color: var(--text-primary);
   }
 
-  h1 { @apply text-5xl md:text-6xl lg:text-7xl; }
+  h1 { @apply text-3xl md:text-6xl lg:text-7xl; }
   h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
   h3 { @apply text-2xl md:text-3xl; }
   h4 { @apply text-xl md:text-2xl; }
@@ -202,11 +208,11 @@
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-6 md:px-12 lg:px-16;
+    @apply max-w-7xl mx-auto px-4 md:px-12 lg:px-16;
   }
 
   .section-narrow {
-    @apply max-w-4xl mx-auto px-6 md:px-12;
+    @apply max-w-4xl mx-auto px-4 md:px-12;
   }
 
   /* Theme-aware backgrounds */
@@ -255,7 +261,7 @@
   /* Editorial Elements */
   .chapter-number {
     font-family: 'Darker Grotesque', sans-serif;
-    @apply text-8xl md:text-9xl font-bold;
+    @apply text-6xl md:text-9xl font-bold;
     color: var(--border-primary);
     line-height: 0.8;
   }
@@ -268,7 +274,7 @@
 
   .stat-number {
     font-family: 'Darker Grotesque', sans-serif;
-    @apply text-6xl md:text-7xl font-bold;
+    @apply text-4xl md:text-7xl font-bold;
     line-height: 1;
   }
 
@@ -277,9 +283,9 @@
     font-family: 'DM Mono', monospace;
     background-color: var(--bg-inverse);
     color: var(--text-inverse);
-    @apply px-8 py-4 text-sm font-medium tracking-wide uppercase transition-all;
+    @apply px-6 py-3 md:px-8 md:py-4 text-sm font-medium tracking-wide uppercase transition-all;
   }
-  
+
   .btn-primary:hover {
     opacity: 0.85;
   }
@@ -288,9 +294,9 @@
     font-family: 'DM Mono', monospace;
     border: 1px solid var(--border-primary);
     color: var(--text-primary);
-    @apply px-8 py-4 text-sm font-medium tracking-wide uppercase transition-all;
+    @apply px-6 py-3 md:px-8 md:py-4 text-sm font-medium tracking-wide uppercase transition-all;
   }
-  
+
   .btn-outline:hover {
     background-color: var(--bg-inverse);
     color: var(--text-inverse);
@@ -307,7 +313,7 @@
 
   /* Pull Quotes */
   .pull-quote {
-    @apply text-3xl md:text-4xl font-light leading-snug border-l-4 pl-8;
+    @apply text-2xl md:text-4xl font-light leading-snug border-l-4 pl-6 md:pl-8;
     border-color: var(--proxima-red);
     font-family: 'Archivo', sans-serif;
   }
@@ -341,7 +347,7 @@
   /* Gradient Button */
   .btn-gradient {
     font-family: 'DM Mono', monospace;
-    @apply relative px-8 py-4 text-sm font-medium tracking-wide uppercase overflow-hidden whitespace-nowrap;
+    @apply relative px-6 py-3 md:px-8 md:py-4 text-sm font-medium tracking-wide uppercase overflow-hidden whitespace-nowrap;
     background: linear-gradient(90deg, #BA000E 0%, #FE091B 50%, #FF9D00 100%);
     color: white;
   }

@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="relative" style={{ background: 'linear-gradient(to bottom, #FAF9F6 0%, #FAF9F6 5%, #F5A623 30%, #E53935 60%, #C62828 100%)' }}>
-      <div className="section-container py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
+      <div className="section-container py-12 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
           {/* Brand */}
           <div className="lg:col-span-4">
             <p className="text-proxima-black/80 max-w-sm leading-relaxed mb-8 font-nb-international text-sm">
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <p className="font-mono text-xs text-proxima-black/60">
             info@proximahealth.com © Proxima Health, Inc.
           </p>

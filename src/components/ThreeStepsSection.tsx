@@ -32,12 +32,12 @@ export default function ThreeStepsSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 bg-proxima-cream">
+    <section className="relative py-16 md:py-24 bg-proxima-cream">
       {/* Vertical line on right - continues from hero */}
       <div className="absolute top-0 right-10 w-px h-full bg-proxima-black/60 hidden lg:block" />
 
       <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
           {steps.map((item, i) => {
             const isHovered = hoveredIndex === i;
             const isAnyHovered = hoveredIndex !== null;
@@ -65,7 +65,7 @@ export default function ThreeStepsSection() {
 
                 {/* Step number - full black on hover, light when not */}
                 <span 
-                  className="block text-7xl md:text-8xl leading-none mb-4 font-robit transition-colors duration-300"
+                  className="block text-5xl md:text-8xl leading-none mb-3 md:mb-4 font-robit transition-colors duration-300"
                   style={{ color: isHovered ? 'rgb(28, 28, 28)' : 'rgba(28, 28, 28, 0.15)' }}
                 >
                   {item.num}

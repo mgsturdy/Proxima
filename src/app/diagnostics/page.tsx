@@ -9,7 +9,7 @@ export default function DiagnosticsPage() {
   return (
     <div className="min-h-screen bg-primary text-primary">
       {/* Full Screen Hero */}
-      <section className="relative min-h-screen flex items-end pb-16 lg:pb-24 pt-24">
+      <section className="relative min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -41,10 +41,10 @@ export default function DiagnosticsPage() {
               {/* Top-right marker */}
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   Proxima Health
                 </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-4 py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
+                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal font-nb-international leading-tight">
                   Baseline
                 </span>
               </div>
@@ -72,9 +72,9 @@ export default function DiagnosticsPage() {
       </section>
 
       {/* Product Section */}
-      <section className="py-24">
+      <section className="py-16 md:py-24">
         <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             {/* Product Visual */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -86,7 +86,7 @@ export default function DiagnosticsPage() {
                 src="/assets/diagnostic.png"
                 alt="Proxima Baseline Kit"
                 fill
-                className="object-contain p-16"
+                className="object-contain p-8 md:p-16"
               />
               <div className="absolute bottom-0 left-0 right-0 h-1 proxima-gradient" />
             </motion.div>
@@ -145,7 +145,7 @@ export default function DiagnosticsPage() {
       <section className="py-24 bg-proxima-cream">
         <div className="section-container">
           <div className="mb-12">
-            <span className="inline-block bg-proxima-black text-proxima-cream px-4 py-2 text-2xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
+            <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1.5 md:px-4 md:py-2 text-xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
               What We Measure
             </span>
           </div>
