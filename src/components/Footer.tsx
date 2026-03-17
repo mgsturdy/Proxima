@@ -31,7 +31,7 @@ export default function Footer() {
             <ul className="space-y-1.5">
               <li><Link href="/science" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">The Science</Link></li>
               <li><Link href="/diagnostics" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Diagnostics</Link></li>
-              <li><Link href="/interventions" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Intervention</Link></li>
+              <li><Link href="/interventions" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Interventions</Link></li>
               <li><Link href="/about" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">About</Link></li>
             </ul>
           </div>

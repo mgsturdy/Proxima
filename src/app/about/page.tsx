@@ -9,13 +9,13 @@ const team = [
     name: "Carlos Schuster",
     title: "Co-Founder & CEO",
     bio: "Carlos Schuster is Co-Founder and CEO of Proxima Health. His work is rooted in a personal experience: after his sister was diagnosed with cancer at a young age, clinicians suspected early toxic exposure may have played a role. That question, whether harmful exposures could be identified and reduced before disease develops, shaped his path to founding Proxima Health to focus on preventing chronic disease by measuring and reducing environmental burden at its source. Carlos earned degrees in materials science from Imperial College London and a PhD in tissue engineering from the University of Cambridge before building and scaling teams in early-stage growth environments.",
-    image: "/assets/carlos.png"
+    image: "/assets/carlos.jpeg"
   },
   {
     name: "Mike Petegorsky",
     title: "Co-Founder & COO",
     bio: "Michael's path to Proxima started when his wife was pregnant and he began researching non-obvious threats to his daughter's health. His research pointed toward environmental toxins, leading him to a harder question: if we can't fully prevent exposure, can we remove these toxins from our bodies? That inquiry led him to bringing clinically proven blood purification technology to the forefront of chronic disease prevention and treatment. Before Proxima, Mike led legal, communications, research and strategy at the leading provider of psychedelic medicine. He previously practiced as an intellectual property litigator at a top law firm.",
-    image: "/assets/michael.png"
+    image: "/assets/mike.jpeg"
   }
 ];
 
