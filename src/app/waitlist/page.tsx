@@ -218,7 +218,7 @@ export default function QuizPage() {
     }
   }, [step, currentQuestion]);
 
-  const totalScore = answers.reduce((sum, answerIndex, i) => {
+  const totalScore = answers.reduce<number>((sum, answerIndex, i) => {
     if (answerIndex === null) return sum;
     return sum + QUIZ_QUESTIONS[i].answers[answerIndex].points;
   }, 0);
