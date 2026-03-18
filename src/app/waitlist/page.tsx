@@ -196,6 +196,24 @@ function getTier(score: number): "low" | "moderate" | "high" {
   return "high";
 }
 
+function CountUp({ target, duration }: { target: number; duration: number }) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    let start = 0;
+    const startTime = performance.now();
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / (duration * 1000), 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      start = Math.round(eased * target);
+      setCount(start);
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration]);
+  return <>{count}</>;
+}
+
 export default function QuizPage() {
   const [step, setStep] = useState<
     "intro" | "questions" | "email" | "calculating" | "results"
@@ -211,11 +229,9 @@ export default function QuizPage() {
   const [showWhyWeAsk, setShowWhyWeAsk] = useState(false);
   const answersContainerRef = useRef<HTMLDivElement>(null);
 
+  // Scroll to top on step/question change so content is visible on mobile
   useEffect(() => {
-    if (step === "questions" && answersContainerRef.current) {
-      const firstButton = answersContainerRef.current.querySelector("button");
-      firstButton?.focus();
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [step, currentQuestion]);
 
   const totalScore = answers.reduce<number>((sum, answerIndex, i) => {
@@ -537,14 +553,24 @@ export default function QuizPage() {
                 Assessment Complete
               </p>
 
-              {/* Score display */}
+              {/* Score display — animated count-up */}
               <div className="mb-8">
-                <span className="font-robit text-6xl md:text-8xl text-primary leading-none">
-                  {totalScore}
-                </span>
-                <span className="font-mono text-lg text-tertiary ml-1">
+                <motion.span
+                  className="font-robit text-6xl md:text-8xl text-primary leading-none inline-block"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <CountUp target={totalScore} duration={1.2} />
+                </motion.span>
+                <motion.span
+                  className="font-mono text-lg text-tertiary ml-1"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1, duration: 0.4 }}
+                >
                   pts
-                </span>
+                </motion.span>
               </div>
 
               {/* Score bar */}
