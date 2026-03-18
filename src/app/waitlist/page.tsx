@@ -1,89 +1,295 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, RotateCcw, Mail } from "lucide-react";
+import { ArrowRight, ArrowLeft, ChevronDown, RotateCcw } from "lucide-react";
 import Link from "next/link";
 
-const questions = [
+const DISCLAIMER =
+  "This assessment is for educational purposes only based on statistical risk factors. It is not a medical diagnosis. The 'Toxin Load Score' is an evaluation of potential environmental exposure, not a measurement of current blood levels.";
+
+const QUIZ_QUESTIONS = [
   {
-    question: "How would you describe the air quality in your primary residence?",
-    options: [
-      { text: "Urban/High-Density Area", impact: 8 },
-      { text: "Suburban", impact: 5 },
-      { text: "Rural", impact: 2 },
-      { text: "I use HEPA filtration", impact: 0 },
-    ]
+    id: 1,
+    category: "Heavy Metals",
+    question:
+      "How often do you consume large predatory fish (e.g., swordfish, tuna, shark, king mackerel)?",
+    whyWeAsk:
+      "Larger fish accumulate higher levels of methylmercury over time. Regular consumption is one of the strongest predictors of elevated mercury levels in humans.",
+    answers: [
+      { text: "0–3 times per month", points: 0 },
+      { text: "Weekly", points: 5 },
+      { text: "Multiple times per week", points: 15 },
+    ],
   },
   {
-    question: "How often do you consume water from municipal sources without secondary filtration?",
-    options: [
-      { text: "Daily", impact: 10 },
-      { text: "Occasionally", impact: 6 },
-      { text: "Rarely", impact: 3 },
-      { text: "Never (RO filtered)", impact: 0 },
-    ]
+    id: 2,
+    category: "PFAS",
+    question: "What is your primary source of drinking water?",
+    whyWeAsk:
+      'Water can be a source of PFAS ("forever chemicals"), heavy metals such as lead and arsenic, and microplastic particles. Filtration significantly reduces many of these exposures.',
+    answers: [
+      { text: "Filtered tap water (reverse osmosis or carbon filtration)", points: 0 },
+      { text: "Bottled water", points: 5 },
+      { text: "Unfiltered tap water", points: 15 },
+    ],
   },
   {
-    question: "Do you regularly consume foods stored or heated in plastic containers?",
-    options: [
-      { text: "Multiple times daily", impact: 12 },
-      { text: "Once daily", impact: 8 },
-      { text: "Occasionally", impact: 4 },
-      { text: "Never", impact: 0 },
-    ]
+    id: 3,
+    category: "Microplastics",
+    question: "How do you typically store and reheat food?",
+    whyWeAsk:
+      "Heating food in plastic can increase the migration of certain compounds — including microplastics, phthalates, and bisphenols — into food.",
+    answers: [
+      { text: "Glass, stainless steel, or ceramic", points: 0 },
+      { text: "Plastic containers (no microwave use)", points: 5 },
+      { text: "Plastic containers heated in microwave", points: 15 },
+    ],
   },
   {
-    question: "How often do you consume high-mercury seafood (Tuna, Swordfish, King Mackerel)?",
-    options: [
-      { text: "2+ times weekly", impact: 15 },
-      { text: "Weekly", impact: 10 },
-      { text: "Monthly", impact: 5 },
-      { text: "Rarely/Never", impact: 0 },
-    ]
-  }
+    id: 4,
+    category: "PFAS",
+    question: "What type of cookware do you primarily use?",
+    whyWeAsk:
+      "Non-stick cookware may release fluorinated compounds when overheated or degraded.",
+    answers: [
+      { text: "Cast iron, stainless steel, or ceramic", points: 0 },
+      { text: "Non-stick in good condition", points: 5 },
+      { text: "Scratched or older non-stick cookware", points: 15 },
+    ],
+  },
+  {
+    id: 5,
+    category: "Heavy Metals",
+    question: "How would you describe the air quality where you live?",
+    whyWeAsk:
+      "Fine particulate matter (PM2.5) can carry metals and combustion byproducts into the bloodstream via the lungs. Long-term exposure is strongly associated with cardiovascular and respiratory disease.",
+    answers: [
+      { text: "Rural / low industrial activity", points: 0 },
+      { text: "Suburban / moderate urban exposure", points: 5 },
+      { text: "Major city / industrial area", points: 15 },
+    ],
+  },
+  {
+    id: 6,
+    category: "VOCs",
+    question:
+      "Do you regularly use scented products indoors (candles, air fresheners, personal care products)?",
+    whyWeAsk:
+      '"Fragrance" can include mixtures of volatile organic compounds (VOCs), phthalates, and other chemicals that may influence respiratory and endocrine health.',
+    answers: [
+      { text: "No", points: 0 },
+      { text: "Yes, but primarily certified low-toxicity brands", points: 0 },
+      { text: "Sometimes / unsure", points: 5 },
+      { text: "Yes, conventional products regularly", points: 15 },
+    ],
+  },
+  {
+    id: 7,
+    category: "Microplastics",
+    question:
+      "How often do you consume food packaged in plastic, cans, or fast-food wrappers?",
+    whyWeAsk:
+      "Certain food packaging materials can contain PFAS, phthalates, or bisphenols that migrate into food.",
+    answers: [
+      { text: "Once per week or less", points: 0 },
+      { text: "2–4 times per week", points: 5 },
+      { text: "5+ times per week", points: 15 },
+    ],
+  },
+  {
+    id: 8,
+    category: "Pesticides",
+    question:
+      "How often do you vacuum with a HEPA filter or wet-mop floors?",
+    whyWeAsk:
+      "Household dust can concentrate flame retardants, pesticides, heavy metals, and other environmental residues, which are then inhaled.",
+    answers: [
+      { text: "Weekly", points: 0 },
+      { text: "Every 2–3 weeks", points: 5 },
+      { text: "Monthly or less", points: 15 },
+    ],
+  },
+  {
+    id: 9,
+    category: "Industrial Chemicals",
+    question:
+      "Do you work with — or have hobbies involving — solvents, fuels, metals, or industrial materials?",
+    whyWeAsk:
+      "Occupational and hobby exposures are among the most documented sources of higher-dose chemical exposure.",
+    answers: [
+      { text: "No exposure", points: 0 },
+      { text: "Occasional exposure", points: 5 },
+      { text: "Regular exposure", points: 15 },
+    ],
+  },
+  {
+    id: 10,
+    category: "Pesticides",
+    question:
+      "How often are you exposed to pesticides in your home, yard, pets, or workplace?",
+    whyWeAsk:
+      "Pesticides are biologically active compounds designed to affect living organisms. Repeated exposure may influence neurologic and endocrine systems.",
+    answers: [
+      { text: "Rarely or never", points: 0 },
+      { text: "Occasional (seasonal or monthly use)", points: 5 },
+      { text: "Regular (weekly or frequent use)", points: 15 },
+    ],
+  },
 ];
 
-export default function QuizPage() {
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<number[]>([]);
-  const [isCalculating, setIsCalculating] = useState(false);
-  const [email, setEmail] = useState("");
+type ResultTier = {
+  headline: string;
+  body: (category: string) => string;
+  ctaText: string;
+};
 
-  const handleStart = () => setStep(1);
-  
-  const handleAnswer = (impact: number) => {
-    const newAnswers = [...answers, impact];
-    setAnswers(newAnswers);
-    
-    if (step < questions.length) {
-      setStep(step + 1);
-    } else {
-      setIsCalculating(true);
-      setTimeout(() => {
-        setIsCalculating(false);
-        setStep(questions.length + 1);
-      }, 2000);
+const RESULTS: Record<"low" | "moderate" | "high", ResultTier> = {
+  low: {
+    headline: "Your Environmental Defense is Strong.",
+    body: (_category: string) =>
+      "Your routine minimizes major exposure pathways. However, bio-accumulation happens over decades.",
+    ctaText: "Reserve your kit",
+  },
+  moderate: {
+    headline: "Moderate Exposure Detected.",
+    body: (category) =>
+      `While you make some good choices, your answers indicate likely exposure to ${category}. These toxins have a half-life of years in the body.`,
+    ctaText: "Reserve your kit",
+  },
+  high: {
+    headline: "High Potential for Toxin Accumulation.",
+    body: (category) =>
+      `Your exposure to ${category} is statistically higher than average. Standard detox teas do not remove these compounds. Clinical filtration may be required.`,
+    ctaText: "Priority Access: Reserve your kit",
+  },
+};
+
+function getHighestCategory(selectedAnswers: (number | null)[]): string {
+  const categoryScores: Record<string, number> = {};
+  const categoryOrder: string[] = [];
+
+  QUIZ_QUESTIONS.forEach((q, i) => {
+    const answerIndex = selectedAnswers[i];
+    if (answerIndex === null || answerIndex === undefined) return;
+    const points = q.answers[answerIndex].points;
+    if (!(q.category in categoryScores)) {
+      categoryOrder.push(q.category);
     }
-  };
+    categoryScores[q.category] = (categoryScores[q.category] || 0) + points;
+  });
 
-  const resetQuiz = () => {
-    setStep(0);
-    setAnswers([]);
-  };
+  let highest = categoryOrder[0] || "environmental toxins";
+  let highestScore = 0;
+  for (const cat of categoryOrder) {
+    if (categoryScores[cat] > highestScore) {
+      highestScore = categoryScores[cat];
+      highest = cat;
+    }
+  }
+  return highest;
+}
 
-  const totalScore = answers.reduce((acc, curr) => acc + curr, 0);
-  const maxScore = questions.reduce((acc, q) => acc + Math.max(...q.options.map(o => o.impact)), 0);
-  const percentage = Math.round((totalScore / maxScore) * 100);
-  const riskLevel = percentage > 60 ? "Elevated" : percentage > 30 ? "Moderate" : "Low";
+function getTier(score: number): "low" | "moderate" | "high" {
+  if (score <= 25) return "low";
+  if (score <= 60) return "moderate";
+  return "high";
+}
+
+export default function QuizPage() {
+  const [step, setStep] = useState<
+    "intro" | "questions" | "email" | "calculating" | "results"
+  >("intro");
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answers, setAnswers] = useState<(number | null)[]>(
+    new Array(QUIZ_QUESTIONS.length).fill(null)
+  );
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [isAdvancing, setIsAdvancing] = useState(false);
+  const [direction, setDirection] = useState(1);
+  const [showWhyWeAsk, setShowWhyWeAsk] = useState(false);
+  const answersContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (step === "questions" && answersContainerRef.current) {
+      const firstButton = answersContainerRef.current.querySelector("button");
+      firstButton?.focus();
+    }
+  }, [step, currentQuestion]);
+
+  const totalScore = answers.reduce((sum, answerIndex, i) => {
+    if (answerIndex === null) return sum;
+    return sum + QUIZ_QUESTIONS[i].answers[answerIndex].points;
+  }, 0);
+
+  const highestCategory = getHighestCategory(answers);
+  const tier = getTier(totalScore);
+  const result = RESULTS[tier];
+
+  const handleAnswer = useCallback(
+    (answerIndex: number) => {
+      if (isAdvancing) return;
+      const newAnswers = [...answers];
+      newAnswers[currentQuestion] = answerIndex;
+      setAnswers(newAnswers);
+      setIsAdvancing(true);
+      setShowWhyWeAsk(false);
+
+      setTimeout(() => {
+        if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
+          setDirection(1);
+          setCurrentQuestion((prev) => prev + 1);
+        } else {
+          setStep("email");
+        }
+        setIsAdvancing(false);
+      }, 500);
+    },
+    [isAdvancing, answers, currentQuestion]
+  );
+
+  const handleBack = useCallback(() => {
+    if (currentQuestion > 0) {
+      setDirection(-1);
+      setShowWhyWeAsk(false);
+      setCurrentQuestion((prev) => prev - 1);
+    }
+  }, [currentQuestion]);
+
+  const handleEmailSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        setEmailError("Please enter a valid email address");
+        return;
+      }
+      setEmailError("");
+      // TODO: send to CRM, include score and segment
+      // TODO: tag high_risk segment in CRM for score 61+
+      setStep("calculating");
+      setTimeout(() => setStep("results"), 2000);
+    },
+    [email]
+  );
+
+  const handleRetake = useCallback(() => {
+    setStep("intro");
+    setCurrentQuestion(0);
+    setAnswers(new Array(QUIZ_QUESTIONS.length).fill(null));
+    setEmail("");
+    setEmailError("");
+    setShowWhyWeAsk(false);
+    setDirection(1);
+  }, []);
 
   return (
     <div className="min-h-screen pt-24 pb-24 bg-primary text-primary">
       <div className="section-narrow">
         <AnimatePresence mode="wait">
-          {/* Intro */}
-          {step === 0 && (
-            <motion.div 
+          {step === "intro" && (
+            <motion.div
               key="intro"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -91,178 +297,312 @@ export default function QuizPage() {
               className="py-16"
             >
               <div className="w-16 h-1 proxima-gradient mb-6" />
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Assessment Tool</p>
-              <h1 className="mb-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Toxin Load Estimator
-              </h1>
-              <p className="text-xl text-secondary max-w-xl leading-relaxed mb-8 font-sans">
-                This 2-minute assessment estimates your environmental toxin 
-                exposure based on lifestyle factors. For clinical verification, 
-                we recommend our Baseline™ diagnostic panel.
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">
+                Free Toxin Assessment
               </p>
-              
-              <div className="bg-secondary border border-border-primary p-6 mb-12">
-                <p className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] mb-2">Disclaimer</p>
-                <p className="text-sm text-secondary font-sans">
-                  This assessment provides an estimate based on self-reported lifestyle factors. 
-                  It is not a medical diagnosis. Actual toxin levels can only be determined 
-                  through clinical blood analysis.
-                </p>
+              <div className="mb-6">
+                <div className="flex flex-col items-start -space-y-0.5">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-4xl lg:text-5xl font-nb-international leading-none">
+                    Estimate your
+                  </span>
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-2xl md:text-4xl lg:text-5xl font-nb-international leading-none">
+                    toxin exposure
+                  </span>
+                </div>
               </div>
+              <p className="text-secondary max-w-xl leading-relaxed mb-8 font-sans text-sm md:text-base">
+                Answer 10 lifestyle questions to receive your personal Toxin
+                Load Score. Takes about 2 minutes.
+              </p>
 
-              <button 
-                onClick={handleStart}
-                className="btn-gradient inline-flex items-center gap-3"
+              <button
+                type="button"
+                onClick={() => setStep("questions")}
+                className="btn-gradient inline-flex items-center gap-3 mb-12"
               >
-                Begin Assessment <ArrowRight size={18} />
+                Start Assessment <ArrowRight size={18} />
               </button>
+
+              <p className="text-xs text-tertiary font-mono leading-relaxed max-w-lg">
+                {DISCLAIMER}
+              </p>
             </motion.div>
           )}
 
-          {/* Questions */}
-          {step > 0 && step <= questions.length && !isCalculating && (
-            <motion.div 
-              key={`q-${step}`}
-              initial={{ opacity: 0, x: 30 }}
+          {step === "questions" && (
+            <motion.div
+              key={`q-${currentQuestion}`}
+              initial={{ opacity: 0, x: direction * 40 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
+              exit={{ opacity: 0, x: direction * -40 }}
+              transition={{ duration: 0.3 }}
               className="py-16"
             >
               {/* Progress */}
-              <div className="flex items-center gap-4 mb-12">
-                <span className="font-mono text-sm text-tertiary uppercase tracking-wider">
-                  {step} of {questions.length}
+              <div className="flex items-center gap-4 mb-8">
+                <span
+                  className="font-mono text-sm text-tertiary uppercase tracking-wider"
+                  aria-live="polite"
+                >
+                  {currentQuestion + 1} / {QUIZ_QUESTIONS.length}
                 </span>
-                <div className="flex-1 h-px bg-border-primary">
-                  <div 
-                    className="h-full bg-proxima-red transition-all duration-500" 
-                    style={{ width: `${(step / questions.length) * 100}%` }} 
+                <div className="flex-1 h-1 bg-border-primary rounded-full overflow-hidden">
+                  <div
+                    className="h-full proxima-gradient transition-all duration-500"
+                    style={{
+                      width: `${((currentQuestion + 1) / QUIZ_QUESTIONS.length) * 100}%`,
+                    }}
                   />
                 </div>
               </div>
 
-              <h2 className="mb-12 max-w-2xl font-display text-2xl md:text-3xl font-bold">
-                {questions[step - 1].question}
+              {/* Back button */}
+              {currentQuestion > 0 && (
+                <button
+                  type="button"
+                  onClick={handleBack}
+                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-tertiary hover:text-primary transition-colors mb-6"
+                >
+                  <ArrowLeft size={14} /> Back
+                </button>
+              )}
+
+              {/* Question */}
+              <h2 className="mb-4 max-w-2xl font-nb-international text-xl md:text-2xl lg:text-3xl leading-snug">
+                {QUIZ_QUESTIONS[currentQuestion].question}
               </h2>
 
-              <div className="space-y-3">
-                {questions[step - 1].options.map((option, i) => (
-                  <button 
-                    key={i}
-                    onClick={() => handleAnswer(option.impact)}
-                    className="w-full text-left p-6 border border-border-primary hover:border-proxima-red hover:bg-secondary transition-all flex justify-between items-center group"
+              {/* Why we ask */}
+              <button
+                type="button"
+                onClick={() => setShowWhyWeAsk(!showWhyWeAsk)}
+                className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-tertiary hover:text-secondary transition-colors mb-8"
+                aria-expanded={showWhyWeAsk}
+              >
+                Why we ask{" "}
+                <ChevronDown
+                  size={12}
+                  className={`transition-transform ${showWhyWeAsk ? "rotate-180" : ""}`}
+                />
+              </button>
+              <AnimatePresence>
+                {showWhyWeAsk && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="text-sm text-tertiary font-sans leading-relaxed mb-8 max-w-xl overflow-hidden"
                   >
-                    <span className="font-sans">{option.text}</span>
-                    <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity text-proxima-red" />
-                  </button>
-                ))}
+                    {QUIZ_QUESTIONS[currentQuestion].whyWeAsk}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+
+              {/* Answer options */}
+              <div
+                ref={answersContainerRef}
+                className="space-y-3"
+                role="radiogroup"
+                aria-label={`Question ${currentQuestion + 1}`}
+              >
+                {QUIZ_QUESTIONS[currentQuestion].answers.map((answer, i) => {
+                  const isSelected = answers[currentQuestion] === i;
+                  return (
+                    <button
+                      key={i}
+                      type="button"
+                      role="radio"
+                      aria-checked={isSelected}
+                      onClick={() => handleAnswer(i)}
+                      disabled={isAdvancing}
+                      className={`w-full text-left p-5 md:p-6 min-h-[56px] border transition-all flex justify-between items-center ${
+                        isSelected
+                          ? "bg-proxima-black text-proxima-cream border-proxima-black"
+                          : "border-border-primary hover:bg-proxima-black hover:text-proxima-cream hover:border-proxima-black"
+                      } ${isAdvancing ? "pointer-events-none" : ""}`}
+                    >
+                      <span className="font-sans text-sm md:text-base">
+                        {answer.text}
+                      </span>
+                      <ArrowRight
+                        size={16}
+                        className={`flex-shrink-0 ml-4 transition-opacity ${isSelected ? "opacity-100" : "opacity-0"}`}
+                      />
+                    </button>
+                  );
+                })}
               </div>
             </motion.div>
           )}
 
-          {/* Calculating */}
-          {isCalculating && (
-            <motion.div 
+          {step === "email" && (
+            <motion.div
+              key="email"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="py-16"
+            >
+              <div className="max-w-md mx-auto text-center">
+                <div className="w-16 h-1 proxima-gradient mb-6 mx-auto" />
+                <div className="mb-6">
+                  <div className="flex flex-col items-center -space-y-0.5">
+                    <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                      Where should we send
+                    </span>
+                    <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
+                      your Toxin Analysis?
+                    </span>
+                  </div>
+                </div>
+                <p className="text-secondary font-sans text-sm mb-8">
+                  Enter your email to calculate and receive your personalized
+                  results.
+                </p>
+
+                <form onSubmit={handleEmailSubmit} className="space-y-4">
+                  <div>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (emailError) setEmailError("");
+                      }}
+                      placeholder="Your email address"
+                      className="w-full border border-border-primary px-4 py-4 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red text-center"
+                      aria-label="Email address"
+                    />
+                    {emailError && (
+                      <p className="text-proxima-red text-xs font-mono mt-2">
+                        {emailError}
+                      </p>
+                    )}
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={!email.trim()}
+                    className={`btn-gradient inline-flex items-center gap-3 w-full justify-center ${
+                      !email.trim() ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
+                  >
+                    Calculate My Results <ArrowRight size={18} />
+                  </button>
+                </form>
+              </div>
+            </motion.div>
+          )}
+
+          {step === "calculating" && (
+            <motion.div
               key="calculating"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="py-32 text-center"
             >
-              <div className="inline-block animate-spin mb-8">
-                <RotateCcw size={48} className="text-tertiary" />
+              <div className="flex justify-center gap-2 mb-8">
+                {[0, 1, 2].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="w-3 h-3 rounded-full bg-proxima-red"
+                    animate={{
+                      scale: [1, 1.4, 1],
+                      opacity: [0.4, 1, 0.4],
+                    }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                    }}
+                  />
+                ))}
               </div>
-              <h3 className="font-display text-center">Analyzing responses...</h3>
-              <p className="text-tertiary mt-2 font-mono text-sm uppercase tracking-wider text-center">Calculating estimated exposure</p>
+              <p className="font-nb-international text-xl md:text-2xl text-primary">
+                Calculating Your Toxic Load...
+              </p>
+              <p className="text-tertiary mt-2 font-mono text-xs uppercase tracking-wider">
+                Analyzing your responses
+              </p>
             </motion.div>
           )}
 
-          {/* Results */}
-          {step > questions.length && !isCalculating && (
-            <motion.div 
+          {step === "results" && (
+            <motion.div
               key="results"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               className="py-16"
             >
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">Assessment Complete</p>
-              <h1 className="mb-12 font-display text-4xl md:text-5xl font-bold">
-                Your Results
-              </h1>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary mb-4">
+                Assessment Complete
+              </p>
 
-              {/* Score Card */}
-              <div className="bg-secondary border border-border-primary p-8 md:p-12 mb-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                  <div>
-                    <p className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] mb-2">
-                      Estimated Exposure Score
-                    </p>
-                    <span className="font-display text-8xl font-bold">{percentage}</span>
-                    <span className="font-mono text-2xl text-tertiary">/100</span>
-                  </div>
-                  <div>
-                    <p className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] mb-2">
-                      Risk Classification
-                    </p>
-                    <span className={`font-display text-3xl font-bold ${
-                      riskLevel === "Elevated" ? "text-proxima-red" : 
-                      riskLevel === "Moderate" ? "text-proxima-orange" : "text-green-600"
-                    }`}>
-                      {riskLevel}
-                    </span>
-                    <p className="text-secondary mt-4 text-sm font-sans">
-                      {riskLevel === "Elevated" 
-                        ? "Your lifestyle factors suggest above-average exposure to environmental toxins."
-                        : riskLevel === "Moderate"
-                        ? "Your lifestyle factors suggest moderate exposure to environmental toxins."
-                        : "Your lifestyle factors suggest below-average exposure to environmental toxins."}
-                    </p>
-                  </div>
+              {/* Score display */}
+              <div className="mb-8">
+                <span className="font-robit text-6xl md:text-8xl text-primary leading-none">
+                  {totalScore}
+                </span>
+                <span className="font-mono text-lg text-tertiary ml-1">
+                  pts
+                </span>
+              </div>
+
+              {/* Score bar */}
+              <div className="w-full h-2 bg-border-primary rounded-full overflow-hidden mb-8">
+                <motion.div
+                  className="h-full proxima-gradient"
+                  initial={{ width: 0 }}
+                  animate={{
+                    width: `${Math.min((totalScore / 150) * 100, 100)}%`,
+                  }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                />
+              </div>
+
+              {/* Result headline */}
+              <div className="mb-6">
+                <div className="flex flex-col items-start -space-y-0.5">
+                  {result.headline
+                    .split(/(?<=\.)\s*/)
+                    .filter(Boolean)
+                    .map((line, i) => (
+                      <span
+                        key={i}
+                        className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none"
+                      >
+                        {line.trim()}
+                      </span>
+                    ))}
                 </div>
               </div>
 
-              {/* Email Capture */}
-              <div className="bg-tertiary/10 p-8 mb-8">
-                <div className="flex items-start gap-4 mb-6">
-                  <Mail size={20} className="text-tertiary mt-1" />
-                  <div>
-                    <h4 className="font-display font-bold mb-2">Get Your Detailed Report</h4>
-                    <p className="text-sm text-secondary font-sans">
-                      Receive a breakdown of your score by category and preliminary 
-                      mitigation recommendations.
-                    </p>
-                  </div>
-                </div>
-                <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
-                  <input 
-                    type="email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email address" 
-                    className="flex-grow border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red" 
-                  />
-                  <button className="btn-primary whitespace-nowrap">Send Report</button>
-                </form>
-              </div>
+              {/* Result body */}
+              <p className="text-secondary font-sans text-sm md:text-base leading-relaxed mb-8 max-w-xl">
+                {result.body(highestCategory)}
+              </p>
 
               {/* CTA */}
-              <div className="border-t border-border-primary pt-8">
-                <p className="text-secondary mb-6 font-sans">
-                  This estimate is based on self-reported lifestyle factors. 
-                  For clinical verification, consider our diagnostic panel.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/diagnostics" className="btn-gradient inline-flex items-center gap-2">
-                    Learn About Diagnostics <ArrowRight size={18} />
-                  </Link>
-                  <button 
-                    onClick={resetQuiz}
-                    className="btn-outline inline-flex items-center gap-2"
-                  >
-                    <RotateCcw size={16} /> Retake Assessment
-                  </button>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/diagnostics"
+                  className="btn-gradient inline-flex items-center gap-2 justify-center"
+                >
+                  {result.ctaText} <ArrowRight size={18} />
+                </Link>
+                <button
+                  type="button"
+                  onClick={handleRetake}
+                  className="btn-outline inline-flex items-center gap-2 justify-center"
+                >
+                  <RotateCcw size={16} /> Retake Assessment
+                </button>
               </div>
+
+              {/* Disclaimer */}
+              <p className="text-xs text-tertiary font-mono leading-relaxed max-w-lg mt-12">
+                {DISCLAIMER}
+              </p>
             </motion.div>
           )}
         </AnimatePresence>
