@@ -22,7 +22,7 @@ const steps = [
   {
     num: "03",
     title: "Remove",
-    subtitle: "Intervention",
+    subtitle: "Interventions",
     desc: "Advanced blood filtration to remove accumulated toxins from the body.",
     link: "/interventions"
   }
