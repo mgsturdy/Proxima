@@ -250,12 +250,11 @@ export default function QuizPage() {
   );
 
   const handleBack = useCallback(() => {
-    if (currentQuestion > 0) {
-      setDirection(-1);
-      setShowWhyWeAsk(false);
-      setCurrentQuestion((prev) => prev - 1);
-    }
-  }, [currentQuestion]);
+    if (isAdvancing || currentQuestion <= 0) return;
+    setDirection(-1);
+    setShowWhyWeAsk(false);
+    setCurrentQuestion((prev) => prev - 1);
+  }, [isAdvancing, currentQuestion]);
 
   const handleEmailSubmit = useCallback(
     (e: React.FormEvent) => {
