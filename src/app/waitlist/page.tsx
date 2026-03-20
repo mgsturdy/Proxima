@@ -534,10 +534,7 @@ export default function QuizPage() {
                 ))}
               </div>
               <p className="font-nb-international text-xl md:text-2xl text-primary">
-                Calculating Your Toxic Load...
-              </p>
-              <p className="text-tertiary mt-2 font-mono text-xs uppercase tracking-wider">
-                Analyzing your responses
+                Analyzing your responses...
               </p>
             </motion.div>
           )}
