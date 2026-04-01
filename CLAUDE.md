@@ -9,7 +9,7 @@ Proxima -- Proxima Health marketing site and patient intake platform (environmen
 - Lucide React, Class Variance Authority
 
 ## Conventions
-- All changes go through PRs (never push to main)
+- Push directly to main for small changes; PRs for larger work
 - Branch naming: feature/<description> or fix/<description>
 - Write tests for new features
 - Password-gated preview site (password: "ProximaBetaRelease")
@@ -21,4 +21,4 @@ Proxima -- Proxima Health marketing site and patient intake platform (environmen
 - `npm run lint` -- ESLint
 
 ## Deployment
-No deployment config yet (Next.js app ready for any host)
+- Hosted on Vercel, staging at beta.proxima.health

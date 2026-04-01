@@ -273,7 +273,7 @@ export default function QuizPage() {
   }, [isAdvancing, currentQuestion]);
 
   const handleEmailSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault();
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
@@ -281,12 +281,34 @@ export default function QuizPage() {
         return;
       }
       setEmailError("");
-      // TODO: send to CRM, include score and segment
-      // TODO: tag high_risk segment in CRM for score 61+
       setStep("calculating");
+
+      fetch("/api/quiz-submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          score: totalScore,
+          tier,
+          topCategory: highestCategory,
+          answers: answers.map((answerIndex, i) => ({
+            question: QUIZ_QUESTIONS[i].question,
+            category: QUIZ_QUESTIONS[i].category,
+            answer:
+              answerIndex !== null
+                ? QUIZ_QUESTIONS[i].answers[answerIndex].text
+                : null,
+            points:
+              answerIndex !== null
+                ? QUIZ_QUESTIONS[i].answers[answerIndex].points
+                : 0,
+          })),
+        }),
+      }).catch((err) => console.error("Quiz submit failed:", err));
+
       setTimeout(() => setStep("results"), 2000);
     },
-    [email]
+    [email, totalScore, tier, highestCategory, answers]
   );
 
   const handleRetake = useCallback(() => {
