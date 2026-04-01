@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const CORRECT_PASSWORD = "foryourreview";
+const CORRECT_PASSWORD = "ProximaBetaRelease";
 
 export default function PasswordGate({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -81,10 +81,6 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
             </button>
           </form>
 
-          {/* Footer */}
-          <p className="text-center text-proxima-offwhite/20 font-mono text-xs mt-16">
-            Confidential Preview
-          </p>
         </div>
       </div>
     );
