@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /login
+Disallow: /api/
+
+Sitemap: https://beta.proxima.health/sitemap.xml

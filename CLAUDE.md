@@ -12,7 +12,7 @@ Proxima -- Proxima Health marketing site and patient intake platform (environmen
 - Push directly to main for small changes; PRs for larger work
 - Branch naming: feature/<description> or fix/<description>
 - Write tests for new features
-- Password-gated preview site (password: "ProximaBetaRelease")
+- Password-gated preview site (password in SITE_PASSWORD env var)
 
 ## Development
 - `npm run dev` -- Dev server

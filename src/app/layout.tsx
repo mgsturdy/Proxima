@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import PasswordGate from "@/components/PasswordGate";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 
@@ -19,12 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-serif">
-        <PasswordGate>
-          <LoadingScreen />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </PasswordGate>
+        <LoadingScreen />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
         <Analytics />
       </body>
     </html>
