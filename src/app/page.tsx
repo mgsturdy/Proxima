@@ -14,7 +14,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/hero-patient-wellness.png"
+            src="/assets/hero-patient-wellness.webp"
             alt="Proxima Health"
             fill
             className="object-cover object-center"
@@ -175,7 +175,7 @@ export default function Home() {
             >
               <div className="aspect-[4/3] relative">
                 <Image 
-                  src="/assets/healthcare-professional.png"
+                  src="/assets/healthcare-professional.webp"
                   alt="Clinical Care"
                   fill
                   className="object-cover"

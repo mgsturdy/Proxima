@@ -12,7 +12,7 @@ export default function InterventionsPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/hero-medical-intervention.png"
+            src="/assets/hero-medical-intervention.webp"
             alt="Intervention"
             fill
             className="object-cover object-center"

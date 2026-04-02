@@ -27,7 +27,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/hero-about-professional.png"
+            src="/assets/hero-about-professional.webp"
             alt="About Proxima Health"
             fill
             className="object-cover object-center"
