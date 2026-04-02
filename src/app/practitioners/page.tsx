@@ -1,8 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
+const INTEREST_OPTIONS = [
+  "Diagnostics Partnership (offer Proxima Health Baseline to patients)",
+  "Inuspheresis Availability",
+  "Clinical Research Collaboration",
+];
 
 const papers = [
   {
@@ -42,6 +48,36 @@ const papers = [
 
 export default function PractitionersPage() {
   const [papersOpen, setPapersOpen] = useState(false);
+  const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [practice, setPractice] = useState("");
+  const [email, setEmail] = useState("");
+  const [specialty, setSpecialty] = useState("");
+  const [interests, setInterests] = useState<string[]>([]);
+  const [notes, setNotes] = useState("");
+
+  const toggleInterest = (item: string) => {
+    setInterests((prev) =>
+      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+    );
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!firstName || !email) return;
+    setFormState("submitting");
+    try {
+      const res = await fetch("/api/practitioner-inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ firstName, lastName, practice, email, specialty, interests, notes }),
+      });
+      setFormState(res.ok ? "success" : "error");
+    } catch {
+      setFormState("error");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-primary text-primary">
@@ -173,24 +209,35 @@ export default function PractitionersPage() {
         <div className="section-container">
           <div className="max-w-2xl">
             <h2 className="mb-8 font-display text-2xl md:text-3xl font-bold">Partnership Inquiry</h2>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            {formState === "success" ? (
+              <div className="py-12 text-center">
+                <p className="font-display text-2xl font-bold mb-4">Thank you for your interest.</p>
+                <p className="font-sans text-secondary">We&apos;ll be in touch within 48 hours to discuss partnership opportunities.</p>
+              </div>
+            ) : (
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] block mb-2">
-                    First Name
+                    First Name *
                   </label>
-                  <input 
-                    type="text" 
-                    className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red" 
+                  <input
+                    type="text"
+                    required
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red"
                   />
                 </div>
                 <div>
                   <label className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] block mb-2">
                     Last Name
                   </label>
-                  <input 
-                    type="text" 
-                    className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red" 
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red"
                   />
                 </div>
               </div>
@@ -199,19 +246,24 @@ export default function PractitionersPage() {
                 <label className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] block mb-2">
                   Practice / Institution
                 </label>
-                <input 
-                  type="text" 
-                  className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red" 
+                <input
+                  type="text"
+                  value={practice}
+                  onChange={(e) => setPractice(e.target.value)}
+                  className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red"
                 />
               </div>
 
               <div>
                 <label className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] block mb-2">
-                  Email
+                  Email *
                 </label>
-                <input 
-                  type="email" 
-                  className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red" 
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red"
                 />
               </div>
 
@@ -219,8 +271,12 @@ export default function PractitionersPage() {
                 <label className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] block mb-2">
                   Specialty
                 </label>
-                <select className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red">
-                  <option>Select specialty...</option>
+                <select
+                  value={specialty}
+                  onChange={(e) => setSpecialty(e.target.value)}
+                  className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red"
+                >
+                  <option value="">Select specialty...</option>
                   <option>Functional Medicine</option>
                   <option>Integrative Medicine</option>
                   <option>Internal Medicine</option>
@@ -235,13 +291,14 @@ export default function PractitionersPage() {
                   Partnership Interest
                 </label>
                 <div className="space-y-3">
-                  {[
-                    "Diagnostics Partnership (offer Proxima Health Baseline to patients)",
-                    "Inuspheresis Availability",
-                    "Clinical Research Collaboration",
-                  ].map((item, i) => (
+                  {INTEREST_OPTIONS.map((item, i) => (
                     <label key={i} className="flex items-start gap-3 cursor-pointer">
-                      <input type="checkbox" className="mt-1 accent-proxima-red" />
+                      <input
+                        type="checkbox"
+                        checked={interests.includes(item)}
+                        onChange={() => toggleInterest(item)}
+                        className="mt-1 accent-proxima-red"
+                      />
                       <span className="text-sm font-sans">{item}</span>
                     </label>
                   ))}
@@ -252,16 +309,23 @@ export default function PractitionersPage() {
                 <label className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] block mb-2">
                   Additional Notes
                 </label>
-                <textarea 
+                <textarea
                   rows={4}
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
                   className="w-full border border-border-primary px-4 py-3 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red resize-none"
                 />
               </div>
 
-              <button className="btn-gradient w-full">
-                Submit Inquiry
+              {formState === "error" && (
+                <p className="text-proxima-red text-sm font-mono">Something went wrong. Please try again.</p>
+              )}
+
+              <button className="btn-gradient w-full" disabled={formState === "submitting"}>
+                {formState === "submitting" ? "Submitting..." : "Submit Inquiry"}
               </button>
             </form>
+            )}
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import PasswordGate from "@/components/PasswordGate";
@@ -24,6 +25,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </PasswordGate>
+        <Analytics />
       </body>
     </html>
   );

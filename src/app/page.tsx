@@ -223,7 +223,7 @@ export default function Home() {
 
               {/* CTA Button - bottom aligned with image */}
               <div className="mt-auto pb-6">
-                <Link href="/diagnostics" className="bg-proxima-red text-proxima-cream px-6 py-3 font-mono text-xs uppercase tracking-wider inline-block hover:bg-proxima-red/90 transition-colors">
+                <Link href="/waitlist" className="bg-proxima-red text-proxima-cream px-6 py-3 font-mono text-xs uppercase tracking-wider inline-block hover:bg-proxima-red/90 transition-colors">
                   Free Toxin Assessment
                 </Link>
               </div>
