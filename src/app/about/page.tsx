@@ -27,7 +27,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/freepik__coloca-uma-expresso-mais-feliz-e-sorridente__36848.png"
+            src="/assets/hero-about-professional.png"
             alt="About Proxima Health"
             fill
             className="object-cover object-center"

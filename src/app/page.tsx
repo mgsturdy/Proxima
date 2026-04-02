@@ -14,7 +14,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/siralexfrompt_adult_male-presenting_figure_with_short_light_cur_c5431ccb-00b8-4bfd-8bfa-5aea84fd235b.png"
+            src="/assets/hero-patient-wellness.png"
             alt="Proxima Health"
             fill
             className="object-cover object-center"
@@ -175,7 +175,7 @@ export default function Home() {
             >
               <div className="aspect-[4/3] relative">
                 <Image 
-                  src="/assets/freepik__muda-a-farda-para-off-white__36851.png"
+                  src="/assets/healthcare-professional.png"
                   alt="Clinical Care"
                   fill
                   className="object-cover"

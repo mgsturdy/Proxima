@@ -347,7 +347,7 @@ export default function SciencePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/9835757b-2794-42c4-b281-d166579ab765.png"
+            src="/assets/hero-science-background.png"
             alt="The Science"
             fill
             className="object-cover object-center"

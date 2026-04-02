@@ -13,7 +13,7 @@ export default function DiagnosticsPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/freepik__melhora-a-luz-da-img1-para-ficar-com-um-estilo-mai__36854.png"
+            src="/assets/hero-diagnostics-lab.png"
             alt="Diagnostics"
             fill
             className="object-cover object-center"

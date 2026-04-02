@@ -86,7 +86,7 @@ export default function PractitionersPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/freepik__the-patient-is-looking-to-the-doctor-and-smiling__36846.png"
+            src="/assets/hero-practitioner-patient.png"
             alt="Practitioners"
             fill
             className="object-cover object-center"

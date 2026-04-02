@@ -1,0 +1,76 @@
+import { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Research & Insights | Proxima Health",
+  description:
+    "Evidence-based articles on environmental toxins, PFAS, microplastics, heavy metals, and how to protect your health. From the Proxima Health research team.",
+};
+
+const posts = [
+  { slug: "pfas-blood-test", title: "PFAS Blood Test: What It Measures and Who Needs One", date: "Mar 28, 2026", category: "PFAS" },
+  { slug: "microplastics-in-blood", title: "Microplastics in Blood: What We Know So Far", date: "Mar 25, 2026", category: "Microplastics" },
+  { slug: "heavy-metals-in-blood", title: "Heavy Metals in Blood: Sources, Symptoms and Testing", date: "Mar 20, 2026", category: "Heavy Metals" },
+  { slug: "environmental-toxin-testing", title: "Environmental Toxin Testing: What You Need to Know", date: "Mar 15, 2026", category: "Diagnostics" },
+  { slug: "therapeutic-apheresis-toxin-removal", title: "Therapeutic Apheresis: How Blood Filtration Removes Toxins", date: "Mar 10, 2026", category: "Interventions" },
+  { slug: "glyphosate-exposure", title: "Glyphosate Exposure: What's in Your Food", date: "Mar 5, 2026", category: "Pesticides" },
+  { slug: "bpa-exposure", title: "BPA Exposure: Why BPA-Free Isn't Enough", date: "Mar 1, 2026", category: "Endocrine Disruptors" },
+  { slug: "pfas-in-drinking-water", title: "PFAS in Drinking Water: Risks and Solutions", date: "Feb 25, 2026", category: "PFAS" },
+  { slug: "endocrine-disruptors", title: "Endocrine Disruptors: The Chemicals Hijacking Your Hormones", date: "Feb 20, 2026", category: "Endocrine Disruptors" },
+  { slug: "forever-chemicals-cookware", title: "Forever Chemicals in Cookware: What to Know", date: "Feb 15, 2026", category: "PFAS" },
+  { slug: "mold-toxicity-symptoms", title: "Mold Toxicity Symptoms: Signs You Shouldn't Ignore", date: "Feb 10, 2026", category: "Mold" },
+  { slug: "lead-exposure-adults", title: "Lead Exposure in Adults: Sources, Symptoms and Testing", date: "Feb 5, 2026", category: "Heavy Metals" },
+  { slug: "arsenic-in-food", title: "Arsenic in Food: Hidden Sources and Health Risks", date: "Jan 30, 2026", category: "Heavy Metals" },
+  { slug: "what-are-forever-chemicals", title: "What Are Forever Chemicals? PFAS Explained", date: "Jan 25, 2026", category: "PFAS" },
+  { slug: "toxins-in-newborn-blood", title: "Toxins in Newborn Blood: 287 Chemicals Found", date: "Jan 20, 2026", category: "Research" },
+  { slug: "microplastics-in-brain", title: "Microplastics in the Brain: What New Research Reveals", date: "Jan 15, 2026", category: "Microplastics" },
+  { slug: "voc-exposure-symptoms", title: "VOC Exposure Symptoms: Signs You're Breathing Toxins", date: "Jan 10, 2026", category: "Industrial Chemicals" },
+  { slug: "pcb-exposure", title: "PCB Exposure: Why Banned Chemicals Still Matter", date: "Jan 5, 2026", category: "Industrial Chemicals" },
+  { slug: "flame-retardants-in-blood", title: "Flame Retardants in Blood: Risks and Testing", date: "Dec 30, 2025", category: "Industrial Chemicals" },
+  { slug: "phthalates-exposure", title: "Phthalates Exposure: The Plasticizer in Everything", date: "Dec 25, 2025", category: "Endocrine Disruptors" },
+  { slug: "chronic-inflammation-environmental-toxins", title: "Chronic Inflammation and Environmental Toxins", date: "Dec 20, 2025", category: "Research" },
+  { slug: "functional-medicine-toxin-testing", title: "Functional Medicine Toxin Testing Explained", date: "Dec 15, 2025", category: "Diagnostics" },
+  { slug: "pfas-cancer-risk", title: "PFAS Cancer Risk: What the Research Shows", date: "Dec 10, 2025", category: "PFAS" },
+  { slug: "pesticide-exposure-symptoms", title: "Pesticide Exposure Symptoms: Signs to Watch For", date: "Dec 5, 2025", category: "Pesticides" },
+  { slug: "detox-myths-vs-science", title: "Detox Myths Debunked: What Actually Removes Toxins", date: "Nov 30, 2025", category: "Research" },
+];
+
+export default function BlogIndexPage() {
+  return (
+    <>
+      <p className="font-mono text-xs text-tertiary uppercase tracking-wider mb-4">
+        Research &amp; Insights
+      </p>
+      <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">
+        The science of what&apos;s in your blood.
+      </h1>
+      <p className="text-base leading-relaxed font-sans text-secondary mb-12 max-w-xl">
+        Evidence-based articles on environmental toxins, diagnostics, and what you can do about it. From the Proxima Health research team.
+      </p>
+
+      <div className="space-y-0 border-t border-border-primary">
+        {posts.map((post) => (
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            className="block py-6 border-b border-border-primary group"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <p className="font-mono text-xs text-tertiary uppercase tracking-wider mb-2">
+                  {post.category}
+                </p>
+                <h2 className="font-display text-lg font-bold group-hover:text-accent transition-colors">
+                  {post.title}
+                </h2>
+              </div>
+              <p className="font-mono text-xs text-tertiary whitespace-nowrap mt-1">
+                {post.date}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </>
+  );
+}
