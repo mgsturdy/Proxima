@@ -347,7 +347,7 @@ export default function SciencePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/hero-science-background.webp"
+            src="/assets/hero-science-background.png"
             alt="The Science"
             fill
             className="object-cover object-center"

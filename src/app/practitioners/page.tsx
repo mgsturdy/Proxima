@@ -86,7 +86,7 @@ export default function PractitionersPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/hero-practitioner-patient.webp"
+            src="/assets/hero-practitioner-patient.png"
             alt="Practitioners"
             fill
             className="object-cover object-center"

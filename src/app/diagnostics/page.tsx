@@ -13,7 +13,7 @@ export default function DiagnosticsPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/hero-diagnostics-lab.webp"
+            src="/assets/hero-diagnostics-lab.png"
             alt="Diagnostics"
             fill
             className="object-cover object-center"
