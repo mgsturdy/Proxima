@@ -304,7 +304,7 @@ export default function QuizPage() {
                 : 0,
           })),
         }),
-      }).catch((err) => console.error("Quiz submit failed:", err));
+      }).catch(() => {});
 
       setTimeout(() => setStep("results"), 2000);
     },

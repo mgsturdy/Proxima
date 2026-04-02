@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Linkedin, Mail } from "lucide-react";
+
 
 const team = [
   {
@@ -122,10 +122,6 @@ export default function AboutPage() {
                   <h3 className="mb-1 font-display">{member.name}</h3>
                   <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-4">{member.title}</p>
                   <p className="text-secondary text-sm font-sans mb-4">{member.bio}</p>
-                  <div className="flex gap-4">
-                    <Linkedin size={18} className="text-tertiary hover:text-primary cursor-pointer transition-colors" />
-                    <Mail size={18} className="text-tertiary hover:text-primary cursor-pointer transition-colors" />
-                  </div>
                 </div>
               </motion.div>
             ))}

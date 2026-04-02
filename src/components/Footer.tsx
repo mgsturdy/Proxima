@@ -46,6 +46,10 @@ export default function Footer() {
 
           <div className="lg:col-span-3">
             <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50">Legal</p>
+            <div className="space-y-2 mt-4">
+              <p className="text-sm font-sans text-proxima-black/60">Privacy Policy</p>
+              <p className="text-sm font-sans text-proxima-black/60">Terms of Service</p>
+            </div>
           </div>
         </div>
 
