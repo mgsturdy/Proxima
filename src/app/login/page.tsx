@@ -25,7 +25,8 @@ export default function LoginPage() {
 
       if (res.ok) {
         const redirect = searchParams.get("redirect") || "/";
-        router.push(redirect);
+        window.location.href = redirect;
+        return;
       } else {
         setError(true);
         setPassword("");
