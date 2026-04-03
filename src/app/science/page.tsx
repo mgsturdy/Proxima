@@ -359,7 +359,7 @@ export default function SciencePage() {
       {/* Hero Video */}
       <section className="relative flex flex-col bg-proxima-cream overflow-hidden">
         {/* Video with flanking scroll prompts on desktop, below on mobile */}
-        <div className="flex-grow flex flex-col lg:flex-row items-start justify-center px-0 md:px-4 gap-4 lg:gap-8 py-0 md:py-2 lg:pt-8">
+        <div className="flex-grow flex flex-col lg:flex-row items-center lg:items-start justify-center px-0 md:px-4 gap-4 lg:gap-8 py-0 md:py-2 lg:pt-8">
           {/* Left scroll prompt - hidden on mobile, shown on desktop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -381,7 +381,7 @@ export default function SciencePage() {
             loop
             muted
             playsInline
-            className="w-[115%] md:w-full max-w-[100rem] h-auto min-w-0"
+            className="w-[180%] md:w-[130%] lg:w-full max-w-[100rem] h-auto min-w-0"
           >
             <source src="/assets/toxic-load-animation.mp4" type="video/mp4" />
           </video>
