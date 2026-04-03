@@ -341,16 +341,18 @@ export default function SciencePage() {
   return (
     <div className="min-h-screen bg-primary text-primary">
       {/* Headline Banner */}
-      <section className="bg-proxima-black pt-20 md:pt-24">
-        <div className="section-container py-10 md:py-16 lg:py-20">
-          <motion.h1
+      <section className="bg-proxima-cream pt-20 md:pt-24">
+        <div className="section-container py-10 md:py-16">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-proxima-cream text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-nb-international leading-tight max-w-5xl"
+            className="text-2xl md:text-3xl lg:text-4xl font-display font-bold border-l-4 border-proxima-red pl-6 md:pl-8"
           >
-            When environmental toxins accumulate in your body they cause inflammation which leads to chronic disease.
-          </motion.h1>
+            <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
+              When environmental toxins accumulate in your body they cause inflammation which leads to chronic disease.
+            </span>
+          </motion.div>
         </div>
       </section>
 
