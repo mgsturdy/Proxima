@@ -42,7 +42,7 @@ const papers = [
 ];
 
 export default function InterventionsPage() {
-  const [papersOpen, setPapersOpen] = useState(false);
+  const [papersOpen, setPapersOpen] = useState(true);
 
   return (
     <div className="min-h-screen bg-primary text-primary">
