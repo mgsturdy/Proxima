@@ -342,7 +342,7 @@ export default function SciencePage() {
     <div className="min-h-screen bg-primary text-primary">
       {/* Headline Banner */}
       <section className="bg-proxima-cream pt-20 md:pt-24">
-        <div className="section-narrow pt-8 md:pt-12 pb-0">
+        <div className="section-narrow pt-8 md:pt-8 pb-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -359,7 +359,7 @@ export default function SciencePage() {
       {/* Hero Video */}
       <section className="relative flex flex-col bg-proxima-cream overflow-hidden">
         {/* Video with flanking scroll prompts on desktop, below on mobile */}
-        <div className="flex-grow flex flex-col lg:flex-row items-center lg:items-start justify-center px-0 md:px-4 gap-4 lg:gap-8 py-0 md:py-2 lg:pt-8">
+        <div className="flex-grow flex flex-col lg:flex-row items-center justify-center px-0 md:px-4 gap-4 lg:gap-8 py-0 md:py-2 lg:pt-4">
           {/* Left scroll prompt - hidden on mobile, shown on desktop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -367,12 +367,12 @@ export default function SciencePage() {
             transition={{ delay: 1, duration: 0.8 }}
             className="hidden lg:flex flex-col items-center gap-2 shrink-0"
           >
-            <span className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 [writing-mode:vertical-lr] rotate-180">Scroll to explore</span>
+            <span className="font-mono text-sm uppercase tracking-wider text-proxima-black/50 [writing-mode:vertical-lr] rotate-180">Scroll to explore</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
             >
-              <ChevronDown size={16} className="text-proxima-black/40" />
+              <ChevronDown size={20} className="text-proxima-black/40" />
             </motion.div>
           </motion.div>
 
@@ -393,12 +393,12 @@ export default function SciencePage() {
             transition={{ delay: 1, duration: 0.8 }}
             className="hidden lg:flex flex-col items-center gap-2 shrink-0"
           >
-            <span className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 [writing-mode:vertical-lr]">Scroll to explore</span>
+            <span className="font-mono text-sm uppercase tracking-wider text-proxima-black/50 [writing-mode:vertical-lr]">Scroll to explore</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
             >
-              <ChevronDown size={16} className="text-proxima-black/40" />
+              <ChevronDown size={20} className="text-proxima-black/40" />
             </motion.div>
           </motion.div>
         </div>
