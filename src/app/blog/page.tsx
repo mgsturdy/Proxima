@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "mercury-exposure-symptoms", title: "Mercury Exposure Symptoms: Signs You've Been Poisoned", date: "Apr 4, 2026", category: "Heavy Metals" },
   { slug: "pfas-blood-test", title: "PFAS Blood Test: What It Measures and Who Needs One", date: "Mar 28, 2026", category: "PFAS" },
   { slug: "microplastics-in-blood", title: "Microplastics in Blood: What We Know So Far", date: "Mar 25, 2026", category: "Microplastics" },
   { slug: "heavy-metals-in-blood", title: "Heavy Metals in Blood: Sources, Symptoms and Testing", date: "Mar 20, 2026", category: "Heavy Metals" },
