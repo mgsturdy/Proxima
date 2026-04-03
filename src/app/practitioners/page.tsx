@@ -10,44 +10,8 @@ const INTEREST_OPTIONS = [
   "Clinical Research Collaboration",
 ];
 
-const papers = [
-  {
-    category: "Inuspheresis",
-    items: [
-      { title: "Precision Medicine Approach for Cardiometabolic Risk Factors in Therapeutic Apheresis", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2137-4425" },
-      { title: "Clinical improvement of Long-COVID is associated with reduction in autoantibodies, lipids, and inflammation following therapeutic apheresis", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-023-02084-1" },
-      { title: "Changes in Water Properties in Human Tissue after Double Filtration Plasmapheresis — A Case Study", journal: "MDPI - Molecules", url: "https://www.mdpi.com/1420-3049/28/6/2652" },
-      { title: "Lipid Profiles in Lyme Borreliosis: A Potential Role for Apheresis?", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2137-4437" },
-      { title: "Chronic post-COVID-19 syndrome and chronic fatigue syndrome: Is there a role for extracorporeal apheresis?", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-022-01794-6" },
-      { title: "Particles in the Eluate from Double Filtration Plasmapheresis: A Case Study Using Field Emission Scanning Electron Microscopy/Energy-Dispersive X-ray Spectroscopy (FE-SEM/EDX)", journal: "MDPI - Compounds", url: "https://www.mdpi.com/2673-6918/3/1/10" },
-      { title: "Extracorporeal apheresis therapy for Alzheimer disease — targeting lipids, stress, and inflammation", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-024-02645-6" },
-      { title: "Is There a Role for Environmental and Metabolic Factors Predisposing to Severe COVID-19?", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-1342-7149" },
-      { title: "A multimodal approach for treating post-acute infectious syndrome", journal: "Genomic Press - Brain Medicine", url: "https://brainmedicine.org/index.php/bm/article/view/15" },
-      { title: "Double Filtration Plasmapheresis for Environmental Toxin Removal: A Case Series of Patients With Hyperlipoproteinemia(a)", journal: "Wiley - Journal of Clinical Apheresis", url: "https://onlinelibrary.wiley.com/doi/10.1002/jca.22082" },
-      { title: "Therapeutic apheresis: A promising method to remove microplastics?", journal: "Genomic Press - Brain Medicine", url: "https://brainmedicine.org/index.php/bm/article/view/25" },
-      { title: "Single-Center Study of Therapeutic Apheresis in 24 Male Patients from the MENA Region", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2294-6671" },
-      { title: "Plasma Separation Efficiency in Double Filtration Plasmapheresis: A Retrospective Study of Patients With Hyperlipidemia", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/38711187/" },
-      { title: "Modulating Systemic Immune-Inflammatory Indices via Double Filtration Plasmapheresis: Implications for Aging and Low-Grade Inflammation", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/39004612/" },
-      { title: "Post COVID and Apheresis - Where are we Standing?", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/36599349/" },
-      { title: "Metabolic and Non-Metabolic Peripheral Neuropathy: Is there a Place for Therapeutic Apheresis?", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/36599350/" },
-    ]
-  },
-  {
-    category: "Inuspheresis +",
-    items: [
-      { title: "Neutrophil Extracellular Traps (NETs) as a Potential Target for Anti-Aging: Role of Therapeutic Apheresis", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2294-6684" },
-    ]
-  },
-  {
-    category: "Inuspheresis (Animals)",
-    items: [
-      { title: "Selective Removal of Plasma Proteins by Double-Filtration Plasmapheresis in Canine Blood: An Ex Vivo Study and Retrospective Report of In Vivo Clinical Treatments in Three Dogs", journal: "PMC", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10974461/" },
-    ]
-  }
-];
 
 export default function PractitionersPage() {
-  const [papersOpen, setPapersOpen] = useState(false);
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -149,58 +113,6 @@ export default function PractitionersPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Papers Section */}
-      <section className="py-16 md:py-24 bg-proxima-cream">
-        <div className="section-container">
-          <button
-            onClick={() => setPapersOpen(!papersOpen)}
-            className="flex items-center gap-3 w-full text-left group"
-          >
-            <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-lg md:text-xl font-nb-international leading-none">
-              Papers supporting effectiveness of Inuspheresis
-            </span>
-            <span className={`text-proxima-black text-2xl font-mono transition-transform duration-300 ${papersOpen ? "rotate-45" : ""}`}>
-              +
-            </span>
-          </button>
-
-          {papersOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              className="mt-8 space-y-8"
-            >
-              {papers.map((group, i) => (
-                <div key={i}>
-                  <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-4">
-                    {group.category}
-                  </p>
-                  <ul className="space-y-3">
-                    {group.items.map((paper, j) => (
-                      <li key={j}>
-                        <a
-                          href={paper.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group/link flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2"
-                        >
-                          <span className="font-nb-international text-sm text-proxima-black group-hover/link:text-proxima-red transition-colors">
-                            {paper.title}
-                          </span>
-                          <span className="font-mono text-[10px] text-proxima-black/40 uppercase tracking-wider shrink-0">
-                            | {paper.journal}
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </motion.div>
-          )}
         </div>
       </section>
 

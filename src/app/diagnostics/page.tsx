@@ -1,11 +1,115 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { X } from "lucide-react";
 
+function DiagnosticsSignupModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    try {
+      const res = await fetch("/api/diagnostics-signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email }),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          onClick={onClose}
+        >
+          <div className="absolute inset-0 bg-proxima-black/60 backdrop-blur-sm" />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="relative bg-proxima-cream border border-proxima-black p-8 md:p-12 max-w-md w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 text-proxima-black/60 hover:text-proxima-black transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            {status === "success" ? (
+              <div className="text-center py-4">
+                <p className="font-nb-international text-lg text-proxima-black mb-2">You&apos;re on the list.</p>
+                <p className="font-nb-international text-sm text-proxima-black/70">We&apos;ll notify you when Proxima Health Baseline launches.</p>
+              </div>
+            ) : (
+              <>
+                <h3 className="font-nb-international text-xl md:text-2xl text-proxima-black mb-2">Get notified at launch</h3>
+                <p className="font-nb-international text-sm text-proxima-black/70 mb-6">Be the first to know when Proxima Health Baseline is available.</p>
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-1 block">Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full border border-proxima-black/20 bg-transparent px-3 py-2 font-nb-international text-sm text-proxima-black focus:outline-none focus:border-proxima-black transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-1 block">Email</label>
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full border border-proxima-black/20 bg-transparent px-3 py-2 font-nb-international text-sm text-proxima-black focus:outline-none focus:border-proxima-black transition-colors"
+                    />
+                  </div>
+                  {status === "error" && (
+                    <p className="font-nb-international text-sm text-proxima-red">Something went wrong. Please try again.</p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="w-full bg-proxima-black text-proxima-cream px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-proxima-black/90 transition-colors disabled:opacity-50"
+                  >
+                    {status === "submitting" ? "Submitting..." : "Notify me"}
+                  </button>
+                </form>
+              </>
+            )}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
 
 export default function DiagnosticsPage() {
+  const [showSignup, setShowSignup] = useState(false);
   return (
     <div className="min-h-screen bg-primary text-primary">
       {/* Full Screen Hero */}
@@ -65,7 +169,7 @@ export default function DiagnosticsPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-proxima-cream text-base font-nb-international font-normal leading-relaxed">
-              Measure your environmental toxin load with precision so you can understand what&apos;s circulating in your blood and act with clarity.
+              Measure the environmental toxins in your blood, so you can act with clarity.
             </p>
           </motion.div>
         </div>
@@ -111,7 +215,7 @@ export default function DiagnosticsPage() {
               <div className="mb-8">
                 <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-3">What we test for:</p>
                 <div className="flex flex-wrap gap-2">
-                  {["Heavy metals", "PFAS", "Microplastics", "Pesticides", "BPA", "Endocrine disruptors", "Mold", "Solvents"].map((item, i) => (
+                  {["Heavy Metals", "Microplastics", "Forever Chemicals", "Pesticides", "Endocrine Disruptors", "Mold", "Industrial Pollutants", "Industrial Solvents", "Persistent Pathogens"].map((item, i) => (
                     <span key={i} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">
                       {item}
                     </span>
@@ -120,7 +224,7 @@ export default function DiagnosticsPage() {
               </div>
 
               <p className="text-secondary font-sans text-sm md:text-base leading-relaxed mb-8">
-                We are launching Proxima Health Baseline initially with select practitioners to uphold the highest standards of clinical oversight and data integrity. In time, individuals will be able to order testing directly through Proxima Health.
+                We are launching Proxima Health Baseline initially with select practitioners to uphold the highest standards of clinical oversight. In time, individuals will be able to order testing directly through Proxima Health.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -129,12 +233,12 @@ export default function DiagnosticsPage() {
                 >
                   Practitioners: Offer this at your clinic
                 </Link>
-                <Link
-                  href="/waitlist"
+                <button
+                  onClick={() => setShowSignup(true)}
                   className="inline-flex items-center justify-center gap-2 border border-proxima-black text-proxima-black px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-proxima-black hover:text-proxima-cream transition-colors"
                 >
                   Get notified at launch
-                </Link>
+                </button>
               </div>
             </motion.div>
           </div>
@@ -161,15 +265,15 @@ export default function DiagnosticsPage() {
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="py-4">
                 <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Heavy Metals</h4>
                 <div className="flex flex-wrap gap-2">
-                  {["Lead", "Arsenic"].map((m, j) => (
+                  {["Lead", "Mercury"].map((m, j) => (
                     <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
                   ))}
                 </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }} className="py-4">
-                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Persistent Pollutants</h4>
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Forever Chemicals</h4>
                 <div className="flex flex-wrap gap-2">
-                  {["PFOS", "PCB-153", "PBDE-47"].map((m, j) => (
+                  {["PFOS", "PFOA", "PFHxS"].map((m, j) => (
                     <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
                   ))}
                 </div>
@@ -208,9 +312,9 @@ export default function DiagnosticsPage() {
                 </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="py-4">
-                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Industrial Chemicals</h4>
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Industrial Solvents</h4>
                 <div className="flex flex-wrap gap-2">
-                  {["Toluene", "Benzene"].map((m, j) => (
+                  {["Benzene"].map((m, j) => (
                     <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
                   ))}
                 </div>
@@ -227,7 +331,7 @@ export default function DiagnosticsPage() {
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="py-4">
                 <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Mold</h4>
                 <div className="flex flex-wrap gap-2">
-                  {["Ochratoxin A", "Aflatoxin M1"].map((m, j) => (
+                  {["Ochratoxin A"].map((m, j) => (
                     <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
                   ))}
                 </div>
@@ -236,6 +340,14 @@ export default function DiagnosticsPage() {
                 <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Persistent Pathogens</h4>
                 <div className="flex flex-wrap gap-2">
                   {["Borrelia burgdorferi (Lyme disease)", "Covid Spike Protein"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Industrial Pollutants</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["PBDE-47 (Flame Retardant)", "PCB-156"].map((m, j) => (
                     <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
                   ))}
                 </div>
@@ -251,6 +363,7 @@ export default function DiagnosticsPage() {
         </div>
       </section>
 
+      <DiagnosticsSignupModal isOpen={showSignup} onClose={() => setShowSignup(false)} />
     </div>
   );
 }

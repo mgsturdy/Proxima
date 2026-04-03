@@ -21,7 +21,7 @@ interface Chapter {
 
 const tabColors = [
   "#FF9E00", "#FFAD1E", "#FFBD3D", "#FFCC5B",
-  "#FFDB7A", "#FFE598", "#FFEEB7", "#FFF3D6",
+  "#FFDB7A", "#FFE598", "#FFEEB7", "#FFF3D6", "#FFF8E8",
 ];
 
 function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
@@ -43,9 +43,9 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
                   : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
               }`}
             >
-              <span className="md:hidden">{ch.number}+</span>
-              <span className="hidden md:inline">{ch.number} {ch.title}</span>
-              <span className="hidden md:inline text-xs">+</span>
+              <span className="md:hidden">{ch.title}</span>
+              <span className="hidden md:inline">{ch.title}</span>
+              <span className="text-xs">+</span>
             </button>
           ))}
         </div>
@@ -55,13 +55,8 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 lg:gap-12">
             {/* Left Column */}
             <div className="lg:col-span-4">
-              {/* Chapter Number */}
-              <span className="block font-robit text-4xl md:text-8xl lg:text-[100px] leading-none tracking-tight text-proxima-black mb-4">
-                {chapter.number}
-              </span>
-
               {/* Chapter Title - stacked black pills */}
-              <div className="flex flex-col items-start -space-y-px">
+              <div className="flex flex-col items-start -space-y-px mb-6">
                 {chapter.title.split(" ").length > 1 ? (
                   chapter.title.split(" ").map((word, i) => (
                     <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-0.5 pb-1.5 md:py-1 md:pb-2 text-lg md:text-3xl lg:text-[42px] font-nb-international leading-none">
@@ -74,22 +69,24 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
                   </span>
                 )}
               </div>
+
+              {/* Bold intro under title */}
+              {chapter.boldIntro && (
+                <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black">
+                  {chapter.boldIntro}
+                </p>
+              )}
             </div>
 
             {/* Right Column */}
             <div className="lg:col-span-8 lg:border-l lg:border-proxima-black lg:pl-8">
               {/* Intro */}
               <div className="mb-8">
-                {chapter.boldIntro ? (
-                  <>
-                    <p className="font-nb-international text-base md:text-lg leading-relaxed text-proxima-black font-bold mb-4">
-                      {chapter.boldIntro}
-                    </p>
-                    <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
-                      {chapter.bodyText}
-                    </p>
-                  </>
-                ) : (
+                {chapter.bodyText ? (
+                  <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
+                    {chapter.bodyText}
+                  </p>
+                ) : chapter.abstract ? (
                   <>
                     <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
                       Abstract
@@ -98,7 +95,7 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
                       {chapter.abstract}
                     </p>
                   </>
-                )}
+                ) : null}
               </div>
 
               {/* Subcategory Title */}
@@ -139,7 +136,7 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
 const chapters: Chapter[] = [
   {
     id: "metals",
-    number: "01",
+    number: "",
     title: "Heavy Metals",
     subtitle: "",
     boldIntro: "Toxic elements that accumulate in blood and tissues and disrupt cellular function.",
@@ -152,8 +149,8 @@ const chapters: Chapter[] = [
         content: "Lead exposure most commonly occurs through contaminated drinking water, aging infrastructure such as lead pipes, and older paint or dust in buildings. Elevated levels have been associated with neurologic dysfunction, cardiovascular strain, kidney impairment and developmental effects in children."
       },
       {
-        heading: "Arsenic",
-        content: "Arsenic exposure is often encountered through contaminated water or certain foods and has been linked to vascular disease, metabolic dysfunction, immune imbalance and increased cancer risk with chronic exposure.\n\nIdentifying and reducing the burden of heavy metals is an important step toward restoring physiologic balance."
+        heading: "Mercury",
+        content: "Mercury exposure occurs primarily through seafood consumption, dental amalgam fillings and industrial emissions. It accumulates in the brain, kidneys and nervous system. Chronic exposure has been linked to neurological impairment, cognitive decline, immune dysregulation and cardiovascular risk."
       }
     ],
     keyData: [],
@@ -161,11 +158,11 @@ const chapters: Chapter[] = [
   },
   {
     id: "pops",
-    number: "02",
-    title: "Persistent Pollutants",
+    number: "",
+    title: "Forever Chemicals",
     subtitle: "",
     boldIntro: "Long-lasting synthetic chemicals found in packaging, consumer products and household goods.",
-    bodyText: "Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body. This is a concern as toxins such as PFAS are a known carcinogen, while others cause ongoing inflammation and hormone disruption, leading to chronic disease.",
+    bodyText: "Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body. As these Persistent Pollutants accumulate in the body, they can cause cancer, inflammation, hormone disruption and metabolic disease.",
     subcategoryTitle: "PFAS / Fluorinated Compounds",
     abstract: "",
     sections: [
@@ -174,20 +171,12 @@ const chapters: Chapter[] = [
         content: "PFAS are a large group of chemicals used in non-stick cookware, stain-resistant fabrics, firefighting foams and food packaging. Research has linked long-term exposure to changes in immune response, cholesterol levels, thyroid function and increased risk of certain chronic diseases like cancer."
       },
       {
-        heading: "__subcategory__PCBs",
-        content: ""
+        heading: "PFOA",
+        content: "Once widely used in the production of Teflon and other non-stick coatings, PFOA has been linked to kidney and testicular cancer, thyroid disease, elevated cholesterol and complications during pregnancy."
       },
       {
-        heading: "PCB-153",
-        content: "Polychlorinated biphenyls (PCBs) were widely used in electrical equipment and industrial materials before being banned in many countries. PCB-153 is a commonly detected variant. Due to their persistence, PCBs remain present in soil, water, and food chains. Chronic exposure has been associated with metabolic dysfunction, endocrine disruption, and increased cancer risk."
-      },
-      {
-        heading: "__subcategory__Flame Retardants",
-        content: ""
-      },
-      {
-        heading: "PBDE-47",
-        content: "PBDEs are flame-retardant chemicals used in furniture, electronics, and textiles. PBDE-47 is one of the most frequently detected forms in human tissue. Studies have explored potential links to hormone disruption, neurodevelopmental effects, and thyroid imbalance."
+        heading: "PFHxS",
+        content: "Found in stain-resistant treatments, leather protectants and firefighting foams, PFHxS is one of the most persistent PFAS compounds in the human body, with an estimated half-life of several years. Exposure has been associated with thyroid disruption, altered lipid metabolism and immune suppression."
       }
     ],
     keyData: [],
@@ -195,7 +184,7 @@ const chapters: Chapter[] = [
   },
   {
     id: "microplastics",
-    number: "03",
+    number: "",
     title: "Microplastics",
     subtitle: "",
     boldIntro: "Microscopic plastic particles that cause disease and carry other toxic chemicals into the body.",
@@ -213,12 +202,12 @@ const chapters: Chapter[] = [
   },
   {
     id: "edcs",
-    number: "04",
+    number: "",
     title: "Endocrine Disruptors",
     subtitle: "",
     boldIntro: "Chemicals that can interfere with the body's hormone signaling, even at low levels of exposure.",
     bodyText: "Hormones are the body's internal messengers. They regulate metabolism, reproduction, mood, growth and immune balance. Certain synthetic compounds are structurally similar to natural hormones. When present in the body, they may mimic, block, or alter normal signaling patterns. Over time, this interference can contribute to metabolic imbalance, reproductive changes, and chronic inflammatory stress.",
-    subcategoryTitle: "Phenols",
+    subcategoryTitle: "Bisphenols",
     abstract: "",
     sections: [
       {
@@ -247,7 +236,7 @@ const chapters: Chapter[] = [
   },
   {
     id: "pesticides",
-    number: "05",
+    number: "",
     title: "Pesticides",
     subtitle: "",
     boldIntro: "Chemicals used in food production that can affect metabolic and neurological pathways.",
@@ -269,22 +258,14 @@ const chapters: Chapter[] = [
   },
   {
     id: "vocs",
-    number: "06",
-    title: "Industrial Chemicals",
+    number: "",
+    title: "Industrial Solvents",
     subtitle: "",
     boldIntro: "Airborne and solvent-based chemicals commonly found in indoor and occupational environments.",
     bodyText: "Many everyday materials, including paints, cleaning products, fuels, adhesives and building materials release airborne chemicals. These compounds can be inhaled in small amounts over time, particularly in enclosed or poorly ventilated spaces.\n\nSome of these chemicals are rapidly processed by the body. Others, especially with repeated exposure, contribute to cumulative strain on the nervous system, liver, or blood-forming systems.",
     subcategoryTitle: "Volatile Organic Compounds (VOCs)",
     abstract: "",
     sections: [
-      {
-        heading: "Toluene",
-        content: "Toluene is a solvent found in products such as paint thinners, adhesives and gasoline. Short-term exposure at high levels can affect the nervous system. With ongoing exposure, research shows impacts on cognitive function, liver health and cellular stress pathways."
-      },
-      {
-        heading: "__subcategory__Aromatic Hydrocarbons",
-        content: ""
-      },
       {
         heading: "Benzene",
         content: "Benzene is an industrial chemical present in fuels, tobacco smoke and some manufacturing environments. It is known to affect the bone marrow, where blood cells are produced. Chronic exposure has been associated with increased risk of certain blood disorders and cancers."
@@ -294,8 +275,26 @@ const chapters: Chapter[] = [
     citations: []
   },
   {
+    id: "industrial-pollutants",
+    number: "",
+    title: "Industrial Pollutants",
+    subtitle: "",
+    boldIntro: "Long-lasting synthetic chemicals produced for industrial and commercial use that persist in the environment and accumulate in our bodies.",
+    bodyText: "Many industrial chemicals were designed for the durability to resist heat, degradation and biological breakdown. That same durability means they persist in soil, water and food chains long after production has stopped. Once in the body, they accumulate in fat tissue and blood, where they can interfere with hormone signaling, immune function and cellular metabolism. Even at low levels, chronic exposure has been linked to increased risk of metabolic, neurological and reproductive harm.",
+    subcategoryTitle: "PCBs",
+    abstract: "",
+    sections: [
+      {
+        heading: "PCB-156",
+        content: "Polychlorinated biphenyls (PCBs) were widely used in electrical equipment, hydraulic fluids and industrial coatings before being banned in many countries. It is considered more toxic than many other PCB variants and has been associated with immune suppression, endocrine disruption, liver damage and increased cancer risk with chronic exposure."
+      }
+    ],
+    keyData: [],
+    citations: []
+  },
+  {
     id: "mold",
-    number: "07",
+    number: "",
     title: "Mold",
     subtitle: "",
     boldIntro: "Naturally occurring compounds produced by certain organisms that can enter the food chain.",
@@ -304,8 +303,8 @@ const chapters: Chapter[] = [
     abstract: "",
     sections: [
       {
-        heading: "Ochratoxin A. Aflatoxin M1.",
-        content: "Mycotoxins are toxic substances produced by specific species of mold. Ochratoxin A has been studied for its potential effects on kidney health and immune signaling. Aflatoxin M1, a metabolite that can appear in dairy products when livestock consume contaminated feed, has been associated with liver stress and long-term cancer risk at sustained levels of exposure.\n\nBecause these toxins can persist in the bloodstream, even low-level exposure over time may contribute to inflammatory strain. For some patients, understanding biologic toxin burden is part of restoring clearer immune balance and physiologic stability."
+        heading: "Ochratoxin A",
+        content: "Ochratoxin A is a mycotoxin produced by certain species of mold commonly found in water-damaged buildings, stored grains, coffee, wine and dried fruits. It has been found to affect kidney function, immune signaling and oxidative stress. Because it can persist in the bloodstream, even low-level chronic exposure contributes to inflammatory strain over time."
       }
     ],
     keyData: [],
@@ -313,11 +312,11 @@ const chapters: Chapter[] = [
   },
   {
     id: "persistence",
-    number: "08",
+    number: "",
     title: "Persistent Pathogens",
     subtitle: "",
     boldIntro: "Pathogens or pathogen-derived materials that remain in the body and contribute to prolonged immune activation.",
-    bodyText: "In some individuals, the effects of an infection can extend beyond the initial illness. Even after acute symptoms improve, traces of the organism, or the immune response it triggered, can continue to influence the body. When immune activation remains elevated instead of returning to baseline, it contributes to ongoing inflammation and physiologic strain.",
+    bodyText: "In some people, the effects of an infection can extend beyond the initial illness. Even after acute symptoms improve, traces of the organism, or the immune response it triggered, can continue to influence the body. When immune activation remains elevated instead of returning to baseline, it contributes to ongoing inflammation and physiologic strain.",
     subcategoryTitle: "Bacterial Pathogens",
     abstract: "",
     sections: [
@@ -331,7 +330,7 @@ const chapters: Chapter[] = [
       },
       {
         heading: "Covid Spike Protein",
-        content: "Following viral exposure or vaccination, the body generates viral proteins as a central part of the immune response. However, for some individuals, these protein fragments do not clear; they persist in the bloodstream, acting as a continuous trigger for prolonged immune activation. This lingering biological presence is a primary driver of chronic inflammatory stress and systemic fatigue."
+        content: "Following viral exposure or vaccination, the body generates viral proteins as a central part of the immune response. However, for some people, these protein fragments do not clear; they persist in the bloodstream, acting as a continuous trigger for prolonged immune activation. This lingering biological presence is a primary driver of chronic inflammatory stress and systemic fatigue."
       }
     ],
     keyData: [],
@@ -451,9 +450,7 @@ export default function SciencePage() {
               className="flex flex-col justify-center"
             >
               <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
-                Understanding the science is step one.<br className="hidden md:inline" />
-                Quantifying your personal exposure<br className="hidden md:inline" />
-                requires clinical-grade diagnostics.
+                Understanding the science is step one. See what your lifestyle may reveal with our free toxin assessment.
               </p>
 
               <Link
