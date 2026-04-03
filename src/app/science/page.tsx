@@ -367,7 +367,7 @@ export default function SciencePage() {
             loop
             muted
             playsInline
-            className="w-full max-w-5xl h-auto"
+            className="w-full max-w-7xl h-auto"
           >
             <source src="/assets/toxic-load-animation.mp4" type="video/mp4" />
           </video>
