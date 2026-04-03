@@ -342,7 +342,7 @@ export default function SciencePage() {
     <div className="min-h-screen bg-primary text-primary">
       {/* Headline Banner */}
       <section className="bg-proxima-cream pt-20 md:pt-24">
-        <div className="section-narrow pt-10 md:pt-16 pb-4 md:pb-6">
+        <div className="section-narrow pt-10 md:pt-16 pb-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -357,15 +357,15 @@ export default function SciencePage() {
       </section>
 
       {/* Hero Video */}
-      <section className="relative flex flex-col bg-proxima-cream">
+      <section className="relative flex flex-col bg-proxima-cream overflow-hidden">
         {/* Video with flanking scroll prompts on desktop, below on mobile */}
-        <div className="flex-grow flex flex-col lg:flex-row items-center justify-center px-0 md:px-4 gap-4 lg:gap-8 py-4 md:py-8">
+        <div className="flex-grow flex flex-col lg:flex-row items-center justify-center px-0 md:px-4 gap-4 lg:gap-8 py-2 md:py-4">
           {/* Left scroll prompt - hidden on mobile, shown on desktop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="hidden lg:flex flex-col items-center gap-2"
+            className="hidden lg:flex flex-col items-center gap-2 shrink-0"
           >
             <span className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 [writing-mode:vertical-lr] rotate-180">Scroll to explore</span>
             <motion.div
@@ -381,7 +381,7 @@ export default function SciencePage() {
             loop
             muted
             playsInline
-            className="w-full max-w-[100rem] h-auto"
+            className="w-[115%] md:w-full max-w-[100rem] h-auto min-w-0"
           >
             <source src="/assets/toxic-load-animation.mp4" type="video/mp4" />
           </video>
@@ -391,7 +391,7 @@ export default function SciencePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="hidden lg:flex flex-col items-center gap-2"
+            className="hidden lg:flex flex-col items-center gap-2 shrink-0"
           >
             <span className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 [writing-mode:vertical-lr]">Scroll to explore</span>
             <motion.div
