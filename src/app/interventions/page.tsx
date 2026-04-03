@@ -79,13 +79,13 @@ export default function InterventionsPage() {
               {/* Top-right marker */}
               <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
               <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream px-3 py-2 md:px-4 md:py-3">
+                <span className="inline-block bg-proxima-cream px-3 py-1.5 md:px-4 md:py-2">
                   <Image
                     src="/assets/Inuspheresis-Logo-black.png"
                     alt="INUSpheresis®"
-                    width={800}
-                    height={100}
-                    className="h-8 md:h-12 lg:h-16 xl:h-20 w-auto"
+                    width={1433}
+                    height={98}
+                    className="h-[30px] md:h-[48px] lg:h-[60px] xl:h-[72px] w-auto"
                   />
                 </span>
               </div>
