@@ -93,7 +93,7 @@ export default function PractitionersPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-proxima-cream text-base font-nb-international font-normal leading-relaxed">
-              We provide advanced diagnostics and evidence-based clinical protocols. You bring medical oversight and patient care. Together, we help patients better understand and treat environmental toxin exposure.
+              We provide advanced diagnostics and evidence-based interventions. You bring medical oversight and patient care. Together, we help patients better understand and treat environmental toxin exposure.
             </p>
           </motion.div>
         </div>

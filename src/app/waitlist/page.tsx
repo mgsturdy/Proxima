@@ -190,6 +190,22 @@ function getHighestCategory(selectedAnswers: (number | null)[]): string {
   return highest;
 }
 
+function getTopContributors(selectedAnswers: (number | null)[]): string[] {
+  const contributions: { label: string; points: number }[] = [];
+
+  QUIZ_QUESTIONS.forEach((q, i) => {
+    const answerIndex = selectedAnswers[i];
+    if (answerIndex === null || answerIndex === undefined) return;
+    const answer = q.answers[answerIndex];
+    if (answer.points > 0) {
+      contributions.push({ label: answer.text, points: answer.points });
+    }
+  });
+
+  contributions.sort((a, b) => b.points - a.points);
+  return contributions.slice(0, 2).map((c) => c.label);
+}
+
 function getTier(score: number): "low" | "moderate" | "high" {
   if (score <= 25) return "low";
   if (score <= 60) return "moderate";
@@ -242,6 +258,9 @@ export default function QuizPage() {
   const highestCategory = getHighestCategory(answers);
   const tier = getTier(totalScore);
   const result = RESULTS[tier];
+  const topContributors = getTopContributors(answers);
+  const tierLabel = tier === "low" ? "Low" : tier === "moderate" ? "Moderate" : "High";
+  const normalizedScore = Math.round((totalScore / 150) * 100);
 
   const handleAnswer = useCallback(
     (answerIndex: number) => {
@@ -572,37 +591,55 @@ export default function QuizPage() {
                 Assessment Complete
               </p>
 
-              {/* Score display — animated count-up */}
-              <div className="mb-8">
+              {/* Score display */}
+              <div className="mb-2">
                 <motion.span
                   className="font-robit text-6xl md:text-8xl text-primary leading-none inline-block"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <CountUp target={totalScore} duration={1.2} />
+                  <CountUp target={normalizedScore} duration={1.2} />
                 </motion.span>
                 <motion.span
-                  className="font-mono text-lg text-tertiary ml-1"
+                  className="font-robit text-3xl md:text-5xl text-tertiary ml-1 inline-block"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1, duration: 0.4 }}
                 >
-                  pts
+                  / 100
                 </motion.span>
               </div>
 
-              {/* Score bar */}
-              <div className="w-full h-2 bg-border-primary rounded-full overflow-hidden mb-8">
-                <motion.div
-                  className="h-full proxima-gradient"
-                  initial={{ width: 0 }}
-                  animate={{
-                    width: `${Math.min((totalScore / 150) * 100, 100)}%`,
-                  }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                />
+              {/* Tier label */}
+              <motion.p
+                className="font-mono text-sm uppercase tracking-wider text-proxima-red mb-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.4 }}
+              >
+                {tierLabel} Exposure Risk
+              </motion.p>
+
+              {/* Score bar with range labels */}
+              <div className="mb-2">
+                <div className="w-full h-3 bg-border-primary rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full proxima-gradient"
+                    initial={{ width: 0 }}
+                    animate={{
+                      width: `${Math.min(normalizedScore, 100)}%`,
+                    }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                  />
+                </div>
               </div>
+              <div className="flex justify-between mb-2">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-tertiary">Low</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-tertiary">Moderate</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-tertiary">High</span>
+              </div>
+              <p className="font-mono text-xs text-tertiary mb-8">Lower scores indicate lower exposure risk.</p>
 
               {/* Result headline */}
               <div className="mb-6">
@@ -622,8 +659,27 @@ export default function QuizPage() {
               </div>
 
               {/* Result body */}
-              <p className="text-secondary font-sans text-sm md:text-base leading-relaxed mb-8 max-w-xl">
+              <p className="text-secondary font-sans text-sm md:text-base leading-relaxed mb-6 max-w-xl">
                 {result.body(highestCategory)}
+              </p>
+
+              {/* Top contributing factors */}
+              {topContributors.length > 0 && (
+                <div className="mb-8">
+                  <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-3">Top contributing factors</p>
+                  <div className="flex flex-wrap gap-2">
+                    {topContributors.map((factor, i) => (
+                      <span key={i} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-3 py-1.5">
+                        {factor}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Test kit explainer */}
+              <p className="text-secondary font-sans text-sm leading-relaxed mb-6 max-w-xl">
+                For a more detailed assessment, get our at-home test kit that measures your actual toxin levels. It ships to your door and results are reviewed by clinicians.
               </p>
 
               {/* CTA */}
@@ -632,7 +688,7 @@ export default function QuizPage() {
                   href="/diagnostics"
                   className="btn-gradient inline-flex items-center gap-2 justify-center"
                 >
-                  {result.ctaText} <ArrowRight size={18} />
+                  Get Early Access to At-Home Test Kits <ArrowRight size={18} />
                 </Link>
                 <button
                   type="button"

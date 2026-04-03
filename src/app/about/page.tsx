@@ -14,7 +14,7 @@ const team = [
   {
     name: "Mike Petegorsky",
     title: "Co-Founder & COO",
-    bio: "Michael's path to Proxima started when his wife was pregnant and he began researching non-obvious threats to his daughter's health. His research pointed toward environmental toxins, leading him to a harder question: if we can't fully prevent exposure, can we remove these toxins from our bodies? That inquiry led him to bringing clinically proven blood purification technology to the forefront of chronic disease prevention and treatment. Before Proxima, Mike led legal, communications, research and strategy at the leading provider of psychedelic medicine. He previously practiced as an intellectual property litigator at a top law firm.",
+    bio: "Mike's path to Proxima started when his wife was pregnant and he began researching non-obvious threats to his daughter's health. His research pointed toward environmental toxins, leading him to a harder question: if we can't fully prevent exposure, can we remove these toxins from our bodies? That inquiry led him to bringing clinically-proven blood purification technology to the forefront of chronic disease prevention and treatment. Before Proxima, Mike led legal, communications, research and strategy at the leading provider of psychedelic medicine. He previously practiced as an intellectual property litigator at a top law firm.",
     image: "/assets/mike.jpeg"
   }
 ];
@@ -77,7 +77,7 @@ export default function AboutPage() {
         <div className="section-narrow">
           <div className="mb-12 text-2xl md:text-3xl lg:text-4xl font-display font-bold border-l-4 border-proxima-red pl-6 md:pl-8">
             <span className="bg-proxima-black text-proxima-cream px-3 py-1 box-decoration-clone leading-relaxed">
-              Our mission is to optimize health through the early detection and removal of environmental toxins.
+              Our mission is to enable people to live unburdened by environmental toxins.
             </span>
           </div>
           <div className="text-secondary space-y-6 font-sans text-base md:text-lg leading-relaxed">
