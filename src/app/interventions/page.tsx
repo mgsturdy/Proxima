@@ -85,7 +85,7 @@ export default function InterventionsPage() {
                     alt="INUSpheresis®"
                     width={1433}
                     height={98}
-                    className="h-[30px] md:h-[48px] lg:h-[60px] xl:h-[72px] w-auto"
+                    className="w-[200px] md:w-[320px] lg:w-[400px] xl:w-[480px] h-auto"
                   />
                 </span>
               </div>
