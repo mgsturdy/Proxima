@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 
 interface Chapter {
   id: string;
@@ -342,69 +342,68 @@ const chapters: Chapter[] = [
 export default function SciencePage() {
   return (
     <div className="min-h-screen bg-primary text-primary">
-      {/* Full Screen Hero */}
-      <section className="relative min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
-        {/* Background Video */}
-        <div className="absolute inset-0">
+      {/* Full Screen Hero Video */}
+      <section className="relative min-h-screen flex flex-col pt-20 md:pt-24 bg-proxima-cream">
+        {/* Video with flanking scroll prompts on desktop, below on mobile */}
+        <div className="flex-grow flex flex-col lg:flex-row items-center justify-center px-4 gap-6 lg:gap-8">
+          {/* Left scroll prompt - hidden on mobile, shown on desktop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="hidden lg:flex flex-col items-center gap-2"
+          >
+            <span className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 [writing-mode:vertical-lr] rotate-180">Scroll to explore</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            >
+              <ChevronDown size={16} className="text-proxima-black/40" />
+            </motion.div>
+          </motion.div>
+
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover object-center"
+            className="w-full max-w-5xl h-auto"
           >
             <source src="/assets/toxic-load-animation.mp4" type="video/mp4" />
           </video>
-        </div>
-        
-        {/* White vertical line for hero section - starts 15px above horizontal line to form + intersection */}
-        <div className="absolute top-[61px] right-10 w-px h-[calc(100%-61px)] bg-proxima-cream/60 hidden lg:block" />
 
-        {/* Main Content */}
-        <div className="relative z-10 w-full section-container">
-          {/* Left Column - Main Headline with corner + markers */}
+          {/* Right scroll prompt - hidden on mobile, shown on desktop */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative pl-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="hidden lg:flex flex-col items-center gap-2"
           >
-            {/* Top-left corner marker */}
-            <div className="absolute -top-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
-            
-            {/* Headline block - each line has its own fitted background */}
-            <div className="relative inline-block">
-              {/* Top-right marker */}
-              <div className="absolute -top-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
-              <div className="flex flex-col items-start">
-                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-xl md:text-3xl lg:text-4xl xl:text-5xl font-normal font-nb-international leading-tight">
-                  The science behind
-                </span>
-                <span className="inline-block bg-proxima-cream text-proxima-black px-3 py-1.5 md:px-4 md:py-2 text-xl md:text-3xl lg:text-4xl xl:text-5xl font-normal font-nb-international leading-tight">
-                  environmental toxins
-                </span>
-              </div>
-              {/* Bottom-right marker */}
-              <div className="absolute -bottom-10 -right-8 text-proxima-cream text-2xl font-mono">+</div>
-            </div>
-            
-            {/* Bottom-left corner marker */}
-            <div className="absolute -bottom-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
+            <span className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 [writing-mode:vertical-lr]">Scroll to explore</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            >
+              <ChevronDown size={16} className="text-proxima-black/40" />
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Right Column - Body text - positioned 40px left of vertical line */}
-        <div className="hidden lg:block absolute bottom-16 right-20 z-10 text-left max-w-xs">
+        {/* Mobile scroll prompt - shown below video on small screens */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="flex lg:hidden flex-col items-center pb-8"
+        >
+          <span className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-2">Scroll to explore</span>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
           >
-            <p className="text-proxima-cream text-base font-nb-international font-normal leading-relaxed">
-              When environmental toxins accumulate in your body they disrupt immune function, leading to inflammation and chronic disease.
-            </p>
+            <ChevronDown size={20} className="text-proxima-black/40" />
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Tabbed Wiki Section */}
