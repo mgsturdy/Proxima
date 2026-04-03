@@ -31,40 +31,39 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
   return (
     <section className="bg-proxima-cream pt-16 md:pt-24 pb-16">
       <div className="section-container">
-        {/* Duotang-style Tabs */}
-        <div className="flex overflow-x-auto scrollbar-hide md:flex-wrap md:overflow-visible">
+        {/* Duotang-style Tabs - grid on mobile, inline on desktop */}
+        <div className="grid grid-cols-3 md:flex md:flex-wrap">
           {chapters.map((ch, idx) => (
             <button
               key={ch.id}
               onClick={() => setActiveTab(idx)}
-              className={`flex items-center gap-2 px-3 md:px-4 py-2 font-mono text-xs uppercase tracking-tight border transition-colors shrink-0 ${
+              className={`flex items-center justify-between gap-1 px-2.5 py-2 md:px-4 md:py-2 font-mono text-[10px] md:text-xs uppercase tracking-tight border transition-colors ${
                 activeTab === idx
                   ? "bg-proxima-black text-proxima-cream border-proxima-black"
                   : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
               }`}
             >
-              <span className="md:hidden">{ch.title}</span>
-              <span className="hidden md:inline">{ch.title}</span>
-              <span className="text-xs">+</span>
+              <span className="truncate">{ch.title}</span>
+              <span className="text-[10px] md:text-xs shrink-0">+</span>
             </button>
           ))}
         </div>
 
         {/* Content Area */}
-        <div className="border border-proxima-black p-4 md:p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: tabColors[activeTab] }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 lg:gap-12">
+        <div className="border border-proxima-black p-5 py-8 md:p-8 lg:p-12 transition-colors duration-500" style={{ backgroundColor: tabColors[activeTab] }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
             {/* Left Column */}
             <div className="lg:col-span-4">
               {/* Chapter Title - stacked black pills */}
-              <div className="flex flex-col items-start -space-y-px mb-6">
+              <div className="flex flex-col items-start -space-y-px mb-4 md:mb-6">
                 {chapter.title.split(" ").length > 1 ? (
                   chapter.title.split(" ").map((word, i) => (
-                    <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-0.5 pb-1.5 md:py-1 md:pb-2 text-lg md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                    <span key={i} className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-0.5 pb-1.5 md:py-1 md:pb-2 text-xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
                       {word}
                     </span>
                   ))
                 ) : (
-                  <span className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-0.5 pb-1.5 md:py-1 md:pb-2 text-lg md:text-3xl lg:text-[42px] font-nb-international leading-none">
+                  <span className="inline-block bg-proxima-black text-proxima-cream px-2 md:px-3 py-0.5 pb-1.5 md:py-1 md:pb-2 text-xl md:text-3xl lg:text-[42px] font-nb-international leading-none">
                     {chapter.title}
                   </span>
                 )}
@@ -79,19 +78,19 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
             </div>
 
             {/* Right Column */}
-            <div className="lg:col-span-8 lg:border-l lg:border-proxima-black lg:pl-8">
+            <div className="lg:col-span-8 border-t border-proxima-black/20 pt-6 lg:border-t-0 lg:pt-0 lg:border-l lg:border-proxima-black lg:pl-8">
               {/* Intro */}
-              <div className="mb-8">
+              <div className="mb-6 md:mb-8">
                 {chapter.bodyText ? (
-                  <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
+                  <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line max-w-prose">
                     {chapter.bodyText}
                   </p>
                 ) : chapter.abstract ? (
                   <>
-                    <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-4">
+                    <p className="font-mono text-[11px] md:text-xs uppercase tracking-tight text-proxima-black mb-3 md:mb-4">
                       Abstract
                     </p>
-                    <p className="font-nb-international text-base md:text-lg leading-relaxed text-proxima-black">
+                    <p className="font-nb-international text-base md:text-lg leading-relaxed text-proxima-black max-w-prose">
                       {chapter.abstract}
                     </p>
                   </>
@@ -100,13 +99,13 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
 
               {/* Subcategory Title */}
               {chapter.subcategoryTitle && (
-                <p className="font-nb-international text-base md:text-lg font-bold text-proxima-black mb-6">
+                <p className="font-nb-international text-base md:text-lg font-bold text-proxima-black mb-5 md:mb-6">
                   {chapter.subcategoryTitle}
                 </p>
               )}
 
               {/* Sections */}
-              <div className="space-y-6 mb-8">
+              <div className="space-y-5 md:space-y-6 mb-6 md:mb-8">
                 {chapter.sections.map((section, i) =>
                   section.heading.startsWith("__subcategory__") ? (
                     <p key={i} className="font-nb-international text-base md:text-lg font-bold text-proxima-black">
@@ -114,10 +113,10 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
                     </p>
                   ) : (
                     <div key={i}>
-                      <p className="font-mono text-xs uppercase tracking-tight text-proxima-black mb-2">
+                      <p className="font-mono text-[11px] md:text-xs uppercase tracking-tight text-proxima-black mb-1.5 md:mb-2">
                         + {section.heading}
                       </p>
-                      <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line">
+                      <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line max-w-prose">
                         {section.content}
                       </p>
                     </div>
@@ -341,10 +340,24 @@ const chapters: Chapter[] = [
 export default function SciencePage() {
   return (
     <div className="min-h-screen bg-primary text-primary">
-      {/* Full Screen Hero Video */}
-      <section className="relative min-h-screen flex flex-col pt-20 md:pt-24 bg-proxima-cream">
+      {/* Headline Banner */}
+      <section className="bg-proxima-black pt-20 md:pt-24">
+        <div className="section-container py-10 md:py-16 lg:py-20">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-proxima-cream text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-nb-international leading-tight max-w-5xl"
+          >
+            When environmental toxins accumulate in your body they cause inflammation which leads to chronic disease.
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* Hero Video */}
+      <section className="relative flex flex-col bg-proxima-cream">
         {/* Video with flanking scroll prompts on desktop, below on mobile */}
-        <div className="flex-grow flex flex-col lg:flex-row items-center justify-center px-4 gap-6 lg:gap-8">
+        <div className="flex-grow flex flex-col lg:flex-row items-center justify-center px-0 md:px-4 gap-4 lg:gap-8 py-4 md:py-8">
           {/* Left scroll prompt - hidden on mobile, shown on desktop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -366,7 +379,7 @@ export default function SciencePage() {
             loop
             muted
             playsInline
-            className="w-full max-w-7xl h-auto"
+            className="w-full max-w-[100rem] h-auto"
           >
             <source src="/assets/toxic-load-animation.mp4" type="video/mp4" />
           </video>
@@ -393,7 +406,7 @@ export default function SciencePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="flex lg:hidden flex-col items-center pb-8"
+          className="flex lg:hidden flex-col items-center pb-6"
         >
           <span className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-2">Scroll to explore</span>
           <motion.div
@@ -409,39 +422,38 @@ export default function SciencePage() {
       <ScienceWikiSection chapters={chapters} />
 
       {/* From Theory to Measurement */}
-      <section className="relative py-16 md:py-24 bg-proxima-cream">
+      <section className="relative py-12 md:py-24 bg-proxima-cream">
 
         <div className="section-container">
           {/* Top row of + signs */}
-          <div className="grid grid-cols-3 mb-8">
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
+          <div className="flex gap-6 mb-6 md:grid md:grid-cols-3 md:mb-8">
+            <span className="text-proxima-black text-xl md:text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-xl md:text-2xl font-mono">+</span>
           </div>
 
           {/* Main content */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Headline - centered in first column */}
+          <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-8">
+            {/* Headline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center justify-center"
+              className="flex items-center md:justify-center"
             >
               <div className="flex flex-col items-start -space-y-0.5">
-                <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
                   From Theory
                 </span>
-                <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none">
+                <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
                   to Measurement
                 </span>
               </div>
             </motion.div>
 
-            {/* Empty second column */}
+            {/* Empty second column - desktop only */}
             <div className="hidden md:block" />
 
-            {/* Supporting copy - third column */}
+            {/* Supporting copy */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -449,7 +461,7 @@ export default function SciencePage() {
               transition={{ delay: 0.1 }}
               className="flex flex-col justify-center"
             >
-              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-6">
+              <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed mb-5 md:mb-6">
                 Understanding the science is step one. See what your lifestyle may reveal with our free toxin assessment.
               </p>
 
@@ -467,10 +479,9 @@ export default function SciencePage() {
           </div>
 
           {/* Bottom row of + signs */}
-          <div className="grid grid-cols-3 mt-8">
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
+          <div className="flex gap-6 mt-6 md:grid md:grid-cols-3 md:mt-8">
+            <span className="text-proxima-black text-xl md:text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-xl md:text-2xl font-mono">+</span>
           </div>
         </div>
       </section>
