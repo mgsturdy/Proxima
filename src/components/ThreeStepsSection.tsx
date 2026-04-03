@@ -16,7 +16,7 @@ const steps = [
     num: "02",
     title: "Optimize",
     subtitle: "Lifestyle",
-    desc: "Evidence based protocols and lifestyle changes to reduce ongoing exposure.",
+    desc: "Evidence-based protocols and lifestyle changes to reduce ongoing exposure.",
     link: ""
   },
   {

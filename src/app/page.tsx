@@ -105,7 +105,7 @@ export default function Home() {
             {[
               { 
                 stat: "97%", 
-                desc: "OF AMERICANS HAVE DETECTABLE PFAS (FOREVER CHEMICALS) IN THEIR BLOODSTREAM",
+                desc: "OF AMERICANS HAVE DETECTABLE PFAS (FOREVER CHEMICALS) IN THEIR BLOOD",
                 source: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12082571/"
               },
               { 
@@ -114,13 +114,13 @@ export default function Home() {
                 source: "https://www.ewg.org/news-insights/news/industrial-pollution-doesnt-have-begin-womb"
               },
               { 
-                stat: "80%", 
-                desc: "OF AMERICANS HAVE DETECTABLE MICROPLASTICS IN THEIR BLOODSTREAM",
+                stat: "77%",
+                desc: "OF PEOPLE HAVE DETECTABLE MICROPLASTICS IN THEIR BLOOD",
                 source: "https://pubmed.ncbi.nlm.nih.gov/35367073/"
               },
               { 
                 stat: "81%", 
-                desc: "OF AMERICANS WITH DETECTABLE LEVELS OF GLYPHOSATE IN THEIR URINE",
+                desc: "OF AMERICANS HAVE DETECTABLE GLYPHOSATE IN THEIR URINE",
                 source: "https://www.cdc.gov/biomonitoring/featured-work/diet-is-a-factor-in-contact-with-glyphosate.html"
               },
             ].map((item, i) => (
@@ -218,6 +218,9 @@ export default function Home() {
                 </p>
                 <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
                   We believe you deserve a clean slate. Proxima Health provides diagnostics to identify environmental toxins in your blood and the proven technology to remove them.
+                </p>
+                <p className="text-proxima-black/80 font-nb-international text-sm md:text-base leading-relaxed">
+                  Take our free 2-minute toxin assessment to get a first look at your potential toxin exposure.
                 </p>
               </div>
 

@@ -5,13 +5,13 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative" style={{ background: 'linear-gradient(to bottom, #FAF9F6 0%, #FAF9F6 5%, #F5A623 30%, #E53935 60%, #C62828 100%)' }}>
+    <footer className="relative" style={{ background: 'linear-gradient(to bottom, #FFFBEE 0%, #FFFBEE 5%, #F5A623 30%, #E53935 60%, #C62828 100%)' }}>
       <div className="section-container py-12 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
           {/* Brand */}
           <div className="lg:col-span-4">
             <p className="text-proxima-black/80 max-w-sm leading-relaxed mb-8 font-nb-international text-sm">
-              Advancing human health through environmental toxin testing and blood purification.
+              Advancing human health through environmental toxin testing and blood filtration.
             </p>
             <div className="flex gap-4">
               <div className="flex flex-col">
@@ -45,8 +45,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50">Legal</p>
-            <div className="space-y-2 mt-4">
+            <div className="space-y-2">
               <p className="text-sm font-sans text-proxima-black/60">Privacy Policy</p>
               <p className="text-sm font-sans text-proxima-black/60">Terms of Service</p>
             </div>
@@ -67,10 +66,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <p className="font-mono text-xs text-proxima-black/60">
-            info@proximahealth.com © Proxima Health, Inc.
-          </p>
-          <p className="font-mono text-xs text-proxima-black/60">
-            © 2026
+            © Proxima Health, Inc. 2026
           </p>
         </div>
       </div>

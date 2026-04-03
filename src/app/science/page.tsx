@@ -344,15 +344,17 @@ export default function SciencePage() {
     <div className="min-h-screen bg-primary text-primary">
       {/* Full Screen Hero */}
       <section className="relative min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
-        {/* Background Image */}
+        {/* Background Video */}
         <div className="absolute inset-0">
-          <Image
-            src="/assets/hero-science-background.png"
-            alt="The Science"
-            fill
-            className="object-cover object-center"
-            priority
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-center"
+          >
+            <source src="/assets/toxic-load-animation.mp4" type="video/mp4" />
+          </video>
         </div>
         
         {/* White vertical line for hero section - starts 15px above horizontal line to form + intersection */}
