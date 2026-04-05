@@ -40,7 +40,7 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
               className={`flex items-center justify-between gap-1 px-2.5 py-2 md:px-4 md:py-2 font-mono text-[10px] md:text-xs uppercase tracking-tight border transition-colors ${
                 activeTab === idx
                   ? "bg-proxima-black text-proxima-cream border-proxima-black"
-                  : "bg-proxima-cream text-proxima-black border-proxima-black border-b-0"
+                  : "bg-proxima-cream text-proxima-black border-proxima-black"
               }`}
             >
               <span className="truncate">{ch.title}</span>
@@ -161,7 +161,7 @@ const chapters: Chapter[] = [
     title: "Forever Chemicals",
     subtitle: "",
     boldIntro: "Long-lasting synthetic chemicals found in packaging, consumer products and household goods.",
-    bodyText: "Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body. As these Persistent Pollutants accumulate in the body, they can cause cancer, inflammation, hormone disruption and metabolic disease.",
+    bodyText: "Some industrial and consumer chemicals are designed to resist heat, water and degradation. That durability makes them useful in manufacturing, but it also means they break down slowly in the environment and in the human body. As these forever chemicals accumulate in the body, they can cause cancer, inflammation, hormone disruption and metabolic disease.",
     subcategoryTitle: "PFAS / Fluorinated Compounds",
     abstract: "",
     sections: [
@@ -286,6 +286,14 @@ const chapters: Chapter[] = [
       {
         heading: "PCB-156",
         content: "Polychlorinated biphenyls (PCBs) were widely used in electrical equipment, hydraulic fluids and industrial coatings before being banned in many countries. It is considered more toxic than many other PCB variants and has been associated with immune suppression, endocrine disruption, liver damage and increased cancer risk with chronic exposure."
+      },
+      {
+        heading: "__subcategory__Flame Retardants",
+        content: ""
+      },
+      {
+        heading: "PBDE-47",
+        content: "PBDEs are flame-retardant chemicals used in furniture, electronics, and textiles. PBDE-47 is one of the most frequently detected forms in human tissue. Studies have found potential links to hormone disruption, neurodevelopmental effects, and thyroid imbalance."
       }
     ],
     keyData: [],
@@ -383,7 +391,7 @@ export default function SciencePage() {
             playsInline
             className="w-[180%] md:w-[130%] lg:w-full max-w-[100rem] h-auto min-w-0"
           >
-            <source src="/assets/toxic-load-animation.mp4" type="video/mp4" />
+            <source src="/assets/grafico-02.mp4" type="video/mp4" />
           </video>
 
           {/* Right scroll prompt - hidden on mobile, shown on desktop */}

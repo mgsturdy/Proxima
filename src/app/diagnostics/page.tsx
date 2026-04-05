@@ -113,7 +113,7 @@ export default function DiagnosticsPage() {
   return (
     <div className="min-h-screen bg-primary text-primary">
       {/* Full Screen Hero */}
-      <section className="relative min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
+      <section className="relative min-h-[70vh] md:min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
