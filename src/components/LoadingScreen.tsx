@@ -6,8 +6,19 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function LoadingScreen() {
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const [shouldShow, setShouldShow] = useState(false);
 
   useEffect(() => {
+    // Only show loading screen on first visit per browser session
+    if (typeof window === "undefined") return;
+    const hasVisited = sessionStorage.getItem("proxima_visited");
+    if (hasVisited) {
+      setIsComplete(true);
+      return;
+    }
+    sessionStorage.setItem("proxima_visited", "1");
+    setShouldShow(true);
+
     const duration = 1500; // 1.5 seconds
     const interval = 15; // Update every 15ms
     const increment = 100 / (duration / interval);
@@ -29,7 +40,7 @@ export default function LoadingScreen() {
 
   return (
     <AnimatePresence>
-      {!isComplete && (
+      {shouldShow && !isComplete && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
