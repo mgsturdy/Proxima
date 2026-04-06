@@ -131,10 +131,10 @@ export default function InterventionsPage() {
       {/* Practitioner Partnerships */}
       <section className="py-24 bg-proxima-cream">
         <div className="section-container">
-          {/* Top row of + signs */}
-          <div className="grid grid-cols-3 mb-8">
+          {/* Top row of + signs - framing crosses (2 on mobile, 3 on desktop) */}
+          <div className="flex justify-between mb-8 md:grid md:grid-cols-3">
             <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-2xl font-mono hidden md:inline-block">+</span>
             <span className="text-proxima-black text-2xl font-mono">+</span>
           </div>
 
@@ -144,7 +144,7 @@ export default function InterventionsPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center justify-center"
+              className="flex items-start md:items-center justify-start md:justify-center"
             >
               <div className="flex flex-col items-start -space-y-0.5">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none">
@@ -190,10 +190,10 @@ export default function InterventionsPage() {
             </motion.div>
           </div>
 
-          {/* Bottom row of + signs */}
-          <div className="grid grid-cols-3 mt-8">
+          {/* Bottom row of + signs - framing crosses (2 on mobile, 3 on desktop) */}
+          <div className="flex justify-between mt-8 md:grid md:grid-cols-3">
             <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span className="text-proxima-black text-2xl font-mono">+</span>
+            <span className="text-proxima-black text-2xl font-mono hidden md:inline-block">+</span>
             <span className="text-proxima-black text-2xl font-mono">+</span>
           </div>
         </div>

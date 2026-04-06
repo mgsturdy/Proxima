@@ -113,7 +113,7 @@ function ScienceWikiSection({ chapters }: { chapters: Chapter[] }) {
                     </p>
                   ) : (
                     <div key={i}>
-                      <p className="font-mono text-[11px] md:text-xs uppercase tracking-tight text-proxima-black mb-1.5 md:mb-2">
+                      <p className={`font-mono text-[11px] md:text-xs tracking-tight text-proxima-black mb-1.5 md:mb-2 ${section.heading === "PFHxS" ? "" : "uppercase"}`}>
                         + {section.heading}
                       </p>
                       <p className="font-nb-international text-sm md:text-base leading-relaxed text-proxima-black whitespace-pre-line max-w-prose">
@@ -435,8 +435,8 @@ export default function SciencePage() {
       <section className="relative py-12 md:py-24 bg-proxima-cream">
 
         <div className="section-container">
-          {/* Top row of + signs */}
-          <div className="flex gap-6 mb-6 md:grid md:grid-cols-3 md:mb-8">
+          {/* Top row of + signs - framing crosses (wider on mobile) */}
+          <div className="flex justify-between mb-6 md:grid md:grid-cols-3 md:mb-8">
             <span className="text-proxima-black text-xl md:text-2xl font-mono">+</span>
             <span className="text-proxima-black text-xl md:text-2xl font-mono">+</span>
           </div>
@@ -488,8 +488,8 @@ export default function SciencePage() {
             </motion.div>
           </div>
 
-          {/* Bottom row of + signs */}
-          <div className="flex gap-6 mt-6 md:grid md:grid-cols-3 md:mt-8">
+          {/* Bottom row of + signs - framing crosses (wider on mobile) */}
+          <div className="flex justify-between mt-6 md:grid md:grid-cols-3 md:mt-8">
             <span className="text-proxima-black text-xl md:text-2xl font-mono">+</span>
             <span className="text-proxima-black text-xl md:text-2xl font-mono">+</span>
           </div>

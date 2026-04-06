@@ -46,8 +46,8 @@ export default function Footer() {
 
           <div className="lg:col-span-3">
             <div className="space-y-2">
-              <p className="text-sm font-sans text-proxima-black/60">Privacy Policy</p>
-              <p className="text-sm font-sans text-proxima-black/60">Terms of Service</p>
+              <Link href="/privacy" className="block text-sm font-sans text-proxima-black/60 hover:text-proxima-black transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="block text-sm font-sans text-proxima-black/60 hover:text-proxima-black transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>

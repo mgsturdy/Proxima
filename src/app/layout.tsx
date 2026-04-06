@@ -7,7 +7,23 @@ import LoadingScreen from "@/components/LoadingScreen";
 
 export const metadata: Metadata = {
   title: "Proxima — Environmental Toxin Diagnostics",
-  description: "Advanced diagnostics and therapeutic blood filtration for environmental toxin exposure. A science-first approach to modern health optimization.",
+  description: "Better blood. Better life.",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.svg",
+  },
+  openGraph: {
+    title: "Proxima Health",
+    description: "Better blood. Better life.",
+    url: "https://proxima.health",
+    siteName: "Proxima Health",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Proxima Health",
+    description: "Better blood. Better life.",
+  },
 };
 
 export default function RootLayout({

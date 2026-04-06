@@ -190,20 +190,22 @@ function getHighestCategory(selectedAnswers: (number | null)[]): string {
   return highest;
 }
 
-function getTopContributors(selectedAnswers: (number | null)[]): string[] {
-  const contributions: { label: string; points: number }[] = [];
+function getTopContributors(
+  selectedAnswers: (number | null)[]
+): { question: string; answer: string; points: number }[] {
+  const contributions: { question: string; answer: string; points: number }[] = [];
 
   QUIZ_QUESTIONS.forEach((q, i) => {
     const answerIndex = selectedAnswers[i];
     if (answerIndex === null || answerIndex === undefined) return;
     const answer = q.answers[answerIndex];
     if (answer.points > 0) {
-      contributions.push({ label: answer.text, points: answer.points });
+      contributions.push({ question: q.question, answer: answer.text, points: answer.points });
     }
   });
 
   contributions.sort((a, b) => b.points - a.points);
-  return contributions.slice(0, 2).map((c) => c.label);
+  return contributions.slice(0, 2);
 }
 
 function getTier(score: number): "low" | "moderate" | "high" {
@@ -329,6 +331,12 @@ export default function QuizPage() {
     },
     [email, totalScore, tier, highestCategory, answers]
   );
+
+  const handleSkipEmail = useCallback(() => {
+    setEmailError("");
+    setStep("calculating");
+    setTimeout(() => setStep("results"), 2000);
+  }, []);
 
   const handleRetake = useCallback(() => {
     setStep("intro");
@@ -504,16 +512,15 @@ export default function QuizPage() {
                 <div className="mb-6">
                   <div className="flex flex-col items-center -space-y-0.5">
                     <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                      Where should we send
+                      Can we contact you
                     </span>
                     <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-0.5 text-xl md:text-2xl lg:text-3xl font-nb-international leading-none">
-                      your Toxin Analysis?
+                      about your results?
                     </span>
                   </div>
                 </div>
                 <p className="text-secondary font-sans text-sm mb-8">
-                  Enter your email to calculate and receive your personalized
-                  results.
+                  Leave your email and we&apos;ll follow up with personalized insights.
                 </p>
 
                 <form onSubmit={handleEmailSubmit} className="space-y-4">
@@ -545,6 +552,14 @@ export default function QuizPage() {
                     Calculate My Results <ArrowRight size={18} />
                   </button>
                 </form>
+
+                <button
+                  type="button"
+                  onClick={handleSkipEmail}
+                  className="mt-4 font-sans text-xs text-proxima-black/40 hover:text-proxima-black/70 transition-colors underline underline-offset-4"
+                >
+                  No thanks, just show my results
+                </button>
               </div>
             </motion.div>
           )}
@@ -667,11 +682,12 @@ export default function QuizPage() {
               {topContributors.length > 0 && (
                 <div className="mb-8">
                   <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-3">Top contributing factors</p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-col gap-2">
                     {topContributors.map((factor, i) => (
-                      <span key={i} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-3 py-1.5">
-                        {factor}
-                      </span>
+                      <div key={i} className="bg-proxima-black/5 px-3 py-2">
+                        <p className="font-sans text-xs text-proxima-black/60 mb-0.5">{factor.question}</p>
+                        <p className="font-mono text-xs text-proxima-black/80">{factor.answer}</p>
+                      </div>
                     ))}
                   </div>
                 </div>

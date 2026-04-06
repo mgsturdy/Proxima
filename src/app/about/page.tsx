@@ -85,7 +85,7 @@ export default function AboutPage() {
               Environmental toxins are in all of us. PFAS, microplastics, heavy metals and hundreds of other synthetic compounds have been found in our bloodstreams. Yet medicine rarely measures them and almost never addresses them.
             </p>
             <p>
-              That&apos;s the gap we exist to close.
+              That&apos;s the gap we <strong className="font-bold text-proxima-black">aim to close</strong>.
             </p>
             <p>
               We provide the diagnostic precision to see what&apos;s actually in your blood and proven interventions to remove what doesn&apos;t belong. Whether you&apos;re looking to get ahead of future risk or already dealing with the effects of long-term exposure, it&apos;s never too late to give your body the reset it has been fighting for.
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="flex flex-col md:flex-row gap-8"
               >
-                <div className="w-32 md:w-48 aspect-square relative shrink-0 bg-tertiary/10 mx-auto md:mx-0">
+                <div className="w-32 md:w-48 aspect-square relative shrink-0 bg-tertiary/10">
                   <Image 
                     src={member.image}
                     alt={member.name}

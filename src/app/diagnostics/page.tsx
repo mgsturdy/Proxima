@@ -64,7 +64,7 @@ function DiagnosticsSignupModal({ isOpen, onClose }: { isOpen: boolean; onClose:
               </div>
             ) : (
               <>
-                <h3 className="font-nb-international text-xl md:text-2xl text-proxima-black mb-2">Get notified at launch</h3>
+                <h3 className="font-nb-international text-xl md:text-2xl text-proxima-black mb-2">Customers: get notified at launch</h3>
                 <p className="font-nb-international text-sm text-proxima-black/70 mb-6">Be the first to know when Proxima Health Baseline is available.</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -215,7 +215,7 @@ export default function DiagnosticsPage() {
               <div className="mb-8">
                 <p className="font-mono text-xs uppercase tracking-wider text-tertiary mb-3">What we test for:</p>
                 <div className="flex flex-wrap gap-2">
-                  {["Heavy Metals", "Microplastics", "Forever Chemicals", "Pesticides", "Endocrine Disruptors", "Mold", "Industrial Pollutants", "Industrial Solvents", "Persistent Pathogens"].map((item, i) => (
+                  {["Heavy Metals", "Forever Chemicals", "Microplastics", "Endocrine Disruptors", "Pesticides", "Industrial Solvents", "Industrial Pollutants", "Mold", "Persistent Pathogens"].map((item, i) => (
                     <span key={i} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">
                       {item}
                     </span>
@@ -237,7 +237,7 @@ export default function DiagnosticsPage() {
                   onClick={() => setShowSignup(true)}
                   className="inline-flex items-center justify-center gap-2 border border-proxima-black text-proxima-black px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-proxima-black hover:text-proxima-cream transition-colors"
                 >
-                  Get notified at launch
+                  Customers: get notified at launch
                 </button>
               </div>
             </motion.div>
@@ -255,7 +255,7 @@ export default function DiagnosticsPage() {
           </div>
 
           <div className="relative">
-            <div className="grid grid-cols-3 mb-6">
+            <div className="hidden md:grid grid-cols-3 mb-6">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
@@ -288,7 +288,7 @@ export default function DiagnosticsPage() {
               </motion.div>
             </div>
 
-            <div className="grid grid-cols-3 mb-6">
+            <div className="hidden md:grid grid-cols-3 mb-6">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
@@ -321,7 +321,7 @@ export default function DiagnosticsPage() {
               </motion.div>
             </div>
 
-            <div className="grid grid-cols-3 mb-6">
+            <div className="hidden md:grid grid-cols-3 mb-6">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
@@ -329,6 +329,14 @@ export default function DiagnosticsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="py-4">
+                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Industrial Pollutants</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["PCB-156", "PBDE-47 (Flame Retardant)"].map((m, j) => (
+                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }} className="py-4">
                 <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Mold</h4>
                 <div className="flex flex-wrap gap-2">
                   {["Ochratoxin A"].map((m, j) => (
@@ -336,7 +344,7 @@ export default function DiagnosticsPage() {
                   ))}
                 </div>
               </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }} className="py-4">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="py-4">
                 <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Persistent Pathogens</h4>
                 <div className="flex flex-wrap gap-2">
                   {["Borrelia burgdorferi (Lyme disease)", "Covid Spike Protein"].map((m, j) => (
@@ -344,17 +352,9 @@ export default function DiagnosticsPage() {
                   ))}
                 </div>
               </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="py-4">
-                <h4 className="font-nb-international text-lg font-bold text-proxima-black mb-3">Industrial Pollutants</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["PBDE-47 (Flame Retardant)", "PCB-156"].map((m, j) => (
-                    <span key={j} className="font-mono text-xs text-proxima-black/70 bg-proxima-black/5 px-2 py-1">{m}</span>
-                  ))}
-                </div>
-              </motion.div>
             </div>
 
-            <div className="grid grid-cols-3">
+            <div className="hidden md:grid grid-cols-3">
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>
               <span className="text-proxima-black text-xl font-mono">+</span>

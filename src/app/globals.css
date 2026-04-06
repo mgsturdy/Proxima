@@ -166,8 +166,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    /* Match footer bottom color so iOS overscroll bounce doesn't reveal cream */
+    background-color: #C62828;
   }
-  
+
   body {
     background-color: var(--bg-primary);
     color: var(--text-primary);

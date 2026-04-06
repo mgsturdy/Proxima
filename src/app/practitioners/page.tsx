@@ -108,8 +108,7 @@ export default function PractitionersPage() {
                 &quot;Much of what drives chronic disease has lived in the background — unseen, unmeasured, and untreated. Environmental toxins are one of those forces. Proxima was created to bring them into focus, and to give people the chance to act before illness becomes inevitable.&quot;
               </p>
               <p className="font-mono text-xs uppercase tracking-wider text-tertiary">
-                — Carlos Schuster<br className="hidden md:inline" />
-                Co-Founder &amp; CEO
+                — Carlos Schuster, Co-Founder &amp; CEO
               </p>
             </div>
           </div>

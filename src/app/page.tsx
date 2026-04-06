@@ -4,9 +4,17 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import { useEffect } from "react";
 import ThreeStepsSection from "@/components/ThreeStepsSection";
 
 export default function Home() {
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Full Screen Hero */}
@@ -242,21 +250,21 @@ export default function Home() {
       <section className="relative py-16 md:py-24 bg-proxima-cream">
 
         <div className="section-container">
-          {/* Top row of + signs */}
-          <div className="grid grid-cols-3 mb-8">
+          {/* Top row of + signs - framing crosses (wider on mobile) */}
+          <div className="flex justify-between mb-8 md:grid md:grid-cols-3">
             <span className="text-proxima-black text-2xl font-mono">+</span>
             <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
+            <span className="hidden md:block"></span>
           </div>
 
           {/* Main content */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Headline - centered in first column */}
+            {/* Headline - left-aligned on mobile, centered column on desktop */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center justify-center"
+              className="flex items-start md:items-center justify-start md:justify-center"
             >
               <div className="flex flex-col items-start -space-y-0.5">
                 <span className="inline-block bg-proxima-black text-proxima-cream px-2 py-0.5 md:px-3 text-lg md:text-2xl lg:text-3xl font-nb-international leading-none">
@@ -299,11 +307,11 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Bottom row of + signs */}
-          <div className="grid grid-cols-3 mt-8">
+          {/* Bottom row of + signs - framing crosses (wider on mobile) */}
+          <div className="flex justify-between mt-8 md:grid md:grid-cols-3">
             <span className="text-proxima-black text-2xl font-mono">+</span>
             <span className="text-proxima-black text-2xl font-mono">+</span>
-            <span></span>
+            <span className="hidden md:block"></span>
           </div>
         </div>
       </section>
