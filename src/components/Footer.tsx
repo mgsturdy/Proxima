@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 
 export default function Footer() {
+  const handleClick = (link: string) => track("footer_link_clicked", { link });
   return (
     <footer className="relative" style={{ background: 'linear-gradient(to bottom, #FFFBEE 0%, #FFFBEE 5%, #F5A623 30%, #E53935 60%, #C62828 100%)' }}>
       <div className="section-container py-12 md:py-20">
@@ -29,25 +31,25 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-4">Company</p>
             <ul className="space-y-1.5">
-              <li><Link href="/science" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">The Science</Link></li>
-              <li><Link href="/diagnostics" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Diagnostics</Link></li>
-              <li><Link href="/interventions" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Interventions</Link></li>
-              <li><Link href="/about" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">About</Link></li>
+              <li><Link href="/science" onClick={() => handleClick("/science")} className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">The Science</Link></li>
+              <li><Link href="/diagnostics" onClick={() => handleClick("/diagnostics")} className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Diagnostics</Link></li>
+              <li><Link href="/interventions" onClick={() => handleClick("/interventions")} className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Interventions</Link></li>
+              <li><Link href="/about" onClick={() => handleClick("/about")} className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">About</Link></li>
             </ul>
           </div>
 
           <div className="lg:col-span-3">
             <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-4">Resources</p>
             <ul className="space-y-1.5">
-              <li><Link href="/practitioners" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">For Practitioners</Link></li>
-              <li><Link href="/waitlist" className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Toxin Assessment</Link></li>
+              <li><Link href="/practitioners" onClick={() => handleClick("/practitioners")} className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">For Practitioners</Link></li>
+              <li><Link href="/waitlist" onClick={() => handleClick("/waitlist")} className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Toxin Assessment</Link></li>
             </ul>
           </div>
 
           <div className="lg:col-span-3">
             <div className="space-y-2">
-              <Link href="/privacy" className="block text-sm font-sans text-proxima-black/60 hover:text-proxima-black transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="block text-sm font-sans text-proxima-black/60 hover:text-proxima-black transition-colors">Terms of Service</Link>
+              <Link href="/privacy" onClick={() => handleClick("/privacy")} className="block text-sm font-sans text-proxima-black/60 hover:text-proxima-black transition-colors">Privacy Policy</Link>
+              <Link href="/terms" onClick={() => handleClick("/terms")} className="block text-sm font-sans text-proxima-black/60 hover:text-proxima-black transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>

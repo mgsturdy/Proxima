@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { track } from "@vercel/analytics";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -45,7 +46,7 @@ export default function Navbar() {
       )}>
         <div className="section-container py-5 flex items-center justify-between gap-8">
           {/* Logo - White when transparent, black when scrolled */}
-          <Link href="/" className="relative shrink-0">
+          <Link href="/" onClick={() => track("nav_clicked", { link: "logo", source: "navbar" })} className="relative shrink-0">
             <Image 
               src={isTransparent ? "/assets/Main_Logo+Icon_OffWhite.svg" : "/assets/Main_Logo+Icon_Black.svg"}
               alt="Proxima" 
@@ -62,6 +63,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
+                onClick={() => track("nav_clicked", { link: link.href, source: "navbar_desktop" })}
                 className={cn(
                   "group font-mono text-xs uppercase tracking-wider whitespace-nowrap transition-colors relative",
                   isTransparent 
@@ -117,7 +119,10 @@ export default function Navbar() {
                     ? "text-proxima-cream hover:text-white" 
                     : "text-proxima-black/70 hover:text-proxima-black"
                 )}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  track("nav_clicked", { link: link.href, source: "navbar_mobile" });
+                  setMobileMenuOpen(false);
+                }}
               >
                 {link.name}
               </Link>

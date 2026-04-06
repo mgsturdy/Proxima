@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { useEffect } from "react";
+import { track } from "@vercel/analytics";
 import ThreeStepsSection from "@/components/ThreeStepsSection";
 
 export default function Home() {
@@ -81,8 +82,9 @@ export default function Home() {
               We help you understand what&apos;s in your blood, then remove what doesn&apos;t belong.
             </p>
 
-            <Link 
-              href="/waitlist" 
+            <Link
+              href="/waitlist"
+              onClick={() => track("cta_clicked", { location: "home_hero", label: "free_toxin_assessment" })}
               className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors whitespace-nowrap"
             >
               Free Toxin Assessment <Plus size={14} strokeWidth={2.5} />
@@ -143,7 +145,7 @@ export default function Home() {
                 <p className="text-proxima-black/80 text-xs md:text-sm font-mono uppercase tracking-wide leading-relaxed mb-2">
                   {item.desc}
                 </p>
-                <a href={item.source} target="_blank" rel="noopener noreferrer" className="text-proxima-black/40 hover:text-proxima-black/70 text-[10px] font-mono uppercase tracking-wider transition-colors">
+                <a href={item.source} target="_blank" rel="noopener noreferrer" onClick={() => track("stat_source_clicked", { stat: item.stat })} className="text-proxima-black/40 hover:text-proxima-black/70 text-[10px] font-mono uppercase tracking-wider transition-colors">
                   Source
                 </a>
               </div>
@@ -230,7 +232,11 @@ export default function Home() {
 
               {/* CTA Button - bottom aligned with image */}
               <div className="mt-auto pb-6">
-                <Link href="/waitlist" className="bg-proxima-red text-proxima-cream px-6 py-3 font-mono text-xs uppercase tracking-wider inline-block hover:bg-proxima-red/90 transition-colors">
+                <Link
+                  href="/waitlist"
+                  onClick={() => track("cta_clicked", { location: "home_invisible_crisis", label: "free_toxin_assessment" })}
+                  className="bg-proxima-red text-proxima-cream px-6 py-3 font-mono text-xs uppercase tracking-wider inline-block hover:bg-proxima-red/90 transition-colors"
+                >
                   Free Toxin Assessment
                 </Link>
               </div>
@@ -292,6 +298,7 @@ export default function Home() {
 
               <Link
                 href="/waitlist"
+                onClick={() => track("cta_clicked", { location: "home_estimate_exposure", label: "free_toxin_assessment" })}
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >
                 <span className="relative">
