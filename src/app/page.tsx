@@ -132,12 +132,8 @@ export default function Home() {
                 source: "https://www.cdc.gov/biomonitoring/featured-work/diet-is-a-factor-in-contact-with-glyphosate.html"
               },
             ].map((item, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="text-left"
               >
                 <span className="block text-3xl md:text-6xl lg:text-7xl xl:text-8xl text-proxima-black leading-none font-robit mb-3 md:mb-4">
@@ -150,7 +146,7 @@ export default function Home() {
                 <a href={item.source} target="_blank" rel="noopener noreferrer" className="text-proxima-black/40 hover:text-proxima-black/70 text-[10px] font-mono uppercase tracking-wider transition-colors">
                   Source
                 </a>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
