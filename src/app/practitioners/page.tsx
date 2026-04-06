@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { track } from "@vercel/analytics";
 
 const INTEREST_OPTIONS = [
   "Diagnostics Partnership (offer Proxima Health Baseline to patients)",
@@ -37,6 +38,9 @@ export default function PractitionersPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ firstName, lastName, practice, email, specialty, interests, notes }),
       });
+      if (res.ok) {
+        track("practitioner_inquiry_submitted", { interests: interests.join(",") || "none" });
+      }
       setFormState(res.ok ? "success" : "error");
     } catch {
       setFormState("error");

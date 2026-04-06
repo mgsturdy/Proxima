@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { track } from "@vercel/analytics";
 
 function DiagnosticsSignupModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [name, setName] = useState("");
@@ -23,6 +24,7 @@ function DiagnosticsSignupModal({ isOpen, onClose }: { isOpen: boolean; onClose:
       });
 
       if (res.ok) {
+        track("diagnostics_signup_submitted");
         setStatus("success");
       } else {
         setStatus("error");

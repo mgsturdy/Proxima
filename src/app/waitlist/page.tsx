@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, ChevronDown, RotateCcw } from "lucide-react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 
 const DISCLAIMER =
   "This assessment is for educational purposes only based on statistical risk factors. It is not a medical diagnosis. The 'Toxin Load Score' is an evaluation of potential environmental exposure, not a measurement of current blood levels.";
@@ -278,6 +279,7 @@ export default function QuizPage() {
           setDirection(1);
           setCurrentQuestion((prev) => prev + 1);
         } else {
+          track("quiz_completed");
           setStep("email");
         }
         setIsAdvancing(false);
@@ -302,6 +304,7 @@ export default function QuizPage() {
         return;
       }
       setEmailError("");
+      track("quiz_email_submitted", { tier, score: totalScore });
       setStep("calculating");
 
       fetch("/api/quiz-submit", {
@@ -334,9 +337,10 @@ export default function QuizPage() {
 
   const handleSkipEmail = useCallback(() => {
     setEmailError("");
+    track("quiz_email_skipped", { tier, score: totalScore });
     setStep("calculating");
     setTimeout(() => setStep("results"), 2000);
-  }, []);
+  }, [tier, totalScore]);
 
   const handleRetake = useCallback(() => {
     setStep("intro");
@@ -381,7 +385,10 @@ export default function QuizPage() {
 
               <button
                 type="button"
-                onClick={() => setStep("questions")}
+                onClick={() => {
+                  track("quiz_started");
+                  setStep("questions");
+                }}
                 className="btn-gradient inline-flex items-center gap-3 mb-12"
               >
                 Start Assessment <ArrowRight size={18} />
