@@ -274,6 +274,14 @@ export default function QuizPage() {
       setIsAdvancing(true);
       setShowWhyWeAsk(false);
 
+      const answered = QUIZ_QUESTIONS[currentQuestion];
+      track("quiz_question_answered", {
+        question_number: currentQuestion + 1,
+        question_id: answered.id,
+        category: answered.category,
+        points: answered.answers[answerIndex].points,
+      });
+
       setTimeout(() => {
         if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
           setDirection(1);
@@ -290,6 +298,7 @@ export default function QuizPage() {
 
   const handleBack = useCallback(() => {
     if (isAdvancing || currentQuestion <= 0) return;
+    track("quiz_question_back", { from_question: currentQuestion + 1 });
     setDirection(-1);
     setShowWhyWeAsk(false);
     setCurrentQuestion((prev) => prev - 1);
@@ -446,7 +455,15 @@ export default function QuizPage() {
               {/* Why we ask */}
               <button
                 type="button"
-                onClick={() => setShowWhyWeAsk(!showWhyWeAsk)}
+                onClick={() => {
+                  if (!showWhyWeAsk) {
+                    track("quiz_why_we_ask_opened", {
+                      question_number: currentQuestion + 1,
+                      question_id: QUIZ_QUESTIONS[currentQuestion].id,
+                    });
+                  }
+                  setShowWhyWeAsk(!showWhyWeAsk);
+                }}
                 className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-tertiary hover:text-secondary transition-colors mb-8"
                 aria-expanded={showWhyWeAsk}
               >
