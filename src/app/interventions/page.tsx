@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
+import { useScrollDepth } from "@/hooks/useScrollDepth";
 
 const papers = [
   {
@@ -43,6 +45,7 @@ const papers = [
 
 export default function InterventionsPage() {
   const [papersOpen, setPapersOpen] = useState(true);
+  useScrollDepth("interventions");
 
   return (
     <div className="min-h-screen bg-primary text-primary">
@@ -232,6 +235,14 @@ export default function InterventionsPage() {
                           href={paper.url}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() =>
+                            track("research_link_clicked", {
+                              title: paper.title,
+                              journal: paper.journal,
+                              category: group.category,
+                              url: paper.url,
+                            })
+                          }
                           className="group/link flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2"
                         >
                           <span className="font-nb-international text-sm text-proxima-black group-hover/link:text-proxima-red transition-colors">

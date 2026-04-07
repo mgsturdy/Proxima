@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+import { useScrollDepth } from "@/hooks/useScrollDepth";
 
 interface Chapter {
   id: string;
@@ -346,6 +347,7 @@ const chapters: Chapter[] = [
 ];
 
 export default function SciencePage() {
+  useScrollDepth("science");
   return (
     <div className="min-h-screen bg-primary text-primary">
       {/* Headline Banner */}
