@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "benzene-exposure-symptoms", title: "Benzene Exposure Symptoms: Signs You've Been Exposed", date: "Apr 9, 2026", category: "Industrial Chemicals" },
   { slug: "cadmium-toxicity-symptoms", title: "Cadmium Toxicity Symptoms: Signs of Exposure", date: "Apr 7, 2026", category: "Heavy Metals" },
   { slug: "mercury-exposure-symptoms", title: "Mercury Exposure Symptoms: Signs You've Been Poisoned", date: "Apr 4, 2026", category: "Heavy Metals" },
   { slug: "pfas-blood-test", title: "PFAS Blood Test: What It Measures and Who Needs One", date: "Mar 28, 2026", category: "PFAS" },
