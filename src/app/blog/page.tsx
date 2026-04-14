@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "formaldehyde-exposure-at-home", title: "Formaldehyde Exposure at Home: Symptoms and Risks", date: "Apr 14, 2026", category: "Industrial Chemicals" },
   { slug: "benzene-exposure-symptoms", title: "Benzene Exposure Symptoms: Signs You've Been Exposed", date: "Apr 9, 2026", category: "Industrial Chemicals" },
   { slug: "cadmium-toxicity-symptoms", title: "Cadmium Toxicity Symptoms: Signs of Exposure", date: "Apr 7, 2026", category: "Heavy Metals" },
   { slug: "mercury-exposure-symptoms", title: "Mercury Exposure Symptoms: Signs You've Been Poisoned", date: "Apr 4, 2026", category: "Heavy Metals" },
