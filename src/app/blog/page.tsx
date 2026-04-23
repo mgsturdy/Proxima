@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "copper-toxicity-symptoms", title: "Copper Toxicity Symptoms: Signs of Overexposure", date: "Apr 23, 2026", category: "Heavy Metals" },
   { slug: "aluminum-toxicity-symptoms", title: "Aluminum Toxicity Symptoms: Signs of Overexposure", date: "Apr 21, 2026", category: "Heavy Metals" },
   { slug: "trichloroethylene-exposure-symptoms", title: "Trichloroethylene Exposure Symptoms: What TCE Does to Your Body", date: "Apr 16, 2026", category: "Industrial Chemicals" },
   { slug: "formaldehyde-exposure-at-home", title: "Formaldehyde Exposure at Home: Symptoms and Risks", date: "Apr 14, 2026", category: "Industrial Chemicals" },
