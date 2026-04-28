@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "radon-exposure-health-effects", title: "Radon Exposure Health Effects: What to Know", date: "Apr 28, 2026", category: "Industrial Chemicals" },
   { slug: "copper-toxicity-symptoms", title: "Copper Toxicity Symptoms: Signs of Overexposure", date: "Apr 23, 2026", category: "Heavy Metals" },
   { slug: "aluminum-toxicity-symptoms", title: "Aluminum Toxicity Symptoms: Signs of Overexposure", date: "Apr 21, 2026", category: "Heavy Metals" },
   { slug: "trichloroethylene-exposure-symptoms", title: "Trichloroethylene Exposure Symptoms: What TCE Does to Your Body", date: "Apr 16, 2026", category: "Industrial Chemicals" },
