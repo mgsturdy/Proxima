@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "styrene-exposure-symptoms", title: "Styrene Exposure Symptoms: What They Mean", date: "Apr 30, 2026", category: "Industrial Chemicals" },
   { slug: "radon-exposure-health-effects", title: "Radon Exposure Health Effects: What to Know", date: "Apr 28, 2026", category: "Industrial Chemicals" },
   { slug: "copper-toxicity-symptoms", title: "Copper Toxicity Symptoms: Signs of Overexposure", date: "Apr 23, 2026", category: "Heavy Metals" },
   { slug: "aluminum-toxicity-symptoms", title: "Aluminum Toxicity Symptoms: Signs of Overexposure", date: "Apr 21, 2026", category: "Heavy Metals" },
