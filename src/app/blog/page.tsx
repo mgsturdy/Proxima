@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "manganese-toxicity-symptoms", title: "Manganese Toxicity Symptoms: What to Watch For", date: "May 19, 2026", category: "Heavy Metals" },
   { slug: "toluene-exposure-symptoms", title: "Toluene Exposure Symptoms: What to Watch For", date: "May 14, 2026", category: "Industrial Chemicals" },
   { slug: "methylene-chloride-exposure-symptoms", title: "Methylene Chloride Exposure Symptoms: What They Mean", date: "May 12, 2026", category: "Industrial Chemicals" },
   { slug: "manganese-exposure-symptoms", title: "Manganese Exposure Symptoms: What to Watch For", date: "May 7, 2026", category: "Heavy Metals" },
