@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "mycotoxin-testing", title: "Mycotoxin Testing: What the Results Actually Mean", date: "May 26, 2026", category: "Mold" },
   { slug: "pfas-thyroid-function", title: "PFAS and Thyroid Function: What the Research Shows", date: "May 21, 2026", category: "PFAS" },
   { slug: "manganese-toxicity-symptoms", title: "Manganese Toxicity Symptoms: What to Watch For", date: "May 19, 2026", category: "Heavy Metals" },
   { slug: "toluene-exposure-symptoms", title: "Toluene Exposure Symptoms: What to Watch For", date: "May 14, 2026", category: "Industrial Chemicals" },
