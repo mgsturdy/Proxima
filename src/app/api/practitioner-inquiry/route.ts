@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isRateLimited } from "@/lib/rate-limit";
 import { isValidEmail, sanitizeString, sanitizeStringArray } from "@/lib/validation";
+import {
+  AUDIENCE,
+  HS_PROP,
+  HUBSPOT_FORMS,
+  readHutk,
+  submitHubSpotForm,
+} from "@/lib/hubspot";
 
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
@@ -58,6 +65,27 @@ export async function POST(req: NextRequest) {
       console.error("Google Sheet webhook failed:", response.status);
       return NextResponse.json({ error: "Failed to save" }, { status: 502 });
     }
+
+    // Mirror to HubSpot (Form 2 — Practitioner Inquiry). Audience = Practitioner.
+    // We only send fields the form collects; the other practitioner-group
+    // properties are enriched manually by Sarah after intake calls.
+    await submitHubSpotForm(
+      HUBSPOT_FORMS.practitioner,
+      [
+        { name: HS_PROP.email, value: email },
+        { name: HS_PROP.firstName, value: firstName },
+        { name: HS_PROP.lastName, value: lastName },
+        { name: HS_PROP.audience, value: AUDIENCE.practitioner },
+        { name: HS_PROP.specialty, value: specialty },
+        { name: HS_PROP.clinicName, value: practice },
+        { name: HS_PROP.partnershipInterest, value: interests.join("; ") },
+      ],
+      {
+        hutk: readHutk(req.headers.get("cookie")),
+        pageUri: req.headers.get("referer") ?? undefined,
+        pageName: "Practitioner Inquiry",
+      }
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {

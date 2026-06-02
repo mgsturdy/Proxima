@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isRateLimited } from "@/lib/rate-limit";
 import { isValidEmail, sanitizeString } from "@/lib/validation";
+import {
+  AUDIENCE,
+  HS_PROP,
+  HUBSPOT_FORMS,
+  readHutk,
+  submitHubSpotForm,
+} from "@/lib/hubspot";
 
 const VALID_TIERS = ["low", "moderate", "high"];
 const MAX_ANSWERS = 10;
@@ -32,6 +39,9 @@ export async function POST(req: NextRequest) {
   const score = typeof body.score === "number" ? Math.min(Math.max(body.score, 0), 150) : 0;
   const tier = VALID_TIERS.includes(body.tier) ? body.tier : "unknown";
   const topCategory = sanitizeString(body.topCategory, 100);
+  const utmSource = sanitizeString(body.utmSource, 100);
+  const utmMedium = sanitizeString(body.utmMedium, 100);
+  const utmCampaign = sanitizeString(body.utmCampaign, 100);
 
   const answers = Array.isArray(body.answers)
     ? body.answers.slice(0, MAX_ANSWERS).map((a: Record<string, unknown>) => ({
@@ -60,6 +70,25 @@ export async function POST(req: NextRequest) {
       console.error("Google Sheet webhook failed:", response.status);
       return NextResponse.json({ error: "Failed to save" }, { status: 502 });
     }
+
+    // Mirror to HubSpot (Form 1 — Quiz Submission). Audience = Patient.
+    await submitHubSpotForm(
+      HUBSPOT_FORMS.quiz,
+      [
+        { name: HS_PROP.email, value: email },
+        { name: HS_PROP.audience, value: AUDIENCE.patient },
+        { name: HS_PROP.toxinLoadScore, value: String(score) },
+        { name: HS_PROP.quizTier, value: tier },
+        { name: HS_PROP.utmSource, value: utmSource },
+        { name: HS_PROP.utmMedium, value: utmMedium },
+        { name: HS_PROP.utmCampaign, value: utmCampaign },
+      ],
+      {
+        hutk: readHutk(req.headers.get("cookie")),
+        pageUri: req.headers.get("referer") ?? undefined,
+        pageName: "Diagnostic Quiz",
+      }
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {

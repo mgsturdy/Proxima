@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isRateLimited } from "@/lib/rate-limit";
 import { isValidEmail, sanitizeString } from "@/lib/validation";
+import {
+  AUDIENCE,
+  HS_PROP,
+  HUBSPOT_FORMS,
+  readHutk,
+  submitHubSpotForm,
+} from "@/lib/hubspot";
 
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
@@ -31,6 +38,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Name required" }, { status: 400 });
   }
 
+  const utmSource = sanitizeString(body.utmSource, 100);
+  const utmMedium = sanitizeString(body.utmMedium, 100);
+  const utmCampaign = sanitizeString(body.utmCampaign, 100);
+
   try {
     const response = await fetch(sheetUrl, {
       method: "POST",
@@ -47,6 +58,25 @@ export async function POST(req: NextRequest) {
       console.error("Google Sheet webhook failed:", response.status);
       return NextResponse.json({ error: "Failed to save" }, { status: 502 });
     }
+
+    // Mirror to HubSpot (Form 3 — Diagnostics Waitlist). Audience = Patient,
+    // lifecycle stage MQL is set on the form itself.
+    await submitHubSpotForm(
+      HUBSPOT_FORMS.diagnostics,
+      [
+        { name: HS_PROP.email, value: email },
+        { name: HS_PROP.firstName, value: name },
+        { name: HS_PROP.audience, value: AUDIENCE.patient },
+        { name: HS_PROP.utmSource, value: utmSource },
+        { name: HS_PROP.utmMedium, value: utmMedium },
+        { name: HS_PROP.utmCampaign, value: utmCampaign },
+      ],
+      {
+        hutk: readHutk(req.headers.get("cookie")),
+        pageUri: req.headers.get("referer") ?? undefined,
+        pageName: "Diagnostics Waitlist",
+      }
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {

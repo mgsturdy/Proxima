@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { track } from "@vercel/analytics";
+import { getUtmParams } from "@/lib/utm";
 
 function DiagnosticsSignupModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [name, setName] = useState("");
@@ -20,7 +21,7 @@ function DiagnosticsSignupModal({ isOpen, onClose }: { isOpen: boolean; onClose:
       const res = await fetch("/api/diagnostics-signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ name, email, ...getUtmParams() }),
       });
 
       if (res.ok) {

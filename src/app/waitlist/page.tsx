@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, ChevronDown, RotateCcw } from "lucide-react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
+import { getUtmParams } from "@/lib/utm";
 
 const DISCLAIMER =
   "This assessment is for educational purposes only based on statistical risk factors. It is not a medical diagnosis. The 'Toxin Load Score' is an evaluation of potential environmental exposure, not a measurement of current blood levels.";
@@ -324,6 +325,7 @@ export default function QuizPage() {
           score: totalScore,
           tier,
           topCategory: highestCategory,
+          ...getUtmParams(),
           answers: answers.map((answerIndex, i) => ({
             question: QUIZ_QUESTIONS[i].question,
             category: QUIZ_QUESTIONS[i].category,
