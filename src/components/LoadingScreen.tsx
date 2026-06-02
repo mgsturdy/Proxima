@@ -11,12 +11,18 @@ export default function LoadingScreen() {
   useEffect(() => {
     // Only show loading screen on first visit per browser session
     if (typeof window === "undefined") return;
-    const hasVisited = sessionStorage.getItem("proxima_visited");
+    // Some in-app browsers / private modes throw on sessionStorage access.
+    let hasVisited: string | null = null;
+    try {
+      hasVisited = sessionStorage.getItem("proxima_visited");
+    } catch {}
     if (hasVisited) {
       setIsComplete(true);
       return;
     }
-    sessionStorage.setItem("proxima_visited", "1");
+    try {
+      sessionStorage.setItem("proxima_visited", "1");
+    } catch {}
     setShouldShow(true);
 
     const duration = 1500; // 1.5 seconds

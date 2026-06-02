@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4">
             <p className="text-proxima-black/80 max-w-sm leading-relaxed mb-8 font-nb-international text-sm">
-              Advancing human health through environmental toxin testing and blood filtration.
+              Advancing health through environmental toxin testing and blood filtration.
             </p>
             <div className="flex gap-4">
               <div className="flex flex-col">

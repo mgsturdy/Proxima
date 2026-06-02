@@ -65,6 +65,21 @@ export default function Home() {
             {/* Bottom-left corner marker */}
             <div className="absolute -bottom-10 left-0 text-proxima-cream text-2xl font-mono">+</div>
           </motion.div>
+
+          {/* Mobile/Tablet value prop - shown below headline, hidden on desktop where right column takes over */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:hidden pl-8 mt-12 max-w-sm"
+          >
+            <p className="text-proxima-cream text-sm font-nb-international font-normal mb-2">
+              Microplastics. PFAS. Heavy metals.
+            </p>
+            <p className="text-proxima-cream text-sm font-nb-international font-normal leading-relaxed">
+              We help you understand what&apos;s in your blood, then remove what doesn&apos;t belong.
+            </p>
+          </motion.div>
         </div>
 
         {/* Right Column - Subheadline & CTA - positioned 40px left of vertical line (which is at right-10) */}

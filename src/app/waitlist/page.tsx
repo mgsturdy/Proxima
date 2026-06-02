@@ -559,6 +559,11 @@ export default function QuizPage() {
                         if (emailError) setEmailError("");
                       }}
                       placeholder="Your email address"
+                      autoComplete="email"
+                      inputMode="email"
+                      autoCapitalize="off"
+                      autoCorrect="off"
+                      spellCheck={false}
                       className="w-full border border-border-primary px-4 py-4 bg-primary text-primary font-sans focus:outline-none focus:border-proxima-red text-center"
                       aria-label="Email address"
                     />

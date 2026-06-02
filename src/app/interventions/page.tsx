@@ -11,18 +11,18 @@ const papers = [
   {
     category: "Inuspheresis",
     items: [
-      { title: "Precision Medicine Approach for Cardiometabolic Risk Factors in Therapeutic Apheresis", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2137-4425" },
+      { title: "Precision Medicine Approach for Cardiometabolic Risk Factors in Therapeutic Apheresis", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-1776-7943" },
       { title: "Clinical improvement of Long-COVID is associated with reduction in autoantibodies, lipids, and inflammation following therapeutic apheresis", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-023-02084-1" },
       { title: "Changes in Water Properties in Human Tissue after Double Filtration Plasmapheresis — A Case Study", journal: "MDPI - Molecules", url: "https://www.mdpi.com/1420-3049/28/6/2652" },
-      { title: "Lipid Profiles in Lyme Borreliosis: A Potential Role for Apheresis?", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2137-4437" },
+      { title: "Lipid Profiles in Lyme Borreliosis: A Potential Role for Apheresis?", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-0885-7169" },
       { title: "Chronic post-COVID-19 syndrome and chronic fatigue syndrome: Is there a role for extracorporeal apheresis?", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-022-01794-6" },
       { title: "Particles in the Eluate from Double Filtration Plasmapheresis: A Case Study Using Field Emission Scanning Electron Microscopy/Energy-Dispersive X-ray Spectroscopy (FE-SEM/EDX)", journal: "MDPI - Compounds", url: "https://www.mdpi.com/2673-6918/3/1/10" },
       { title: "Extracorporeal apheresis therapy for Alzheimer disease — targeting lipids, stress, and inflammation", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-024-02645-6" },
-      { title: "Is There a Role for Environmental and Metabolic Factors Predisposing to Severe COVID-19?", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-1342-7149" },
+      { title: "Is There a Role for Environmental and Metabolic Factors Predisposing to Severe COVID-19?", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-1182-2016" },
       { title: "A multimodal approach for treating post-acute infectious syndrome", journal: "Genomic Press - Brain Medicine", url: "https://brainmedicine.org/index.php/bm/article/view/15" },
       { title: "Double Filtration Plasmapheresis for Environmental Toxin Removal: A Case Series of Patients With Hyperlipoproteinemia(a)", journal: "Wiley - Journal of Clinical Apheresis", url: "https://onlinelibrary.wiley.com/doi/10.1002/jca.22082" },
       { title: "Therapeutic apheresis: A promising method to remove microplastics?", journal: "Genomic Press - Brain Medicine", url: "https://brainmedicine.org/index.php/bm/article/view/25" },
-      { title: "Single-Center Study of Therapeutic Apheresis in 24 Male Patients from the MENA Region", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2294-6671" },
+      { title: "Single-Center Study of Therapeutic Apheresis in 24 Male Patients from the MENA Region", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2678-7739" },
       { title: "Plasma Separation Efficiency in Double Filtration Plasmapheresis: A Retrospective Study of Patients With Hyperlipidemia", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/38711187/" },
       { title: "Modulating Systemic Immune-Inflammatory Indices via Double Filtration Plasmapheresis: Implications for Aging and Low-Grade Inflammation", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/39004612/" },
       { title: "Post COVID and Apheresis - Where are we Standing?", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/36599349/" },
@@ -32,7 +32,7 @@ const papers = [
   {
     category: "Inuspheresis +",
     items: [
-      { title: "Neutrophil Extracellular Traps (NETs) as a Potential Target for Anti-Aging: Role of Therapeutic Apheresis", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2294-6684" },
+      { title: "Neutrophil Extracellular Traps (NETs) as a Potential Target for Anti-Aging: Role of Therapeutic Apheresis", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2444-3422" },
     ]
   },
   {
