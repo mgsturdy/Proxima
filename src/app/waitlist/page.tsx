@@ -314,7 +314,7 @@ export default function QuizPage() {
         return;
       }
       setEmailError("");
-      track("quiz_email_submitted", { tier, score: totalScore });
+      track("quiz_email_submitted", { tier, score: normalizedScore });
       setStep("calculating");
 
       fetch("/api/quiz-submit", {
@@ -322,7 +322,9 @@ export default function QuizPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
-          score: totalScore,
+          // Send the same 0-100 value shown on screen, not the raw 0-150 sum,
+          // so the site, Google Sheet, and HubSpot Toxin Load Score all agree.
+          score: normalizedScore,
           tier,
           topCategory: highestCategory,
           ...getUtmParams(),
@@ -343,15 +345,15 @@ export default function QuizPage() {
 
       setTimeout(() => setStep("results"), 2000);
     },
-    [email, totalScore, tier, highestCategory, answers]
+    [email, normalizedScore, tier, highestCategory, answers]
   );
 
   const handleSkipEmail = useCallback(() => {
     setEmailError("");
-    track("quiz_email_skipped", { tier, score: totalScore });
+    track("quiz_email_skipped", { tier, score: normalizedScore });
     setStep("calculating");
     setTimeout(() => setStep("results"), 2000);
-  }, [tier, totalScore]);
+  }, [tier, normalizedScore]);
 
   const handleRetake = useCallback(() => {
     setStep("intro");

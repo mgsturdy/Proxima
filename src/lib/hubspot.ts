@@ -21,18 +21,18 @@ export const HUBSPOT_FORMS = {
   diagnostics: "087aefd8-f1de-40a5-8960-ea9d6398a4ab",
 } as const;
 
-// HubSpot property INTERNAL names (not display labels). These are HubSpot's
-// conventional auto-generated names (label lowercased, spaces -> underscores).
-// If a custom field fails to populate during QA, confirm its internal name in
-// HubSpot Settings > Properties and fix it here — submitHubSpotFormWithFallback
-// guarantees the contact + welcome email still land if one of these is wrong.
+// HubSpot property INTERNAL names (not display labels). Confirmed against the
+// portal's Contact properties on 2026-06-02. Note `quiz` is the internal name
+// for the "Quiz Tier" property (not the conventional quiz_tier). Unknown field
+// names are silently dropped by the submission API, so the contact + welcome
+// email still land even if one of these drifts.
 export const HS_PROP = {
   email: "email",
   firstName: "firstname",
   lastName: "lastname",
   audience: "audience",
   toxinLoadScore: "toxin_load_score",
-  quizTier: "quiz_tier",
+  quizTier: "quiz",
   utmSource: "utm_source",
   utmMedium: "utm_medium",
   utmCampaign: "utm_campaign",

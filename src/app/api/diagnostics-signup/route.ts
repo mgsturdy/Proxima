@@ -38,9 +38,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Name required" }, { status: 400 });
   }
 
-  const utmSource = sanitizeString(body.utmSource, 100);
-  const utmMedium = sanitizeString(body.utmMedium, 100);
-  const utmCampaign = sanitizeString(body.utmCampaign, 100);
+  // The site collects a single "name" field; the HubSpot form splits it into
+  // firstname/lastname. Split on the first space (everything after = last name).
+  const firstSpace = name.indexOf(" ");
+  const firstName = firstSpace === -1 ? name : name.slice(0, firstSpace);
+  const lastName = firstSpace === -1 ? "" : name.slice(firstSpace + 1);
 
   try {
     const response = await fetch(sheetUrl, {
@@ -65,11 +67,9 @@ export async function POST(req: NextRequest) {
       HUBSPOT_FORMS.diagnostics,
       [
         { name: HS_PROP.email, value: email },
-        { name: HS_PROP.firstName, value: name },
+        { name: HS_PROP.firstName, value: firstName },
+        { name: HS_PROP.lastName, value: lastName },
         { name: HS_PROP.audience, value: AUDIENCE.patient },
-        { name: HS_PROP.utmSource, value: utmSource },
-        { name: HS_PROP.utmMedium, value: utmMedium },
-        { name: HS_PROP.utmCampaign, value: utmCampaign },
       ],
       {
         hutk: readHutk(req.headers.get("cookie")),

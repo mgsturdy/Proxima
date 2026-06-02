@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
 
-  const score = typeof body.score === "number" ? Math.min(Math.max(body.score, 0), 150) : 0;
+  const score = typeof body.score === "number" ? Math.min(Math.max(body.score, 0), 100) : 0;
   const tier = VALID_TIERS.includes(body.tier) ? body.tier : "unknown";
   const topCategory = sanitizeString(body.topCategory, 100);
   const utmSource = sanitizeString(body.utmSource, 100);
