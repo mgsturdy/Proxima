@@ -96,18 +96,36 @@ export async function submitHubSpotForm(
   if (context.pageUri) ctx.pageUri = context.pageUri;
   if (context.pageName) ctx.pageName = context.pageName;
 
-  try {
-    const res = await fetch(`${SUBMIT_BASE}/${HUBSPOT_PORTAL_ID}/${formGuid}`, {
+  // A malformed hutk makes HubSpot reject the ENTIRE submission with a 400
+  // INVALID_HUTK — losing the contact, not just the attribution. So if that
+  // happens we retry once without the hutk: better an un-attributed contact
+  // than no contact. Unknown field names, by contrast, are silently dropped.
+  const post = (body: Record<string, unknown>) =>
+    fetch(`${SUBMIT_BASE}/${HUBSPOT_PORTAL_ID}/${formGuid}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        fields: cleanFields,
-        ...(Object.keys(ctx).length > 0 ? { context: ctx } : {}),
-      }),
+      body: JSON.stringify(body),
+    });
+
+  try {
+    let res = await post({
+      fields: cleanFields,
+      ...(Object.keys(ctx).length > 0 ? { context: ctx } : {}),
     });
 
     if (!res.ok) {
       const detail = await res.text().catch(() => "");
+      if (res.status === 400 && detail.includes("INVALID_HUTK") && ctx.hutk) {
+        const { hutk: _dropped, ...ctxNoHutk } = ctx;
+        res = await post({
+          fields: cleanFields,
+          ...(Object.keys(ctxNoHutk).length > 0 ? { context: ctxNoHutk } : {}),
+        });
+        if (res.ok) return true;
+        const detail2 = await res.text().catch(() => "");
+        console.error(`HubSpot form ${formGuid} retry (no hutk) failed: ${res.status} ${detail2.slice(0, 300)}`);
+        return false;
+      }
       console.error(`HubSpot form ${formGuid} submit failed: ${res.status} ${detail.slice(0, 300)}`);
       return false;
     }
