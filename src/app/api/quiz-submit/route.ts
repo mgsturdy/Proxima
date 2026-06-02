@@ -5,6 +5,7 @@ import {
   AUDIENCE,
   HS_PROP,
   HUBSPOT_FORMS,
+  QUIZ_TIER_HS,
   readHutk,
   submitHubSpotForm,
 } from "@/lib/hubspot";
@@ -78,7 +79,7 @@ export async function POST(req: NextRequest) {
         { name: HS_PROP.email, value: email },
         { name: HS_PROP.audience, value: AUDIENCE.patient },
         { name: HS_PROP.toxinLoadScore, value: String(score) },
-        { name: HS_PROP.quizTier, value: tier },
+        { name: HS_PROP.quizTier, value: QUIZ_TIER_HS[tier] ?? "" },
         { name: HS_PROP.utmSource, value: utmSource },
         { name: HS_PROP.utmMedium, value: utmMedium },
         { name: HS_PROP.utmCampaign, value: utmCampaign },

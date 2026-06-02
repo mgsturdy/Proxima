@@ -44,6 +44,17 @@ export const HS_PROP = {
 // Values for the hidden Audience dropdown, passed per form.
 export const AUDIENCE = { patient: "Patient", practitioner: "Practitioner" } as const;
 
+// The Quiz Tier property is a HubSpot dropdown whose option values are
+// capitalized (Low / Moderate / High / Very High). Enum values must match an
+// option exactly or HubSpot silently drops the field, so map our internal
+// lowercase tiers to the option labels. ("Very High" isn't produced by the
+// quiz's three-tier scoring; it exists in HubSpot for manual segmentation.)
+export const QUIZ_TIER_HS: Record<string, string> = {
+  low: "Low",
+  moderate: "Moderate",
+  high: "High",
+};
+
 // The submission endpoint is region-agnostic (api.hsforms.com works for all
 // portals); only the *tracking script* is region-specific (js-na2...).
 const SUBMIT_BASE = "https://api.hsforms.com/submissions/v3/integration/submit";
