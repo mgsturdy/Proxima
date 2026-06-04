@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "dioxin-exposure-symptoms", title: "Dioxin Exposure Symptoms: Early Signs and Long-Term Risks", date: "June 4, 2026", category: "Industrial Chemicals" },
   { slug: "hexavalent-chromium-exposure-symptoms", title: "Hexavalent Chromium Exposure Symptoms: What to Know", date: "June 2, 2026", category: "Industrial Chemicals" },
   { slug: "nickel-exposure-symptoms", title: "Nickel Exposure Symptoms: Skin, Lungs, and Heart", date: "May 28, 2026", category: "Industrial Chemicals" },
   { slug: "mycotoxin-testing", title: "Mycotoxin Testing: What the Results Actually Mean", date: "May 26, 2026", category: "Mold" },
