@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "cadmium-toxicity", title: "Cadmium Toxicity: Signs, Sources, and Testing", date: "June 18, 2026", category: "Heavy Metals" },
   { slug: "mold-toxicity-testing", title: "Mold Toxicity Testing: What Actually Helps", date: "June 16, 2026", category: "Diagnostics" },
   { slug: "arsenic-exposure-symptoms", title: "Arsenic Exposure Symptoms: What to Watch For", date: "June 11, 2026", category: "Heavy Metals" },
   { slug: "pfas-and-fertility", title: "PFAS and Fertility: What the Research Shows", date: "June 9, 2026", category: "PFAS" },
