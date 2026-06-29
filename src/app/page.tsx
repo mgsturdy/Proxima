@@ -98,7 +98,7 @@ export default function Home() {
             </p>
 
             <Link
-              href="/waitlist"
+              href="/quiz"
               onClick={() => track("cta_clicked", { location: "home_hero", label: "free_toxin_assessment" })}
               className="inline-flex items-center gap-3 bg-proxima-cream text-proxima-black px-6 py-3 font-mono font-medium text-xs tracking-wider uppercase hover:bg-white transition-colors whitespace-nowrap"
             >
@@ -248,7 +248,7 @@ export default function Home() {
               {/* CTA Button - bottom aligned with image */}
               <div className="mt-auto pb-6">
                 <Link
-                  href="/waitlist"
+                  href="/quiz"
                   onClick={() => track("cta_clicked", { location: "home_invisible_crisis", label: "free_toxin_assessment" })}
                   className="bg-proxima-red text-proxima-cream px-6 py-3 font-mono text-xs uppercase tracking-wider inline-block hover:bg-proxima-red/90 transition-colors"
                 >
@@ -312,7 +312,7 @@ export default function Home() {
               </p>
 
               <Link
-                href="/waitlist"
+                href="/quiz"
                 onClick={() => track("cta_clicked", { location: "home_estimate_exposure", label: "free_toxin_assessment" })}
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >

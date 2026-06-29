@@ -44,6 +44,15 @@ export async function POST(req: NextRequest) {
   const firstName = firstSpace === -1 ? name : name.slice(0, firstSpace);
   const lastName = firstSpace === -1 ? "" : name.slice(firstSpace + 1);
 
+  // UTMs are captured on landing (UtmCapture, persisted in sessionStorage) and
+  // sent by the lightbox via getUtmParams(). They must be forwarded explicitly
+  // to HubSpot's custom UTM properties — they are not attributed automatically.
+  const utmSource = sanitizeString(body.utmSource, 100);
+  const utmMedium = sanitizeString(body.utmMedium, 100);
+  const utmCampaign = sanitizeString(body.utmCampaign, 100);
+  const utmContent = sanitizeString(body.utmContent, 100);
+  const utmTerm = sanitizeString(body.utmTerm, 100);
+
   try {
     const response = await fetch(sheetUrl, {
       method: "POST",
@@ -70,6 +79,11 @@ export async function POST(req: NextRequest) {
         { name: HS_PROP.firstName, value: firstName },
         { name: HS_PROP.lastName, value: lastName },
         { name: HS_PROP.audience, value: AUDIENCE.patient },
+        { name: HS_PROP.utmSource, value: utmSource },
+        { name: HS_PROP.utmMedium, value: utmMedium },
+        { name: HS_PROP.utmCampaign, value: utmCampaign },
+        { name: HS_PROP.utmContent, value: utmContent },
+        { name: HS_PROP.utmTerm, value: utmTerm },
       ],
       {
         hutk: readHutk(req.headers.get("cookie")),

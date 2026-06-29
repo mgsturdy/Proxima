@@ -261,7 +261,7 @@ export default function ForeverChemicalsCookwarePage() {
           our waitlist to get early access to advanced environmental toxin diagnostics.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block bg-proxima-black text-proxima-cream px-6 py-3 font-sans font-medium hover:opacity-90 transition-opacity"
         >
           Join the Waitlist

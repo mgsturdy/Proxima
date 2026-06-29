@@ -232,7 +232,7 @@ export default function PesticideExposureSymptomsPage() {
           Most people carry pesticide residues they have never been tested for. Take our free toxin exposure assessment to understand your risk and get personalized recommendations.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block px-8 py-3 bg-accent text-white font-bold rounded-full hover:bg-accent/90 transition-colors"
         >
           Take the Free Assessment

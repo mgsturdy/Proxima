@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Script from "next/script";
 import { track } from "@vercel/analytics";
 
 const INTEREST_OPTIONS = [
@@ -10,6 +11,40 @@ const INTEREST_OPTIONS = [
   "Inuspheresis Availability",
   "Clinical Research Collaboration",
 ];
+
+// reCAPTCHA v3 (invisible) — bot protection for this form only. The site key is
+// public by design. If it isn't configured, the form still submits and the
+// server simply skips verification (see lib/recaptcha.ts).
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_ACTION = "practitioner_inquiry";
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, opts: { action: string }) => Promise<string>;
+    };
+  }
+}
+
+/** Run reCAPTCHA v3 and return a token, or "" if it isn't available. */
+async function getRecaptchaToken(): Promise<string> {
+  if (!RECAPTCHA_SITE_KEY || typeof window === "undefined" || !window.grecaptcha) {
+    return "";
+  }
+  try {
+    return await new Promise<string>((resolve) => {
+      window.grecaptcha!.ready(() => {
+        window
+          .grecaptcha!.execute(RECAPTCHA_SITE_KEY, { action: RECAPTCHA_ACTION })
+          .then(resolve)
+          .catch(() => resolve(""));
+      });
+    });
+  } catch {
+    return "";
+  }
+}
 
 
 export default function PractitionersPage() {
@@ -33,10 +68,11 @@ export default function PractitionersPage() {
     if (!firstName || !email) return;
     setFormState("submitting");
     try {
+      const recaptchaToken = await getRecaptchaToken();
       const res = await fetch("/api/practitioner-inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, lastName, practice, email, specialty, interests, notes }),
+        body: JSON.stringify({ firstName, lastName, practice, email, specialty, interests, notes, recaptchaToken }),
       });
       if (res.ok) {
         track("practitioner_inquiry_submitted", { interests: interests.join(",") || "none" });
@@ -49,6 +85,12 @@ export default function PractitionersPage() {
 
   return (
     <div className="min-h-screen bg-primary text-primary">
+      {RECAPTCHA_SITE_KEY && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
+          strategy="afterInteractive"
+        />
+      )}
       {/* Full Screen Hero */}
       <section className="relative min-h-[70vh] md:min-h-screen flex items-end pb-12 lg:pb-24 pt-20 md:pt-24">
         {/* Background Image */}

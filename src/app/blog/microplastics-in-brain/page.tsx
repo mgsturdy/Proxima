@@ -377,7 +377,7 @@ export default function MicroplasticsInBrainPage() {
           understand your risk and get personalized recommendations.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block bg-accent text-white font-bold px-8 py-3 rounded-full hover:bg-accent/90 transition-colors"
         >
           Take the Free Assessment

@@ -243,7 +243,7 @@ export default function HeavyMetalsInBloodPage() {
             You can&apos;t fix what you can&apos;t see. Proxima&apos;s free toxin assessment takes a few minutes and helps you understand your potential exposure risk based on your lifestyle and environment. No blood draw required to start.
           </p>
           <Link
-            href="/waitlist"
+            href="/quiz"
             className="inline-block bg-proxima-black text-proxima-cream px-8 py-3 font-mono text-sm uppercase tracking-wider hover:bg-proxima-maroon transition-colors"
           >
             Take the Free Toxin Assessment

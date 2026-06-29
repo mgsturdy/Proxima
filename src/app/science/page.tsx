@@ -478,7 +478,7 @@ export default function SciencePage() {
               </p>
 
               <Link
-                href="/waitlist"
+                href="/quiz"
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-proxima-black hover:text-proxima-black transition-colors"
               >
                 <span className="relative">

@@ -5,9 +5,11 @@ import {
   AUDIENCE,
   HS_PROP,
   HUBSPOT_FORMS,
+  partnershipInterestValue,
   readHutk,
   submitHubSpotForm,
 } from "@/lib/hubspot";
+import { verifyRecaptcha } from "@/lib/recaptcha";
 
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
@@ -26,6 +28,14 @@ export async function POST(req: NextRequest) {
     body = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
+
+  // Bot gate: this form specifically was getting 25+ spam submissions/day.
+  // Reject before doing any work (Sheet write, HubSpot submit).
+  const recaptcha = await verifyRecaptcha(body.recaptchaToken, "practitioner_inquiry");
+  if (!recaptcha.ok) {
+    console.warn("Practitioner inquiry blocked by reCAPTCHA:", recaptcha.reason);
+    return NextResponse.json({ error: "Verification failed" }, { status: 403 });
   }
 
   const email = sanitizeString(body.email, 254);
@@ -76,9 +86,13 @@ export async function POST(req: NextRequest) {
         { name: HS_PROP.firstName, value: firstName },
         { name: HS_PROP.lastName, value: lastName },
         { name: HS_PROP.audience, value: AUDIENCE.practitioner },
-        { name: HS_PROP.specialty, value: specialty },
+        // Specialty is a HubSpot dropdown; send the label, which must match a
+        // clinic_specialty2 option exactly or HubSpot drops it.
+        { name: HS_PROP.clinicSpecialty, value: specialty },
         { name: HS_PROP.clinicName, value: practice },
-        { name: HS_PROP.partnershipInterest, value: interests.join("; ") },
+        // Multi-checkbox: semicolon-joined HubSpot internal values, no spaces.
+        { name: HS_PROP.partnershipInterest, value: partnershipInterestValue(interests) },
+        { name: HS_PROP.practitionerNotes, value: notes },
       ],
       {
         hutk: readHutk(req.headers.get("cookie")),

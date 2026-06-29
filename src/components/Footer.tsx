@@ -42,7 +42,7 @@ export default function Footer() {
             <p className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-4">Resources</p>
             <ul className="space-y-1.5">
               <li><Link href="/practitioners" onClick={() => handleClick("/practitioners")} className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">For Practitioners</Link></li>
-              <li><Link href="/waitlist" onClick={() => handleClick("/waitlist")} className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Toxin Assessment</Link></li>
+              <li><Link href="/quiz" onClick={() => handleClick("/quiz")} className="text-proxima-black/80 hover:text-proxima-black transition-colors text-xs font-mono uppercase tracking-wider">Toxin Assessment</Link></li>
             </ul>
           </div>
 

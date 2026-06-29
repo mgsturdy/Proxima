@@ -236,7 +236,7 @@ export default function TherapeuticApheresisToxinRemovalPage() {
           Take Proxima&rsquo;s free toxin exposure assessment to understand your risk and learn whether therapeutic blood filtration could help you.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block bg-accent text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-opacity"
         >
           Take the Free Assessment

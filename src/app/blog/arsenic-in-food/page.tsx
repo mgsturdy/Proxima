@@ -350,7 +350,7 @@ export default function ArsenicInFoodPage() {
           platform and take control of your exposure.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block bg-accent text-white font-bold px-8 py-3 rounded-full hover:bg-accent/90 transition-colors"
         >
           Join the Waitlist

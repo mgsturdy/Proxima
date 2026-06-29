@@ -208,7 +208,7 @@ export default function FunctionalMedicineToxinTestingPage() {
             Join as a Practitioner
           </Link>
           <Link
-            href="/waitlist"
+            href="/quiz"
             className="inline-block border border-accent text-accent font-bold px-8 py-3 rounded-full hover:opacity-90 transition-opacity text-center"
           >
             Join the Patient Waitlist

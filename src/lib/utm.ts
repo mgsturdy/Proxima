@@ -9,6 +9,8 @@ export type UtmParams = {
   utmSource?: string;
   utmMedium?: string;
   utmCampaign?: string;
+  utmContent?: string;
+  utmTerm?: string;
 };
 
 const KEY = "proxima_utm";
@@ -25,9 +27,16 @@ export function captureUtmParams(): UtmParams {
     utmSource: params.get("utm_source") || undefined,
     utmMedium: params.get("utm_medium") || undefined,
     utmCampaign: params.get("utm_campaign") || undefined,
+    utmContent: params.get("utm_content") || undefined,
+    utmTerm: params.get("utm_term") || undefined,
   };
 
-  const hasAny = fromUrl.utmSource || fromUrl.utmMedium || fromUrl.utmCampaign;
+  const hasAny =
+    fromUrl.utmSource ||
+    fromUrl.utmMedium ||
+    fromUrl.utmCampaign ||
+    fromUrl.utmContent ||
+    fromUrl.utmTerm;
   if (hasAny) {
     try {
       sessionStorage.setItem(KEY, JSON.stringify(fromUrl));

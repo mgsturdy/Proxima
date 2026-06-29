@@ -242,7 +242,7 @@ export default function VOCExposureSymptomsPage() {
             The air in your home may look clean, but your blood tells a different story. Proxima&apos;s free toxin assessment takes a few minutes and helps you understand your potential exposure risk based on your environment and daily habits. No blood draw required to start.
           </p>
           <Link
-            href="/waitlist"
+            href="/quiz"
             className="inline-block bg-proxima-black text-proxima-cream px-8 py-3 font-mono text-sm uppercase tracking-wider hover:bg-proxima-maroon transition-colors"
           >
             Take the Free Toxin Assessment

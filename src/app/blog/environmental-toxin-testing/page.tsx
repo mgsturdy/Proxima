@@ -220,7 +220,7 @@ export default function EnvironmentalToxinTestingPage() {
           Take the free Proxima Health toxin assessment to understand your potential exposure risk and learn whether comprehensive testing is right for you.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block bg-accent text-white font-bold px-8 py-3 rounded-full hover:opacity-90 transition-opacity"
         >
           Take the Free Assessment

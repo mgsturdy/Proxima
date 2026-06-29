@@ -18,6 +18,17 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // The toxin assessment moved from /waitlist to /quiz. Permanently redirect the
+  // old path so existing links, bookmarks, and indexed URLs keep working.
+  async redirects() {
+    return [
+      {
+        source: "/waitlist",
+        destination: "/quiz",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

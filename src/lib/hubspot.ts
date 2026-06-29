@@ -36,9 +36,14 @@ export const HS_PROP = {
   utmSource: "utm_source",
   utmMedium: "utm_medium",
   utmCampaign: "utm_campaign",
-  specialty: "specialty",
+  utmContent: "utm_content",
+  utmTerm: "utm_term",
+  // The practitioner Specialty maps to `clinic_specialty2`, NOT `clinic_specialty`
+  // — those are two distinct properties in the portal (per client QA 2026-06-29).
+  clinicSpecialty: "clinic_specialty2",
   clinicName: "clinic_name",
   partnershipInterest: "partnership_interest",
+  practitionerNotes: "practitioner_notes",
 } as const;
 
 // Values for the hidden Audience dropdown, passed per form.
@@ -54,6 +59,29 @@ export const QUIZ_TIER_HS: Record<string, string> = {
   moderate: "Moderate",
   high: "High",
 };
+
+// `partnership_interest` is a HubSpot multi-checkbox. Its option *internal
+// values* differ from the labels shown on the site form, so map each site
+// label to its HubSpot internal value (per client QA 2026-06-29). Selected
+// values are sent as a single semicolon-delimited string with no spaces
+// (e.g. "diagnostic_testing_partnership;inuspheresis_loi"), which is how
+// HubSpot encodes multiple checkbox selections. A label with no mapping is
+// dropped rather than sent verbatim, since an unknown checkbox value makes
+// HubSpot reject the field.
+export const PARTNERSHIP_INTEREST_HS: Record<string, string> = {
+  "Diagnostics Partnership (offer Proxima Health Baseline to patients)":
+    "diagnostic_testing_partnership",
+  "Inuspheresis Availability": "inuspheresis_loi",
+  "Clinical Research Collaboration": "general_partnership",
+};
+
+/** Map selected partnership-interest labels to a HubSpot checkbox value string. */
+export function partnershipInterestValue(labels: string[]): string {
+  return labels
+    .map((label) => PARTNERSHIP_INTEREST_HS[label])
+    .filter(Boolean)
+    .join(";");
+}
 
 // The submission endpoint is region-agnostic (api.hsforms.com works for all
 // portals); only the *tracking script* is region-specific (js-na2...).

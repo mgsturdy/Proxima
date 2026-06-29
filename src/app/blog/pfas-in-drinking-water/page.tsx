@@ -356,7 +356,7 @@ export default function PFASInDrinkingWaterPage() {
           the waitlist to be the first to access testing in your area.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block bg-proxima-black text-proxima-offwhite font-sans font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity"
         >
           Join the Waitlist

@@ -324,7 +324,7 @@ export default function PhthalatesExposurePage() {
           assessment to understand your risk.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block bg-accent text-primary-inverted font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity"
         >
           Take the Free Assessment

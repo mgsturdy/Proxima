@@ -224,7 +224,7 @@ export default function GlyphosateExposurePage() {
           81% of Americans have detectable glyphosate. Do you know your level? Take our free toxin exposure assessment to understand your risk and get personalized recommendations.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block px-8 py-3 bg-accent text-white font-bold rounded-full hover:bg-accent/90 transition-colors"
         >
           Take the Free Assessment

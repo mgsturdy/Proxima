@@ -356,7 +356,7 @@ export default function WhatAreForeverChemicalsPage() {
           you a clear picture of your chemical body burden.
         </p>
         <Link
-          href="/waitlist"
+          href="/quiz"
           className="inline-block bg-accent text-primary-inverted font-bold py-3 px-8 rounded-full hover:opacity-90 transition-opacity"
         >
           Take the Free Assessment
