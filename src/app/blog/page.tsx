@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "pfas-and-liver-disease", title: "PFAS and Liver Disease: What Testing Misses", date: "July 2, 2026", category: "Diagnostics" },
   { slug: "pfas-and-kidney-disease", title: "PFAS and Kidney Disease: What Testing Misses", date: "June 30, 2026", category: "PFAS" },
   { slug: "pfas-and-cholesterol", title: "PFAS and Cholesterol: What Your Lipid Panel Misses", date: "June 25, 2026", category: "Diagnostics" },
   { slug: "pfas-immune-system", title: "PFAS and the Immune System: What the Research Shows", date: "June 23, 2026", category: "PFAS" },
