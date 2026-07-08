@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isRateLimited } from "@/lib/rate-limit";
-import { isValidEmail, sanitizeString, sanitizeStringArray } from "@/lib/validation";
+import { isHoneypotTripped, isValidEmail, sanitizeString, sanitizeStringArray } from "@/lib/validation";
 import {
   AUDIENCE,
   HS_PROP,
@@ -28,6 +28,12 @@ export async function POST(req: NextRequest) {
     body = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
+
+  // Honeypot: silently accept and drop bot submissions before spending a
+  // reCAPTCHA verify call. Returning success keeps the bot from probing.
+  if (isHoneypotTripped(body)) {
+    return NextResponse.json({ success: true });
   }
 
   // Bot gate: this form specifically was getting 25+ spam submissions/day.

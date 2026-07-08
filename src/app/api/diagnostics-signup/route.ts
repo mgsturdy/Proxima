@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isRateLimited } from "@/lib/rate-limit";
-import { isValidEmail, sanitizeString } from "@/lib/validation";
+import { isHoneypotTripped, isValidEmail, sanitizeString } from "@/lib/validation";
 import {
   AUDIENCE,
   HS_PROP,
@@ -26,6 +26,11 @@ export async function POST(req: NextRequest) {
     body = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
+
+  // Honeypot: silently accept and drop bot submissions before any work.
+  if (isHoneypotTripped(body)) {
+    return NextResponse.json({ success: true });
   }
 
   const email = sanitizeString(body.email, 254);

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Script from "next/script";
 import { track } from "@vercel/analytics";
+import { Honeypot } from "@/components/Honeypot";
 
 const INTEREST_OPTIONS = [
   "Diagnostics Partnership (offer Proxima Health Baseline to patients)",
@@ -56,6 +57,7 @@ export default function PractitionersPage() {
   const [specialty, setSpecialty] = useState("");
   const [interests, setInterests] = useState<string[]>([]);
   const [notes, setNotes] = useState("");
+  const [website, setWebsite] = useState(""); // honeypot; humans leave blank
 
   const toggleInterest = (item: string) => {
     setInterests((prev) =>
@@ -72,7 +74,7 @@ export default function PractitionersPage() {
       const res = await fetch("/api/practitioner-inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, lastName, practice, email, specialty, interests, notes, recaptchaToken }),
+        body: JSON.stringify({ firstName, lastName, practice, email, specialty, interests, notes, website, recaptchaToken }),
       });
       if (res.ok) {
         track("practitioner_inquiry_submitted", { interests: interests.join(",") || "none" });
@@ -173,6 +175,7 @@ export default function PractitionersPage() {
               </div>
             ) : (
             <form className="space-y-6" onSubmit={handleSubmit}>
+              <Honeypot value={website} onChange={setWebsite} />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="font-mono text-xs text-tertiary uppercase tracking-[0.2em] block mb-2">

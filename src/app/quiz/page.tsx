@@ -6,6 +6,7 @@ import { ArrowRight, ArrowLeft, ChevronDown, RotateCcw } from "lucide-react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
 import { getUtmParams } from "@/lib/utm";
+import { Honeypot } from "@/components/Honeypot";
 
 const DISCLAIMER =
   "This assessment is for educational purposes only based on statistical risk factors. It is not a medical diagnosis. The 'Toxin Load Score' is an evaluation of potential environmental exposure, not a measurement of current blood levels.";
@@ -243,6 +244,7 @@ export default function QuizPage() {
     new Array(QUIZ_QUESTIONS.length).fill(null)
   );
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState(""); // honeypot; humans leave blank
   const [emailError, setEmailError] = useState("");
   const [isAdvancing, setIsAdvancing] = useState(false);
   const [direction, setDirection] = useState(1);
@@ -322,6 +324,7 @@ export default function QuizPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
+          website,
           // Send the same 0-100 value shown on screen, not the raw 0-150 sum,
           // so the site, Google Sheet, and HubSpot Toxin Load Score all agree.
           score: normalizedScore,
@@ -345,7 +348,7 @@ export default function QuizPage() {
 
       setTimeout(() => setStep("results"), 2000);
     },
-    [email, normalizedScore, tier, highestCategory, answers]
+    [email, website, normalizedScore, tier, highestCategory, answers]
   );
 
   const handleSkipEmail = useCallback(() => {
@@ -552,6 +555,7 @@ export default function QuizPage() {
                 </p>
 
                 <form onSubmit={handleEmailSubmit} className="space-y-4">
+                  <Honeypot value={website} onChange={setWebsite} />
                   <div>
                     <input
                       type="email"

@@ -7,10 +7,12 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import { track } from "@vercel/analytics";
 import { getUtmParams } from "@/lib/utm";
+import { Honeypot } from "@/components/Honeypot";
 
 function DiagnosticsSignupModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState(""); // honeypot; humans leave blank
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,7 +23,7 @@ function DiagnosticsSignupModal({ isOpen, onClose }: { isOpen: boolean; onClose:
       const res = await fetch("/api/diagnostics-signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, ...getUtmParams() }),
+        body: JSON.stringify({ name, email, website, ...getUtmParams() }),
       });
 
       if (res.ok) {
@@ -71,6 +73,7 @@ function DiagnosticsSignupModal({ isOpen, onClose }: { isOpen: boolean; onClose:
                 <p className="font-nb-international text-sm text-proxima-black/70 mb-6">Be the first to know when Proxima Health Baseline is available.</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <Honeypot value={website} onChange={setWebsite} />
                   <div>
                     <label className="font-mono text-xs uppercase tracking-wider text-proxima-black/50 mb-1 block">Name</label>
                     <input

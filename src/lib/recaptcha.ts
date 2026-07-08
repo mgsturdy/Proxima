@@ -16,8 +16,9 @@
 const VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 
 // v3 returns a 0.0–1.0 score (1.0 = very likely human). 0.5 is Google's
-// recommended default threshold.
-const SCORE_THRESHOLD = 0.5;
+// recommended default; raised to 0.7 because bots were still clearing 0.5 on
+// the practitioner form. Higher is stricter (fewer bots, more false rejects).
+const SCORE_THRESHOLD = 0.7;
 
 export type RecaptchaResult = {
   /** True if the request should be allowed through. */
