@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "microplastics-and-fertility", title: "Microplastics and Fertility: What the Research Shows", date: "July 9, 2026", category: "Microplastics" },
   { slug: "ethylbenzene-exposure-symptoms", title: "Ethylbenzene Exposure Symptoms: What to Know", date: "July 7, 2026", category: "Industrial Chemicals" },
   { slug: "pfas-and-liver-disease", title: "PFAS and Liver Disease: What Testing Misses", date: "July 2, 2026", category: "Diagnostics" },
   { slug: "pfas-and-kidney-disease", title: "PFAS and Kidney Disease: What Testing Misses", date: "June 30, 2026", category: "PFAS" },
