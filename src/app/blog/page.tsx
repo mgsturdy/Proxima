@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "pfas-and-autoimmune-disease-testing-misses", title: "PFAS and Autoimmune Disease: What Testing Misses", date: "July 21, 2026", category: "Diagnostics" },
   { slug: "perchloroethylene-exposure-symptoms", title: "Perchloroethylene Exposure Symptoms: What to Know", date: "July 16, 2026", category: "Industrial Chemicals" },
   { slug: "benzene-exposure-at-home", title: "Benzene Exposure at Home: Hidden Sources and Risks", date: "July 14, 2026", category: "Industrial Chemicals" },
   { slug: "microplastics-and-fertility", title: "Microplastics and Fertility: What the Research Shows", date: "July 9, 2026", category: "Microplastics" },
