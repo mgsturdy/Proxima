@@ -149,8 +149,8 @@ export default function PerchloroethyleneExposureSymptomsPage() {
         The important part is not just the sample size. It is the exposure
         method. The researchers used exhaled breath testing, not just a generic
         questionnaire, which means the study captured a real body burden signal.
-        The exposure groups were defined at ≤ 0.75 µg/m3, >0.75 to 1.90 µg/m3,
-        and >1.90 µg/m3, and the highest groups tracked with worse
+        The exposure groups were defined at ≤ 0.75 µg/m3, &gt;0.75 to 1.90 µg/m3,
+        and &gt;1.90 µg/m3, and the highest groups tracked with worse
         neurobehavioral performance (CDC, 2024).
       </p>
 
