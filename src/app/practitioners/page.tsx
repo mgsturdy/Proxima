@@ -170,12 +170,13 @@ export default function PractitionersPage() {
           <div className="max-w-3xl mx-auto space-y-12">
             {QUOTES.map((q) => (
               <div key={q.name} className="flex flex-col sm:flex-row gap-6">
-                <div className="w-20 md:w-24 aspect-square relative shrink-0 bg-tertiary/10">
+                <div className="w-28 md:w-32 aspect-square relative shrink-0 bg-tertiary/10">
                   <Image
                     src={q.image}
                     alt={q.name}
                     fill
-                    sizes="96px"
+                    sizes="(min-width: 768px) 256px, 224px"
+                    quality={92}
                     className="object-cover grayscale"
                   />
                 </div>
