@@ -7,6 +7,23 @@ import Script from "next/script";
 import { track } from "@vercel/analytics";
 import { Honeypot } from "@/components/Honeypot";
 
+const QUOTES = [
+  {
+    quote:
+      "Much of what drives chronic disease has lived in the background — unseen, unmeasured, and untreated. Environmental toxins are one of those forces. Proxima was created to bring them into focus, and to give people the chance to act before illness becomes inevitable.",
+    name: "Carlos Schuster",
+    title: "Co-Founder & CEO",
+    image: "/assets/carlos.jpeg",
+  },
+  {
+    quote:
+      "The science of clearing environmental toxins is moving faster than most people realize. Proxima is one of the groups pushing it forward, and that's a genuinely hopeful thing to be part of.",
+    name: "Dr. Stefan Bornstein",
+    title: "Advisor, Proxima Health",
+    image: "/assets/stefan-bornstein.jpeg",
+  },
+];
+
 const INTEREST_OPTIONS = [
   "Diagnostics Partnership (offer Proxima Health Baseline to patients)",
   "Inuspheresis Availability",
@@ -147,18 +164,31 @@ export default function PractitionersPage() {
         </div>
       </section>
 
-      {/* Carlos Quote */}
+      {/* Quotes */}
       <section className="py-16 md:py-24 bg-proxima-cream">
         <div className="section-container">
-          <div className="max-w-3xl mx-auto">
-            <div className="border-l-2 border-proxima-red pl-6 py-4">
-              <p className="text-xl font-nb-international text-secondary mb-4">
-                &quot;Much of what drives chronic disease has lived in the background — unseen, unmeasured, and untreated. Environmental toxins are one of those forces. Proxima was created to bring them into focus, and to give people the chance to act before illness becomes inevitable.&quot;
-              </p>
-              <p className="font-mono text-xs uppercase tracking-wider text-tertiary">
-                — Carlos Schuster, Co-Founder &amp; CEO
-              </p>
-            </div>
+          <div className="max-w-3xl mx-auto space-y-12">
+            {QUOTES.map((q) => (
+              <div key={q.name} className="flex flex-col sm:flex-row gap-6">
+                <div className="w-20 md:w-24 aspect-square relative shrink-0 bg-tertiary/10">
+                  <Image
+                    src={q.image}
+                    alt={q.name}
+                    fill
+                    sizes="96px"
+                    className="object-cover grayscale"
+                  />
+                </div>
+                <div className="border-l-2 border-proxima-red pl-6 py-4">
+                  <p className="text-xl font-nb-international text-secondary mb-4">
+                    &quot;{q.quote}&quot;
+                  </p>
+                  <p className="font-mono text-xs uppercase tracking-wider text-tertiary">
+                    — {q.name}, {q.title}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
