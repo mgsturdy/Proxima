@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "naphthalene-exposure-symptoms", title: "Naphthalene Exposure Symptoms: What to Know", date: "July 30, 2026", category: "Industrial Chemicals" },
   { slug: "formaldehyde-exposure-symptoms", title: "Formaldehyde Exposure Symptoms: What to Know", date: "July 28, 2026", category: "Industrial Chemicals" },
   { slug: "microplastics-in-the-body-inflammation", title: "Microplastics in the Body: Why Inflammation Matters", date: "July 23, 2026", category: "Microplastics" },
   { slug: "pfas-and-autoimmune-disease-testing-misses", title: "PFAS and Autoimmune Disease: What Testing Misses", date: "July 21, 2026", category: "Diagnostics" },
