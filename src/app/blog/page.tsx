@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "lead-poisoning-symptoms-in-adults", title: "Lead Poisoning Symptoms in Adults", date: "August 4, 2026", category: "Heavy Metals" },
   { slug: "naphthalene-exposure-symptoms", title: "Naphthalene Exposure Symptoms: What to Know", date: "July 30, 2026", category: "Industrial Chemicals" },
   { slug: "formaldehyde-exposure-symptoms", title: "Formaldehyde Exposure Symptoms: What to Know", date: "July 28, 2026", category: "Industrial Chemicals" },
   { slug: "microplastics-in-the-body-inflammation", title: "Microplastics in the Body: Why Inflammation Matters", date: "July 23, 2026", category: "Microplastics" },
