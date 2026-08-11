@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "cadmium-poisoning-symptoms", title: "Cadmium Poisoning Symptoms: What to Watch For", date: "August 11, 2026", category: "Heavy Metals" },
+  { slug: "phthalates-and-fertility", title: "Phthalates and Fertility: What the Research Shows", date: "August 6, 2026", category: "Endocrine Disruptors" },
   { slug: "lead-poisoning-symptoms-in-adults", title: "Lead Poisoning Symptoms in Adults", date: "August 4, 2026", category: "Heavy Metals" },
   { slug: "naphthalene-exposure-symptoms", title: "Naphthalene Exposure Symptoms: What to Know", date: "July 30, 2026", category: "Industrial Chemicals" },
   { slug: "formaldehyde-exposure-symptoms", title: "Formaldehyde Exposure Symptoms: What to Know", date: "July 28, 2026", category: "Industrial Chemicals" },
