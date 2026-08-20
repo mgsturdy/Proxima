@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "pfas-and-gut-health", title: "PFAS and Gut Health: What the Microbiome Misses", date: "August 20, 2026", category: "PFAS" },
   { slug: "asbestos-exposure-symptoms", title: "Asbestos Exposure Symptoms: What to Watch For", date: "August 18, 2026", category: "Research" },
   { slug: "n-hexane-exposure-symptoms", title: "n-Hexane Exposure Symptoms: What to Watch For", date: "August 13, 2026", category: "Industrial Chemicals" },
   { slug: "cadmium-poisoning-symptoms", title: "Cadmium Poisoning Symptoms: What to Watch For", date: "August 11, 2026", category: "Heavy Metals" },
