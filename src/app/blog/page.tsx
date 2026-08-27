@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "phthalates-and-male-fertility", title: "Phthalates and Male Fertility: What Testing Misses", date: "August 27, 2026", category: "Endocrine Disruptors" },
   { slug: "pfas-and-pregnancy-testing-misses", title: "PFAS and Pregnancy: What Testing Misses", date: "August 25, 2026", category: "PFAS" },
   { slug: "pfas-and-gut-health", title: "PFAS and Gut Health: What the Microbiome Misses", date: "August 20, 2026", category: "PFAS" },
   { slug: "asbestos-exposure-symptoms", title: "Asbestos Exposure Symptoms: What to Watch For", date: "August 18, 2026", category: "Research" },
