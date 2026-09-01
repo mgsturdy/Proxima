@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "xylene-exposure-at-home", title: "Xylene Exposure at Home: What Testing Misses", date: "September 1, 2026", category: "Industrial Chemicals" },
   { slug: "phthalates-and-male-fertility", title: "Phthalates and Male Fertility: What Testing Misses", date: "August 27, 2026", category: "Endocrine Disruptors" },
   { slug: "pfas-and-pregnancy-testing-misses", title: "PFAS and Pregnancy: What Testing Misses", date: "August 25, 2026", category: "PFAS" },
   { slug: "pfas-and-gut-health", title: "PFAS and Gut Health: What the Microbiome Misses", date: "August 20, 2026", category: "PFAS" },
