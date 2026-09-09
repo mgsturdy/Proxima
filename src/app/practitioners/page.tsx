@@ -10,13 +10,6 @@ import { Honeypot } from "@/components/Honeypot";
 const QUOTES = [
   {
     quote:
-      "Much of what drives chronic disease has lived in the background — unseen, unmeasured, and untreated. Environmental toxins are one of those forces. Proxima was created to bring them into focus, and to give people the chance to act before illness becomes inevitable.",
-    name: "Carlos Schuster",
-    title: "Co-Founder & CEO",
-    image: "/assets/carlos.jpeg",
-  },
-  {
-    quote:
       "The science of clearing environmental toxins is moving faster than most people realize. Proxima is one of the groups pushing it forward, and that's a genuinely hopeful thing to be part of.",
     name: "Dr. Stefan Bornstein",
     title: "Advisor, Proxima Health",

@@ -13,20 +13,21 @@ const papers = [
     items: [
       { title: "Precision Medicine Approach for Cardiometabolic Risk Factors in Therapeutic Apheresis", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-1776-7943" },
       { title: "Clinical improvement of Long-COVID is associated with reduction in autoantibodies, lipids, and inflammation following therapeutic apheresis", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-023-02084-1" },
-      { title: "Changes in Water Properties in Human Tissue after Double Filtration Plasmapheresis — A Case Study", journal: "MDPI - Molecules", url: "https://www.mdpi.com/1420-3049/28/6/2652" },
+      { title: "Changes in Water Properties in Human Tissue after Double Filtration Plasmapheresis — A Case Study", journal: "MDPI - Molecules", url: "https://www.mdpi.com/1420-3049/27/12/3947" },
       { title: "Lipid Profiles in Lyme Borreliosis: A Potential Role for Apheresis?", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-0885-7169" },
-      { title: "Chronic post-COVID-19 syndrome and chronic fatigue syndrome: Is there a role for extracorporeal apheresis?", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-022-01794-6" },
-      { title: "Particles in the Eluate from Double Filtration Plasmapheresis: A Case Study Using Field Emission Scanning Electron Microscopy/Energy-Dispersive X-ray Spectroscopy (FE-SEM/EDX)", journal: "MDPI - Compounds", url: "https://www.mdpi.com/2673-6918/3/1/10" },
-      { title: "Extracorporeal apheresis therapy for Alzheimer disease — targeting lipids, stress, and inflammation", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-024-02645-6" },
+      { title: "Chronic post-COVID-19 syndrome and chronic fatigue syndrome: Is there a role for extracorporeal apheresis?", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-021-01148-4" },
+      { title: "Particles in the Eluate from Double Filtration Plasmapheresis: A Case Study Using Field Emission Scanning Electron Microscopy/Energy-Dispersive X-ray Spectroscopy (FE-SEM/EDX)", journal: "MDPI - Compounds", url: "https://www.mdpi.com/2673-6918/2/4/30" },
+      { title: "Extracorporeal apheresis therapy for Alzheimer disease — targeting lipids, stress, and inflammation", journal: "Nature - Molecular Psychiatry", url: "https://www.nature.com/articles/s41380-019-0542-x" },
       { title: "Is There a Role for Environmental and Metabolic Factors Predisposing to Severe COVID-19?", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-1182-2016" },
-      { title: "A multimodal approach for treating post-acute infectious syndrome", journal: "Genomic Press - Brain Medicine", url: "https://brainmedicine.org/index.php/bm/article/view/15" },
-      { title: "Double Filtration Plasmapheresis for Environmental Toxin Removal: A Case Series of Patients With Hyperlipoproteinemia(a)", journal: "Wiley - Journal of Clinical Apheresis", url: "https://onlinelibrary.wiley.com/doi/10.1002/jca.22082" },
-      { title: "Therapeutic apheresis: A promising method to remove microplastics?", journal: "Genomic Press - Brain Medicine", url: "https://brainmedicine.org/index.php/bm/article/view/25" },
+      { title: "A multimodal approach for treating post-acute infectious syndrome", journal: "Genomic Press - Brain Medicine", url: "https://genomicpress.kglmeridian.com/view/journals/brainmed/aop/article-10.61373-bm024p.0064/article-10.61373-bm024p.0064.xml" },
+      { title: "Double Filtration Plasmapheresis for Environmental Toxin Removal: A Case Series of Patients With Hyperlipoproteinemia(a)", journal: "Wiley - Journal of Clinical Apheresis", url: "https://onlinelibrary.wiley.com/doi/10.1002/jca.70060" },
+      { title: "Therapeutic apheresis: A promising method to remove microplastics?", journal: "Genomic Press - Brain Medicine", url: "https://genomicpress.kglmeridian.com/view/journals/brainmed/1/3/article-p52.xml" },
       { title: "Single-Center Study of Therapeutic Apheresis in 24 Male Patients from the MENA Region", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.com/products/ejournals/abstract/10.1055/a-2678-7739" },
-      { title: "Plasma Separation Efficiency in Double Filtration Plasmapheresis: A Retrospective Study of Patients With Hyperlipidemia", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/38711187/" },
-      { title: "Modulating Systemic Immune-Inflammatory Indices via Double Filtration Plasmapheresis: Implications for Aging and Low-Grade Inflammation", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/39004612/" },
-      { title: "Post COVID and Apheresis - Where are we Standing?", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/36599349/" },
-      { title: "Metabolic and Non-Metabolic Peripheral Neuropathy: Is there a Place for Therapeutic Apheresis?", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/36599350/" },
+      { title: "Plasma Separation Efficiency in Double Filtration Plasmapheresis: A Retrospective Study of Patients With Hyperlipidemia", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/41534856/" },
+      { title: "Modulating Systemic Immune-Inflammatory Indices via Double Filtration Plasmapheresis: Implications for Aging and Low-Grade Inflammation", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/41237811/" },
+      { title: "Post COVID and Apheresis - Where are we Standing?", journal: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/36113501/" },
+      { title: "Metabolic and Non-Metabolic Peripheral Neuropathy: Is there a Place for Therapeutic Apheresis?", journal: "Thieme - Hormone & Metabolic Research", url: "https://www.thieme-connect.de/products/ejournals/abstract/10.1055/a-1039-1471" },
+      { title: "Therapeutic apheresis: An effective strategy for a combined targeting of circulating lipoproteins, inflammatory markers, PFAS, and microplastics in cardiometabolic and neurodegenerative disease?", journal: "Genomic Press - Brain Health", url: "https://genomicpress.kglmeridian.com/view/journals/brainhealth/aop/article-10.61373-bh026a.0024/article-10.61373-bh026a.0024.xml" },
     ]
   },
   {
@@ -38,10 +39,18 @@ const papers = [
   {
     category: "Inuspheresis (Animals)",
     items: [
-      { title: "Selective Removal of Plasma Proteins by Double-Filtration Plasmapheresis in Canine Blood: An Ex Vivo Study and Retrospective Report of In Vivo Clinical Treatments in Three Dogs", journal: "PMC", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10974461/" },
+      { title: "Selective Removal of Plasma Proteins by Double-Filtration Plasmapheresis in Canine Blood: An Ex Vivo Study and Retrospective Report of In Vivo Clinical Treatments in Three Dogs", journal: "PMC", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12197782/" },
     ]
   }
 ];
+
+const QUOTE = {
+  quote:
+    "Much of what drives chronic disease has lived in the background — unseen, unmeasured, and untreated. Environmental toxins are one of those forces. Proxima was created to bring them into focus, and to give people the chance to act before illness becomes inevitable.",
+  name: "Carlos Schuster",
+  title: "Co-Founder & CEO",
+  image: "/assets/carlos.jpeg",
+};
 
 export default function InterventionsPage() {
   const [papersOpen, setPapersOpen] = useState(true);
@@ -128,6 +137,34 @@ export default function InterventionsPage() {
               Inuspheresis is an advanced protocol designed to remove toxins from the body and treat chronic illness. The technology was developed in Europe and has been used to help tens of thousands of people. Proxima Health is exclusively bringing Inuspheresis to the United States.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Quote */}
+      <section className="py-16 md:py-24 bg-proxima-cream">
+        <div className="section-container">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-col sm:flex-row gap-6">
+              <div className="w-28 md:w-32 aspect-square relative shrink-0 bg-tertiary/10">
+                <Image
+                  src={QUOTE.image}
+                  alt={QUOTE.name}
+                  fill
+                  sizes="(min-width: 768px) 256px, 224px"
+                  quality={92}
+                  className="object-cover grayscale"
+                />
+              </div>
+              <div className="border-l-2 border-proxima-red pl-6 py-4">
+                <p className="text-xl font-nb-international text-secondary mb-4">
+                  &quot;{QUOTE.quote}&quot;
+                </p>
+                <p className="font-mono text-xs uppercase tracking-wider text-tertiary">
+                  — {QUOTE.name}, {QUOTE.title}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
