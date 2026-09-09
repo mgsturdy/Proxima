@@ -210,7 +210,7 @@ export default function InterventionsPage() {
             className="flex items-center gap-3 w-full text-left group"
           >
             <span className="inline-block bg-proxima-black text-proxima-cream px-3 py-1 text-lg md:text-xl font-nb-international leading-none">
-              Papers supporting effectiveness of Inuspheresis
+              Papers on Inuspheresis
             </span>
             <span className={`text-proxima-black text-2xl font-mono transition-transform duration-300 ${papersOpen ? "rotate-45" : ""}`}>
               +
