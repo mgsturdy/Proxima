@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "antimony-exposure-symptoms", title: "Antimony Exposure Symptoms: What Testing Misses", date: "October 13, 2026", category: "Heavy Metals" },
   { slug: "selenium-toxicity-symptoms", title: "Selenium Toxicity Symptoms: What Testing Misses", date: "October 8, 2026", category: "Heavy Metals" },
   { slug: "barium-toxicity-symptoms", title: "Barium Toxicity Symptoms: What Testing Misses", date: "October 6, 2026", category: "Heavy Metals" },
   { slug: "vinyl-chloride-exposure-symptoms", title: "Vinyl Chloride Exposure Symptoms: What Testing Misses", date: "October 1, 2026", category: "Industrial Chemicals" },
