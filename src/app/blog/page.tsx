@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "organophosphate-poisoning-symptoms", title: "Organophosphate Poisoning Symptoms: Testing Guide", date: "November 3, 2026", category: "Pesticides" },
   { slug: "carbon-monoxide-poisoning-symptoms", title: "Carbon Monoxide Poisoning Symptoms: Testing Guide", date: "October 29, 2026", category: "Industrial Chemicals" },
   { slug: "1-bromopropane-exposure-symptoms", title: "1-Bromopropane Exposure Symptoms: Testing Guide", date: "October 27, 2026", category: "Industrial Chemicals" },
   { slug: "thallium-poisoning-symptoms", title: "Thallium Poisoning Symptoms: When Testing Helps", date: "October 22, 2026", category: "Heavy Metals" },
