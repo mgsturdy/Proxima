@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "hydrogen-sulfide-exposure-symptoms", title: "Hydrogen Sulfide Exposure Symptoms: Testing Guide", date: "November 5, 2026", category: "Industrial Chemicals" },
   { slug: "organophosphate-poisoning-symptoms", title: "Organophosphate Poisoning Symptoms: Testing Guide", date: "November 3, 2026", category: "Pesticides" },
   { slug: "carbon-monoxide-poisoning-symptoms", title: "Carbon Monoxide Poisoning Symptoms: Testing Guide", date: "October 29, 2026", category: "Industrial Chemicals" },
   { slug: "1-bromopropane-exposure-symptoms", title: "1-Bromopropane Exposure Symptoms: Testing Guide", date: "October 27, 2026", category: "Industrial Chemicals" },
