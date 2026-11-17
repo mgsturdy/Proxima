@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "acrolein-exposure-symptoms", title: "Acrolein Exposure Symptoms: When Testing Helps", date: "November 17, 2026", category: "Industrial Chemicals" },
   { slug: "acrylamide-in-food", title: "Acrylamide in Food: Risks and Blood Testing Limits", date: "November 12, 2026", category: "Industrial Chemicals" },
   { slug: "ethylene-oxide-exposure-symptoms", title: "Ethylene Oxide Exposure Symptoms: Testing Guide", date: "November 10, 2026", category: "Industrial Chemicals" },
   { slug: "hydrogen-sulfide-exposure-symptoms", title: "Hydrogen Sulfide Exposure Symptoms: Testing Guide", date: "November 5, 2026", category: "Industrial Chemicals" },
