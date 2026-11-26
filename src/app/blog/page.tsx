@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "ozone-exposure-symptoms", title: "Ozone Exposure Symptoms: When Testing Helps", date: "November 26, 2026", category: "Industrial Chemicals" },
   { slug: "nitrogen-dioxide-exposure-symptoms", title: "Nitrogen Dioxide Exposure Symptoms: Testing Guide", date: "November 24, 2026", category: "Industrial Chemicals" },
   { slug: "chloramine-exposure-symptoms", title: "Chloramine Exposure Symptoms: When Testing Helps", date: "November 19, 2026", category: "Industrial Chemicals" },
   { slug: "acrolein-exposure-symptoms", title: "Acrolein Exposure Symptoms: When Testing Helps", date: "November 17, 2026", category: "Industrial Chemicals" },
